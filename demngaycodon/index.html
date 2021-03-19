@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đếm ngày cô đơn</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./all.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="profile">
+        <h2>THÔNG TIN CỦA BẠN</h2>
+        <p>Ảnh đại diện</p>
+        <div class="wrapper">
+          <div class="image">
+            <img src="" alt="" />
+          </div>
+          <div class="content">
+            <div class="icon">
+              <i class="fas fa-cloud-upload-alt"></i>
+            </div>
+            <div class="text">No file chosen, yet!</div>
+          </div>
+
+          <div class="file-name">File name here</div>
+        </div>
+        <button onclick="defaultBtnActive()" id="custom-btn">Chọn ảnh</button>
+        <input id="default-btn" type="file" hidden />
+
+        <div class="name">
+          <label for="name">Tên</label>
+          <input type="text" id="ten" value="" placeholder="Tên của bạn" />
+        </div>
+
+        <div class="sex">
+          <label for="sex">Giới tính</label>
+
+          <div class="selectgender">
+            <div class="radio">
+              <input type="radio" value="Nam" name="gender" /> Nam
+            </div>
+            <div class="radio">
+              <input type="radio" value="Nữ" name="gender" /> Nữ
+            </div>
+            <div class="radio">
+              <input type="radio" value="Khác" name="gender" /> Khác
+            </div>
+          </div>
+        </div>
+
+        <div class="Dateofbirth">
+          <label for="dateofbirth">Ngày sinh</label>
+          <input
+            type="date"
+            my-date-format="YYYY/MM/DD"
+            name=""
+            min="1900-01-01"
+            id="ngaysinh"
+          />
+        </div>
+
+        <div class="Datestart">
+          <label for="datestart">Ngày bắt đầu</label>
+          <input type="date" name="" min="1900-01-01" id="ngaybatdau" />
+        </div>
+
+        <div class="status">
+          <label
+            for="status
+          "
+            >Trạng thái</label
+          >
+          <textarea name="" id="statuss">
+Phải cố gắng thay đổi bản thân</textarea
+          >
+        </div>
+        <div class="button">
+          <button id="submit">Xác nhận</button>
+        </div>
+      </div>
+
+      <div class="main">
+        <div class="header">
+          <div class="addnotes">
+            <i class="fas fa-plus"></i>
+          </div>
+          <div class="title">
+            <h2>Đếm Ngày Cô Đơn</h2>
+          </div>
+
+          <div class="ellipsis">
+            <i class="fas fa-ellipsis-v"></i>
+            <div class="options">
+              <ul>
+                <li class="cstt">Chỉnh sửa thông tin</li>
+                <li class="tdtd">Thay đổi tiêu đề</li>
+                <li class="tcms">Tùy chỉnh màu sắc</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="content">
+          <div class="scontent">
+            <div class="content1">
+              <div class="circle">
+                <div class="info">
+                  <p class="info1">Đã cô đơn</p>
+                  <h3 class="countday">0</h3>
+                  <p class="info2">Ngày</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="content2">
+              <div class="datetime">
+                <div class="ngay">
+                  <div class="heart dngay"></div>
+                  Ngày
+                </div>
+
+                <div class="gio">
+                  <div class="heart dgio"></div>
+                  Giờ
+                </div>
+
+                <div class="phut">
+                  <div class="heart dphut"></div>
+                  Phút
+                </div>
+
+                <div class="giay">
+                  <div class="heart dgiay"></div>
+                  Giây
+                </div>
+              </div>
+              <p>
+                💗
+                <b class="ntns"></b>
+                💗
+              </p>
+              <div class="contentstatus">
+                Trạng thái:
+                <div class="dstatus"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="selectmain">
+            <div class="select1"></div>
+            <div class="select2"></div>
+          </div>
+
+          <div class="personal_info">
+            <div class="pavatar">
+              <img src="" alt="" class="imgavatar" />
+            </div>
+
+            <div class="pname">
+              <p class="dname">Không có tên</p>
+            </div>
+            <div class="page">
+              <p>
+                <b class="dage"> 0 </b>
+                tuổi
+              </p>
+            </div>
+            <div class="colors">
+              <input type="color" id="dmhn" name="dmht" value="#ff0000" />
+              <input type="color" id="dmht" name="dmht" value="#ff0000" />
+              <input type="color" id="dmng" name="dmng" value="#ff0000" />
+              <input type="color" id="dmtt" name="dmtt" value="#ff0000" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="options-2">
+        <ul>
+          <li class="dmhn">Đổi màu hình nền</li>
+          <li class="dmht">Đổi màu hình tròn</li>
+          <li class="dmng">Đổi màu ngày giờ</li>
+          <li class="dmtt">Đổi màu trạng thái</li>
+          <li class="huy">Hủy</li>
+        </ul>
+      </div>
+      <div class="options-3">
+        <div class="ops">
+          <label for="ndt">Nội dung trên</label>
+          <input type="text" id="ndt" value="" />
+        </div>
+
+        <div class="ops">
+          <label for="ndd">Nội dung dưới</label>
+          <input type="text" id="ndd" value="" />
+        </div>
+        <div class="ops-buttons">
+          <button id="xacnhan">Xác nhận</button>
+          <button id="huy">Hủy</button>
+        </div>
+      </div>
+      <div class="event">
+        <div class="exitevent">
+          <i class="fas fa-sign-out-alt"></i>
+        </div>
+        <h3>Nhấn (+) để tạo sự kiện của bạn</h3>
+
+        <button class="addevent">
+          <i class="fas fa-plus"></i>
+        </button>
+        <div class="listevent"></div>
+        <button class="clearevent">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+        <div class="options-event">
+          <div class="ops">
+            <label for="contentevent">Nội dung</label>
+            <input type="text" id="contentevent" value="" />
+          </div>
+
+          <div class="ops-buttons">
+            <button id="xacnhanevent">Xác nhận</button>
+            <button id="huyevent">Hủy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./magic.js"></script>
+  </body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="copyright" content="Tiendatmagic github " />
+    <meta name="author" content="Tiendatmagic github" />
+    <meta property="og:site_name" content="Tiendatmagic.github.io" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+    <meta name="keywords"
+        content="Tiendatmagic, tiendatmagic, magic, iphonex, iphoneX, Tiến Đạt, Tiến Đạt Magic, Tiến Đạt đẹp trai, tiến đạt, tiến đạt magic ahihi, công nghệ, IT, tin công nghệ, công nghệ thông tin, IT Magic, tiendatmagic github,github tiendatmagic,tiendatmagicit,tiendatmagicit github " />
+    <meta name="description" content="Giả lập iphoneX " />
+    <meta property="og:title" content="Giả lập iphoneX" />
+    <meta property="og:description" content="Giả lập iphoneX" />
+
+	<title>Iphonex - Giả lập</title>
+	<!-- CSS only -->
+	<link rel="stylesheet" href="./main.css">
+	<link rel="stylesheet" href="./cal.css">
+	<link rel="stylesheet" href="./clock.css">
+	<link rel="stylesheet" href="./dondep.css">
+	<link rel="stylesheet" href="./suckhoe.css">
+	<link rel="stylesheet" href="./message.css">
+	<link rel="stylesheet" href="./lockapp.css">
+	<link rel="stylesheet" href="./lockscreen.css">
+	<link rel="stylesheet" href="./tbpass.css ">
+	<link rel="stylesheet" href="./photos.css">
+	<link rel="stylesheet" href="./setting.css">
+	<link rel="stylesheet" href="./call.css">
+	<link rel="stylesheet" href="./sbaomatpin.css">
+	<link rel="stylesheet" href="./smausac.css">
+	<link href='./lib/main.css' rel='stylesheet' />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+	<div class="border">
+		<div class="bordert">
+			<div class="power"></div>
+			<div class="setvolume"></div>
+			<div class="volume"></div>
+			<div class="taitho"></div>
+			<div class="screen">
+				<p id="clock">ERROR</p>
+				<div class="item-header">
+					<ul>
+						<li><img src="./images/plane.png" style="visibility:hidden;" alt="" class="plane" width="20px">
+						</li>
+						<li><img src="./images/wifi.png" alt="" class="wifi" width="20px"> </li>
+						<li>
+							<div class="vpin"> <img src="./images/songpin.png" alt="" class="songpin" width="20px">
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="item-content">
+					<ul class="item-application" style="display: none;">
+						<img src="./images/calc.png" alt="" class="calculator" width="66px"> <span> Máy tính</span>
+						<img src="./images/clock.png" alt="" class="clock" width="66px"> <span> Đồng hồ</span>
+						<img src="./images/gdondep.png" alt="" class="gdondep" width="66px"> <span> Dọn dẹp</span>
+						<img src="./images/suckhoe.png" alt="" class="suckhoe" width="66px"> <span> Sức khỏe</span>
+						<img src="./images/gdondep.png" alt="" class="gthosan" width="66px"> <span> Magic</span>
+						<img src="./images/calendar.png" alt="" class="gcalendar" width="66px"> <span> Lịch</span>
+						<img src="./images/photos.png" alt="" class="gphotos" width="66px"> <span> Photos</span>
+						<img src="./images/setting.png" alt="" class="gsetting" width="66px"> <span> Cài đặt</span>
+						<img src="./images/music.png" alt="" class="gmusic" width="66px"> <span> Nhạc</span>
+						<img src="./images/youtube.png" alt="" class="gyoutube" width="66px"> <span> Youtube</span>
+						<img src="./images/safari.png" alt="" class="" width="66px"> <span> Magic</span>
+					</ul>
+				</div>
+				<div class="program">
+					<div class="pcalculator papp" style="display: none;">
+						<center><span class="back">
+								<</span> <span>Phần mềm máy tính
+							</span>
+						</center>
+						<div id="khung">
+							<input id="Result" disabled type="text">
+							<br>
+							<input class="btn" type="button" value="7" onclick="Result.value+=this.value">
+							<input class="btn" type="button" value="8" onclick="Result.value+=this.value">
+							<input class="btn" type="button" value="9" onclick="Result.value+=this.value">
+							<input class="btn" type="button" value="+" onclick="Result.value+=this.value">
+							<br>
+							<input class="btn" type="button" value="4" onclick="Result.value+=this.value">
+							<input class="btn" type="button" value="5" onclick="Result.value+=this.value">
+							<input class="btn" type="button" value="6" onclick="Result.value+=this.value">
+							<input class="btn" type="button" value="-" onclick="Result.value+=this.value">
+							<br>
+							<input class="btn" type="button" value="1" onclick="Result.value+=this.value">
+							<input class="btn" type="button" value="2" onclick="Result.value+=this.value">
+							<input class="btn" type="button" value="3" onclick="Result.value+=this.value">
+							<input class="btn" type="button" value="*" onclick="Result.value+=this.value">
+							<br>
+							<input class="btn" type="button" value="0" onclick="Result.value+=this.value">
+							<input class="btn" type="button" value="." onclick="Result.value+=this.value">
+							<input class="btn" type="button" value="=" onclick="Result.value=eval(Result.value)">
+							<input class="btn" type="button" value="/" onclick="Result.value+=this.value">
+							<input class="btn" type="button" value="C" onclick="Result.value=''">
+							<input class="btn" type="button" value="---"
+								onclick="Result.value=Result.value.substr(0, Result.value.length-1)">
+							<input class="btnexit" type="button" value="Exit">
+						</div>
+					</div>
+					<div class="pclock papp" style="display: none;">
+						<center><span class="back">
+								<</span> <span>Phần mềm xem giờ
+							</span>
+						</center>
+						<div id="date"></div>
+						<p id="clockk">ERROR</p>
+					</div>
+					<div class="pdondep papp" style="display:none;">
+						<canvas id="canvas" width="1024" height="527">
+							<p>Your browser doesn't support HTML5 canvas.</p>
+						</canvas>
+						<div class="warning" style="display:none;">Vui lòng xoay ngược thiết bị lại mới có thể chơi
+						</div>
+						<script src="html5game/dondep.js"></script>
+						<script>
+							window.onload = GameMaker_Init;
+						</script>
+					</div>
+					<div class="psuckhoe papp" style="display: none;">
+						<center><span class="back">
+								<</span> <span>Phần mềm đo sức khỏe BMI
+							</span>
+						</center>
+						<div id="khungg">
+							<input type="text" id="chca" disabled placeholder="Nhập chiều cao (cm)">
+							<input type="radio" name="inp" id="inp">
+							<input type="text" id="cana" disabled placeholder="Nhập cân nặng (kg)">
+							<input type="radio" name="inp" id="inp">
+							<input type="button" onclick="ketquask();" class="tinhtoan" value="Tính toán">
+							<input type="button" class="deleteall" onclick="deleteall();" value="Xóa">
+							<p>Kết quả: </p>
+							<input type="text" name="kqsk" id="kqsk">
+							<p>Trạng thái: </p>
+							<input type="text" name="kqtt" id="kqtt">
+							<br>
+							<input class="btn" type="button" value="7" onclick="sobay();">
+							<input class="btn" type="button" value="8" onclick="sotam();">
+							<input class="btn" type="button" value="9" onclick="sochin();">
+							<br>
+							<input class="btn" type="button" value="4" onclick="sobon();">
+							<input class="btn" type="button" value="5" onclick="sonam();">
+							<input class="btn" type="button" value="6" onclick="sosau();">
+							<br>
+							<input class="btn" type="button" value="1" onclick="somot();">
+							<input class="btn" type="button" value="2" onclick="sohai();">
+							<input class="btn" type="button" value="3" onclick="soba();">
+							<br>
+							<input class="btn" type="button" value="0" onclick="sokhong();">
+							<input class="btn" type="button" value="." onclick="cham();">
+							<input class="btn" type="button" value="=" onclick="ketquask();">
+						</div>
+					</div>
+					<div class="pthosan papp" style="display:none;">
+						<canvas id="canvas" width="1024" height="527">
+							<p>Your browser doesn't support HTML5 canvas.</p>
+						</canvas>
+						<div class="warningg" style="display:none;">Vui lòng xoay ngược thiết bị lại mới có thể chơi
+						</div>
+						<script src=".html5game/thosanquaivatandroid.js"></script>
+						<script>
+							window.onload = GameMaker_Init;
+						</script>
+					</div>
+					<div class="pmessage papp" style="display: none;">
+						<center><span class="back">
+								<</span> <span>Phần mềm tin nhắn
+							</span>
+						</center>
+						<center>
+							<div class="avatar"></div>
+							<p>Tiến Đạt Magic</p>
+						</center>
+						<div class="ruler"></div>
+						<div class="noidungtn">
+							<div class="messaga">
+								<div class="avatar"></div>
+								<p>Chào bạn mình có thể giúp gì được cho bạn</p>
+							</div>
+						</div>
+					</div>
+					<div class="pcall papp" style="display: none;">
+						<center> <span>Gọi điện</span> </center>
+						<br>
+						<input id="telall" disabled type="text">
+						<br>
+						<br>
+						<div class="ncodee">
+							<input class="btn" type="button" value="1" onclick="somotc();">
+							<input class="btn" type="button" value="2" onclick="sohaic();">
+							<input class="btn" type="button" value="3" onclick="sobac();">
+							<br>
+							<input class="btn" type="button" value="4" onclick="sobonc();">
+							<input class="btn" type="button" value="5" onclick="sonamc();">
+							<input class="btn" type="button" value="6" onclick="sosauc();">
+							<br>
+							<input class="btn" type="button" value="7" onclick="sobayc();">
+							<input class="btn" type="button" value="8" onclick="sotamc();">
+							<input class="btn" type="button" value="9" onclick="sochinc();">
+							<br>
+							<input class="btn" type="button" value="C" onclick="deleteallc();">
+							<input class="btn" type="button" value="0" onclick="sokhongc();">
+							<input class="btn" type="button" value="+" onclick="congc();">
+							<br>
+							<input class="btn" type="button" value="📞" onclick="ketquaskc();">
+							<br>
+						</div>
+					</div>
+					<div class="pcalendar papp" style="display: none;">
+						<center>
+							<span class="back">
+								<</span> <span>Phần mềm xem lịch
+							</span>
+							<div id='calendar'></div>
+						</center>
+					</div>
+					<div class="pphotos papp" style="display: none;">
+						<center><span class="back">
+								<</span> <span>Phần mềm xem ảnh
+							</span>
+						</center>
+						<div id="main-image-photos">
+							<img src="./images/imgphotos/1.jpg" alt="#" id="img-main-photos" width="200px;"
+								height="260px;" />
+							<div class="mainpphotos">
+								<ul>
+									<li><img src="./images/imgphotos/1.jpg" onclick="changeimage('one')" id="one"
+											alt="#" width="60px" height="150px;"></li>
+									<li><img src="./images/imgphotos/2.jpg" onclick="changeimage('two')" id="two"
+											alt="#" width="60px" height="150px;"></li>
+									<li><img src="./images/imgphotos/3.jpg" onclick="changeimage('three')" id="three"
+											alt="#" width="60px" height="150px;"></li>
+									<li><img src="./images/imgphotos/4.jpg" onclick="changeimage('four')" id="four"
+											alt="#" width="60px" height="150px;"></li>
+									<li><img src="./images/imgphotos/5.jpg" onclick="changeimage('five')" id="five"
+											alt="#" width="60px" height="150px;"></li>
+								</ul>
+							</div>
+							<div class="btnxx">
+								<input type="button" class="btnn btnnd" onclick="btnnd()" value="Đặt làm ảnh nền">
+								<input type="button" class="btnn btnndk" onclick="btnndg()" value="Đặt làm ảnh gọi">
+								<input type="button" class="btnn btnnx" onclick="btnnx()" value="Xóa">
+							</div>
+						</div>
+					</div>
+
+					<div class="pmusic papp" style="display: none;">
+						<center>
+							<span class="back">
+								<</span> <span>Phần mềm nghe nhạc
+							</span>
+							<audio controls="controls">
+								<source src="https://c1-ex-swe.nixcdn.com/NhacCuaTui965/FirstDate-Frad-5510525.mp3"
+									type="audio/mpeg" />
+
+
+								Your browser does not support the audio tag (trình duyệt không hỗ trợ thẻ audio)
+							</audio>
+
+
+							<iframe src="https://www.nhaccuatui.com/lh/normal/ZLq1MthiuWE8" width="320" height="493"
+								frameborder="0" allowfullscreen allow="autoplay"></iframe>
+
+						</center>
+					</div>
+
+					<div class="pyoutube papp" style="display: none;">
+						<center>
+							<span class="back">
+								<</span> <span>Phần mềm Youtube
+							</span>
+
+
+
+
+							<iframe  width="320" height="493"
+								src="https://www.youtube.com/embed/videoseries?list=PLBcAa442MLApVUjNGP6zk5u6PFBUT-5Dw&index=2"
+								frameborder="0"
+								allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen></iframe>
+						</center>
+					</div>
+
+
+					<div class="lockapp papp" style="display: none;">
+						<center><span class="back">
+								<</span> <span>Nhập mã PIN để tiếp tục
+							</span>
+						</center>
+						<br>
+						<input id="Resultl" disabled type="text">
+						<input id="kqttl" disabled type="text">
+						<br>
+						<br>
+						<div class="ncode">
+							<input class="btn" type="button" value="1" onclick="somotl();">
+							<input class="btn" type="button" value="2" onclick="sohail();">
+							<input class="btn" type="button" value="3" onclick="sobal();">
+							<br>
+							<input class="btn" type="button" value="4" onclick="sobonl();">
+							<input class="btn" type="button" value="5" onclick="sonaml();">
+							<input class="btn" type="button" value="6" onclick="sosaul();">
+							<br>
+							<input class="btn" type="button" value="7" onclick="sobayl();">
+							<input class="btn" type="button" value="8" onclick="sotaml();">
+							<input class="btn" type="button" value="9" onclick="sochinl();">
+							<br>
+							<input class="btn" type="button" value="C" onclick="deletealll();">
+							<input class="btn" type="button" value="0" onclick="sokhongl();">
+							<input class="btn" type="button" value="↩" onclick="ketquaskl();">
+							<br>
+							<input class="btn qmk" type="button" value="Quên mật khẩu" onclick="qmk();">
+						</div>
+					</div>
+					<div class="lockscreenn papp" style="display: block;">
+						<p id="clockk">ERROR</p>
+						<div class="mainlockscreen">
+							<h3>Bấm chuột vào màn hình để mở khóa</h3>
+							<h1>🔐</h1>
+						</div>
+					</div>
+					<div class="lockscreen papp" style="display: none;">
+						<center> <span>Nhập mã PIN để mở khóa</span> </center>
+						<br>
+						<input id="Resultll" disabled type="text">
+						<input id="kqttll" disabled type="text">
+						<br>
+						<br>
+						<div class="ncodee">
+							<input class="btn" type="button" value="1" onclick="somotll();">
+							<input class="btn" type="button" value="2" onclick="sohaill();">
+							<input class="btn" type="button" value="3" onclick="soball();">
+							<br>
+							<input class="btn" type="button" value="4" onclick="sobonll();">
+							<input class="btn" type="button" value="5" onclick="sonamll();">
+							<input class="btn" type="button" value="6" onclick="sosaull();">
+							<br>
+							<input class="btn" type="button" value="7" onclick="sobayll();">
+							<input class="btn" type="button" value="8" onclick="sotamll();">
+							<input class="btn" type="button" value="9" onclick="sochinll();">
+							<br>
+							<input class="btn" type="button" value="C" onclick="deleteallll();">
+							<input class="btn" type="button" value="0" onclick="sokhongll();">
+							<input class="btn" type="button" value="↩" onclick="ketquaskll();">
+							<br>
+							<input class="btn qmk" type="button" value="Quên mật khẩu" onclick="qmk();">
+						</div>
+					</div>
+					<div class="tbpass papp" style="display: none;">
+						<div class="borderp">
+							<h4>Sử dụng mã PIN cho ứng dụng?</h4>
+							<input class="btn btnc" type="button" value="Có">
+							<input class="btn btnk" type="button" value="Không">
+						</div>
+					</div>
+					<div class="tbb papp" style="display: none;">
+						<div class="borderpp">
+							<h4>Sử dụng mã PIN cho ứng dụng?</h4>
+							<input class="btn btnko" type="button" value="OK">
+						</div>
+					</div>
+					<div class="psetting papp" style="display: none;">
+						<center><span class="back">
+								<</span> <span>Cài đặt
+							</span>
+						</center>
+						<br>
+						<div class="ex1">
+							<table>
+								<p id="battery"></p>
+								<tr>
+									<td>✈ Chế độ máy bay</td>
+								</tr>
+								<tr class="gphotos">
+									<td>🖼 Hình nền</td>
+								</tr>
+								<tr class="sbaomat">
+									<td> 🔒 Bảo mật</td>
+								</tr>
+								<tr class="smausac">
+									<td>🧧 Tùy chỉnh</td>
+								</tr>
+								<tr>
+									<td>4</td>
+								</tr>
+								<tr>
+									<td>4</td>
+								</tr>
+								<tr>
+									<td>4</td>
+								</tr>
+								<tr>
+									<td>4</td>
+								</tr>
+								<tr>
+									<td>4</td>
+								</tr>
+								<tr>
+									<td>4</td>
+								</tr>
+								<tr>
+									<td>4</td>
+								</tr>
+								<tr>
+									<td>4</td>
+								</tr>
+								<tr>
+									<td>4</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+					<div class="psettingsss papp" style="display: none;">
+						<center><span class="back">
+								<</span> <span class="psettingname">
+							</span>
+						</center>
+						<br>
+						<div class="ex2">
+							<table>
+								<tr class="tr1">
+									<td class="td1"> </td>
+								</tr>
+								<tr class="tr2">
+									<td class="td2"></td>
+								</tr>
+								<tr class="tr3">
+									<td class="td3">3</td>
+								</tr>
+								<tr class="tr4">
+									<td class="td4">4</td>
+								</tr>
+								<tr class="tr5">
+									<td class="td5">5</td>
+								</tr>
+								<tr class="tr6">
+									<td class="td6"></td>
+								</tr>
+								<tr class="tr7">
+									<td class="td7"></td>
+								</tr>
+								<tr class="tr8">
+									<td class="td8"></td>
+								</tr>
+								<tr class="tr9">
+									<td class="td9"></td>
+								</tr>
+								<tr class="tr10">
+									<td class="td10"></td>
+								</tr>
+							</table>
+						</div>
+						<div class="sbmm"> </div>
+
+					</div>
+				</div>
+				<div class="item-footer-border" style="display: none;">
+					<div class="item-footer">
+						<ul>
+							<li> <img src="./images/Messages.png" alt="" class="message" width="66px"> </li>
+							<li> <img src="./images/call.png" alt="" class="call" width="66px"> </li>
+							<li> <img src="./images/safari.png" alt="" class="safari" width="66px"> </li>
+							<li> <img src="./images/mail.png" alt="" class="mail" width="66px"> </li>
+						</ul>
+					</div>
+				</div>
+				<div class="home"></div>
+			</div>
+		</div>
+	</div>
+	<script src='./main.js'></script>
+	<script src="./clock.js"></script>
+	<script src="./xclock.js"></script>
+	<script src="./suckhoe.js"></script>
+	<script src="./lockapp.js"></script>
+	<script src="./applock.js"></script>
+	<script src='./lib/main.js'></script>
+	<script src='./lib/mains.js'></script>
+	<script src="./photos.js"></script>
+	<script src="./lockscreen.js"></script>
+	<script src="./setting.js"></script>
+	<script src="./pin.js"></script>
+	<script src="./call.js"></script>
+	<script src="./sbaomat.js"></script>
+	<script src="./smausac.js"></script>
+</body>
+</body>
+
+</html>

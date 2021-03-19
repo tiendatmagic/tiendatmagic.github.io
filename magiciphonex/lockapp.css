@@ -1,0 +1,25 @@
+input[id="Resultl"] {
+	width: 330px;
+	height: 60px;
+	font-size: 40px;
+}
+
+input[id="kqttl"] {
+	width: 330px;
+	height: 30px;
+	border: 0px;
+	font-size: 25px;
+	background-color: white;
+	text-align: center;
+}
+
+body > div.border > div > div.screen > div.program > div.lockapp.papp > div > input.btn.qmk {
+	width: 248px;
+	font-size: 34px;
+}
+
+.ncode {
+	position: absolute;
+	top: 185px;
+	left: 40px;
+}

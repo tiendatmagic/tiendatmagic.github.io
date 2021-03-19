@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game ai là triệu phú</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/all.css">
+</head>
+
+<body onload="musicc()">
+  <div id="root">
+    <h1>Game ai là triệu phú</h1>
+
+    <input type="button" class="info" value="START">
+    <input type="button" class="start" value="START">
+    <div id="questionanswer">
+      <div class="money"></div>
+      <div class="time"></div>
+      <div class="q">
+
+
+        <b class="cau"></b>
+        <b class="numberquestion"></b>
+        <h2 class="question"></h2>
+      </div>
+      <div id="answer">
+        <div class="answerr answer_1"></div>
+        <div class="answerr answer_2"></div>
+        <div class="answerr answer_3"></div>
+        <div class="answerr answer_4"></div>
+      </div>
+      <div class="helper">
+        <div class="help h5050"><i class="fas fa-adjust">5050</i></div>
+        <div class="help hcall"><i class="fas fa-phone-volume">gọi điện</i></div>
+        <div class="help hkg"><i class="fas fa-users">hỏi ý kiến khán giả</i></div>
+
+        <div class="help hkgg" style="display: none;"></div>
+      </div>
+      <div class="modal-q">
+        <div class="modal-qcontent">
+          <div class="close">&times</div>
+          <h3 class="countd"></h3>
+        </div>
+      </div>
+      <div class="modal">
+        <div class="modal-content">
+          <div class="close">&times</div>
+          <h3 class="qmodal">
+
+          </h3>
+          <div class="button">
+            <input type="button" class="btnco" value="Có">
+            <input type="button" class="btnko" value="Không">
+          </div>
+
+
+        </div>
+      </div>
+      <div class="modal-q2">
+        <div class="modal-q2content">
+          <div class="close">&times</div>
+          <span class=" ">Câu A<div class="proa"></div></span>
+          <span class=" ">Câu B<div class="prob"></div></span>
+          <span class=" ">Câu C<div class="proc"></div></span>
+          <span class=" ">Câu D<div class="prod"></div></span>
+        </div>
+      </div>
+
+    </div>
+    <div class="tablee">
+
+
+      <div class="table">
+        <table style="width:35%;">
+          <tr>
+            <th>Câu:</th>
+            <th>Số tiền:</th>
+
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>150000</td>
+
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>85000</td>
+
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>60000</td>
+
+          </tr>
+
+          <tr>
+            <td>12</td>
+            <td>40000</td>
+
+          </tr>
+
+          <tr>
+            <td>11</td>
+            <td>30000</td>
+
+          </tr>
+
+          <tr>
+            <td>10</td>
+            <td>22000</td>
+
+          </tr>
+
+          <tr>
+            <td>9</td>
+            <td>14000</td>
+
+          </tr>
+
+          <tr>
+            <td>8</td>
+            <td>10000</td>
+
+          </tr>
+
+          <tr>
+            <td>7</td>
+            <td>6000</td>
+
+          </tr>
+
+          <tr>
+            <td>6</td>
+            <td>3000</td>
+
+          </tr>
+
+          <tr>
+            <td>5</td>
+            <td>2000</td>
+
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>1000</td>
+
+          </tr>
+
+          <tr>
+            <td>3</td>
+            <td>600</td>
+
+          </tr>
+
+          <tr>
+            <td>2</td>
+            <td>400</td>
+
+          </tr>
+
+          <tr>
+            <td>1</td>
+            <td>200</td>
+
+          </tr>
+
+        </table>
+
+
+      </div>
+      <h3 style="color: red;">Chờ chút nha ... </h3>
+    </div>
+    <div id="gameover">
+
+    </div>
+    <div class="music">
+      <audio controls loop id="musicbg" hidden="">
+
+        <source src="./audio/menubg.mp3" allow="autoplay" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="waiting" hidden="">
+
+        <source src="./audio/waiting.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="ctrue" hidden="">
+
+        <source src="./audio/true.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="cfalse" hidden="">
+
+        <source src="./audio/false.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio controls loop id="cmus" hidden="">
+
+        <source src="./audio/cmus.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="cinfo">
+
+        <source src="./audio/info.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="cover">
+
+        <source src="./audio/over.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="teng">
+
+        <source src="./audio/teng.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="sta">
+
+        <source src="./audio/start.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+      <audio id="countdown">
+
+        <source src="./audio/countdown.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="hh1">
+
+        <source src="./audio/bo2pasai.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="hh2">
+
+        <source src="./audio/ketnoidt.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+
+      <audio id="hh3">
+
+        <source src="./audio/hkg.mp3" type="audio/mpeg">
+
+        Your browser does not support the audio element.
+      </audio>
+
+    </div>
+    <div class="footer">
+
+
+      <h4 class="text-danger text-d text-footer">
+        <br>
+        <br>
+        <br>
+        <br>
+        © 2020 Copyright by Tiendatmagic - All Rights Reserved | Designed
+        by
+        Tiendatmagic</h4>
+      <h4 class="text-danger text-d"><span>Liên hệ:<a href="https://www.facebook.com/tiendatmagic">Tiến Đạt
+            Magic</a></span></h4>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <script src="./js/question.js"></script>
+  <script src="./js/start.js"></script>
+  <script src="./js/magic.js"></script>
+</body>
+
+</html>

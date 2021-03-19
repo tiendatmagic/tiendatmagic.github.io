@@ -1,0 +1,44 @@
+input.btn {
+	margin: 0px 0px 03px 0px;
+	width: 80px;
+	height: 80px;
+	background-color: rgb(255,135,200);
+	color: red;
+	font-size: 40px;
+	border-radius: 10px;
+}
+
+input.btn:hover {
+	margin: 0px 0px 03px 0px;
+	width: 80px;
+	height: 80px;
+	background-color: rgb(255,2,139);
+}
+
+input.btnexit {
+	margin: 0px 0px 03px 0px;
+	width: 164px;
+	height: 80px;
+	background-color: rgb(255,55,55);
+	font-size: 40px;
+}
+
+input.btnexit:hover {
+	margin: 0px 0px 03px 0px;
+	width: 164px;
+	height: 80px;
+	background-color: rgb(178,0,0);
+}
+
+#Result {
+	width: 328px;
+	height: 70px;
+	font-size: 45px;
+	color: red;
+}
+
+#khung {
+	padding-left: 1.5px;
+	padding-top: 10px;
+}
+

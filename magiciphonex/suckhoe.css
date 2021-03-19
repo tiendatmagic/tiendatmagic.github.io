@@ -1,0 +1,17 @@
+#khungg input[type="text"] {
+	width: 230px;
+	height: 30px;
+	margin-bottom: 5px;
+}
+
+#khungg .tinhtoan,.deleteall {
+	background-color: green;
+	padding: 9px;
+	color: white;
+	font-size: 20px;
+}
+
+#khungg {
+	padding-left: 40px;
+	padding-top: 10px;
+}

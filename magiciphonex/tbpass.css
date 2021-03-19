@@ -1,0 +1,55 @@
+.borderp {
+	position: absolute;
+	top: 250px;
+	left: 45px;
+	background-color: white;
+	border-radius: 20px;
+	padding: 15px;
+}
+
+
+
+
+
+body > div.border > div > div.screen > div.program > div.tbpass.papp > div > input {
+	margin-top: 10px;
+	margin-left: 20px;
+	height: 40px;
+	font-size: 23px;
+	border-radius: 10px;
+}
+
+
+.tbpass {
+	
+	position: absolute ;
+	top:0px ;
+	left: 0px ;
+	width: 340px ;
+	height: 670px ;
+	background-color: rgba(0, 0, 0, 0.4) ;
+border-radius: 45px ;
+z-index: 1000;
+}
+
+.borderpp {
+	position: absolute;
+	top: 250px;
+	left: 45px;
+	background-color: white;
+	border-radius: 20px;
+	padding: 15px;
+    width: 220px;
+    height: 70px;
+}
+.tbb {
+position: absolute;
+	top: 0px ;
+	left: -2px ;
+	width: 308px ;
+	height: 640px ;
+	background-color: rgba(0, 0, 0, 0.4) ;
+border-radius: 45px ;
+z-index: 1000;
+}
+

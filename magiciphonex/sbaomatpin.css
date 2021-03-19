@@ -1,0 +1,30 @@
+body>div.border>div>div.screen>div.program>div.psettingsss.papp>div.sbmm>div>input {
+    margin: 3px;
+
+}
+
+.sbmm {
+    text-align: center;
+}
+
+.sbmmluumk,
+.sbmmxoamk,
+.sbmmluumks,
+.sbmmxoamks {
+    background-color: green;
+    padding: 9px;
+    color: white;
+    font-size: 20px;
+    border-radius: 10px;
+    margin-top: 5px;
+
+}
+
+#sbmmmkc,
+#sbmmmkm,
+#sbmmmkcs,
+#sbmmmkms {
+    width: 230px;
+    height: 26px;
+
+}

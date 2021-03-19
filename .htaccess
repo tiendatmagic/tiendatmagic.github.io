@@ -1,0 +1,8 @@
+Options -Indexes
+ErrorDocument 403 http://tiendatmagic.io/error.html
+ErrorDocument 404 http://tiendatmagic.io/error.html
+ErrorDocument 500 http://tiendatmagic.io/error.html
+ErrorDocument 501 http://tiendatmagic.io/error.html
+ErrorDocument 502 http://tiendatmagic.io/error.html
+ErrorDocument 503 http://tiendatmagic.io/error.html
+ErrorDocument 504 http://tiendatmagic.io/error.html

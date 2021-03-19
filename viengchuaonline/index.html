@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <!-- Somehow I got an error, so I comment the title, just uncomment to show -->
+    <!-- <title>Responsive Navigation Menu</title> -->
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        nav {
+            display: flex;
+            height: 80px;
+            width: 100%;
+            background: orange;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px 0 100px;
+            flex-wrap: wrap;
+
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 35px;
+            font-weight: 600;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 5px;
+        }
+
+        nav ul li a {
+            color: #f2f2f2;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 5px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a.active,
+        nav ul li a:hover {
+            color: #111;
+            background: #fff;
+        }
+
+        nav .menu-btn i {
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            display: none;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        @media (max-width: 1200px) {
+            nav {
+                padding: 0 40px 0 50px;
+            }
+        }
+
+        @media (max-width: 1020px) {
+
+            nav .menu-btn i {
+                display: block;
+            }
+
+            #click:checked~.menu-btn i:before {
+                content: "\f00d";
+            }
+
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                background: #111;
+                height: 100vh;
+                width: 100%;
+                text-align: center;
+                display: block;
+                transition: all 0.3s ease;
+            }
+
+            #click:checked~ul {
+                left: 0;
+            }
+
+            nav ul li {
+                width: 100%;
+                margin: 40px 0;
+            }
+
+            nav ul li a {
+                width: 100%;
+                margin-left: -100%;
+                display: block;
+                font-size: 20px;
+                transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+
+            #click:checked~ul li a {
+                margin-left: 0px;
+            }
+
+            nav ul li a.active,
+            nav ul li a:hover {
+                background: none;
+                color: cyan;
+            }
+        }
+
+        /**/
+        .contentflex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+        }
+
+
+        .contentf {
+            border: 1px solid black;
+            width: 600px;
+            height: 300px;
+
+        }
+
+        .a1 {
+            background-image: url(./a1.jpg);
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+        }
+
+        .a2 {
+            background-image: url(./a2.png);
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+        }
+
+        .a3 {
+            background-image: url(./a3.jpg);
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+        }
+
+
+        #a1 {
+            display: none;
+        }
+
+        .contentf span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: red;
+
+        }
+
+        .contentf_a1 {
+            background-image: url('./Scene1.jpg');
+            background-size: cover;
+            width: 100%;
+            height: 550px;
+        }
+
+        .img {
+            position: relative;
+            width: 100%;
+            height: 100%;
+
+        }
+
+
+        .nhang {
+            visibility: hidden;
+            position: absolute;
+            margin-left: 50px;
+            top: 64%;
+            bottom: 0%;
+        }
+
+        .bathuong {
+            position: absolute;
+            top: 78%;
+            bottom: 0%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a class="active" href="./index.html"> Viếng chùa online</a>
+        </div>
+
+
+    </nav>
+
+
+    <div class="content">
+        <div class="contentflex">
+            <a href="#">
+                <div class="contentf a1"><span>Viếng chùa</span></div>
+            </a>
+            <!-- <a href="#">
+                <div class="contentf a2"><span>Tử vi trọng đời</span></div>
+            </a>
+            <a href="#">
+                <div class="contentf a3"><span>Ca dao phật ngữ</span></div>
+            </a> -->
+        </div>
+
+        <div id="a1">
+            <div class="contentf_a1">
+                <div class="img">
+
+
+                    <img class="khoi" src="./khoi.png">
+
+                    <div class="canvas" style="margin-left: 50%; margin-top: 0px; height:530px; visibility: hidden;">
+                        <canvas id="canvas" height="674" width="100"></canvas></div>
+
+                    <script src="./1.js"></script>
+                    <center><img class="nhang" src="./nhang.png" alt="">
+                    </center>
+
+                    <center><img class="bathuong" src="./bat_huong.png" alt="">
+                    </center>
+                    <h3 style="text-align: center; color:red ;">Vui lòng bấm vào lư hương để thắp nhang</h3>
+
+                    <marquee width="100%" behavior="scroll" bgcolor="pink">
+                        Xin Quý vị hãy tịnh tâm và chấp tay niệm "Nam Mô A Di Đà Phật" (108 lần)"
+                    </marquee>
+                </div>
+            </div>
+        </div>
+        <audio id="music" hidden="">
+
+            <source src="./adidaphat1.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <script>
+            document.getElementsByClassName("a1")[0].onclick = function () {
+                document.getElementsByClassName("contentflex")[0].style.display = 'none';
+                document.getElementById("a1").style.display = 'block';
+            }
+
+            document.getElementsByClassName("bathuong")[0].onclick = function () {
+                document.getElementsByClassName("nhang")[0].style.visibility = 'visible';
+                document.getElementsByClassName("canvas")[0].style.visibility = 'visible';
+                document.getElementById("music").play();
+
+            }
+        </script>
+</body>
+
+</html>

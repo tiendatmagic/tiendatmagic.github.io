@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Đọc suy nghĩ qua màn hình</title>
+   <!--Trang web sử dụng các công nghệ framework để đọc suy nghĩ-->
+
+
+   <link rel="stylesheet" href="./css/bootstrap.min.css">
+   <link rel="stylesheet" href="./css/magic.css">
+</head>
+
+<body>
+   <!--© 2020 Copyright by Tiendatmagic - All Rights Reserved | Designed by Tiendatmagic-->
+   <div class="nd">
+      <div class="gt">
+         <h4>Chào các bạn, mình là Tiendatmagic, mình có thể đọc được suy nghĩ của bạn</h4>
+         <h4>Cách chơi:</h4>
+         <h4>Bạn hãy suy nghĩ trong đầu một con số nằm trong khoảng từ 1 đến 100, hãy nghĩ trong đầu. Và khi bắt đầu trò
+            chơi, bạn chỉ cần chọn Có với những bảng có con số bạn đang nghĩ, ngược lại nếu không có con số bạn đang
+            nghĩ thì chọn Không</h4>
+         <h4>Nếu bạn đã sẵn sàng, bấm Start để bắt đầu chơi</h4>
+         <input type="button" value="START" class="btn btn-success btn-lg btn-start pt-3 pb-3 pt-3 pr-3">
+      </div>
+      <div class="list-1" style="display: none;">
+         <h2 class="text-danger">Bảng thứ nhất</h2>
+         <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+         <div style="overflow-x:auto;">
+            <table class="tablee table-bordered table-primary ">
+               <tr>
+                  <td> 1 </td>
+                  <td> 3 </td>
+                  <td> 5 </td>
+                  <td> 7 </td>
+                  <td> 9 </td>
+                  <td> 11 </td>
+                  <td> 13 </td>
+                  <td> 15 </td>
+               </tr>
+               <tr>
+                  <td> 17 </td>
+                  <td> 19 </td>
+                  <td> 21 </td>
+                  <td> 23 </td>
+                  <td> 25 </td>
+                  <td> 27 </td>
+                  <td> 29 </td>
+                  <td> 31 </td>
+               </tr>
+               <tr>
+                  <td> 33 </td>
+                  <td> 35 </td>
+                  <td> 37 </td>
+                  <td> 39 </td>
+                  <td> 41 </td>
+                  <td> 43 </td>
+                  <td> 45 </td>
+                  <td> 47 </td>
+               </tr>
+               <tr>
+                  <td> 49 </td>
+                  <td> 51 </td>
+                  <td> 53 </td>
+                  <td> 55 </td>
+                  <td> 57 </td>
+                  <td> 59 </td>
+                  <td> 61 </td>
+                  <td> 63 </td>
+               </tr>
+               <tr>
+                  <td> 65 </td>
+                  <td> 67 </td>
+                  <td> 69 </td>
+                  <td> 71 </td>
+                  <td> 73 </td>
+                  <td> 75 </td>
+                  <td> 77 </td>
+                  <td> 79 </td>
+               </tr>
+               <tr>
+                  <td> 81 </td>
+                  <td> 83 </td>
+                  <td> 85 </td>
+                  <td> 87 </td>
+                  <td> 89 </td>
+                  <td> 91 </td>
+                  <td> 93 </td>
+                  <td> 95 </td>
+               </tr>
+               <tr>
+                  <td> 97 </td>
+                  <td> 99 </td>
+               </tr>
+            </table>
+         </div>
+         <br>
+         <input type="button" class="btn btn-success btn1c pt-3 pb-3 pt-3 pr-3" value="Có">
+         <input type="button" class="btn btn-danger btn1k pt-3 pb-3 pt-3 pr-3" value="Không">
+      </div>
+      <div class="list-2" style="display: none;">
+         <h2 class="text-danger">Bảng thứ hai</h2>
+         <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+         <div style="overflow-x:auto;">
+            <table class="tablee table-bordered table-primary">
+               <tr>
+                  <td> 2 </td>
+                  <td> 3 </td>
+                  <td> 6 </td>
+                  <td> 7 </td>
+                  <td> 10 </td>
+                  <td> 11 </td>
+                  <td> 14 </td>
+                  <td> 15 </td>
+               </tr>
+               <tr>
+                  <td> 18 </td>
+                  <td> 19 </td>
+                  <td> 22 </td>
+                  <td> 23 </td>
+                  <td> 26 </td>
+                  <td> 27 </td>
+                  <td> 30 </td>
+                  <td> 31 </td>
+               </tr>
+               <tr>
+                  <td> 34 </td>
+                  <td> 35 </td>
+                  <td> 38 </td>
+                  <td> 39 </td>
+                  <td> 42 </td>
+                  <td> 43 </td>
+                  <td> 46 </td>
+                  <td> 47 </td>
+               </tr>
+               <tr>
+                  <td> 50 </td>
+                  <td> 51 </td>
+                  <td> 54 </td>
+                  <td> 55 </td>
+                  <td> 58 </td>
+                  <td> 59 </td>
+                  <td> 62 </td>
+                  <td> 63 </td>
+               </tr>
+               <tr>
+                  <td> 66 </td>
+                  <td> 67 </td>
+                  <td> 70 </td>
+                  <td> 71 </td>
+                  <td> 74 </td>
+                  <td> 75 </td>
+                  <td> 78 </td>
+                  <td> 79 </td>
+               </tr>
+               <tr>
+                  <td> 82 </td>
+                  <td> 83 </td>
+                  <td> 86 </td>
+                  <td> 87 </td>
+                  <td> 90 </td>
+                  <td> 91 </td>
+                  <td> 94 </td>
+                  <td> 95 </td>
+               </tr>
+               <tr>
+                  <td> 98 </td>
+                  <td> 99 </td>
+               </tr>
+            </table>
+         </div>
+         <br>
+         <input type="button" class="btn btn-success btn2c pt-3 pb-3 pt-3 pr-3" value="Có">
+         <input type="button" class="btn btn-danger btn2k pt-3 pb-3 pt-3 pr-3" value="Không">
+      </div>
+      <div class="list-3" style="display: none;">
+         <h2 class="text-danger">Bảng thứ ba</h2>
+         <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+         <div style="overflow-x:auto;">
+            <table class="tablee table-bordered table-primary">
+               <tr>
+                  <td> 4 </td>
+                  <td> 5 </td>
+                  <td> 6 </td>
+                  <td> 7 </td>
+                  <td> 12 </td>
+                  <td> 13 </td>
+                  <td> 14 </td>
+                  <td> 15 </td>
+               </tr>
+               <tr>
+                  <td> 20 </td>
+                  <td> 21 </td>
+                  <td> 22 </td>
+                  <td> 23 </td>
+                  <td> 28 </td>
+                  <td> 29 </td>
+                  <td> 30 </td>
+                  <td> 31 </td>
+               </tr>
+               <tr>
+                  <td> 36 </td>
+                  <td> 37 </td>
+                  <td> 38 </td>
+                  <td> 39 </td>
+                  <td> 44 </td>
+                  <td> 45 </td>
+                  <td> 46 </td>
+                  <td> 47 </td>
+               </tr>
+               <tr>
+                  <td> 52 </td>
+                  <td> 53 </td>
+                  <td> 54 </td>
+                  <td> 55 </td>
+                  <td> 60 </td>
+                  <td> 61 </td>
+                  <td> 62 </td>
+                  <td> 63 </td>
+               </tr>
+               <tr>
+                  <td> 68 </td>
+                  <td> 69 </td>
+                  <td> 70 </td>
+                  <td> 71 </td>
+                  <td> 76 </td>
+                  <td> 77 </td>
+                  <td> 78 </td>
+                  <td> 79 </td>
+               </tr>
+               <tr>
+                  <td> 84 </td>
+                  <td> 85 </td>
+                  <td> 86 </td>
+                  <td> 87 </td>
+                  <td> 92 </td>
+                  <td> 93 </td>
+                  <td> 94 </td>
+                  <td> 95 </td>
+               </tr>
+               <tr>
+                  <td>100</td>
+               </tr>
+            </table>
+         </div>
+         <br>
+         <input type="button" class="btn btn-success btn3c pt-3 pb-3 pt-3 pr-3" value="Có">
+         <input type="button" class="btn btn-danger btn3k pt-3 pb-3 pt-3 pr-3" value="Không">
+      </div>
+      <!--© 2020 Copyright by Tiendatmagic - All Rights Reserved | Designed by Tiendatmagic-->
+      <div class="list-4" style="display: none;">
+         <h2 class="text-danger">Bảng thứ tư</h2>
+         <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+         <div style="overflow-x:auto;">
+            <table class="tablee table-bordered table-primary">
+               <tr>
+                  <td> 8 </td>
+                  <td> 9 </td>
+                  <td> 10 </td>
+                  <td> 11 </td>
+                  <td> 12 </td>
+                  <td> 13 </td>
+                  <td> 14 </td>
+                  <td> 15 </td>
+               </tr>
+               <tr>
+                  <td> 24 </td>
+                  <td> 25 </td>
+                  <td> 26 </td>
+                  <td> 27 </td>
+                  <td> 28 </td>
+                  <td> 29 </td>
+                  <td> 30 </td>
+                  <td> 31 </td>
+               </tr>
+               <tr>
+                  <td> 40 </td>
+                  <td> 41 </td>
+                  <td> 42 </td>
+                  <td> 43 </td>
+                  <td> 44 </td>
+                  <td> 45 </td>
+                  <td> 46 </td>
+                  <td> 47 </td>
+               </tr>
+               <tr>
+                  <td> 56 </td>
+                  <td> 57 </td>
+                  <td> 58 </td>
+                  <td> 59 </td>
+                  <td> 60 </td>
+                  <td> 61 </td>
+                  <td> 62 </td>
+                  <td> 63 </td>
+               </tr>
+               <tr>
+                  <td> 72 </td>
+                  <td> 73 </td>
+                  <td> 74 </td>
+                  <td> 75 </td>
+                  <td> 76 </td>
+                  <td> 77 </td>
+                  <td> 78 </td>
+                  <td> 79 </td>
+               </tr>
+               <tr>
+                  <td> 88 </td>
+                  <td> 89 </td>
+                  <td> 90 </td>
+                  <td> 91 </td>
+                  <td> 92 </td>
+                  <td> 93 </td>
+                  <td> 94 </td>
+                  <td> 95 </td>
+               </tr>
+            </table>
+         </div>
+         <br>
+         <input type="button" class="btn btn-success btn4c pt-3 pb-3 pt-3 pr-3" value="Có">
+         <input type="button" class="btn btn-danger btn4k pt-3 pb-3 pt-3 pr-3" value="Không">
+      </div>
+      <div class="list-5" style="display: none;">
+         <h2 class="text-danger">Bảng thứ năm</h2>
+         <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+         <div style="overflow-x:auto;">
+            <table class="tablee table-bordered table-primary">
+               <tr>
+                  <td> 16 </td>
+                  <td> 17 </td>
+                  <td> 18 </td>
+                  <td> 19 </td>
+                  <td> 20 </td>
+                  <td> 21 </td>
+                  <td> 22 </td>
+                  <td> 23 </td>
+               </tr>
+               <tr>
+                  <td> 24 </td>
+                  <td> 25 </td>
+                  <td> 26 </td>
+                  <td> 27 </td>
+                  <td> 28 </td>
+                  <td> 29 </td>
+                  <td> 30 </td>
+                  <td> 31 </td>
+               </tr>
+               <tr>
+                  <td> 48 </td>
+                  <td> 49 </td>
+                  <td> 50 </td>
+                  <td> 51 </td>
+                  <td> 52 </td>
+                  <td> 53 </td>
+                  <td> 54 </td>
+                  <td> 55 </td>
+               </tr>
+               <tr>
+                  <td> 56 </td>
+                  <td> 57 </td>
+                  <td> 58 </td>
+                  <td> 59 </td>
+                  <td> 60 </td>
+                  <td> 61 </td>
+                  <td> 62 </td>
+                  <td> 63 </td>
+               </tr>
+               <tr>
+                  <td> 80 </td>
+                  <td> 81 </td>
+                  <td> 82 </td>
+                  <td> 83 </td>
+                  <td> 84 </td>
+                  <td> 85 </td>
+                  <td> 86 </td>
+                  <td> 87 </td>
+               </tr>
+               <tr>
+                  <td> 88 </td>
+                  <td> 89 </td>
+                  <td> 90 </td>
+                  <td> 91 </td>
+                  <td> 92 </td>
+                  <td> 93 </td>
+                  <td> 94 </td>
+                  <td> 95 </td>
+               </tr>
+            </table>
+         </div>
+         <br>
+         <input type="button" class="btn btn-success btn5c pt-3 pb-3 pt-3 pr-3" value="Có">
+         <input type="button" class="btn btn-danger btn5k pt-3 pb-3 pt-3 pr-3" value="Không">
+      </div>
+      <div class="list-6" style="display: none;">
+         <h2 class="text-danger">Bảng thứ sáu</h2>
+         <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+         <div style="overflow-x:auto;">
+            <table class="tablee table-bordered table-primary">
+               <tr>
+                  <td> 32 </td>
+                  <td> 33 </td>
+                  <td> 34 </td>
+                  <td> 35 </td>
+                  <td> 36 </td>
+                  <td> 37 </td>
+                  <td> 38 </td>
+                  <td> 39 </td>
+               </tr>
+               <tr>
+                  <td> 40 </td>
+                  <td> 41 </td>
+                  <td> 42 </td>
+                  <td> 43 </td>
+                  <td> 44 </td>
+                  <td> 45 </td>
+                  <td> 46 </td>
+                  <td> 47 </td>
+               </tr>
+               <tr>
+                  <td> 48 </td>
+                  <td> 49 </td>
+                  <td> 50 </td>
+                  <td> 51 </td>
+                  <td> 52 </td>
+                  <td> 53 </td>
+                  <td> 54 </td>
+                  <td> 55 </td>
+               </tr>
+               <tr>
+                  <td> 56 </td>
+                  <td> 57 </td>
+                  <td> 58 </td>
+                  <td> 59 </td>
+                  <td> 60 </td>
+                  <td> 61 </td>
+                  <td> 62 </td>
+                  <td> 63 </td>
+               </tr>
+               <tr>
+                  <td> 96 </td>
+                  <td> 97 </td>
+                  <td> 98 </td>
+                  <td> 99 </td>
+                  <td> 100 </td>
+               </tr>
+            </table>
+         </div>
+         <br>
+         <input type="button" class="btn btn-success btn6c pt-3 pb-3 pt-3 pr-3" value="Có">
+         <input type="button" class="btn btn-danger btn6k pt-3 pb-3 pt-3 pr-3" value="Không">
+      </div>
+      <div class="list-7" style="display: none;">
+         <h2 class="text-danger">Bảng thứ bảy</h2>
+         <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+         <div style="overflow-x:auto;">
+            <table class="tablee table-bordered table-primary">
+               <tr>
+                  <td> 64 </td>
+                  <td> 65 </td>
+                  <td> 66 </td>
+                  <td> 67 </td>
+                  <td> 68 </td>
+                  <td> 69 </td>
+                  <td> 70 </td>
+                  <td> 71 </td>
+               </tr>
+               <tr>
+                  <td> 72 </td>
+                  <td> 73 </td>
+                  <td> 74 </td>
+                  <td> 75 </td>
+                  <td> 76 </td>
+                  <td> 77 </td>
+                  <td> 78 </td>
+                  <td> 79 </td>
+               </tr>
+               <tr>
+                  <td> 80 </td>
+                  <td> 81 </td>
+                  <td> 82 </td>
+                  <td> 83 </td>
+                  <td> 84 </td>
+                  <td> 85 </td>
+                  <td> 86 </td>
+                  <td> 87 </td>
+               </tr>
+               <tr>
+                  <td> 88 </td>
+                  <td> 89 </td>
+                  <td> 90 </td>
+                  <td> 91 </td>
+                  <td> 92 </td>
+                  <td> 93 </td>
+                  <td> 94 </td>
+                  <td> 95 </td>
+               </tr>
+               <tr>
+                  <td> 96 </td>
+                  <td> 97 </td>
+                  <td> 98 </td>
+                  <td> 99 </td>
+                  <td> 100 </td>
+               </tr>
+            </table>
+         </div>
+         <br>
+         <input type="button" class="btn btn-success btn7c pt-3 pb-3 pt-3 pr-3" value="Có">
+         <input type="button" class="btn btn-danger btn7k pt-3 pb-3 pt-3 pr-3" value="Không">
+      </div>
+      <!--Công nghệ xuất suy nghĩ qua màn hình, ahihi-->
+      <div class="result" style="display: none;">
+         <h2>Con số bạn đang nghĩ là:</h2>
+
+         <div name="result-magic" id="result-magic" class="display-1" style="color: #ff0099;"></div>
+         <br>
+
+         <h3>Ngạc nhiên chưa 😂😂😂</h3>
+         <br>
+         <input type="button" value="Bấm vào đây để chọn lại" class="btn btn-success btn-reload pt-3 pb-3 pt-3 pr-3">
+      </div>
+      <div class="result-error" style="display: none;">
+         <h2>Xin lỗi con số bạn đang nghĩ không hợp lệ, vui lòng chọn lại, ahihi 🤣</h2>
+         <input type="button" value="Bấm vào đây để chọn lại" class="btn btn-success btn-reload pt-3 pb-3 pt-3 pr-3">
+
+      </div>
+      <div class="footer">
+
+
+         <h4 class="text-danger text-gt">Trang web sử dụng công nghệ đọc suy nghĩ qua màn hình, ahihi 😂</h4>
+         <h4 class="text-danger text-gt">© 2020 Copyright by Tiendatmagic - All Rights Reserved | Designed by
+            Tiendatmagic</h4>
+         <h4 class="text-danger text-gt">Liên hệ:<a href="https://www.facebook.com/tiendatmagic">Tiến Đạt Magic</a></h4>
+      </div>
+   </div>
+   <script src="./js/magic.js"></script>
+</body>
+
+</html>
+<!--© 2020 Copyright by Tiendatmagic - All Rights Reserved | Designed by Tiendatmagic-->

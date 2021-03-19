@@ -1,0 +1,43 @@
+#main-image-photos>div>ul li {
+	list-style: none;
+	float: left;
+}
+
+
+.btnn:hover {
+	background-color: rgb(201, 0, 78);
+}
+
+.btnnd {
+	background-color: rgb(255, 68, 170);
+	border-radius: 4px;
+	width: 150px;
+	height: 30px;
+	font-size: 15px;
+	position: absolute;
+	top: 580px;
+	left: 10px;
+}
+
+.btnndk{
+	background-color: rgb(255, 68, 170);
+	border-radius: 4px;
+	width: 150px;
+	height: 30px;
+	font-size: 15px;
+	position: absolute;
+	top: 580px;
+	left: 170px;
+}
+
+
+.btnnx {
+	background-color: rgb(255, 68, 170);
+	border-radius: 4px;
+	width: 150px;
+	height: 30px;
+	font-size: 15px;
+	position: absolute;
+	top: 620px;
+	right: 90px;
+}

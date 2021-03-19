@@ -1,0 +1,28 @@
+.avatar {
+	width: 30px;
+	height: 30px;
+	background-color: deeppink;
+	border-radius: 50%;
+	float: left;
+	margin-left: 5px;
+}
+
+.pmessage p {
+	line-height: 30px;
+}
+
+.pmessage .noidungtn p {
+	width: 290px;
+}
+
+.messaga p {
+	margin-left: 40px;
+	margin-right: 60px;
+	border-radius: 10px;
+	background-color: rgb(255, 103, 184);
+}
+
+.ruler {
+	border-bottom: 1px solid black;
+	margin: 5px 5px 5px 5px;
+}

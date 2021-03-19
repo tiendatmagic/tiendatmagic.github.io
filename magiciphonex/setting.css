@@ -1,0 +1,32 @@
+div.ex1,
+div.ex2 {
+	background-color: white;
+	height: 527px;
+	overflow: scroll;
+	font-size: 20px;
+}
+
+.ex1 tr,
+.ex2 tr {
+	display: block;
+	height: 50px;
+	border: 1px solid gray;
+	width: 310px;
+	line-height: 50px;
+}
+
+.ex1 tr:hover,
+.ex2 tr:hover {
+	background-color: rgb(255, 154, 205);
+}
+
+.ex1 tr:active,
+.ex2 tr:active {
+	background-color: rgb(255, 0, 138);
+	font-size: 23px;
+}
+
+.ex2 tr,
+.ssex {
+	display: none;
+}

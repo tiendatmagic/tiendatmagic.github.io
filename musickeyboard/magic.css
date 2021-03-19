@@ -1,0 +1,301 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body,
+html {
+	width: 100%;
+}
+
+:root {
+	font-size: 16px;
+	width: 100%;
+}
+
+p {
+	color: deeppink;
+	font-size: 30px;
+	text-align: center;
+	font-weight: bold;
+	text-shadow: 1.7px 0px black;
+}
+
+.key__box1 {
+	position: relative;
+	float: left;
+	width: 54%;
+	height: 220px;
+	border: 1px solid black;
+}
+
+.key__box2 {
+	position: relative;
+	float: left;
+	width: 13.5%;
+	height: 220px;
+	border: 1px solid black;
+}
+
+.key__box3 {
+	position: relative;
+	float: left;
+	width: 16.2%;
+	height: 220px;
+	border: 1px solid black;
+}
+
+.keyb div {
+	float: left;
+	border: 1px solid black;
+	text-align: center;
+	line-height: 30px;
+}
+
+.kfunctionn div {
+	width: 57.55px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.knumber div {
+	width: 50px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.back {
+	width: 92px !important;
+}
+
+.kup div {
+	width: 50px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.tab {
+	width: 70px !important;
+}
+
+.xxx {
+	width: 72px !important;
+}
+
+.kcenter div {
+	width: 50px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.capslock {
+	width: 90px !important;
+}
+
+.enter {
+	width: 108px !important;
+}
+
+.kdown div {
+	width: 50px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.shift {
+	width: 127px !important;
+}
+
+.kcontrol div {
+	width: 50px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.ctrl {
+	width: 70px !important;
+}
+
+.space {
+	width: 388px !important;
+}
+
+.key1 div {
+	width: 55px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.key2 div {
+	width: 55px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.key3 div {
+	width: 55px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.keyall {
+	width: 230px;
+	margin: 0px 20%;
+	margin-left: 10px;
+}
+
+.key2 div:nth-child(3) {
+	font-size: 13px;
+}
+
+.key3 div:nth-child(3) {
+	font-size: 10px;
+}
+
+.key4 div {
+	width: 55px;
+	height: 30px;
+	margin: 3px 3px;
+	position: absolute;
+	top: 108px;
+	left: 61px;
+}
+
+.key5 {
+	position: absolute;
+	top: 144px;
+}
+
+.key5 div {
+	width: 55px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.keyall2 {
+	position: relative;
+	top: 36px;
+}
+
+.kn0 div {
+	width: 55px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.kn1 div {
+	width: 55px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.kn2 div {
+	width: 55px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.kn3 div {
+	width: 55px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.kn4 div {
+	width: 55px;
+	height: 30px;
+	margin: 3px 3px;
+}
+
+.keyall4 {
+	width: 200px;
+}
+
+.keyall3 {
+	width: 250px;
+	margin-top: 37px;
+}
+
+.khong {
+	width: 116px !important;
+}
+
+.cong {
+	width: 55px;
+	height: 66px;
+	margin: 3px 3px;
+	position: relative;
+	bottom: 107px;
+}
+
+.enter2 {
+	width: 55px;
+	height: 66px;
+	margin: 3px 3px;
+	position: relative;
+	bottom: 107px;
+	left: 183px;
+}
+
+.kn0.keyb>div:nth-child(1) {
+	font-size: 13px;
+}
+
+.main {
+	margin-top: 50px;
+	/*
+       align-items:  center;
+    height: 500px;
+  
+  
+
+    */
+	justify-content: center;
+	display: flex;
+}
+
+.key {
+	transition: all 0.05s ease-in-out;
+}
+
+.playing {
+	transform: scale(1.2);
+	border-color: var(--orange);
+	box-shadow: 0 0 10px var(--orange);
+}
+
+.key__box1,
+.key__box2,
+.key__box3 {
+	background-color: pink;
+}
+
+div.key__box1 div,
+div.key2.keyb div,
+div.key3.keyb div,
+div.key4.keyb div,
+div.key5.keyb div,
+div.key__box3 div {
+	background-color: rgb(255, 115, 214);
+}
+
+div[keycode-key='0'] {
+	background-color: rgb(191, 188, 188) !important;
+}
+
+.footer-main {
+	color: deeppink;
+	font-size: 20px;
+	text-align: center;
+	margin-top: 300px;
+
+}
+
+@media only screen and (max-width: 1535px) {
+
+	body,
+	html {
+		width: 1535px;
+	}
+}

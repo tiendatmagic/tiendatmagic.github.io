@@ -1,0 +1,21 @@
+canvas {
+	width: 570px;
+	height: 335px;
+	transform: rotatez(90deg);
+	position: absolute;
+	top: 164px;
+	right: -118px;
+}
+
+.warning {
+	border-radius: 30px;
+	width: 320px;
+	height: 40px;
+	background-color: white;
+	top: 320px;
+	left: 150px;
+	position: absolute;
+	transform: rotatez(90deg);
+	line-height: 40px;
+	text-indent: 5px;
+}

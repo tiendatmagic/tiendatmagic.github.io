@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Đọc suy nghĩ qua màn hình</title>
+      <!--Trang web sử dụng các công nghệ framework để đọc suy nghĩ-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+      <script src="./js/magic.js"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+      <link rel="stylesheet" href="./css/magic.css">
+   </head>
+   <body>
+      <!--© 2020 Copyright by Tiendatmagic - All Rights Reserved | Designed by Tiendatmagic-->
+      <div class="nd">
+         <div class="gt">
+            <h3>Chào các bạn, mình là Tiendatmagic, mình có thể đọc được suy nghĩ của bạn</h3>
+            <h4>Cách chơi:</h4>
+            <h4>Bạn hãy suy nghĩ trong đầu một lá bài, hãy nghĩ trong đầu. Và khi bắt đầu trò chơi, bạn chỉ cần chọn Có với những bảng có lá bài bạn đang nghĩ, ngược lại nếu không có lá bài bạn đang nghĩ thì chọn Không</h4>
+            <h4>Nếu bạn đã sẵn sàng, bấm Start để bắt đầu chơi</h4>
+            <input type="button" value="START" class="btn btn-success btn-lg btn-start pt-3 pb-3 pt-3 pr-3">
+         </div>
+         <div class="list-1" style="display: none;">
+            <h2 class="text-danger">Bảng thứ nhất</h2>
+            <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+            <div style="overflow-x:auto;">
+               <table class="table table-bordered table-primary">
+                  <tr>
+                     <TD><img src="./labai/c1.gif"></TD>
+                     <TD><img src="./labai/c3.gif"></TD>
+                     <TD><img src="./labai/c5.gif"></TD>
+                     <TD><img src="./labai/c7.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/c9.gif"></TD>
+                     <TD><img src="./labai/cj.gif"></TD>
+                     <TD><img src="./labai/ck.gif"></TD>
+                     <TD><img src="./labai/h2.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/h4.gif"></TD>
+                     <TD><img src="./labai/h6.gif"></TD>
+                     <TD><img src="./labai/h8.gif"></TD>
+                     <TD><img src="./labai/h10.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/hq.gif"></TD>
+                     <TD><img src="./labai/s1.gif"></TD>
+                     <TD><img src="./labai/s3.gif"></TD>
+                     <TD><img src="./labai/s5.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/s7.gif"></TD>
+                     <TD><img src="./labai/s9.gif"></TD>
+                     <TD><img src="./labai/sj.gif"></TD>
+                     <TD><img src="./labai/sk.gif"></TD>
+                     
+
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/d2.gif"></TD>
+                     <TD><img src="./labai/d4.gif"></TD>
+                     <TD><img src="./labai/d6.gif"></TD>
+                     <TD><img src="./labai/d8.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/d10.gif"></TD>
+                     <TD><img src="./labai/dq.gif"></TD>
+                  </tr>
+               </table>
+            </div>
+            <br>
+            <input type="button" class="btn btn-success btn1c pt-3 pb-3 pt-3 pr-3" value="Có">
+            <input type="button" class="btn btn-danger btn1k pt-3 pb-3 pt-3 pr-3" value="Không">
+         </div>
+         <div class="list-2" style="display: none;">
+            <h2 class="text-danger">Bảng thứ hai</h2>
+            <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+            <div style="overflow-x:auto;">
+               <table class="table table-bordered table-primary">
+                  <tr>
+                     <TD><img src="./labai/c2.gif"></TD>
+                     <TD><img src="./labai/c3.gif"></TD>
+                     <TD><img src="./labai/c6.gif"></TD>
+                     <TD><img src="./labai/c7.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/c10.gif"></TD>
+                     <TD><img src="./labai/cj.gif"></TD>
+                     <TD><img src="./labai/h1.gif"></TD>
+                     <TD><img src="./labai/h2.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/h5.gif"></TD>
+                     <TD><img src="./labai/h6.gif"></TD>
+                     <TD><img src="./labai/h9.gif"></TD>
+                     <TD><img src="./labai/h10.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/hk.gif"></TD>
+                     <TD><img src="./labai/s1.gif"></TD>
+                     <TD><img src="./labai/s4.gif"></TD>
+                     <TD><img src="./labai/s5.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/s8.gif"></TD>
+                     <TD><img src="./labai/s9.gif"></TD>
+                     <TD><img src="./labai/sq.gif"></TD>
+                     <TD><img src="./labai/sk.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/d3.gif"></TD>
+                     <TD><img src="./labai/d4.gif"></TD>
+                     <TD><img src="./labai/d7.gif"></TD>
+                     <TD><img src="./labai/d8.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/dj.gif"></TD>
+                     <TD><img src="./labai/dq.gif"></TD>
+                  </tr>
+               </table>
+            </div>
+            <br>
+            <input type="button" class="btn btn-success btn2c pt-3 pb-3 pt-3 pr-3" value="Có">
+            <input type="button" class="btn btn-danger btn2k pt-3 pb-3 pt-3 pr-3" value="Không">
+         </div>
+         <div class="list-3" style="display: none;">
+            <h2 class="text-danger">Bảng thứ ba</h2>
+            <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+            <div style="overflow-x:auto;">
+               <table class="table table-bordered table-primary">
+                  <tr>
+                     <TD><img src="./labai/c4.gif"></TD>
+                     <TD><img src="./labai/c5.gif"></TD>
+                     <TD><img src="./labai/c6.gif"></TD>
+                     <TD><img src="./labai/c7.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/cq.gif"></TD>
+                     <TD><img src="./labai/ck.gif"></TD>
+                     <TD><img src="./labai/h1.gif"></TD>
+                     <TD><img src="./labai/h2.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/h7.gif"></TD>
+                     <TD><img src="./labai/h8.gif"></TD>
+                     <TD><img src="./labai/h9.gif"></TD>
+                     <TD><img src="./labai/h10.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/s2.gif"></TD>
+                     <TD><img src="./labai/s3.gif"></TD>
+                     <TD><img src="./labai/s4.gif"></TD>
+                     <TD><img src="./labai/s5.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/s10.gif"></TD>
+                     <TD><img src="./labai/sj.gif"></TD>
+                     <TD><img src="./labai/sq.gif"></TD>
+                     <TD><img src="./labai/sk.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/d5.gif"></TD>
+                     <TD><img src="./labai/d6.gif"></TD>
+                     <TD><img src="./labai/d7.gif"></TD>
+                     <TD><img src="./labai/d8.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/dk.gif"></TD>
+                  </tr>
+               </table>
+            </div>
+            <br>
+            <input type="button" class="btn btn-success btn3c pt-3 pb-3 pt-3 pr-3" value="Có">
+            <input type="button" class="btn btn-danger btn3k pt-3 pb-3 pt-3 pr-3" value="Không">
+         </div>
+         <!--© 2020 Copyright by Tiendatmagic - All Rights Reserved | Designed by Tiendatmagic-->
+         <div class="list-4" style="display: none;">
+            <h2 class="text-danger">Bảng thứ tư</h2>
+            <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+            <div style="overflow-x:auto;">
+               <table class="table table-bordered table-primary">
+                  <tr>
+                     <TD><img src="./labai/c8.gif"></TD>
+                     <TD><img src="./labai/c9.gif"></TD>
+                     <TD><img src="./labai/c10.gif"></TD>
+                     <TD><img src="./labai/cj.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/cq.gif"></TD>
+                     <TD><img src="./labai/ck.gif"></TD>
+                     <TD><img src="./labai/h1.gif"></TD>
+                     <TD><img src="./labai/h2.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/hj.gif"></TD>
+                     <TD><img src="./labai/hq.gif"></TD>
+                     <TD><img src="./labai/hk.gif"></TD>
+                     <TD><img src="./labai/s1.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/s2.gif"></TD>
+                     <TD><img src="./labai/s3.gif"></TD>
+                     <TD><img src="./labai/s4.gif"></TD>
+                     <TD><img src="./labai/s5.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/d1.gif"></TD>
+                     <TD><img src="./labai/d2.gif"></TD>
+                     <TD><img src="./labai/d3.gif"></TD>
+                     <TD><img src="./labai/d4.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/d5.gif"></TD>
+                     <TD><img src="./labai/d6.gif"></TD>
+                     <TD><img src="./labai/d7.gif"></TD>
+                     <TD><img src="./labai/d8.gif"></TD>
+
+                  </tr>
+                  
+               </table>
+            </div>
+            <br>
+            <input type="button" class="btn btn-success btn4c pt-3 pb-3 pt-3 pr-3" value="Có">
+            <input type="button" class="btn btn-danger btn4k pt-3 pb-3 pt-3 pr-3" value="Không">
+         </div>
+         <div class="list-5" style="display: none;">
+            <h2 class="text-danger">Bảng thứ năm</h2>
+            <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+            <div style="overflow-x:auto;">
+               <table class="table table-bordered table-primary">
+                  <tr>
+                     <TD><img src="./labai/h3.gif"></TD>
+                     <TD><img src="./labai/h4.gif"></TD>
+                     <TD><img src="./labai/h5.gif"></TD>
+                     <TD><img src="./labai/h6.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/h7.gif"></TD>
+                     <TD><img src="./labai/h8.gif"></TD>
+                     <TD><img src="./labai/h9.gif"></TD>
+                     <TD><img src="./labai/h10.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/hj.gif"></TD>
+                     <TD><img src="./labai/hq.gif"></TD>
+                     <TD><img src="./labai/hk.gif"></TD>
+                     <TD><img src="./labai/s1.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/s2.gif"></TD>
+                     <TD><img src="./labai/s3.gif"></TD>
+                     <TD><img src="./labai/s4.gif"></TD>
+                     <TD><img src="./labai/s5.gif"></TD>
+                     
+                  </tr>
+
+                  <tr>
+                     <TD><img src="./labai/d9.gif"></TD>
+                     <TD><img src="./labai/d10.gif"></TD>
+                     <TD><img src="./labai/dj.gif"></TD>
+                     <TD><img src="./labai/dq.gif"></TD>
+                     
+                  </tr>
+
+                  <tr>
+                     <TD><img src="./labai/dk.gif"></TD>
+                  </tr>
+               </table>
+            </div>
+            <br>
+            <input type="button" class="btn btn-success btn5c pt-3 pb-3 pt-3 pr-3" value="Có">
+            <input type="button" class="btn btn-danger btn5k pt-3 pb-3 pt-3 pr-3" value="Không">
+         </div>
+         <div class="list-6" style="display: none;">
+            <h2 class="text-danger">Bảng thứ sáu</h2>
+            <!--Công nghệ hiển thị bảng đọc suy nghĩ-->
+            <div style="overflow-x:auto;">
+               <table class="table table-bordered table-primary">
+                  <tr>
+                     <TD><img src="./labai/s6.gif"></TD>
+                     <TD><img src="./labai/s7.gif"></TD>
+                     <TD><img src="./labai/s8.gif"></TD>
+                     <TD><img src="./labai/s9.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/s10.gif"></TD>
+                     <TD><img src="./labai/sj.gif"></TD>
+                     <TD><img src="./labai/sq.gif"></TD>
+                     <TD><img src="./labai/sk.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/d1.gif"></TD>
+                     <TD><img src="./labai/d2.gif"></TD>
+                     <TD><img src="./labai/d3.gif"></TD>
+                     <TD><img src="./labai/d4.gif"></TD>
+                     
+                  </tr>
+                  <tr>
+                     <TD><img src="./labai/d5.gif"></TD>
+                     <TD><img src="./labai/d6.gif"></TD>
+                     <TD><img src="./labai/d7.gif"></TD>
+                     <TD><img src="./labai/d8.gif"></TD>
+                     
+                  </tr>
+
+                  <tr>
+                     <TD><img src="./labai/d9.gif"></TD>
+                     <TD><img src="./labai/d10.gif"></TD>
+                     <TD><img src="./labai/dj.gif"></TD>
+                     <TD><img src="./labai/dq.gif"></TD>
+                     
+                  </tr>
+
+                  <tr>
+                     <TD><img src="./labai/dk.gif"></TD>
+                  </tr>
+               </table>
+            </div>
+            <br>
+            <input type="button" class="btn btn-success btn6c pt-3 pb-3 pt-3 pr-3" value="Có">
+            <input type="button" class="btn btn-danger btn6k pt-3 pb-3 pt-3 pr-3" value="Không">
+         </div>
+         <!--Công nghệ xuất suy nghĩ qua màn hình, ahihi-->
+         <div class="result" style="display: none;">
+            <h2>lá bài bạn đang nghĩ là:</h2>
+            <div name="result-magic" id="result-magic" style="display: none;"></div>
+            <img id="image-magic" src="#"/>
+            <br>
+            <h3>Ngạc nhiên chưa 😂😂😂</h3>
+            <br>
+            <input type="button" value="Bấm vào đây để chọn lại" class="btn btn-success btn-reload pt-3 pb-3 pt-3 pr-3">
+         </div>
+         <div class="result-error" style="display: none;">
+            <h2>Xin lỗi lá bài bạn đang nghĩ không hợp lệ, vui lòng chọn lại, ahihi 🤣</h2>
+            <input type="button" value="Bấm vào đây để chọn lại" class="btn btn-success btn-reload pt-3 pb-3 pt-3 pr-3">
+         </div>
+         <h4 class="text-danger text-gt">Trang web sử dụng công nghệ đọc suy nghĩ qua màn hình, ahihi 😂</h4>
+         <h4 class="text-danger text-gt">© 2020 Copyright by Tiendatmagic - All Rights Reserved | Designed by Tiendatmagic</h4>
+         <h4 class="text-danger text-gt">Liên hệ:<a href="https://www.facebook.com/tiendatmagic">Tiến Đạt Magic</a></h4>
+      </div>
+   </body>
+</html>
+<!--© 2020 Copyright by Tiendatmagic - All Rights Reserved | Designed by Tiendatmagic-->
