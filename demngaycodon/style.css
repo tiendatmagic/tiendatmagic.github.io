@@ -131,6 +131,9 @@ p {
   align-items: center;
   width: 70px;
 }
+.profile .button {
+  margin-bottom: 50px;
+}
 input[type="radio"] {
   width: 23px;
   height: 23px;
@@ -252,13 +255,97 @@ input[type="date"]:focus,
 .scontent .content2 {
   width: 100%;
 }
+.setting {
+  display: none;
+}
+
+.ssetting {
+  height: 80vh;
+  overflow-y: scroll;
+  position: relative;
+  top: -1000px;
+  transition: 0.5s ease-out;
+  visibility: hidden;
+  opacity: 0;
+  margin-bottom: 500px;
+}
+.ssetting.active {
+  top: 0px;
+  visibility: visible;
+  opacity: 1;
+}
+.setting-option {
+  position: relative;
+}
+
+.setting-option li {
+  height: 60px;
+  background-color: #9658fe;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.setting-option li i {
+  margin: 0px 20px;
+  font-size: 20px;
+}
+.setting-option li i:nth-child(3) {
+  position: absolute;
+  right: 0px;
+}
+.setting-option p {
+  font-size: 19px;
+  text-align: left;
+}
+.setting-option .s_setting {
+  color: grey;
+}
+.lightoption {
+  position: absolute;
+  right: 0px;
+}
+.lightoption .lightoff {
+  display: none;
+}
+
 .content {
   overflow: hidden;
 }
+.content .buttonstatus {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, 0.466);
+  position: absolute;
+  z-index: 1;
+}
+.content .statuseveryday {
+  width: 50%;
+  height: 150px;
+  border-radius: 15px;
+  position: absolute;
+  background-color: #3a8ffe;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+  transition: 0.3s ease-out;
+}
+.content .statuseveryday.active {
+  display: flex;
+  transition: 0.3s ease-out;
+}
+.statuseveryday .contentstatuseveryday {
+  width: 80%;
+  word-break: break-all;
+
+  margin: 0 auto;
+  text-align: justify;
+}
 
 .content .circle {
-  width: 220px;
-  height: 220px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background-color: #3a8ffe;
   border: 6px solid red;
@@ -266,42 +353,69 @@ input[type="date"]:focus,
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 0.2s ease-out;
 }
 
 .content .countday {
-  font-size: 70px;
+  font-size: 30px;
   text-align: center;
 }
 
 .content2 p {
   font-size: 20px;
 }
-.selectmain {
+
+.personal_info {
   display: flex;
   justify-content: center;
-}
-.selectmain div {
-  width: 20px;
-  height: 20px;
-  margin: 15px;
-  border-radius: 50%;
-  background-color: grey;
-}
-.selectmain div:nth-child(1) {
-  background-color: blue;
-}
-
-.personal_info .pavatar {
-  width: 70px;
-  height: 70px;
-  background-color: #fff;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+  height: 100px;
   margin: 0 auto;
+  border: 1px solid #adadada6;
+  border-radius: 12px;
+}
+.personal_info .personall {
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.personal_info .personall:nth-child(1) {
+  flex: 1;
+}
+.personal_info .personall:nth-child(2) {
+  flex: 2;
+  width: 100%;
+
+  overflow: scroll;
+}
+.personal_info .pavatar {
+  width: 80px;
+  height: 80px;
+
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 3px solid #a800a8;
+}
+.ssetting .pavatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 3px solid #a800a8;
 }
 
-.personal_info .pavatar img {
+.personal_info .pavatar img,
+.setting .pavatar img {
   width: 100%;
   height: 100%;
+  border-radius: 50%;
+  border: 3px solid #fff;
 }
+
 .personal_info .page {
   background-color: #e6e6e6;
   display: block;
@@ -332,14 +446,20 @@ input[type="date"]:focus,
   border-radius: 10px;
   padding: 10px;
   font-size: 14px;
-
-  overflow-y: scroll;
+  word-break: break-all;
+  overflow: scroll;
 }
 .contentstatus::-webkit-scrollbar,
+.ssetting::-webkit-scrollbar,
+.statuseveryday::-webkit-scrollbar,
+.personall::-webkit-scrollbar,
 .listevent::-webkit-scrollbar {
   width: 3px;
 }
 .contentstatus::-webkit-scrollbar-thumb,
+.ssetting::-webkit-scrollbar-thumb,
+.statuseveryday::-webkit-scrollbar-thumb,
+.personall::-webkit-scrollbar-thumb,
 .listevent::-webkit-scrollbar-thumb {
   background: grey;
 }
@@ -428,8 +548,9 @@ input[type="date"]:focus,
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.options-event {
-  display: none;
+.options-event,
+.options2-event {
+  display: block;
   width: 100%;
   background-color: #fff;
   position: absolute;
@@ -437,6 +558,14 @@ input[type="date"]:focus,
   left: 0px;
   border-radius: 10px;
   padding: 10px;
+}
+.options2-event {
+  display: none;
+}
+.options2-event.active {
+  z-index: 9999;
+  padding: 20px;
+  display: block;
 }
 .listevent {
   height: 60%;
@@ -451,6 +580,37 @@ input[type="date"]:focus,
   border-radius: 20px;
 }
 
+.buttonstatus {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+
+.navigation {
+  width: 100%;
+  margin: 0 auto;
+  height: 50px;
+  background-color: red;
+  position: fixed;
+  bottom: 0px;
+}
+.navigation ul {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: space-evenly;
+}
+.navigation li {
+  list-style: none;
+  font-size: 25px;
+  background-color: #3a8ffe;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+}
 @media only screen and (min-height: 550px) {
   .content .circle {
     margin-top: 30px;
@@ -503,9 +663,17 @@ input[type="date"]:focus,
 }
 
 @media only screen and (min-width: 375px) {
+  .content .circle {
+    width: 180px;
+    height: 180px;
+  }
+
+  .content .countday {
+    font-size: 40px;
+  }
   .personal_info .pavatar {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     background-color: #fff;
     margin: 0 auto;
   }
@@ -517,6 +685,14 @@ input[type="date"]:focus,
 }
 
 @media only screen and (min-width: 675px) {
+  .content .circle {
+    width: 220px;
+    height: 220px;
+  }
+
+  .content .countday {
+    font-size: 50px;
+  }
   .datetime {
     display: flex;
     text-align: center;

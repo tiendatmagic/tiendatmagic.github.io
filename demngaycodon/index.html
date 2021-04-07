@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Đếm ngày cô đơn</title>
     <link rel="stylesheet" href="./style.css" />
-    <link
-        rel="stylesheet"
-        href="https://pro.fontawesome.com/releases/v5.15.1/css/all.css"
-      />
+    <link rel="stylesheet" href="./all.css" />
   </head>
+
   <body>
     <div class="container">
       <div class="profile">
@@ -66,7 +64,13 @@
 
         <div class="Datestart">
           <label for="datestart">Ngày bắt đầu</label>
-          <input type="date" name="" min="1900-01-01" id="ngaybatdau" />
+          <input
+            type="date"
+            name="ngaybatdau"
+            min="1900-01-01"
+            id="ngaybatdau"
+            value="2000-01-01"
+          />
         </div>
 
         <div class="status">
@@ -108,6 +112,10 @@ Phải cố gắng thay đổi bản thân</textarea
         <div class="content">
           <div class="scontent">
             <div class="content1">
+              <div class="buttonstatus"></div>
+              <div class="statuseveryday">
+                <div class="contentstatuseveryday">abcc</div>
+              </div>
               <div class="circle">
                 <div class="info">
                   <p class="info1">Đã cô đơn</p>
@@ -151,33 +159,111 @@ Phải cố gắng thay đổi bản thân</textarea
             </div>
           </div>
 
-          <div class="selectmain">
-            <div class="select1"></div>
-            <div class="select2"></div>
-          </div>
-
           <div class="personal_info">
-            <div class="pavatar">
-              <img src="" alt="" class="imgavatar" />
+            <div class="personall">
+              <div class="pavatar">
+                <img src="" alt="" class="imgavatar" />
+              </div>
             </div>
-
-            <div class="pname">
-              <p class="dname">Không có tên</p>
-            </div>
-            <div class="page">
-              <p>
-                <b class="dage"> 0 </b>
-                tuổi
-              </p>
-            </div>
-            <div class="colors">
-              <input type="color" id="dmhn" name="dmht" value="#ff0000" />
-              <input type="color" id="dmht" name="dmht" value="#ff0000" />
-              <input type="color" id="dmng" name="dmng" value="#ff0000" />
-              <input type="color" id="dmtt" name="dmtt" value="#ff0000" />
+            <div class="personall">
+              <div>
+                <div class="pname">
+                  <p class="dname">Không có tên</p>
+                </div>
+                <div class="page">
+                  <p>
+                    <b class="dage"> 0 </b>
+                    tuổi
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="setting">
+          <div class="ssetting">
+            <div class="pavatar">
+              <img src="" alt="" class="imgavatar" />
+            </div>
+            <div class="pname">
+              <p class="dname">Không có tên</p>
+            </div>
+            <div class="pgioitinh">
+              <p class="dgioitinh">Đồng tính</p>
+            </div>
+
+            <div class="setting-option">
+              <ul>
+                <li>
+                  <i class="fas fa-home"></i>
+                  <div class="namesetting">
+                    <p>Nền tối</p>
+                  </div>
+                  <div class="lightoption">
+                    <i class="lightoff fas fa-moon"></i
+                    ><i class="lighton far fa-lightbulb"></i>
+                    <i class="lighton fas fa-sun"></i>
+                  </div>
+                </li>
+                <li>
+                  <i class="fas fa-home"></i>
+                  <div class="namesetting">
+                    <p>Tiêu đề</p>
+                    <p class="s_setting title">ad</p>
+                  </div>
+                  <i class="fas fa-chevron-right"></i>
+                </li>
+                <li class="sli3">
+                  <i class="fas fa-home"></i>
+                  <div class="namesetting">
+                    <p>Ngày bắt đầu cô đơn</p>
+                    <p class="s_setting snbdcd">N/A</p>
+                  </div>
+                  <i class="fas fa-chevron-right"></i>
+                </li>
+
+                <li>
+                  <i class="fas fa-home"></i>
+                  <div class="namesetting">
+                    <p>Mật khẩu ứng dụng</p>
+                  </div>
+                  <i class="fas fa-chevron-right"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="options2-event">
+            <div class="ops">
+              <label for="contentevent">Ngày bắt đầu cô đơn</label>
+              <input
+                type="date"
+                name="ngaybatdau2"
+                min="1900-01-01"
+                id="ngaybatdau2"
+                value="2000-01-01"
+              />
+            </div>
+
+            <div class="ops-buttons">
+              <button id="xacnhanevent2">Xác nhận</button>
+              <button id="huyevent2">Hủy</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navigation">
+        <ul>
+          <li class="select1"><i class="fas fa-home"></i></li>
+          <li class="select2"><i class="fas fa-heart"></i></li>
+          <li class="select3"><i class="fas fa-cog"></i></li>
+        </ul>
+      </div>
+      <div class="colors">
+        <input type="color" id="dmhn" name="dmht" value="#ff0000" />
+        <input type="color" id="dmht" name="dmht" value="#ff0000" />
+        <input type="color" id="dmng" name="dmng" value="#ff0000" />
+        <input type="color" id="dmtt" name="dmtt" value="#ff0000" />
       </div>
 
       <div class="options-2">
@@ -230,7 +316,6 @@ Phải cố gắng thay đổi bản thân</textarea
         </div>
       </div>
     </div>
-
     <script src="./magic.js"></script>
   </body>
 </html>

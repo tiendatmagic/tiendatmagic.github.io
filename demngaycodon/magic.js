@@ -50,6 +50,10 @@ if (dngaysinh === null) {
 }
 
 var ngaybatdau = document.getElementById("ngaybatdau");
+var dngaybatdau = JSON.parse(localStorage.getItem("dngaybatdau"));
+if (dngaybatdau === null) {
+  dngaybatdau = "";
+}
 var trangthai = document.getElementById("statuss");
 var simg = 0;
 var sten = JSON.parse(localStorage.getItem("sten"));
@@ -80,7 +84,6 @@ if (dmhns === null) {
   dmhns = "pink";
 }
 
-
 var dmhts = JSON.parse(localStorage.getItem("dmhts"));
 if (dmhts === null) {
   dmhts = "pink";
@@ -105,10 +108,10 @@ if (info2 === null || info2 === "") {
   info2 = "Ngày";
 }
 var text = document.getElementById("contentevent");
-var data = JSON.parse(localStorage.getItem("dataa"));
-var arr = JSON.parse(localStorage.getItem("arr"));
-if (arr === null) {
-  arr = [];
+var data = JSON.parse(localStorage.getItem("datadncd"));
+var arrdncd = JSON.parse(localStorage.getItem("arrdncd"));
+if (arrdncd === null) {
+  arrdncd = [];
 }
 var i;
 var d = new Date();
@@ -137,9 +140,16 @@ document.getElementById("submit").addEventListener("click", () => {
     (new Date(ngaysinh.value).getMonth() + 1) +
     "/" +
     new Date(ngaysinh.value).getFullYear();
+
   localStorage.setItem("sngaysinh", JSON.stringify(sngaysinh));
   sngaybatdau = Date.parse(ngaybatdau.value) - 25200000;
   localStorage.setItem("sngaybatdau", JSON.stringify(sngaybatdau));
+  dngaybatdau =
+    new Date(ngaybatdau.value).getDate() +
+    "/" +
+    (new Date(ngaybatdau.value).getMonth() + 1) +
+    "/" +
+    new Date(ngaybatdau.value).getFullYear();
   strangthai = trangthai.value;
   localStorage.setItem("strangthai", JSON.stringify(strangthai));
 
@@ -168,7 +178,7 @@ document.getElementById("submit").addEventListener("click", () => {
 });
 
 document.getElementsByClassName("addnotes")[0].addEventListener("click", () => {
-  document.getElementsByClassName("event")[0].style.display = 'block';
+  document.getElementsByClassName("event")[0].style.display = "block";
 });
 
 document.getElementsByClassName("cstt")[0].addEventListener("click", () => {
@@ -227,8 +237,6 @@ document.getElementById("dmhn").addEventListener("change", () => {
   localStorage.setItem("dmhns", JSON.stringify(dmhns));
 });
 
-
-
 document.getElementById("dmht").addEventListener("change", () => {
   dmhts = document.getElementById("dmht").value;
   document.getElementsByClassName("circle")[0].style.backgroundColor = dmhts;
@@ -254,31 +262,53 @@ document.getElementById("dmtt").addEventListener("change", () => {
 document.getElementById("huyevent").addEventListener("click", () => {
   document.getElementsByClassName("options-event")[0].style.display = "none";
 });
-
+document.getElementById("huyevent2").addEventListener("click", () => {
+  document.getElementsByClassName("options2-event")[0].classList.toggle("active");
+});
 document.getElementsByClassName("addevent")[0].addEventListener("click", () => {
   document.getElementsByClassName("options-event")[0].style.display = "block";
 });
 document.getElementById("xacnhanevent").addEventListener("click", () => {
-  data = document.getElementsByClassName("listevent")[0].innerHTML +=
-    "<li>" + text.value + "</li>";
-  arr.push(text.value);
-  document.getElementById("contentevent").value = "";
-  localStorage.setItem("dataa", JSON.stringify(data));
-  localStorage.setItem("arr", JSON.stringify(arr));
-
+  if (document.getElementById("contentevent").value === "") {
+    alert("không được bỏ trống nha");
+  } else {
+    data = document.getElementsByClassName("listevent")[0].innerHTML +=
+      "<li>" + text.value + "</li>";
+    arrdncd.push(text.value);
+    document.getElementById("contentevent").value = "";
+    localStorage.setItem("datadncd", JSON.stringify(data));
+    localStorage.setItem("arrdncd", JSON.stringify(arrdncd));
+  }
 });
 
-document.getElementsByClassName("clearevent")[0].addEventListener("click", () => {
-  data = document.getElementsByClassName("listevent")[0].innerHTML =
-    "";
-  document.getElementById("contentevent").value = "";
-  localStorage.setItem("dataa", JSON.stringify(data));
-  localStorage.setItem("arr", JSON.stringify(arr));
+document.getElementById("xacnhanevent2").addEventListener("click", () => {
+  if (document.getElementById("ngaybatdau2").value === "") {
+    alert("không được bỏ trống nha");
+  } else {
+    dngaybatdau = document.getElementById("ngaybatdau2").value;
+    document.getElementsByClassName("snbdcd")[0].innerText = document.getElementById("ngaybatdau2").value;
+    sngaybatdau = Date.parse(dngaybatdau) - 25200000;
+    localStorage.setItem("dngaybatdau", JSON.stringify(dngaybatdau));
+    displayprofile();
+    localStorage.setItem("sngaybatdau", JSON.stringify(sngaybatdau));
+    displayprofile();
+    document.getElementById("ngaybatdau2").value = "";
+  }
+});
 
-});
-document.getElementsByClassName("exitevent")[0].addEventListener("click", () => {
-  document.getElementsByClassName("event")[0].style.display = 'none';
-});
+document
+  .getElementsByClassName("clearevent")[0]
+  .addEventListener("click", () => {
+    data = document.getElementsByClassName("listevent")[0].innerHTML = "";
+    document.getElementById("contentevent").value = "";
+    localStorage.setItem("datadncd", JSON.stringify(data));
+    localStorage.setItem("arrdncd", JSON.stringify(arrdncd));
+  });
+document
+  .getElementsByClassName("exitevent")[0]
+  .addEventListener("click", () => {
+    document.getElementsByClassName("event")[0].style.display = "none";
+  });
 
 document.getElementsByClassName("ellipsis")[0].addEventListener("click", () => {
   document.getElementsByClassName("options")[0].classList.toggle("active");
@@ -286,13 +316,20 @@ document.getElementsByClassName("ellipsis")[0].addEventListener("click", () => {
 
 function displayprofile() {
   if (profile === 1) {
+    document.getElementsByClassName("navigation")[0].style.display = "block";
     document.getElementsByClassName("profile")[0].style.display = "none";
     document.getElementsByClassName("main")[0].style.display = "block";
     document.getElementsByClassName("dname")[0].innerText = sten;
+    document.getElementsByClassName("dname")[1].innerText = sten;
     document.getElementsByClassName("imgavatar")[0].src = result;
+    document.getElementsByClassName("imgavatar")[1].src = result;
+    document.getElementsByClassName("dgioitinh")[0].innerText = sgt;
     document.getElementsByClassName("ntns")[0].innerText = dngaysinh;
+    document.getElementsByClassName("snbdcd")[0].innerText = dngaybatdau;
     document.getElementsByClassName("dstatus")[0].innerText = strangthai;
-    document.getElementsByClassName("container")[0].style.backgroundColor = dmhns;
+    document.getElementsByClassName(
+      "container"
+    )[0].style.backgroundColor = dmhns;
     document.getElementsByClassName("event")[0].style.backgroundColor = dmhns;
     document.getElementsByClassName("circle")[0].style.backgroundColor = dmhts;
     document.getElementById("ndt").value = info1;
@@ -307,14 +344,14 @@ function displayprofile() {
       document.getElementsByClassName("heart")[j].style.backgroundColor = dmngs;
     }
     document.getElementsByClassName("listevent")[0].innerHTML = JSON.parse(
-      localStorage.getItem("dataa")
+      localStorage.getItem("datadncd")
     );
 
     document.getElementsByClassName(
       "contentstatus"
     )[0].style.backgroundColor = dmtts;
     localStorage.setItem("dngaysinh", JSON.stringify(dngaysinh));
-
+    localStorage.setItem("dngaybatdau", JSON.stringify(dngaybatdau));
     setInterval(() => {
       document.getElementsByClassName("countday")[0].innerText = Math.floor(
         (new Date() - sngaybatdau) / 86400000
@@ -374,17 +411,42 @@ document.getElementById("ngaybatdau").max = new Date(
 )
   .toISOString()
   .split("T")[0];
-
+document.getElementById("ngaybatdau2").max = new Date(
+  new Date().getTime() - new Date().getTimezoneOffset() * 60000
+)
+  .toISOString()
+  .split("T")[0];
 document.getElementsByClassName("select1")[0].addEventListener("click", () => {
+  document.getElementsByClassName("content")[1].style.display = "block";
+
+  document.getElementsByClassName("setting")[0].style.display = "none";
+  document.getElementsByClassName("ssetting")[0].classList.remove("active");
+
   document.getElementsByClassName("scontent")[0].style.transform =
     "translateX(0%)";
-  document.getElementsByClassName("select1")[0].style.backgroundColor = "blue";
-  document.getElementsByClassName("select2")[0].style.backgroundColor = "grey";
 });
 
 document.getElementsByClassName("select2")[0].addEventListener("click", () => {
+  document.getElementsByClassName("content")[1].style.display = "block";
+  document.getElementsByClassName("setting")[0].style.display = "none";
+  document.getElementsByClassName("ssetting")[0].classList.remove("active");
   document.getElementsByClassName("scontent")[0].style.transform =
     "translateX(-50%)";
-  document.getElementsByClassName("select1")[0].style.backgroundColor = "grey";
-  document.getElementsByClassName("select2")[0].style.backgroundColor = "blue";
+});
+document.getElementsByClassName("select3")[0].addEventListener("click", () => {
+  document.getElementsByClassName("content")[1].style.display = "none";
+  document.getElementsByClassName("setting")[0].style.display = "block";
+  document.getElementsByClassName("ssetting")[0].classList.add("active");
+});
+document
+  .getElementsByClassName("buttonstatus")[0]
+  .addEventListener("click", () => {
+    document
+      .getElementsByClassName("statuseveryday")[0]
+      .classList.toggle("active");
+  });
+document.getElementsByClassName("sli3")[0].addEventListener("click", () => {
+  document
+    .getElementsByClassName("options2-event")[0]
+    .classList.toggle("active");
 });
