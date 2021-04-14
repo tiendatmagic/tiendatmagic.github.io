@@ -465,14 +465,14 @@ function answer() {
       say.indexOf("ăn") !== -1 &&
       say.indexOf("mấy giờ") !== -1
     ) {
-      if (date.getHours < 6 && date.getHours > 1) {
+      if (date.getHours() > 11 && date.getHours() < 6) {
         ans = "chị đang ngủ em ơi, tí chị mới ăn";
-      } else if (date.getHours < 11 && date.getHours >= 6) {
+      } else if (date.getHours() >= 6 && date.getHours() < 11) {
         ans = "11h30 trưa";
-      } else if (date.getHours < 17 && date.getHours() >= 12) {
+      } else if (date.getHours() >= 11 && date.getHours() < 17) {
         ans = "17h30 trưa";
       } else {
-        ans = "khuya rồi chị không ăn sợ mập";
+        ans = "thôi tối rồi chị không ăn sợ mập";
       }
     } else if (
       (say.indexOf("có tiền không") !== -1 && say.indexOf("chị") !== -1) ||
