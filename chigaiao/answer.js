@@ -56,6 +56,8 @@ function answer() {
       }
     } else if (say.indexOf("hừm") !== -1 || say.search("hừ") !== -1) {
       ans = "sao thế";
+    } else if (say.indexOf("thích ăn") !== -1) {
+      ans = "chị thích ăn mì";
     } else if (say.indexOf("thích màu") !== -1) {
       ans = "chị thích màu vàng";
     } else if (say.indexOf("thích hoa") !== -1) {
@@ -91,12 +93,18 @@ function answer() {
       (say.indexOf("thích") !== -1 &&
         say.indexOf("chị") !== -1 &&
         say.indexOf("em") !== -1) ||
-      (say.indexOf("yêu") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("yêu") !== -1 &&
+        say.indexOf("chị") !== -1 &&
+        say.indexOf("hông") === -1) ||
       say.indexOf("xinh đẹp") !== -1 ||
       say.indexOf("đẹp quá") !== -1 ||
       say.indexOf("thương chị") !== -1 ||
-      (say.indexOf("chị") !== -1 && say.indexOf("giỏi") !== -1) ||
-      (say.indexOf("dễ thương") !== -1 && say.indexOf("chị") !== -1)
+      (say.indexOf("chị") !== -1 &&
+        say.indexOf("giỏi") !== -1 &&
+        say.indexOf("hông") === -1) ||
+      (say.indexOf("dễ thương") !== -1 &&
+        say.indexOf("chị") !== -1 &&
+        say.indexOf("hông") === -1)
     ) {
       num = Math.ceil(Math.random() * 3);
       switch (num) {
@@ -158,8 +166,20 @@ function answer() {
       say.indexOf("chị") !== -1
     ) {
       ans = "chị không cho đâu";
+    } else if (say.indexOf("thế nào") !== -1 && say.indexOf("chị") !== -1) {
+      num = Math.ceil(Math.random() * 2);
+      switch (num) {
+        case 1:
+          ans = "chị vẫn ổn";
+          break;
+
+        default:
+          ans = "chị không sao cả";
+          break;
+      }
     } else if (
       (say.indexOf("sao") !== -1 &&
+        say.indexOf("tại") === -1 &&
         say.indexOf("ạ") !== -1 &&
         say.length < 12) ||
       (say.indexOf("sao") !== -1 &&
@@ -587,6 +607,12 @@ function answer() {
       ans = "sao chị biết được";
     } else if (say.indexOf("đâu") !== -1 && say.substr(-3) === "đâu") {
       ans = "Đâu là đâu em";
+    } else if (
+      say.indexOf("tại sao") !== -1 &&
+      say.length < 10 &&
+      say.substr(0, 3) === "tại"
+    ) {
+      ans = "tại chị thích ";
     } else if (say.indexOf("sao") !== -1 && say.length <= 7) {
       ans = "sao là sao em";
     } else if (
@@ -596,7 +622,8 @@ function answer() {
       (say.indexOf("chưa") !== -1 &&
         say.length <= 7 &&
         say.substr(-4) === "chưa") ||
-      (say.indexOf("ê") !== -1 && say.length <= 3)
+      (say.indexOf("ê") !== -1 && say.length <= 3) ||
+      (say.indexOf("nào") !== -1 && say.length <= 8)
     ) {
       ans = "hỏi ai vậy em";
     } else if (
@@ -740,7 +767,6 @@ function answer() {
       say.length < 20
     ) {
       ans = "ai bị gì chị đâu biết";
-    } else if (say.indexOf("có thích") !== -1 || say.indexOf("thích") !== -1) {
     } else if (
       say.indexOf("có thích") !== -1 ||
       say.indexOf("thích") !== -1 ||
@@ -751,7 +777,7 @@ function answer() {
       say.indexOf("hông") !== -1 ||
       say.indexOf("ở đâu") !== -1 ||
       say.indexOf("bị") !== -1 ||
-      say.indexOf("à") !== -1 ||
+      (say.indexOf("à") !== -1 && say.substr(-1) === "à") ||
       (say.indexOf("ạ") !== -1 && say.substr(-1) === "ạ" && say.length >= 10)
     ) {
       ans = "chị không biết";
