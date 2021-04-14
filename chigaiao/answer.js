@@ -3,8 +3,9 @@ function answer() {
     if (
       (say.search("hi") == 0 && say !== "hihi") ||
       say.search("hello") == 0 ||
-      (say.search("chào") == 0 && say.length < 10) ||
-      say.search("indexOf") == 0
+      say.search("chào") == 0 ||
+      (say.search("chào") == 0 && say.substr(0, 1) === "c") ||
+      (say.search("chào") == 0 && say.search("chị") == 0)
     ) {
       num = Math.ceil(Math.random() * 4);
       switch (num) {
