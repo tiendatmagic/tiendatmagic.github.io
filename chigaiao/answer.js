@@ -122,11 +122,6 @@ function answer() {
         " năm " +
         date.getFullYear();
     } else if (
-      say.indexOf("cảm ơn") !== -1 ||
-      (say.indexOf("quá") !== -1 && say.length > 3 && say.substr(-1) === "á")
-    ) {
-      ans = "ừm, không có gì đâu em";
-    } else if (
       say.indexOf("nhà") !== -1 &&
       say.indexOf("chị") !== -1 &&
       say.indexOf("ở đâu") !== -1
@@ -351,10 +346,10 @@ function answer() {
           break;
       }
     } else if (
-      (say.indexOf("bị điên") !== -1 && say.indexOf("chị") !== -1) ||
-      (say.indexOf("bị khùng") !== -1 && say.indexOf("chị") !== -1) ||
-      (say.indexOf("bị ngáo") !== -1 && say.indexOf("chị") !== -1) ||
-      (say.indexOf("bị thần kinh") !== -1 && say.indexOf("chị") !== -1)
+      (say.indexOf("điên") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("khùng") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("ngáo") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("thần kinh") !== -1 && say.indexOf("chị") !== -1)
     ) {
       num = Math.ceil(Math.random() * 2);
       switch (num) {
@@ -659,6 +654,7 @@ function answer() {
       (say.indexOf("nè") !== -1 && say.indexOf("chị") !== -1) ||
       (say.indexOf("nha") !== -1 && say.indexOf("chị") !== -1) ||
       (say.indexOf("mà") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("quá") !== -1 && say.indexOf("chị") !== -1) ||
       (say.indexOf("á") !== -1 && say.indexOf("chị") !== -1) ||
       (say.indexOf("không biết") !== -1 && say.indexOf("chị") !== -1) ||
       (say.indexOf("có") !== -1 && say.indexOf("gì") !== -1) ||
@@ -692,6 +688,11 @@ function answer() {
         default:
           ans = "không nha em";
       }
+    } else if (
+      say.indexOf("cảm ơn") !== -1 ||
+      (say.indexOf("quá") !== -1 && say.length > 3 && say.substr(-1) === "á")
+    ) {
+      ans = "ừm, không có gì đâu em";
     } else if (say.indexOf("chị") !== -1 && say.length <= 7) {
       num = Math.ceil(Math.random() * 4);
       switch (num) {
