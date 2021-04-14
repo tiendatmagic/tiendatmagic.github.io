@@ -60,6 +60,8 @@ function answer() {
       ans = "chị thích màu vàng";
     } else if (say.indexOf("thích hoa") !== -1) {
       ans = "chị thích hoa hồng";
+    } else if (say.indexOf("chị") !== -1 && say.indexOf("thích gì") !== -1) {
+      ans = "gì chị cũng thích hết nè";
     } else if (
       say.indexOf("chị") !== -1 &&
       say.indexOf("tên") !== -1 &&
@@ -402,9 +404,24 @@ function answer() {
           ans = "ừ nè em vẫn ổn chứ";
           break;
       }
+    } else if (say.indexOf("chơi game") !== -1 && say.indexOf("chị") !== -1) {
+      num = Math.ceil(Math.random() * 3);
+      switch (num) {
+        case 1:
+          ans = "hông nha em, chị không chơi";
+          break;
+        case 2:
+          ans = "không em ơi";
+          break;
+        default:
+          ans = "hông nha, chị hông có chơi game";
+          break;
+      }
     } else if (
       (say.indexOf("biết hát") !== -1 && say.indexOf("chị") !== -1) ||
-      (say.indexOf("biết chơi") !== -1 && say.indexOf("chị") !== -1)
+      (say.indexOf("có hát") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("biết chơi") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("có chơi") !== -1 && say.indexOf("chị") !== -1)
     ) {
       num = Math.ceil(Math.random() * 3);
       switch (num) {
@@ -416,7 +433,7 @@ function answer() {
           break;
 
         default:
-          ans = "có nha, sao á em";
+          ans = "có nha, sao nè";
           break;
       }
     } else if (
@@ -568,35 +585,13 @@ function answer() {
       say.indexOf("đúng không") !== -1
     ) {
       ans = "sao chị biết được";
-    } else if (
-      say.indexOf("thích gì") !== -1 ||
-      say.indexOf("có không") !== -1 ||
-      say.indexOf("biết gì") !== -1 ||
-      say.indexOf("sợ gì") !== -1 ||
-      say.indexOf("là sao") !== -1 ||
-      say.indexOf("là gì") !== -1
-    ) {
-      num = Math.ceil(Math.random() * 3);
-      switch (num) {
-        case 1:
-          ans =
-            "chị không hiểu, em thử lên mạng tra google đi <a href='www.google.com'> Thử dùng google</a>";
-          break;
-        case 2:
-          ans =
-            "em thử tra google đi <a href='www.google.com'> Thử dùng google</a>";
-          break;
-        default:
-          ans = "em nói rõ hơn đi, hay thử tra google thử ";
-          break;
-      }
     } else if (say.indexOf("đâu") !== -1 && say.substr(-3) === "đâu") {
       ans = "Đâu là đâu em";
     } else if (say.indexOf("sao") !== -1 && say.length <= 7) {
       ans = "sao là sao em";
     } else if (
       (say.indexOf("gì") !== -1 &&
-        say.length <= 7 &&
+        say.length <= 12 &&
         say.substr(-2) === "gì") ||
       (say.indexOf("chưa") !== -1 &&
         say.length <= 7 &&
@@ -644,6 +639,28 @@ function answer() {
 
         default:
           ans = "cái nào cũng dị á";
+          break;
+      }
+    } else if (
+      say.indexOf("thích gì") !== -1 ||
+      say.indexOf("có không") !== -1 ||
+      say.indexOf("biết gì") !== -1 ||
+      say.indexOf("sợ gì") !== -1 ||
+      say.indexOf("là sao") !== -1 ||
+      say.indexOf("là gì") !== -1
+    ) {
+      num = Math.ceil(Math.random() * 3);
+      switch (num) {
+        case 1:
+          ans =
+            "chị không hiểu, em thử lên mạng tra google đi <a href='www.google.com'> Thử dùng google</a>";
+          break;
+        case 2:
+          ans =
+            "em thử tra google đi <a href='www.google.com'> Thử dùng google</a>";
+          break;
+        default:
+          ans = "em nói rõ hơn đi, hay thử tra google thử ";
           break;
       }
     } else if (
@@ -723,9 +740,12 @@ function answer() {
       say.length < 20
     ) {
       ans = "ai bị gì chị đâu biết";
+    } else if (say.indexOf("có thích") !== -1 || say.indexOf("thích") !== -1) {
     } else if (
       say.indexOf("có thích") !== -1 ||
+      say.indexOf("thích") !== -1 ||
       say.indexOf("có biết") !== -1 ||
+      say.indexOf("biết") !== -1 ||
       say.indexOf("chưa") !== -1 ||
       (say.indexOf("thấy em") !== -1 && say.indexOf("hông")) ||
       say.indexOf("hông") !== -1 ||
