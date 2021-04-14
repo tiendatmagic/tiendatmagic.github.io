@@ -595,7 +595,12 @@ function answer() {
     } else if (say.indexOf("sao") !== -1 && say.length <= 7) {
       ans = "sao là sao em";
     } else if (
-      (say.indexOf("gì") !== -1 && say.length <= 6) ||
+      (say.indexOf("gì") !== -1 &&
+        say.length <= 7 &&
+        say.substr(-2) === "gì") ||
+      (say.indexOf("chưa") !== -1 &&
+        say.length <= 7 &&
+        say.substr(-4) === "chưa") ||
       (say.indexOf("ê") !== -1 && say.length <= 3)
     ) {
       ans = "hỏi ai vậy em";
