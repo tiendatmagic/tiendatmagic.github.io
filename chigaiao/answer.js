@@ -69,7 +69,7 @@ function answer() {
       say.indexOf("tên") !== -1 &&
       say.indexOf("ì") !== -1
     ) {
-      ans = "chị tên ...";
+      ans = "chị tên ..., chị chưa có tên";
     } else if (
       say.indexOf("bồ chưa") !== -1 ||
       say.indexOf("ny chưa") !== -1 ||
@@ -632,6 +632,16 @@ function answer() {
       say.indexOf("hông") !== -1
     ) {
       ans = "Chị sợ ma lắm em ui";
+    } else if (say.indexOf("em muốn chị") !== -1) {
+      num = Math.ceil(Math.random() * 2);
+      switch (num) {
+        case 1:
+          ans = "Chị thế nào thì đó là việc của chị";
+          break;
+
+        default:
+          ans = "chị sao thì kệ chị, không liên quan đến em";
+      }
     } else if (
       say.indexOf("em") !== -1 &&
       say.indexOf("hết") !== -1 &&
