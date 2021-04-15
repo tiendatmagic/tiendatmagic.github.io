@@ -25,6 +25,7 @@ defaultBtn.addEventListener("change", function () {
     reader.onload = function () {
       result = reader.result;
       img.src = result;
+      document.getElementById("imgavatar").src = result;
       localStorage.setItem("result", JSON.stringify(result));
       wrapper.classList.add("active");
       simg = 1;
