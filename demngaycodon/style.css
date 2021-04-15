@@ -722,6 +722,8 @@ input[type="date"]:focus,
   }
 
   .setting .pavatar {
+    width: 110px;
+    height: 110px;
     margin-top: 30px;
   }
 
@@ -773,7 +775,10 @@ input[type="date"]:focus,
     width: 220px;
     height: 220px;
   }
-
+  .setting .pavatar {
+    width: 120px;
+    height: 120px;
+  }
   .contentstatus {
     height: 160px;
   }
