@@ -4,7 +4,6 @@ const defaultBtn = document.querySelector("#default-btn");
 const customBtn = document.querySelector("#custom-btn");
 const cancelBtn = document.querySelector("#cancel-btn i");
 const img = document.querySelector("img");
-
 var result = JSON.parse(localStorage.getItem("result"));
 if (result === null) {
   result = "";
@@ -171,12 +170,7 @@ document.getElementById("submit").addEventListener("click", () => {
   localStorage.setItem("sngaysinh", JSON.stringify(sngaysinh));
   sngaybatdau = Date.parse(ngaybatdau.value) - 25200000;
   localStorage.setItem("sngaybatdau", JSON.stringify(sngaybatdau));
-  dngaybatdau =
-    new Date(ngaybatdau.value).getDate() +
-    "/" +
-    (new Date(ngaybatdau.value).getMonth() + 1) +
-    "/" +
-    new Date(ngaybatdau.value).getFullYear();
+  dngaybatdau = ngaybatdau.value;
   strangthai = trangthai.value;
   localStorage.setItem("strangthai", JSON.stringify(strangthai));
   if (
@@ -202,7 +196,7 @@ document.getElementById("submit").addEventListener("click", () => {
     displayprofile();
   }
 });
-document.getElementsByClassName("addnotes")[0].addEventListener("click", () => {
+document.getElementsByClassName("sli7")[0].addEventListener("click", () => {
   document.getElementsByClassName("event")[0].style.display = "block";
 });
 document.getElementsByClassName("sli5")[0].addEventListener("click", () => {
@@ -211,7 +205,7 @@ document.getElementsByClassName("sli5")[0].addEventListener("click", () => {
   displayprofile();
   location.reload();
 });
-document.getElementsByClassName("tcms")[0].addEventListener("click", () => {
+document.getElementsByClassName("sli6")[0].addEventListener("click", () => {
   document.getElementsByClassName("options-2")[0].style.display = "block";
   document.getElementsByClassName("options-3")[0].style.display = "none";
 });
@@ -294,15 +288,13 @@ document.getElementById("xacnhanevent2").addEventListener("click", () => {
   if (document.getElementById("ngaybatdau2").value === "") {
     alert("không được bỏ trống nha");
   } else {
-    // dngaybatdau = document.getElementById("ngaybatdau2").value;
-
     dngaybatdau = document.getElementById("ngaybatdau2").value;
     document.getElementsByClassName("snbdcd")[0].innerText =
-      new Date(dngaybatdau).getDate() +
+      new Date(ngaybatdau2.value).getDate() +
       "/" +
-      (new Date(dngaybatdau).getMonth() + 1) +
+      (new Date(ngaybatdau2.value).getMonth() + 1) +
       "/" +
-      new Date(dngaybatdau).getFullYear();
+      new Date(ngaybatdau2.value).getFullYear();
     sngaybatdau = Date.parse(dngaybatdau) - 25200000;
     localStorage.setItem("dngaybatdau", JSON.stringify(dngaybatdau));
     localStorage.setItem("sngaybatdau", JSON.stringify(sngaybatdau));
@@ -334,9 +326,6 @@ document
   .addEventListener("click", () => {
     document.getElementsByClassName("event")[0].style.display = "none";
   });
-document.getElementsByClassName("ellipsis")[0].addEventListener("click", () => {
-  document.getElementsByClassName("options")[0].classList.toggle("active");
-});
 
 function displayprofile() {
   if (profile === 1) {
@@ -352,7 +341,6 @@ function displayprofile() {
       for (j = 0; j <= 3; j++) {
         document.querySelectorAll(".datetime span")[j].style.color = "#fff";
       }
-
       for (
         k = 0;
         k <= document.querySelectorAll(".setting-option li").length - 1;
@@ -374,7 +362,6 @@ function displayprofile() {
       for (j = 0; j <= 3; j++) {
         document.querySelectorAll(".datetime span")[j].style.color = "#272727";
       }
-
       for (
         k = 0;
         k <= document.querySelectorAll(".setting-option li").length - 1;
@@ -385,7 +372,6 @@ function displayprofile() {
           [k].classList.remove("dark");
       }
     }
-
     document.getElementsByClassName("container")[0].style.overflow = "hidden";
     document.getElementsByClassName("navigation")[0].style.display = "block";
     document.getElementsByClassName("profile")[0].style.display = "none";
@@ -404,7 +390,6 @@ function displayprofile() {
       (new Date(dngaybatdau).getMonth() + 1) +
       "/" +
       new Date(dngaybatdau).getFullYear();
-
     document.getElementsByClassName("dstatus")[0].innerText = strangthai;
     document.getElementsByClassName(
       "container"
@@ -515,6 +500,7 @@ document
       .classList.toggle("active");
     document.getElementsByClassName("circle")[0].classList.toggle("active");
   });
+
 function checkdark() {
   if (dark === 1) {
     dark = 0;

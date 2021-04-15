@@ -425,6 +425,12 @@ function answer() {
           break;
       }
     } else if (
+      say.indexOf("chị") !== -1 &&
+      say.indexOf("nhiêu") !== -1 &&
+      say.indexOf("tiền") !== -1
+    ) {
+      ans = "chị làm gì có tiền hả em";
+    } else if (
       (say.indexOf("điên") !== -1 && say.indexOf("chị") !== -1) ||
       (say.indexOf("khùng") !== -1 && say.indexOf("chị") !== -1) ||
       (say.indexOf("ngáo") !== -1 && say.indexOf("chị") !== -1) ||
@@ -602,11 +608,7 @@ function answer() {
           ans = "thôi lỡ rồi, đừng buồn nữa nha em";
           break;
       }
-    } else if (
-      say.indexOf("em") !== -1 &&
-      say.indexOf("buồn") !== -1 &&
-      say.length < 12
-    ) {
+    } else if (say.indexOf("em") !== -1 && say.indexOf("buồn") !== -1) {
       num = Math.ceil(Math.random() * 3);
 
       switch (num) {
@@ -801,6 +803,7 @@ function answer() {
       (say.indexOf("em") !== -1 &&
         say.indexOf("hết") !== -1 &&
         say.indexOf("rồi chị") !== -1) ||
+      say.indexOf("buồn") !== -1 ||
       say.indexOf("thôi") !== -1 ||
       say.indexOf("thôi chị") !== -1 ||
       (say.indexOf("oh") !== -1 && say.indexOf("no") !== -1)
@@ -877,6 +880,8 @@ function answer() {
           ans = "em nói rõ hơn đi, hay thử tra google thử ";
           break;
       }
+    } else if (say.indexOf("chị") !== -1 && say.indexOf("hông") !== -1) {
+      ans = "cái đó sao chị biết được";
     } else if (
       (say.indexOf("chị") !== -1 && say.length <= 15) ||
       (say.indexOf("chị") !== -1 && say.indexOf("ơi") !== -1)
@@ -924,10 +929,11 @@ function answer() {
           ans = "ừm em";
           break;
         case 3:
-          ans = "ok em";
+          ans = "ừ nè";
+
           break;
         default:
-          ans = "ừ nè";
+          ans = "ok em";
           break;
       }
     } else if (
@@ -969,6 +975,8 @@ function answer() {
       say.indexOf("hông") !== -1 ||
       say.indexOf("bao nhiêu") !== -1 ||
       say.indexOf("ở đâu") !== -1 ||
+      say.indexOf("tại sao") !== -1 ||
+      say.indexOf("vì sao") !== -1 ||
       say.indexOf("bị") !== -1 ||
       (say.indexOf("à") !== -1 && say.substr(-1) === "à") ||
       (say.indexOf("ạ") !== -1 && say.substr(-1) === "ạ" && say.length >= 10)
