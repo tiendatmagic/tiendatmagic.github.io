@@ -28,12 +28,12 @@ function loadapp() {
         "</li>";
     }
 
-    if (date.getHours() >= 5 && date.getHours() < 10) {
+    if (date.getHours() >= 5 && date.getHours() < 11) {
       message.innerHTML +=
         "<li class='ans' >" + "Chào buổi sáng nha em " + uname + "</li>";
       message.innerHTML +=
         "<li class='ans' >" + "Hôm nay thế nào có chuyện gì vui hông nè </li>";
-    } else if (date.getHours() >= 10 && date.getHours() < 16) {
+    } else if (date.getHours() >= 11 && date.getHours() < 16) {
       message.innerHTML +=
         "<li class='ans' >" + "Chào buổi trưa nha em " + uname + "</li>";
     } else if (date.getHours() >= 16 && date.getHours() < 18) {

@@ -1,16 +1,23 @@
 function answer() {
   {
-    if (
-      (say.search("hi") == 0 && say !== "hihi") ||
-      say.search("hello") == 0 ||
-      say.search("chào") == 0 ||
-      (say.search("chào") == 0 && say.substr(0, 1) === "c") ||
-      (say.search("chào") == 0 && say.search("chị") == 0)
+    if (say.indexOf("chào") !== -1 && say.indexOf("em") !== -1) {
+      ans = "xưng hô bằng chị nha";
+    } else if (
+      (say.search("hi") == 0 &&
+        say.length < 10 &&
+        say !== "hihi" &&
+        say.length < 10) ||
+      (say.search("hello") == 0 && say.length < 10) ||
+      (say.search("chào") == 0 && say.length < 10) ||
+      (say.search("chào") == 0 &&
+        say.substr(0, 1) === "c" &&
+        say.length < 10) ||
+      (say.search("chào") == 0 && say.search("chị") == 0 && say.length < 10)
     ) {
       num = Math.ceil(Math.random() * 4);
       switch (num) {
         case 1:
-          ans = "chào em";
+          ans = "chào em" + " " + uname;
           break;
         case 2:
           ans = "hi em" + " " + uname;
@@ -63,7 +70,7 @@ function answer() {
     } else if (say.indexOf("thích hoa") !== -1) {
       ans = "chị thích hoa hồng";
     } else if (say.indexOf("chị") !== -1 && say.indexOf("thích gì") !== -1) {
-      ans = "gì chị cũng thích hết nè";
+      ans = "gì chị cũng thích hết";
     } else if (
       say.indexOf("chị") !== -1 &&
       say.indexOf("tên") !== -1 &&
@@ -104,18 +111,22 @@ function answer() {
         say.indexOf("hông") === -1) ||
       (say.indexOf("dễ thương") !== -1 &&
         say.indexOf("chị") !== -1 &&
-        say.indexOf("hông") === -1)
+        say.indexOf("hông") === -1) ||
+      (say.indexOf("chị") !== -1 && say.indexOf("thông minh") !== -1)
     ) {
-      num = Math.ceil(Math.random() * 3);
+      num = Math.ceil(Math.random() * 4);
       switch (num) {
         case 1:
           ans = "thôi, khen chị mãi dị 😂";
           break;
         case 2:
-          ans = "thôi đi em";
+          ans = "cảm ơn, khen miết hà";
+          break;
+        case 3:
+          ans = "thôi đi em, khen chị miết dị";
           break;
         default:
-          ans = "cảm ơn em";
+          ans = "cảm ơn em, khen chị hoài";
           break;
       }
     } else if (
@@ -166,6 +177,52 @@ function answer() {
       say.indexOf("chị") !== -1
     ) {
       ans = "chị không cho đâu";
+    } else if (
+      (say.indexOf("chị ") !== -1 &&
+        say.indexOf("bài tập") !== -1 &&
+        say.indexOf("em")) ||
+      (say.indexOf("chị ") !== -1 &&
+        say.indexOf("bài") !== -1 &&
+        (say.indexOf("giúp") !== -1 || say.indexOf("giùm") !== -1) &&
+        say.indexOf("em"))
+    ) {
+      ans =
+        "bài tập em tự làm đi, hoặc em có thể thử: <a href='https://vietjack.com'> Thử dùng vietjack</a><a href='https://www.google.com'> Thử dùng google</a>";
+    } else if (
+      say.indexOf("chị ") !== -1 &&
+      (say.indexOf("xem") || say.indexOf("biết")) &&
+      say.indexOf("thời tiết") !== -1
+    ) {
+      ans = "chị không biết được em à";
+    } else if (
+      say.indexOf("chị ") !== -1 &&
+      say.indexOf("khỏe") !== -1 &&
+      say.indexOf("hông")
+    ) {
+      num = Math.ceil(Math.random() * 3);
+      switch (num) {
+        case 1:
+          ans = "chị vẫn khỏe";
+          break;
+        case 2:
+          ans = "chị bình thường á";
+          break;
+
+        default:
+          ans = "vẫn khỏe chứ, còn em thì sao";
+          break;
+      }
+    } else if (say.indexOf("ổn chứ") !== -1 && say.indexOf("chị") !== -1) {
+      num = Math.ceil(Math.random() * 2);
+      switch (num) {
+        case 1:
+          ans = "ừm, chị vẫn ổn";
+          break;
+
+        default:
+          ans = "ổn chứ nè, còn em sao";
+          break;
+      }
     } else if (say.indexOf("thế nào") !== -1 && say.indexOf("chị") !== -1) {
       num = Math.ceil(Math.random() * 2);
       switch (num) {
@@ -347,7 +404,7 @@ function answer() {
           break;
 
         case 2:
-          ans = "chắc có á em hi";
+          ans = "chắc có á em hihi";
           break;
         default:
           ans = "có chứ";
@@ -490,8 +547,8 @@ function answer() {
         say.indexOf("hông") !== -1)
     ) {
       if (
-        (date.getHours() >= 11 && date.getHours() <= 13) ||
-        (date.getHours() >= 17 && date.getHours() <= 19)
+        (date.getHours() >= 11 && date.getHours() < 13) ||
+        (date.getHours() >= 17 && date.getHours() < 19)
       )
         ans = "chị đang ăn nè em";
       else {
@@ -510,6 +567,78 @@ function answer() {
         ans = "17h30 trưa";
       } else {
         ans = "thôi tối rồi chị không ăn sợ mập";
+      }
+    } else if (
+      say.indexOf("em") !== -1 &&
+      say.indexOf("xin") !== -1 &&
+      say.indexOf("lỗi") !== -1 &&
+      say.indexOf("chị") !== -1
+    ) {
+      num = Math.ceil(Math.random() * 3);
+      switch (num) {
+        case 1:
+          ans = "ừm em biết lỗi thế là tốt";
+          break;
+        case 2:
+          ans = "không sao đâu, lần sau hãy rút kinh nghiệm";
+          break;
+
+        default:
+          ans = "ừ em biết lỗi là tốt rồi";
+          break;
+      }
+    } else if (say.indexOf("em") !== -1 && say.indexOf("mất") !== -1) {
+      num = Math.ceil(Math.random() * 3);
+
+      switch (num) {
+        case 1:
+          ans = "thôi em đừng buồn nữa nè";
+          break;
+        case 2:
+          ans = "thôi chuyện qua rồi, em đừng buồn nha";
+          break;
+
+        default:
+          ans = "thôi lỡ rồi, đừng buồn nữa nha em";
+          break;
+      }
+    } else if (
+      say.indexOf("em") !== -1 &&
+      say.indexOf("buồn") !== -1 &&
+      say.length < 12
+    ) {
+      num = Math.ceil(Math.random() * 3);
+
+      switch (num) {
+        case 1:
+          ans = "buồn thì vui lên đi em";
+          break;
+        case 2:
+          ans = "sao có chuyện gì kể chị nghe";
+          break;
+
+        default:
+          ans = "thôi đừng buồn nữa nè";
+          break;
+      }
+    } else if (
+      say.indexOf("cho") !== -1 &&
+      say.indexOf("em") !== -1 &&
+      say.indexOf("xin") !== -1 &&
+      say.indexOf("lỗi") === -1
+    ) {
+      num = Math.ceil(Math.random() * 3);
+      switch (num) {
+        case 1:
+          ans = "Thôi em chị không có gì để cho cả";
+          break;
+        case 2:
+          ans = "chị có gì đâu mà cho";
+          break;
+
+        default:
+          ans = "chị không có gì cho em nhé";
+          break;
       }
     } else if (
       (say.indexOf("có tiền không") !== -1 && say.indexOf("chị") !== -1) ||
@@ -545,7 +674,7 @@ function answer() {
           ans = "haha";
           break;
       }
-    } else if (say.indexOf("ok chị") !== -1) {
+    } else if (say.indexOf("ok chị") !== -1 && say.indexOf("ok") !== -1) {
       ans = "ok em";
     } else if (
       (say.indexOf("sao") !== -1 &&
@@ -570,13 +699,16 @@ function answer() {
     } else if (say.indexOf("mở mail") !== -1 && say.length < 16) {
       ans = "Chị mở mail cho em rồi đó";
       location.href = "mailto:";
-    } else if (say.indexOf("facebook") !== -1 && say.length < 20) {
+    } else if (say.indexOf("mở youtube") !== -1 && say.length < 20) {
+      ans = "Chị mở youtube cho em rồi đó";
+      window.open("http://www.youtube.com");
+    } else if (say.indexOf("mở facebook") !== -1 && say.length < 20) {
       ans = "Chị mở facebook cho em rồi đó";
       window.open("http://www.facebook.com");
-    } else if (say.indexOf("máy tính") !== -1 && say.length < 13) {
+    } else if (say.indexOf("mở máy tính") !== -1 && say.length < 13) {
       ans = "Chị mở máy tính cho em rồi đó";
       window.open("http://tiendatmagic.github.io/maytinhanno");
-    } else if (say.indexOf("google") !== -1 && say.length < 15) {
+    } else if (say.indexOf("mởgoogle") !== -1 && say.length < 15) {
       ans = "Chị mở google cho em rồi đó";
       window.open("http://www.google.com");
     } else if (say.indexOf("nà") !== -1 && say.length < 3) {
@@ -626,6 +758,8 @@ function answer() {
       (say.indexOf("nào") !== -1 && say.length <= 8)
     ) {
       ans = "hỏi ai vậy em";
+    } else if (say.indexOf("xin") !== -1 && say.indexOf("lỗi") !== -1) {
+      ans = "xin lỗi ai thế em";
     } else if (
       say.indexOf("ma") !== -1 &&
       say.indexOf("chị") !== -1 &&
@@ -643,26 +777,69 @@ function answer() {
           ans = "chị sao thì kệ chị, không liên quan đến em";
       }
     } else if (
-      say.indexOf("em") !== -1 &&
-      say.indexOf("hết") !== -1 &&
-      say.indexOf("rồi chị") !== -1
+      (say.indexOf("bye") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("bye") !== -1 && say.length < 6) ||
+      (say.indexOf("bai") !== -1 && say.indexOf("chị") !== -1)
     ) {
-      num = Math.ceil(Math.random() * 2);
+      if (date.getHours() >= 22 || date.getHours < 4) {
+        ans = "ừm, khuya rồi em ngủ đi nha";
+      } else {
+        num = Math.ceil(Math.random() * 3);
+        switch (num) {
+          case 1:
+            ans = "ừ em, tạm biệt";
+            break;
+          case 2:
+            ans = "bye em nha";
+            break;
+          default:
+            ans = "ừ nè, bye em";
+            break;
+        }
+      }
+    } else if (
+      (say.indexOf("em") !== -1 &&
+        say.indexOf("hết") !== -1 &&
+        say.indexOf("rồi chị") !== -1) ||
+      say.indexOf("thôi") !== -1 ||
+      say.indexOf("thôi chị") !== -1 ||
+      (say.indexOf("oh") !== -1 && say.indexOf("no") !== -1)
+    ) {
+      num = Math.ceil(Math.random() * 3);
       switch (num) {
         case 1:
           ans = "Sao thế em";
           break;
-
+        case 2:
+          ans = "Sao á";
+          break;
         default:
           ans = "ủa sao vậy em";
       }
     } else if (say.indexOf("chửi") !== -1) {
       ans = "Riêng chị không bao giờ chửi ai hết á";
+    } else if (say.indexOf("em không") !== -1 && say.indexOf("khỏe") !== -1) {
+      num = Math.ceil(Math.random() * 2);
+      switch (num) {
+        case 1:
+          ans = "thôi em ráng giữ gìn sức khỏe đi";
+          break;
+
+        default:
+          ans = "giữ gìn sức khỏe thật tốt nha em";
+          break;
+      }
+    } else if (say.indexOf("em không") !== -1 && say.indexOf("ổn") !== -1) {
+      ans = "thôi em đừng suy nghĩ nhiều, ráng giữ gìn sức khỏe nha";
     } else if (
       say.indexOf("không sao") !== -1 ||
+      (say.indexOf("ổn") !== -1 && say.indexOf("em") !== -1) ||
+      (say.indexOf("khỏe") !== -1 && say.indexOf("em") !== -1) ||
       (say.indexOf("ạ") !== -1 && say.substr(-1) === "ạ" && say.length < 10)
     ) {
       ans = "ừm, thế thì tốt";
+    } else if (say.indexOf("em không") !== -1) {
+      ans = "ừ em";
     } else if (
       say.indexOf("hay") !== -1 &&
       say.indexOf("hông") == -1 &&
@@ -698,6 +875,25 @@ function answer() {
           break;
         default:
           ans = "em nói rõ hơn đi, hay thử tra google thử ";
+          break;
+      }
+    } else if (
+      (say.indexOf("chị") !== -1 && say.length <= 15) ||
+      (say.indexOf("chị") !== -1 && say.indexOf("ơi") !== -1)
+    ) {
+      num = Math.ceil(Math.random() * 4);
+      switch (num) {
+        case 1:
+          ans = "chị đây";
+          break;
+        case 2:
+          ans = "chị nè";
+          break;
+        case 3:
+          ans = "sao thế em";
+          break;
+        default:
+          ans = "ơi em";
           break;
       }
     } else if (
@@ -752,22 +948,6 @@ function answer() {
       (say.indexOf("quá") !== -1 && say.length > 3 && say.substr(-1) === "á")
     ) {
       ans = "ừm, không có gì đâu em";
-    } else if (say.indexOf("chị") !== -1 && say.length <= 7) {
-      num = Math.ceil(Math.random() * 4);
-      switch (num) {
-        case 1:
-          ans = "chị đây";
-          break;
-        case 2:
-          ans = "chị nè";
-          break;
-        case 3:
-          ans = "sao thế em";
-          break;
-        default:
-          ans = "ơi em";
-          break;
-      }
     } else if (say.indexOf("chị") !== -1 && say.indexOf("thật") !== -1) {
       ans = "ok em, chị xem đó là lời khen";
     } else if (
@@ -777,6 +957,8 @@ function answer() {
       say.length < 20
     ) {
       ans = "ai bị gì chị đâu biết";
+    } else if (say.indexOf("ừm") !== -1 || say.indexOf("ok") !== -1) {
+      ans = "ừm";
     } else if (
       say.indexOf("có thích") !== -1 ||
       say.indexOf("thích") !== -1 ||
@@ -785,6 +967,7 @@ function answer() {
       say.indexOf("chưa") !== -1 ||
       (say.indexOf("thấy em") !== -1 && say.indexOf("hông")) ||
       say.indexOf("hông") !== -1 ||
+      say.indexOf("bao nhiêu") !== -1 ||
       say.indexOf("ở đâu") !== -1 ||
       say.indexOf("bị") !== -1 ||
       (say.indexOf("à") !== -1 && say.substr(-1) === "à") ||
@@ -799,6 +982,17 @@ function answer() {
       (say.indexOf("phải hông") !== -1 && say.length < 12)
     ) {
       ans = "em đoán thử xem";
+    } else if (
+      say.indexOf("nhà chị") !== -1 ||
+      (say.indexOf("cha") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("mẹ") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("ông") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("bà") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("gia") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("người") !== -1 && say.indexOf("chị") !== -1) ||
+      (say.indexOf("bạn") !== -1 && say.indexOf("chị") !== -1)
+    ) {
+      ans = "em đừng hỏi chuyện riêng tư của chị";
     } else if (notans > 2) {
       num = Math.ceil(Math.random() * 3);
       switch (num) {
@@ -813,19 +1007,6 @@ function answer() {
           break;
       }
       notans = 0;
-    } else if (
-      say.indexOf("nhà chị") !== -1 ||
-      (say.indexOf("cha") !== -1 && say.indexOf("chị") !== -1) ||
-      (say.indexOf("mẹ") !== -1 && say.indexOf("chị") !== -1) ||
-      (say.indexOf("ông") !== -1 && say.indexOf("chị") !== -1) ||
-      (say.indexOf("bà") !== -1 && say.indexOf("chị") !== -1) ||
-      (say.indexOf("gia") !== -1 && say.indexOf("chị") !== -1) ||
-      (say.indexOf("người") !== -1 && say.indexOf("chị") !== -1) ||
-      (say.indexOf("bạn") !== -1 && say.indexOf("chị") !== -1)
-    ) {
-      ans = "em đừng hỏi chuyện riêng tư của chị";
-    } else if (say.indexOf("ừm") !== -1 || say.indexOf("ok") !== -1) {
-      ans = "ừm";
     } else {
       if (say.length <= 7) {
         ans =
