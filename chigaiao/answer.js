@@ -993,6 +993,8 @@ function answer() {
       (say.indexOf("bạn") !== -1 && say.indexOf("chị") !== -1)
     ) {
       ans = "em đừng hỏi chuyện riêng tư của chị";
+    } else if (say.indexOf("?") !== -1) {
+      ans = "hỏi gì em";
     } else if (notans > 2) {
       num = Math.ceil(Math.random() * 3);
       switch (num) {
