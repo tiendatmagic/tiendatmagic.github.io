@@ -410,6 +410,8 @@ function answer() {
           ans = "có chứ";
           break;
       }
+    } else if (say.indexOf("chị là ai") !== -1) {
+      ans = "Chị là chị gái của em đây";
     } else if (
       (say.indexOf("chị ") !== -1 && say.indexOf("ngu") !== -1) ||
       (say.indexOf("chị ") !== -1 && say.indexOf("ngốc") !== -1)
@@ -608,6 +610,21 @@ function answer() {
           ans = "thôi lỡ rồi, đừng buồn nữa nha em";
           break;
       }
+    } else if (say.indexOf("em") !== -1 && say.indexOf("mệt") !== -1) {
+      num = Math.ceil(Math.random() * 3);
+
+      switch (num) {
+        case 1:
+          ans = "mệt thì em nghỉ sớm đi nè";
+          break;
+        case 2:
+          ans = "thôi em ráng giữ gìn sức khỏe đi nha";
+          break;
+
+        default:
+          ans = "mệt thì nghỉ ngơi sớm đi em";
+          break;
+      }
     } else if (say.indexOf("em") !== -1 && say.indexOf("buồn") !== -1) {
       num = Math.ceil(Math.random() * 3);
 
@@ -676,6 +693,8 @@ function answer() {
           ans = "haha";
           break;
       }
+    } else if (say.indexOf(uname) !== -1 && say.indexOf("là ai") !== -1) {
+      ans = uname + " là em trai của chị đó";
     } else if (say.indexOf("ok chị") !== -1 && say.indexOf("ok") !== -1) {
       ans = "ok em";
     } else if (
@@ -838,9 +857,24 @@ function answer() {
       say.indexOf("không sao") !== -1 ||
       (say.indexOf("ổn") !== -1 && say.indexOf("em") !== -1) ||
       (say.indexOf("khỏe") !== -1 && say.indexOf("em") !== -1) ||
-      (say.indexOf("ạ") !== -1 && say.substr(-1) === "ạ" && say.length < 10)
+      (say.indexOf("ạ") !== -1 &&
+        say.substr(-1) === "ạ" &&
+        say.length < 10 &&
+        say.indexOf("dạ") === -1)
     ) {
-      ans = "ừm, thế thì tốt";
+      num = Math.ceil(Math.random() * 3);
+      switch (num) {
+        case 1:
+          ans = "ừm, thế thì tốt";
+          break;
+        case 2:
+          ans = "ok em";
+          break;
+
+        default:
+          ans = "ừ em";
+          break;
+      }
     } else if (say.indexOf("em không") !== -1) {
       ans = "ừ em";
     } else if (
@@ -965,6 +999,8 @@ function answer() {
       ans = "ai bị gì chị đâu biết";
     } else if (say.indexOf("ừm") !== -1 || say.indexOf("ok") !== -1) {
       ans = "ừm";
+    } else if (say.indexOf("là ai") !== -1) {
+      ans = "ai là ai chị đâu biết";
     } else if (
       say.indexOf("có thích") !== -1 ||
       say.indexOf("thích") !== -1 ||

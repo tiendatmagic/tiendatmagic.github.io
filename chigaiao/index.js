@@ -3,8 +3,10 @@ var ans = "";
 var num = 0;
 var date = new Date();
 var btnok = document.getElementById("ok");
+var btndel = document.getElementById("delete");
+var btnreset = document.getElementById("reset");
 var btnaccept = document.getElementById("acceptname");
-var write = 1;
+
 var ins = 1;
 var uname = JSON.parse(localStorage.getItem("uname"));
 if (uname === null) {
@@ -21,52 +23,39 @@ function loadapp() {
     document.getElementsByClassName("inputname")[0].style.display = "none";
     document.getElementsByClassName("app")[0].style.display = "block";
     if (date.getDay() === 1 && date.getDay() === 6) {
-      message.innerHTML +=
-        "<li class='ans' >" +
-        "Hôm nay cuối tuần có muốn nói chuyện với chị không em " +
-        uname +
-        "</li>";
+      ans += "Hôm nay cuối tuần có muốn nói chuyện với chị không em " + uname;
     }
 
     if (date.getHours() >= 5 && date.getHours() < 11) {
-      message.innerHTML +=
-        "<li class='ans' >" + "Chào buổi sáng nha em " + uname + "</li>";
-      message.innerHTML +=
-        "<li class='ans' >" + "Hôm nay thế nào có chuyện gì vui hông nè </li>";
+      ans += "Chào buổi sáng nha em " + uname;
+      ans += "Hôm nay thế nào có chuyện gì vui hông nè";
     } else if (date.getHours() >= 11 && date.getHours() < 16) {
-      message.innerHTML +=
-        "<li class='ans' >" + "Chào buổi trưa nha em " + uname + "</li>";
-    } else if (date.getHours() >= 16 && date.getHours() < 18) {
-      message.innerHTML +=
-        "<li class='ans' >" + "Chào buổi chiều nha em " + uname + "</li>";
+      ans += "Chào buổi trưa nha em " + uname;
+    } else if (date.getHours() >= 16 && date.getHours() < 17) {
+      ans += "Chào buổi chiều nha em " + uname;
+    } else if (date.getHours() >= 17 && date.getHours() < 18) {
+      ans += "Em sắp về chưa, tranh thủ về nhà còn ăn cơm tối nè em " + uname;
     } else if (date.getHours() >= 18 && date.getHours() < 20) {
       num = Math.ceil(Math.random() * 2);
       switch (num) {
         case 1:
-          message.innerHTML +=
-            "<li class='ans' >" +
-            "Ủa em hôm nay không coi thời sự hả" +
-            "</li>";
+          ans += "Ủa em hôm nay không coi thời sự hả";
+
           break;
 
         default:
-          message.innerHTML +=
-            "<li class='ans' >" + "Chào buổi tối nha em " + uname + "</li>";
+          ans += "Chào buổi tối nha em " + uname;
           break;
       }
-    } else if (date.getHours() >= 20 && date.getHours() < 24) {
-      message.innerHTML +=
-        "<li class='ans' >" +
-        "Tối rồi chuẩn bị ngủ đi nha em " +
-        uname +
-        "</li>";
+    } else if (date.getHours() >= 20 && date.getHours() < 22) {
+      ans += "Tối rồi, tranh thủ làm gì làm đi rồi lát ngủ sớm nha em " + uname;
+    } else if (date.getHours() >= 22 && date.getHours() < 24) {
+      ans += "Thôi khuya rồi đó, chuẩn bị ngủ đi nha em " + uname;
     } else {
-      message.innerHTML +=
-        "<li class='ans' >" +
-        "Khuya rồi có chuyện gì mà chưa ngủ thế em " +
-        uname +
-        "</li>";
+      ans += "Khuya rồi có chuyện gì mà chưa ngủ thế em " + uname;
     }
+
+    message.innerHTML += "<li class='ans' >" + ans + "</li>";
   }
 }
 document.getElementById("name").onkeyup = (event) => {
@@ -80,7 +69,7 @@ document.getElementById("say").onkeyup = (event) => {
   }
 };
 btnaccept.onclick = () => {
-  username = document.getElementById("name").value;
+  username = document.getElementById("name").value.toLowerCase();
   if (username === "") {
     alert("Không được bỏ trống nha");
   } else {
@@ -94,20 +83,28 @@ btnaccept.onclick = () => {
   }
 };
 btnok.onclick = () => {
-  if (write === 1) {
-    say = document.getElementById("say").value.toLowerCase();
+  say = document.getElementById("say").value.toLowerCase();
 
-    if (say === "") {
-      alert("Không được bỏ trống nha");
-    } else if (say.indexOf("<") !== -1 || say.indexOf(">") !== -1) {
-      alert("Ký tự không hợp lệ");
-    } else {
-      message.innerHTML += "<li class='que'>" + say + "</li>";
+  if (say === "") {
+    alert("Không được bỏ trống nha");
+  } else if (say.indexOf("<") !== -1 || say.indexOf(">") !== -1) {
+    alert("Ký tự không hợp lệ");
+  } else {
+    message.innerHTML += "<li class='que'>" + say + "</li>";
 
-      setTimeout(answer, 1000);
+    setTimeout(answer, 1000);
 
-      document.getElementById("say").value = "";
-      write = 0;
-    }
+    document.getElementById("say").value = "";
+    write = 0;
   }
+};
+
+btndel.onclick = () => {
+  message.innerHTML = "";
+};
+
+btnreset.onclick = () => {
+  profile = 0;
+  localStorage.setItem("profile", JSON.stringify(profile));
+  location.reload();
 };

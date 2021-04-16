@@ -102,3 +102,8 @@ a {
 .app {
   width: 100%;
 }
+
+.gbutton {
+  display: flex;
+  flex-wrap: wrap;
+}

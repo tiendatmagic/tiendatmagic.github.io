@@ -476,6 +476,7 @@ input[type="date"]:focus,
   margin: 0 auto;
   border-radius: 50%;
   border: 3px solid #a800a8;
+  transition: 0.3s ease-out;
 }
 
 .personal_info .pavatar img,
