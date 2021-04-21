@@ -4,7 +4,7 @@ var num = 0;
 var date = new Date();
 var btnok = document.getElementById("ok");
 var btndel = document.getElementById("delete");
-var btnreset = document.getElementById("reset");
+
 var btnaccept = document.getElementById("acceptname");
 
 var ins = 1;
@@ -16,10 +16,18 @@ var profile = JSON.parse(localStorage.getItem("profile"));
 if (profile === null) {
   profile = 0;
 }
+var dark = JSON.parse(localStorage.getItem("dark"));
+if (dark === null) {
+  dark = 0;
+}
+
 var notans = 0;
 var message = document.getElementsByClassName("message")[0];
 function loadapp() {
   if (profile === 1) {
+    document.getElementsByClassName("navigation")[0].style.display = "block";
+    document.getElementsByClassName("setting-option")[0].style.display =
+      "block";
     document.getElementsByClassName("inputname")[0].style.display = "none";
     document.getElementsByClassName("app")[0].style.display = "block";
     if (date.getDay() === 1 && date.getDay() === 6) {
@@ -57,6 +65,7 @@ function loadapp() {
 
     message.innerHTML += "<li class='ans' >" + ans + "</li>";
   }
+  loaddark();
 }
 document.getElementById("name").onkeyup = (event) => {
   if (event.keyCode === 13) {
@@ -103,8 +112,63 @@ btndel.onclick = () => {
   message.innerHTML = "";
 };
 
-btnreset.onclick = () => {
+document.getElementsByClassName("sli3")[0].onclick = () => {
   profile = 0;
   localStorage.setItem("profile", JSON.stringify(profile));
   location.reload();
 };
+
+document.getElementById("select1").onclick = () => {
+  document.getElementById("app").style.transform = "translateX(0%)";
+};
+
+document.getElementById("select2").onclick = () => {
+  document.getElementById("app").style.transform = "translateX(-50%)";
+};
+
+function checkdark() {
+  if (dark === 1) {
+    dark = 0;
+    localStorage.setItem("dark", JSON.stringify(dark));
+  } else {
+    dark = 1;
+    localStorage.setItem("dark", JSON.stringify(dark));
+  }
+  loaddark();
+}
+
+function loaddark() {
+  if (dark === 1) {
+    document.getElementsByClassName("lightoff")[0].style.display = "block";
+    document.getElementsByClassName("lighton")[0].style.display = "none";
+    document.getElementsByClassName("main")[0].style.backgroundColor =
+      "#272727";
+
+    document.querySelector("#app > div.app1 > div > span").style.color = "#fff";
+
+    for (
+      k = 0;
+      k <= document.querySelectorAll(".setting-option li").length - 1;
+      k++
+    ) {
+      document.querySelectorAll(".setting-option li")[k].classList.add("dark");
+    }
+  } else {
+    document.getElementsByClassName("lightoff")[0].style.display = "none";
+    document.getElementsByClassName("lighton")[0].style.display = "block";
+    document.getElementsByClassName("main")[0].style.backgroundColor =
+      "#ffe0f3";
+    document.querySelector("#app > div.app1 > div > span").style.color =
+      "#272727";
+    for (
+      k = 0;
+      k <= document.querySelectorAll(".setting-option li").length - 1;
+      k++
+    ) {
+      document
+        .querySelectorAll(".setting-option li")
+        [k].classList.remove("dark");
+    }
+  }
+}
+document.getElementsByClassName("sli1")[0].addEventListener("click", checkdark);

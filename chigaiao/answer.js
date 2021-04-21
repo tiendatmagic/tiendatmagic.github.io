@@ -189,7 +189,6 @@ function answer() {
       ans =
         "bài tập em tự làm đi, hoặc em có thể thử: <a href='https://vietjack.com'> Thử dùng vietjack</a><a href='https://www.google.com'> Thử dùng google</a>";
     } else if (
-      say.indexOf("chị ") !== -1 &&
       (say.indexOf("xem") || say.indexOf("biết")) &&
       say.indexOf("thời tiết") !== -1
     ) {
@@ -410,8 +409,10 @@ function answer() {
           ans = "có chứ";
           break;
       }
+    } else if (say.indexOf("chị biết em") !== -1) {
+      ans = "Em là em của chị đó, " + uname + "😘";
     } else if (say.indexOf("chị là ai") !== -1) {
-      ans = "Chị là chị gái của em đây";
+      ans = "Chị là chị gái của em đây " + uname;
     } else if (
       (say.indexOf("chị ") !== -1 && say.indexOf("ngu") !== -1) ||
       (say.indexOf("chị ") !== -1 && say.indexOf("ngốc") !== -1)
@@ -638,6 +639,18 @@ function answer() {
 
         default:
           ans = "thôi đừng buồn nữa nè";
+          break;
+      }
+    } else if (say.indexOf("em") !== -1 && say.indexOf("vui") !== -1) {
+      num = Math.ceil(Math.random() * 2);
+
+      switch (num) {
+        case 1:
+          ans = "ừm, em vui chị cũng vui";
+          break;
+
+        default:
+          ans = "đúng rồi nè, phải vui lên chứ";
           break;
       }
     } else if (
@@ -917,6 +930,11 @@ function answer() {
     } else if (say.indexOf("chị") !== -1 && say.indexOf("hông") !== -1) {
       ans = "cái đó sao chị biết được";
     } else if (
+      say.indexOf("cảm ơn") !== -1 ||
+      (say.indexOf("quá") !== -1 && say.length > 3 && say.substr(-1) === "á")
+    ) {
+      ans = "ừm, không có gì đâu em";
+    } else if (
       (say.indexOf("chị") !== -1 && say.length <= 15) ||
       (say.indexOf("chị") !== -1 && say.indexOf("ơi") !== -1)
     ) {
@@ -983,11 +1001,6 @@ function answer() {
         default:
           ans = "không nha em";
       }
-    } else if (
-      say.indexOf("cảm ơn") !== -1 ||
-      (say.indexOf("quá") !== -1 && say.length > 3 && say.substr(-1) === "á")
-    ) {
-      ans = "ừm, không có gì đâu em";
     } else if (say.indexOf("chị") !== -1 && say.indexOf("thật") !== -1) {
       ans = "ok em, chị xem đó là lời khen";
     } else if (

@@ -21,6 +21,11 @@ body {
   position: relative;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .container {
   width: 100%;
   height: 100%;
@@ -176,8 +181,7 @@ input[type="radio"]:checked:after {
 }
 
 .profile label,
-.options-3 label,
-.options-event label {
+.options-3 label {
   display: block;
 }
 
@@ -194,7 +198,6 @@ input[type="date"] {
 }
 
 .options-3 input[type="text"],
-.options-event input[type="text"],
 .options3-event input[type="text"] {
   width: 100% !important;
   height: 40px;
@@ -227,6 +230,7 @@ input[type="date"]:focus,
 }
 
 .profile button,
+.event button,
 .ops-buttons button {
   display: block;
   margin: 0 auto;
@@ -531,7 +535,7 @@ input[type="date"]:focus,
 .ssetting::-webkit-scrollbar,
 .statuseveryday::-webkit-scrollbar,
 .personall::-webkit-scrollbar,
-.listevent::-webkit-scrollbar {
+.todoList::-webkit-scrollbar {
   width: 3px;
 }
 
@@ -539,7 +543,7 @@ input[type="date"]:focus,
 .ssetting::-webkit-scrollbar-thumb,
 .statuseveryday::-webkit-scrollbar-thumb,
 .personall::-webkit-scrollbar-thumb,
-.listevent::-webkit-scrollbar-thumb {
+.todoList::-webkit-scrollbar-thumb {
   background: grey;
 }
 
@@ -598,10 +602,82 @@ input[type="date"]:focus,
   box-shadow: -2px 5px 12px 0px rgb(0 0 0 / 38%);
 }
 
+.mainevent {
+  width: 90%;
+  margin: 0 auto;
+}
+
 .event h3 {
   text-align: center;
 }
+.event button {
+  margin: 0px;
+}
+.event .btnaddevent {
+  width: 40px;
+  margin-left: 10px;
+}
+.event .todoList {
+  height: 60vh;
+  overflow-y: scroll;
+  margin-top: 10px;
+}
+.event .todoList li {
+  background-color: #e0e0e0;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 7px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  height: 40px;
+}
+.event .todoList li .icon {
+  background-color: #e42929;
+  color: #fff;
+  padding: 5px;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: -40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s ease-out;
+}
 
+.event .todoList li:hover .icon {
+  right: 0px;
+}
+.event .inputField {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.event .footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.event .footer .footers:nth-child(1) {
+  flex: 1;
+}
+
+.event input[type="text"] {
+  width: 80%;
+  height: 40px;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  background-color: #f9f7ff;
+  border: 2px solid #c2c2c2;
+  display: inline;
+}
 .addevent,
 .clearevent {
   display: block;
@@ -617,7 +693,6 @@ input[type="date"]:focus,
   margin-bottom: 10px;
 }
 
-.options-event,
 .options2-event,
 .options3-event {
   display: block;
@@ -640,20 +715,6 @@ input[type="date"]:focus,
   z-index: 9999;
   padding: 20px;
   display: block;
-}
-
-.listevent {
-  height: 60%;
-  overflow-y: scroll;
-  border-radius: 20px;
-}
-
-.listevent li {
-  background-color: #fff;
-  padding: 8px;
-  margin: 5px;
-  list-style: none;
-  border-radius: 20px;
 }
 
 .navigation {
@@ -741,6 +802,10 @@ input[type="date"]:focus,
     margin-top: 10px;
     margin-bottom: 10px;
   }
+
+  .event .todoList {
+    height: 65vh;
+  }
 }
 
 @media only screen and (min-height: 640px) {
@@ -769,6 +834,9 @@ input[type="date"]:focus,
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  .event .todoList {
+    height: 70vh;
+  }
 }
 
 @media only screen and (min-height: 735px) {
@@ -790,8 +858,8 @@ input[type="date"]:focus,
     height: 55px;
   }
 
-  .listevent li {
-    padding: 12px;
+  .event .todoList {
+    height: 75vh;
   }
 }
 

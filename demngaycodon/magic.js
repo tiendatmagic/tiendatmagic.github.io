@@ -257,9 +257,7 @@ document.getElementById("dmtt").addEventListener("change", () => {
   )[0].style.backgroundColor = dmtts;
   localStorage.setItem("dmtts", JSON.stringify(dmtts));
 });
-document.getElementById("huyevent").addEventListener("click", () => {
-  document.getElementsByClassName("options-event")[0].style.display = "none";
-});
+
 document.getElementById("huyevent2").addEventListener("click", () => {
   document
     .getElementsByClassName("options2-event")[0]
@@ -270,21 +268,7 @@ document.getElementById("huyevent3").addEventListener("click", () => {
     .getElementsByClassName("options3-event")[0]
     .classList.toggle("active");
 });
-document.getElementsByClassName("addevent")[0].addEventListener("click", () => {
-  document.getElementsByClassName("options-event")[0].style.display = "block";
-});
-document.getElementById("xacnhanevent").addEventListener("click", () => {
-  if (document.getElementById("contentevent").value === "") {
-    alert("không được bỏ trống nha");
-  } else {
-    data = document.getElementsByClassName("listevent")[0].innerHTML +=
-      "<li>" + text.value + "</li>";
-    arrdncd.push(text.value);
-    document.getElementById("contentevent").value = "";
-    localStorage.setItem("datadncd", JSON.stringify(data));
-    localStorage.setItem("arrdncd", JSON.stringify(arrdncd));
-  }
-});
+
 document.getElementById("xacnhanevent2").addEventListener("click", () => {
   if (document.getElementById("ngaybatdau2").value === "") {
     alert("không được bỏ trống nha");
@@ -314,14 +298,7 @@ document.getElementById("xacnhanevent3").addEventListener("click", () => {
     document.getElementById("stieude").innerText === "";
   }
 });
-document
-  .getElementsByClassName("clearevent")[0]
-  .addEventListener("click", () => {
-    data = document.getElementsByClassName("listevent")[0].innerHTML = "";
-    document.getElementById("contentevent").value = "";
-    localStorage.setItem("datadncd", JSON.stringify(data));
-    localStorage.setItem("arrdncd", JSON.stringify(arrdncd));
-  });
+
 document
   .getElementsByClassName("exitevent")[0]
   .addEventListener("click", () => {
@@ -411,9 +388,7 @@ function displayprofile() {
     for (var j = 0; j <= 3; j++) {
       document.getElementsByClassName("heart")[j].style.backgroundColor = dmngs;
     }
-    document.getElementsByClassName("listevent")[0].innerHTML = JSON.parse(
-      localStorage.getItem("datadncd")
-    );
+
     document.getElementsByClassName(
       "contentstatus"
     )[0].style.backgroundColor = dmtts;
@@ -527,3 +502,80 @@ document.getElementsByClassName("sli4")[0].addEventListener("click", () => {
   document.getElementsByClassName("options-2")[0].style.display = "none";
   document.getElementsByClassName("options-3")[0].style.display = "block";
 });
+
+//
+
+// getting all required elements
+const inputBox = document.querySelector(".inputField input");
+const addBtn = document.querySelector(".inputField button");
+const todoList = document.querySelector(".todoList");
+const deleteAllBtn = document.querySelector(".footer button");
+
+// onkeyup event
+inputBox.onkeyup = () => {
+  let userEnteredValue = inputBox.value; //getting user entered value
+  if (userEnteredValue.trim() != 0) {
+    //if the user value isn't only spaces
+    addBtn.classList.add("active"); //active the add button
+  } else {
+    addBtn.classList.remove("active"); //unactive the add button
+  }
+};
+
+showTasks();
+
+addBtn.onclick = () => {
+  let userEnteredValue = inputBox.value;
+  let getLocalStorageData = localStorage.getItem("New Todo");
+
+  if (getLocalStorageData == null) {
+    listArray = [];
+  } else {
+    listArray = JSON.parse(getLocalStorageData);
+  }
+  if (userEnteredValue === "") {
+    alert("không được bỏ trống");
+  } else {
+    listArray.push(userEnteredValue);
+    localStorage.setItem("New Todo", JSON.stringify(listArray));
+    showTasks();
+    addBtn.classList.remove("active");
+  }
+};
+
+function showTasks() {
+  let getLocalStorageData = localStorage.getItem("New Todo");
+  if (getLocalStorageData == null) {
+    listArray = [];
+  } else {
+    listArray = JSON.parse(getLocalStorageData);
+  }
+  const pendingTasksNumb = document.querySelector(".pendingTasks");
+  pendingTasksNumb.textContent = listArray.length;
+  if (listArray.length > 0) {
+    deleteAllBtn.classList.add("active");
+  } else {
+    deleteAllBtn.classList.remove("active");
+  }
+  let newLiTag = "";
+  listArray.forEach((element, index) => {
+    newLiTag += `<li>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;
+  });
+  todoList.innerHTML = newLiTag;
+  inputBox.value = "";
+}
+
+function deleteTask(index) {
+  let getLocalStorageData = localStorage.getItem("New Todo");
+  listArray = JSON.parse(getLocalStorageData);
+  listArray.splice(index, 1);
+
+  localStorage.setItem("New Todo", JSON.stringify(listArray));
+  showTasks();
+}
+
+deleteAllBtn.onclick = () => {
+  listArray = [];
+  localStorage.setItem("New Todo", JSON.stringify(listArray));
+  showTasks();
+};
