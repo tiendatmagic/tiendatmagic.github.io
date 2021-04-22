@@ -56,7 +56,6 @@ function answer() {
         case 2:
           ans = "Cũng không có gì, chỉ là đang làm chút";
           break;
-
         default:
           ans = "Chuyện nhỏ xong ngay ấy mà, không có gì đâu";
           break;
@@ -76,7 +75,7 @@ function answer() {
       say.indexOf("tên") !== -1 &&
       say.indexOf("ì") !== -1
     ) {
-      ans = "chị tên ..., chị chưa có tên";
+      ans = "chị tên Tú";
     } else if (
       say.indexOf("bồ chưa") !== -1 ||
       say.indexOf("ny chưa") !== -1 ||
@@ -206,7 +205,6 @@ function answer() {
         case 2:
           ans = "chị bình thường á";
           break;
-
         default:
           ans = "vẫn khỏe chứ, còn em thì sao";
           break;
@@ -217,7 +215,6 @@ function answer() {
         case 1:
           ans = "ừm, chị vẫn ổn";
           break;
-
         default:
           ans = "ổn chứ nè, còn em sao";
           break;
@@ -228,7 +225,6 @@ function answer() {
         case 1:
           ans = "chị vẫn ổn";
           break;
-
         default:
           ans = "chị không sao cả";
           break;
@@ -275,19 +271,26 @@ function answer() {
         ans = "Ủa còn sớm mà em";
       }
     } else if (say.indexOf("chị") !== -1 && say.indexOf("ngủ") !== -1) {
-      if (date.getHours() <= 22) {
+      if (date.getHours() >= 22 && date.getHours() <= 5) {
         num = Math.ceil(Math.random() * 2);
         switch (num) {
           case 1:
-            ans = "lát chị mới ngủ nè";
+            ans = "giờ chị đang ngủ nè";
             break;
-
           default:
             ans = "chị đang ngủ nè em";
             break;
         }
       } else {
-        ans = "Ủa còn sớm mà em";
+        num = Math.ceil(Math.random() * 2);
+        switch (num) {
+          case 1:
+            ans = "chị chưa ngủ nè";
+            break;
+          default:
+            ans = "ủa còn sớm mà em";
+            break;
+        }
       }
     } else if (
       (say.indexOf("sao") !== -1 &&
@@ -325,7 +328,6 @@ function answer() {
         case 1:
           ans = "Chị không khi nào chửi em hết nè, mà em đừng có chửi chị nha";
           break;
-
         default:
           ans = "Không khi nào chị chửi em hết, em cũng đừng vậy nha";
           break;
@@ -376,7 +378,6 @@ function answer() {
           case 1:
             ans = "đâu có";
             break;
-
           default:
             ans = "chị vẫn làm mà";
             break;
@@ -401,7 +402,6 @@ function answer() {
         case 1:
           ans = "thì có";
           break;
-
         case 2:
           ans = "chắc có á em hihi";
           break;
@@ -422,7 +422,6 @@ function answer() {
         case 1:
           ans = "coi lại bản thân em đi mà nói chị ngu";
           break;
-
         default:
           ans = "em tự xem lại mình đi, em ngu á";
           break;
@@ -444,7 +443,6 @@ function answer() {
         case 1:
           ans = "em bị điên thì có";
           break;
-
         default:
           ans = "em bị khùng thì có";
           break;
@@ -485,7 +483,6 @@ function answer() {
         case 2:
           ans = "hi dạo này sao rồi nè";
           break;
-
         default:
           ans = "ừ nè em vẫn ổn chứ";
           break;
@@ -517,7 +514,6 @@ function answer() {
         case 2:
           ans = "có em ơi";
           break;
-
         default:
           ans = "có nha, sao nè";
           break;
@@ -535,7 +531,6 @@ function answer() {
           st = "chưa cắm sạc";
         }
         pin = Number(batterylevel);
-
         message.innerHTML +=
           "<li class='ans' >" +
           "Phần trăm pin: " +
@@ -591,14 +586,12 @@ function answer() {
         case 2:
           ans = "không sao đâu, lần sau hãy rút kinh nghiệm";
           break;
-
         default:
           ans = "ừ em biết lỗi là tốt rồi";
           break;
       }
     } else if (say.indexOf("em") !== -1 && say.indexOf("mất") !== -1) {
       num = Math.ceil(Math.random() * 3);
-
       switch (num) {
         case 1:
           ans = "thôi em đừng buồn nữa nè";
@@ -606,14 +599,12 @@ function answer() {
         case 2:
           ans = "thôi chuyện qua rồi, em đừng buồn nha";
           break;
-
         default:
           ans = "thôi lỡ rồi, đừng buồn nữa nha em";
           break;
       }
     } else if (say.indexOf("em") !== -1 && say.indexOf("mệt") !== -1) {
       num = Math.ceil(Math.random() * 3);
-
       switch (num) {
         case 1:
           ans = "mệt thì em nghỉ sớm đi nè";
@@ -621,14 +612,12 @@ function answer() {
         case 2:
           ans = "thôi em ráng giữ gìn sức khỏe đi nha";
           break;
-
         default:
           ans = "mệt thì nghỉ ngơi sớm đi em";
           break;
       }
     } else if (say.indexOf("em") !== -1 && say.indexOf("buồn") !== -1) {
       num = Math.ceil(Math.random() * 3);
-
       switch (num) {
         case 1:
           ans = "buồn thì vui lên đi em";
@@ -636,19 +625,16 @@ function answer() {
         case 2:
           ans = "sao có chuyện gì kể chị nghe";
           break;
-
         default:
           ans = "thôi đừng buồn nữa nè";
           break;
       }
     } else if (say.indexOf("em") !== -1 && say.indexOf("vui") !== -1) {
       num = Math.ceil(Math.random() * 2);
-
       switch (num) {
         case 1:
           ans = "ừm, em vui chị cũng vui";
           break;
-
         default:
           ans = "đúng rồi nè, phải vui lên chứ";
           break;
@@ -667,7 +653,6 @@ function answer() {
         case 2:
           ans = "chị có gì đâu mà cho";
           break;
-
         default:
           ans = "chị không có gì cho em nhé";
           break;
@@ -686,7 +671,6 @@ function answer() {
         case 2:
           ans = "chị cũng không có tiền";
           break;
-
         default:
           ans = "không em nhé";
           break;
@@ -701,7 +685,6 @@ function answer() {
         case 1:
           ans = "hehe";
           break;
-
         default:
           ans = "haha";
           break;
@@ -725,7 +708,6 @@ function answer() {
         case 2:
           ans = "Cảm ơn em đã quan tâm, hôm nay chị mệt";
           break;
-
         default:
           ans = "Chị bệnh rồi em";
           break;
@@ -753,7 +735,6 @@ function answer() {
         case 1:
           ans = "hehe 😁";
           break;
-
         default:
           ans = "haha 😁";
           break;
@@ -806,7 +787,6 @@ function answer() {
         case 1:
           ans = "Chị thế nào thì đó là việc của chị";
           break;
-
         default:
           ans = "chị sao thì kệ chị, không liên quan đến em";
       }
@@ -859,7 +839,6 @@ function answer() {
         case 1:
           ans = "thôi em ráng giữ gìn sức khỏe đi";
           break;
-
         default:
           ans = "giữ gìn sức khỏe thật tốt nha em";
           break;
@@ -883,7 +862,6 @@ function answer() {
         case 2:
           ans = "ok em";
           break;
-
         default:
           ans = "ừ em";
           break;
@@ -900,7 +878,6 @@ function answer() {
         case 1:
           ans = "chả như nhau";
           break;
-
         default:
           ans = "cái nào cũng dị á";
           break;
@@ -982,7 +959,6 @@ function answer() {
           break;
         case 3:
           ans = "ừ nè";
-
           break;
         default:
           ans = "ok em";
@@ -997,7 +973,6 @@ function answer() {
         case 1:
           ans = "không em ơi";
           break;
-
         default:
           ans = "không nha em";
       }
@@ -1078,7 +1053,6 @@ function answer() {
           case 1:
             ans = "là sao, nói lại đi";
             break;
-
           default:
             ans = "chị không hiểu";
             break;
@@ -1086,8 +1060,9 @@ function answer() {
       }
       notans += 1;
     }
-
     message.innerHTML += "<li class='ans' >" + ans + "</li>";
     write = 1;
+
+    loaddark();
   }
 }

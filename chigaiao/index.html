@@ -11,7 +11,7 @@
       href="https://pro.fontawesome.com/releases/v5.15.1/css/all.css"
     />
   </head>
-  <body onload="loadapp()">
+  <body>
     <div class="main">
       <div class="title">
         <p>Chị gái ảo</p>
@@ -28,11 +28,11 @@
             <span> Muốn hỏi gì thì nhớ xưng hô bằng chị nhé </span>
             <input type="text" id="say" />
             <div class="gbutton">
-              <button id="delete">
-                <a href="#scroll">Xóa</a>
-              </button>
               <button id="ok">
                 <a href="#scroll">Gửi</a>
+              </button>
+              <button id="delete">
+                <a href="#scroll">Xóa</a>
               </button>
             </div>
           </div>
@@ -75,6 +75,19 @@
 
           <li id="select2"><i class="fas fa-cog"></i></li>
         </ul>
+      </div>
+
+      <div class="options-2">
+        <ul>
+          <li class="dmht">Đổi màu người nhận</li>
+          <li class="dmng">Đổi màu người gửi</li>
+
+          <li class="huy">Hủy</li>
+        </ul>
+      </div>
+      <div class="colors">
+        <input type="color" id="dmnn" name="dmnn" value="#ff0000" />
+        <input type="color" id="dmng" name="dmng" value="#ff0000" />
       </div>
     </div>
 
