@@ -29,3 +29,7 @@ if (date.getHours() >= 5 && date.getHours() < 11) {
   ans += "Khuya rồi có chuyện gì mà chưa ngủ thế em " + uname;
 }
 message.innerHTML += "<li class='ans' >" + ans + "</li>";
+
+if (version < 1) {
+  alert("Kiểm tra phiên bản thành công");
+}
