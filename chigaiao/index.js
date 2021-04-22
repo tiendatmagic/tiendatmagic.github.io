@@ -108,17 +108,17 @@ btnaccept.onclick = () => {
 btnok.onclick = () => {
   if (write === 1) {
     say = document.getElementById("say").value.toLowerCase();
+    say = say.replace(/[&\/\\#+()$~%.'":*?<>{}]/g, "");
     if (say === "") {
       alert("Không được bỏ trống nha");
-    } else if (say.indexOf("<") !== -1 || say.indexOf(">") !== -1) {
-      alert("Ký tự không hợp lệ");
+      write = 1;
     } else {
       message.innerHTML += "<li class='que'>" + say + "</li>";
       setTimeout(answer, 1000);
       document.getElementById("say").value = "";
+      write = 0;
     }
 
-    write = 0;
     loaddark();
   }
 };
