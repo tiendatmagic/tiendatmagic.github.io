@@ -197,6 +197,7 @@ a {
 }
 
 .setting-option li {
+  border-radius: 20px;
   height: 60px;
   margin-top: 10px;
   display: flex;
