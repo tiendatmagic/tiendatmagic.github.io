@@ -534,6 +534,8 @@ function answer() {
       }
     } else if (
       (say.indexOf("phần trăm") !== -1 && say.indexOf("pin") !== -1) ||
+      (say.indexOf("thông tin") !== -1 && say.indexOf("pin") !== -1) ||
+      (say.indexOf("thời lượng") !== -1 && say.indexOf("pin") !== -1) ||
       (say.indexOf("trạng thái") !== -1 && say.indexOf("pin") !== -1)
     ) {
       navigator.getBattery().then(function (battery) {
@@ -554,6 +556,7 @@ function answer() {
           "Trạng thái pin: " +
           st +
           "</li>";
+        loaddark();
       });
       ans = "thông tin về pin nè";
     } else if (
