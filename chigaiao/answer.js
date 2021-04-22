@@ -142,9 +142,10 @@ function answer() {
         " năm " +
         date.getFullYear();
     } else if (
-      say.indexOf("nhà") !== -1 &&
-      say.indexOf("chị") !== -1 &&
-      say.indexOf("ở đâu") !== -1
+      (say.indexOf("nhà") !== -1 &&
+        say.indexOf("chị") !== -1 &&
+        say.indexOf("ở đâu") !== -1) ||
+      (say.indexOf("chị") !== -1 && say.indexOf("ở đâu") !== -1)
     ) {
       ans = "nha trang em";
     } else if (say.indexOf("chị") !== -1 && say.indexOf("sinh năm") !== -1) {
@@ -912,7 +913,7 @@ function answer() {
     ) {
       ans = "ừm, không có gì đâu em";
     } else if (
-      (say.indexOf("chị") !== -1 && say.length <= 15) ||
+      (say.indexOf("chị") !== -1 && say.length <= 6) ||
       (say.indexOf("chị") !== -1 && say.indexOf("ơi") !== -1)
     ) {
       num = Math.ceil(Math.random() * 4);

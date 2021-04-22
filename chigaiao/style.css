@@ -23,10 +23,13 @@ html {
 }
 
 .message {
-  width: 100%;
+  width: 90%;
   height: 50vh;
   overflow-y: scroll;
   transition: 0.2s ease-out;
+  border: 1px solid #64646469;
+  border-radius: 10px;
+  margin: 0 auto;
 }
 .message::-webkit-scrollbar {
   width: 3px;
@@ -200,7 +203,7 @@ a {
   align-items: center;
 }
 .setting-option li:active {
-  background-color: #e4e4e4;
+  background-color: #dfdfdf;
 }
 .setting-option li.dark:active {
   background-color: #616161;
