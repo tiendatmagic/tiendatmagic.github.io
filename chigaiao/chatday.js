@@ -31,5 +31,5 @@ if (date.getHours() >= 5 && date.getHours() < 11) {
 message.innerHTML += "<li class='ans' >" + ans + "</li>";
 
 if (version < 1) {
-  alert("Kiểm tra phiên bản thành công");
+  alert("Kiểm tra phiên bản => OK");
 }
