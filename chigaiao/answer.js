@@ -427,6 +427,19 @@ function answer() {
           ans = "em tự xem lại mình đi, em ngu á";
           break;
       }
+    } else if (say.indexOf("chị ") !== -1 && say.indexOf("chết") !== -1) {
+      num = Math.ceil(Math.random() * 3);
+      switch (num) {
+        case 1:
+          ans = "100 năm nữa em nhé";
+          break;
+        case 2:
+          ans = "chị bất tử rồi em nhé";
+          break;
+        default:
+          ans = "khi nào em chết trước chị thì lúc đó chị chết 🤣";
+          break;
+      }
     } else if (
       say.indexOf("chị") !== -1 &&
       say.indexOf("nhiêu") !== -1 &&
