@@ -175,7 +175,7 @@ document.getElementsByClassName("sli2")[0].onclick = () => {
 document.getElementsByClassName("sli3")[0].onclick = () => {
   profile = 0;
   localStorage.setItem("profile", JSON.stringify(profile));
-  location.reload();
+  location.reload(true);
 };
 document.getElementsByClassName("huy")[0].onclick = () => {
   document.getElementsByClassName("options-2")[0].style.display = "none";
