@@ -29,7 +29,8 @@ if (dmngs === null) {
   dmngs = "#76a1ff";
 }
 var message = document.getElementsByClassName("message")[0];
-
+var copy = [];
+var copynumber = 0;
 window.addEventListener("load", openapp);
 function openapp() {
   setTimeout(() => {
@@ -49,6 +50,7 @@ function loadapp() {
     for (m = 0; m <= document.querySelectorAll(".ans").length - 1; m++) {
       document.getElementsByClassName("ans")[m].style.backgroundColor = dmnns;
     }
+    chatday();
     loaddark();
   }
 }
@@ -57,11 +59,33 @@ document.getElementById("name").onkeyup = (event) => {
     btnaccept.click();
   }
 };
+
 document.getElementById("say").onkeyup = (event) => {
   if (event.keyCode === 13) {
     btnok.click();
+  } else if (event.keyCode === 38) {
+    copynumber += 1;
+    if (copynumber === 1) {
+      document.getElementById("say").value = copy[copy.length - 1];
+    } else if (copynumber === 2) {
+      document.getElementById("say").value = copy[copy.length - 2];
+    } else {
+      document.getElementById("say").value = copy[copy.length - 3];
+      copynumber = 3;
+    }
+  } else if (event.keyCode === 40) {
+    copynumber -= 1;
+    if (copynumber === 1) {
+      document.getElementById("say").value = copy[copy.length - 1];
+    } else if (copynumber === 2) {
+      document.getElementById("say").value = copy[copy.length - 2];
+    } else {
+      document.getElementById("say").value = copy[copy.length - 3];
+      copynumber = 1;
+    }
   }
 };
+
 btnaccept.onclick = () => {
   username = document.getElementById("name").value.toLowerCase();
   if (username === "") {
@@ -87,6 +111,8 @@ btnok.onclick = () => {
       message.innerHTML += "<li class='que'>" + say + "</li>";
       setTimeout(answer, 1000);
       document.getElementById("say").value = "";
+
+      copy.push(say);
       write = 0;
     }
 

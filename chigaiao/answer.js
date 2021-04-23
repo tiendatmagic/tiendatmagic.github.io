@@ -12,12 +12,13 @@ function answer() {
       (say.search("chào") == 0 &&
         say.substr(0, 1) === "c" &&
         say.length < 10) ||
-      (say.search("chào") == 0 && say.search("chị") == 0 && say.length < 10)
+      (say.search("chào") == 0 && say.search("chị") == 0 && say.length < 10) ||
+      (say.search("chào") !== -1 && say.search("buổi sáng") !== -1)
     ) {
       num = Math.ceil(Math.random() * 4);
       switch (num) {
         case 1:
-          ans = "chào em" + " " + uname;
+          ans = "chào em" + " " + uname + " nha";
           break;
         case 2:
           ans = "hi em" + " " + uname;
@@ -31,21 +32,28 @@ function answer() {
       }
     } else if (say.indexOf("bao nhiêu tuổi") !== -1) {
       ans = "chị" + " " + (date.getFullYear() - 1998) + " " + "tuổi";
-    } else if (say.indexOf("làm gì") !== -1 && say.indexOf("chị") !== -1) {
-      num = Math.ceil(Math.random() * 4);
-      switch (num) {
-        case 1:
-          ans = "Chị đang làm chút việc thôi";
-          break;
-        case 2:
-          ans = "Chị hơi bận chút";
-          break;
-        case 3:
-          ans = "Mắc chút việc thôi em";
-          break;
-        default:
-          ans = "chị đang bận";
-          break;
+    } else if (
+      (say.indexOf("làm gì") !== -1 && say.indexOf("chị") !== -1) ||
+      say.indexOf("bận gì") !== -1
+    ) {
+      if (date.getHours() >= 23) {
+        ans = "Chị đang ngủ mà em";
+      } else {
+        num = Math.ceil(Math.random() * 4);
+        switch (num) {
+          case 1:
+            ans = "Chị đang làm chút việc thôi";
+            break;
+          case 2:
+            ans = "Chị hơi bận chút";
+            break;
+          case 3:
+            ans = "Mắc chút việc thôi em";
+            break;
+          default:
+            ans = "chị đang bận";
+            break;
+        }
       }
     } else if (say.indexOf("việc gì") !== -1 && say.indexOf("chị") !== -1) {
       num = Math.ceil(Math.random() * 3);
@@ -86,7 +94,12 @@ function answer() {
       ans = "chị không nói ra đâu, hihi";
     } else if (say.indexOf("hỏi gì") !== -1) {
       ans = "em hỏi chị gì cũng được";
-    } else if (say.indexOf("mấy giờ") !== -1 && say.indexOf("ngủ") !== -1) {
+    } else if (
+      (say.indexOf("mấy giờ") !== -1 && say.indexOf("ngủ") !== -1) ||
+      (say.indexOf("khi nào") !== -1 &&
+        say.indexOf("chị") !== -1 &&
+        say.indexOf("ngủ") !== -1)
+    ) {
       ans = "11h em";
     } else if (say.indexOf("em đói") !== -1) {
       ans = "chị hôm nay không mang gì cho em ăn nữa";
@@ -410,7 +423,10 @@ function answer() {
           ans = "có chứ";
           break;
       }
-    } else if (say.indexOf("chị biết em") !== -1) {
+    } else if (
+      say.indexOf("chị biết em") !== -1 ||
+      (say.indexOf("em") !== -1 && say.indexOf("là ai") !== -1)
+    ) {
       ans = "Em là em của chị đó, " + uname + "😘";
     } else if (say.indexOf("chị là ai") !== -1) {
       ans = "Chị là chị gái của em đây " + uname;
@@ -646,6 +662,22 @@ function answer() {
           ans = "thôi đừng buồn nữa nè";
           break;
       }
+    } else if (
+      (say.indexOf("em") !== -1 && say.indexOf("không được vui") !== -1) ||
+      say.indexOf("không được vui") !== -1
+    ) {
+      num = Math.ceil(Math.random() * 3);
+      switch (num) {
+        case 1:
+          ans = "thôi nè đừng buồn nữa, chuyện đã qua rồi";
+          break;
+        case 2:
+          ans = "đừng buồn nữa nha em, vui lên đi";
+          break;
+        default:
+          ans = "thôi em đừng buồn nữa nha";
+          break;
+      }
     } else if (say.indexOf("em") !== -1 && say.indexOf("vui") !== -1) {
       num = Math.ceil(Math.random() * 2);
       switch (num) {
@@ -813,7 +845,18 @@ function answer() {
       (say.indexOf("bai") !== -1 && say.indexOf("chị") !== -1)
     ) {
       if (date.getHours() >= 22 || date.getHours < 4) {
-        ans = "ừm, khuya rồi em ngủ đi nha";
+        num = Math.ceil(Math.random() * 3);
+        switch (num) {
+          case 1:
+            ans = "ừm, khuya rồi em ngủ đi nha";
+            break;
+          case 2:
+            ans = "ừm khuya rồi đó ngủ đi em";
+            break;
+          default:
+            ans = "bye em, chúc em ngủ ngon";
+            break;
+        }
       } else {
         num = Math.ceil(Math.random() * 3);
         switch (num) {
