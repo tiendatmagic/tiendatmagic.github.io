@@ -391,7 +391,18 @@ input[type="date"]:focus,
 
 .content .statuseveryday.active {
   display: flex;
+
   transition: 0.3s ease-out;
+  animation: 0.3s scale ease-out;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0.7);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 .statuseveryday .contentstatuseveryday {
@@ -506,20 +517,20 @@ input[type="date"]:focus,
   justify-content: space-evenly;
 }
 
-.datetime .heart {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .datetime span {
   color: #000;
   display: block;
 }
-
+.datetime .heart {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0099ff;
+  transition: 0.3s ease-out;
+}
 .contentstatus {
   width: 90%;
   height: 100px;
@@ -561,11 +572,6 @@ input[type="date"]:focus,
   border-radius: 5px;
   z-index: 3;
   box-shadow: -2px 5px 12px 0px rgb(0 0 0 / 38%);
-}
-
-.options-3 {
-  display: none;
-  padding: 10px;
 }
 
 .options-2 ul {
@@ -777,7 +783,6 @@ input[type="date"]:focus,
   .datetime .heart {
     width: 60px;
     height: 60px;
-    transition: 0.5s ease-out;
   }
   .content .statuseveryday {
     margin-top: 90px;
@@ -822,6 +827,7 @@ input[type="date"]:focus,
     width: 75px;
     height: 75px;
     font-size: 20px;
+    transition: 0.3s ease-out;
   }
   .content2 p {
     font-size: 30px;
