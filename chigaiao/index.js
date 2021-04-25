@@ -103,7 +103,7 @@ btnaccept.onclick = () => {
 btnok.onclick = () => {
   if (write === 1) {
     say = document.getElementById("say").value.toLowerCase();
-    say = say.replace(/[&\/\\#+()$~%.!@^()'":*<>{}]/g, "");
+    say = say.replace(/[&?\/\\#+()$~%.!@^()'":*<>{}]/g, "");
     if (say === "") {
       alert("Không được bỏ trống nha");
       write = 1;

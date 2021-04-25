@@ -79,6 +79,12 @@ function answer() {
     } else if (say.indexOf("chị") !== -1 && say.indexOf("thích gì") !== -1) {
       ans = "gì chị cũng thích hết";
     } else if (
+      say.indexOf("em") !== -1 &&
+      say.indexOf("tên") !== -1 &&
+      say.indexOf("ì") !== -1
+    ) {
+      ans = "em tên là " + uname;
+    } else if (
       say.indexOf("chị") !== -1 &&
       say.indexOf("tên") !== -1 &&
       say.indexOf("ì") !== -1
@@ -358,7 +364,11 @@ function answer() {
       say.indexOf("gì") !== -1
     ) {
       ans = "chị sợ nhất là bị tổn thương";
-    } else if (say.indexOf("tạo") !== -1 && say.indexOf("chị") !== -1) {
+    } else if (
+      say.indexOf("ai") !== -1 &&
+      say.indexOf("tạo") !== -1 &&
+      say.indexOf("chị") !== -1
+    ) {
       ans =
         "Tiendatmagic, link facebook:<a href='https://www.facebook.com/tiendatmagic'> Đây em</a>";
     } else if (
@@ -429,7 +439,7 @@ function answer() {
     ) {
       ans = "Em là em của chị đó, " + uname + "😘";
     } else if (say.indexOf("chị là ai") !== -1) {
-      ans = "Chị là chị gái của em đây " + uname;
+      ans = "Chị là chị gái của em đây " + uname + "😘";
     } else if (
       (say.indexOf("chị ") !== -1 && say.indexOf("ngu") !== -1) ||
       (say.indexOf("chị ") !== -1 && say.indexOf("ngốc") !== -1)
@@ -500,11 +510,7 @@ function answer() {
           ans = "chi thế, nếu được thì em rủ mọi người cùng đi";
           break;
       }
-    } else if (
-      say.indexOf("nhớ") !== -1 &&
-      say.indexOf("em") !== -1 &&
-      say.indexOf("chị") !== -1
-    ) {
+    } else if (say.indexOf("nhớ") !== -1 && say.indexOf("chị") !== -1) {
       num = Math.ceil(Math.random() * 3);
       switch (num) {
         case 1:
@@ -514,7 +520,7 @@ function answer() {
           ans = "hi dạo này sao rồi nè";
           break;
         default:
-          ans = "ừ nè em vẫn ổn chứ";
+          ans = "chị cũng nhớ em nè, em dạo này vẫn ổn chứ";
           break;
       }
     } else if (say.indexOf("chơi game") !== -1 && say.indexOf("chị") !== -1) {
@@ -761,6 +767,16 @@ function answer() {
           ans = "Chị bệnh rồi em";
           break;
       }
+    } else if (
+      say.indexOf("mở") !== -1 &&
+      say.indexOf("map") !== -1 &&
+      say.length < 25
+    ) {
+      ans = "Chị mở map cho em rồi đó";
+      window.open("https://www.google.com/maps");
+    } else if (say.indexOf("mở gmail") !== -1 && say.length < 16) {
+      ans = "Chị mở gmail cho em rồi đó";
+      window.open("http://www.gmail.com");
     } else if (say.indexOf("mở mail") !== -1 && say.length < 16) {
       ans = "Chị mở mail cho em rồi đó";
       location.href = "mailto:";
@@ -773,7 +789,7 @@ function answer() {
     } else if (say.indexOf("mở máy tính") !== -1 && say.length < 13) {
       ans = "Chị mở máy tính cho em rồi đó";
       window.open("http://tiendatmagic.github.io/maytinhanno");
-    } else if (say.indexOf("mởgoogle") !== -1 && say.length < 15) {
+    } else if (say.indexOf("mở google") !== -1 && say.length < 15) {
       ans = "Chị mở google cho em rồi đó";
       window.open("http://www.google.com");
     } else if (say.indexOf("nà") !== -1 && say.length < 3) {
@@ -907,7 +923,7 @@ function answer() {
       ans = "thôi em đừng suy nghĩ nhiều, ráng giữ gìn sức khỏe nha";
     } else if (
       say.indexOf("không sao") !== -1 ||
-      (say.indexOf("ổn") !== -1 && say.indexOf("em") !== -1) ||
+      say.indexOf("ổn") !== -1 ||
       (say.indexOf("khỏe") !== -1 && say.indexOf("em") !== -1) ||
       (say.indexOf("ạ") !== -1 &&
         say.substr(-1) === "ạ" &&
