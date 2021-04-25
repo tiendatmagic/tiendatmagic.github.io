@@ -317,9 +317,11 @@ input[type="date"]:focus,
   display: flex;
   align-items: center;
 }
+
 .setting-option li:active {
   background-color: #e4e4e4;
 }
+
 .setting-option li.dark:active {
   background-color: #3d3d3d;
 }
@@ -382,8 +384,6 @@ input[type="date"]:focus,
   background-color: #fff;
   color: deeppink;
   display: none;
-  justify-content: center;
-  align-items: center;
   overflow-y: scroll;
   margin-top: 50px;
   transition: 0.3s ease-out;
@@ -391,15 +391,15 @@ input[type="date"]:focus,
 
 .content .statuseveryday.active {
   display: flex;
-
-  transition: 0.3s ease-out;
-  animation: 0.3s scale ease-out;
+  transition: 0.2s ease-out;
+  animation: 0.2s scale ease-out;
 }
 
 @keyframes scale {
   from {
     transform: scale(0.7);
   }
+
   to {
     transform: scale(1);
   }
@@ -475,6 +475,7 @@ input[type="date"]:focus,
   border-radius: 50%;
   border: 3px solid #a800a8;
 }
+
 #pavatar {
   position: relative;
 }
@@ -485,6 +486,7 @@ input[type="date"]:focus,
   right: 0px;
   font-size: 25px;
 }
+
 .ssetting .pavatar {
   width: 100px;
   height: 100px;
@@ -521,6 +523,7 @@ input[type="date"]:focus,
   color: #000;
   display: block;
 }
+
 .datetime .heart {
   width: 50px;
   height: 50px;
@@ -531,6 +534,7 @@ input[type="date"]:focus,
   background-color: #0099ff;
   transition: 0.3s ease-out;
 }
+
 .contentstatus {
   width: 90%;
   height: 100px;
@@ -616,18 +620,22 @@ input[type="date"]:focus,
 .event h3 {
   text-align: center;
 }
+
 .event button {
   margin: 0px;
 }
+
 .event .btnaddevent {
   width: 40px;
   margin-left: 10px;
 }
+
 .event .todoList {
   height: 60vh;
   overflow-y: scroll;
   margin-top: 10px;
 }
+
 .event .todoList li {
   background-color: #e0e0e0;
   margin-bottom: 10px;
@@ -641,6 +649,7 @@ input[type="date"]:focus,
   width: 100%;
   height: 40px;
 }
+
 .event .todoList li .icon {
   background-color: #e42929;
   color: #fff;
@@ -658,11 +667,13 @@ input[type="date"]:focus,
 .event .todoList li:hover .icon {
   right: 0px;
 }
+
 .event .inputField {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 .event .footer {
   display: flex;
   flex-wrap: wrap;
@@ -670,6 +681,7 @@ input[type="date"]:focus,
   justify-content: center;
   margin: 0 auto;
 }
+
 .event .footer .footers:nth-child(1) {
   flex: 1;
 }
@@ -684,6 +696,7 @@ input[type="date"]:focus,
   border: 2px solid #c2c2c2;
   display: inline;
 }
+
 .addevent,
 .clearevent {
   display: block;
@@ -766,9 +779,11 @@ input[type="date"]:focus,
   p {
     font-size: 20px;
   }
+
   .datetime span {
     margin-top: 20px;
   }
+
   .content .buttonstatus {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -780,10 +795,12 @@ input[type="date"]:focus,
     width: 180px;
     height: 180px;
   }
+
   .datetime .heart {
     width: 60px;
     height: 60px;
   }
+
   .content .statuseveryday {
     margin-top: 90px;
   }
@@ -816,22 +833,25 @@ input[type="date"]:focus,
 @media only screen and (min-height: 640px) {
   .profile h2,
   p {
-    font-size: 23x;
+    font-size: 23px;
   }
 
   .datetime {
     margin-top: 50px;
     margin-bottom: 50px;
   }
+
   .datetime .heart {
     width: 75px;
     height: 75px;
     font-size: 20px;
     transition: 0.3s ease-out;
   }
+
   .content2 p {
     font-size: 30px;
   }
+
   .content .statuseveryday {
     margin-top: 100px;
   }
@@ -840,6 +860,7 @@ input[type="date"]:focus,
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
   .event .todoList {
     height: 70vh;
   }
@@ -850,10 +871,12 @@ input[type="date"]:focus,
     width: 220px;
     height: 220px;
   }
+
   .setting .pavatar {
     width: 120px;
     height: 120px;
   }
+
   .contentstatus {
     height: 160px;
   }
@@ -892,7 +915,12 @@ input[type="date"]:focus,
     text-align: center;
     justify-content: space-evenly;
   }
+
+  .content .statuseveryday {
+    align-items: center;
+  }
 }
+
 @media only screen and (min-height: 550px) {
   .personal_info {
     margin-top: 0px;
