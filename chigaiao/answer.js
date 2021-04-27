@@ -34,7 +34,7 @@ function answer() {
       ans = "chị" + " " + (date.getFullYear() - 1998) + " " + "tuổi";
     } else if (
       (say.indexOf("làm gì") !== -1 && say.indexOf("chị") !== -1) ||
-      say.indexOf("bận gì") !== -1
+      (say.indexOf("bận") !== -1 && say.indexOf("gì") !== -1)
     ) {
       if (date.getHours() >= 23) {
         ans = "Chị đang ngủ mà em";
@@ -980,8 +980,8 @@ function answer() {
           ans = "em nói rõ hơn đi, hay thử tra google thử ";
           break;
       }
-    } else if (say.indexOf("chị") !== -1 && say.indexOf("hông") !== -1) {
-      ans = "cái đó sao chị biết được";
+    } else if (say.indexOf("ngại") !== -1 || say.indexOf("quá") !== -1) {
+      ans = "hi, có gì đâu mà ngại nè";
     } else if (
       say.indexOf("cảm ơn") !== -1 ||
       (say.indexOf("quá") !== -1 && say.length > 3 && say.substr(-1) === "á")
@@ -1006,8 +1006,11 @@ function answer() {
           ans = "ơi em";
           break;
       }
+    } else if (say.indexOf("hông biết") !== -1 && say.indexOf("chị") !== -1) {
+      ans = "làm sao chị biết được";
     } else if (
       (say.indexOf("dạ") !== -1 && say.length < 7) ||
+      (say.indexOf("hông") !== -1 && say.indexOf("chị") !== -1) ||
       (say.indexOf("dạ") !== -1 && say.indexOf("chị") !== -1) ||
       (say.indexOf("rồi") !== -1 && say.indexOf("chị") !== -1) ||
       (say.indexOf("rồi") !== -1 && say.indexOf("em") !== -1) ||
@@ -1040,6 +1043,8 @@ function answer() {
           ans = "ok em";
           break;
       }
+    } else if (say.indexOf("chị") !== -1 && say.indexOf("hông") !== -1) {
+      ans = "cái đó sao chị biết được";
     } else if (
       (say.indexOf("có") !== -1 && say.indexOf("hông") !== -1) ||
       (say.indexOf("biết") !== -1 && say.indexOf("hông") !== -1)
