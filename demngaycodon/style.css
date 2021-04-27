@@ -269,7 +269,6 @@ input[type="date"]:focus,
   justify-content: center;
   align-items: center;
   z-index: 2;
-  box-shadow: -3px -3px 7px #fff, 3px 3px 5px #ceced1;
 }
 
 .scontent {
@@ -917,7 +916,15 @@ input[type="date"]:focus,
   }
 
   .content .statuseveryday {
+    justify-content: center;
     align-items: center;
+  }
+
+  .statuseveryday .contentstatuseveryday {
+    width: 80%;
+    word-wrap: break-all;
+    margin: 0 auto;
+    text-align: center;
   }
 }
 

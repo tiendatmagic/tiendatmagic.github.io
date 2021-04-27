@@ -312,6 +312,9 @@ function displayprofile() {
       document.getElementsByClassName("lighton")[0].style.display = "none";
       dmhns = "#272727";
       document.getElementsByClassName("htitle")[0].style.color = "#fff";
+      document.querySelector(
+        "body > div > div.event > div.mainevent"
+      ).style.color = "#fff";
       document.getElementsByClassName(
         "statuseveryday"
       )[0].style.backgroundColor = dmhns;
@@ -333,6 +336,9 @@ function displayprofile() {
       document.getElementsByClassName("lighton")[0].style.display = "block";
       dmhns = "#fff";
       document.getElementsByClassName("htitle")[0].style.color = "#272727";
+      document.querySelector(
+        "body > div > div.event > div.mainevent"
+      ).style.color = "#272727";
       document.getElementsByClassName(
         "statuseveryday"
       )[0].style.backgroundColor = dmhns;
