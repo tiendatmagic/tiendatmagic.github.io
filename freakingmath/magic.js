@@ -7,7 +7,9 @@ var highscore = JSON.parse(localStorage.getItem("highscore"));
 if (highscore === null) {
   highscore = 0;
 }
+
 document.getElementsByClassName("time")[0].innerHTML = "Thời gian: " + time;
+
 document.getElementsByClassName("highscore")[0].innerHTML =
   "Điểm cao nhất:" + highscore;
 document
@@ -31,9 +33,10 @@ document
     document.getElementsByClassName("highscore")[0].innerHTML =
       "Điểm cao nhất:" + highscore;
     bgcolor = Math.floor(Math.random() * 4);
+
     switch (bgcolor) {
       case 0:
-        document.getElementById("main").style.backgroundColor = "purple";
+        document.getElementById("main").style.backgroundColor = "#c92bc9";
         break;
       case 1:
         document.getElementById("main").style.backgroundColor = "#FF66FF";
@@ -49,6 +52,7 @@ document
         break;
     }
   });
+
 document
   .getElementsByClassName("btn-end")[0]
   .addEventListener("click", function () {
@@ -61,6 +65,7 @@ document
   });
 document.getElementsByClassName("true")[0].addEventListener("click", truee);
 document.getElementsByClassName("false")[0].addEventListener("click", falsee);
+
 window.addEventListener(
   "keydown",
   function (event) {
