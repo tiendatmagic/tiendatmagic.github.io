@@ -1,0 +1,259 @@
+var numselectmode = 0;
+var numrandom = 0;
+var btnnumber = document.querySelectorAll(".btnn");
+var btnbox = document.querySelectorAll(".boxs");
+var number = 0;
+var start = 0;
+function getId(id) {
+  return document.getElementById(id);
+}
+function getClass(clss) {
+  {
+    return document.getElementsByClassName(clss);
+  }
+}
+var easy = [
+  [
+    "-52-71-48--6-4-1251-8--27-92-549-8168-4-165376-75832-4-2-764-817618-94524-9-25-73",
+    "952671348376948125148352769235497816894216537617583294523764981761839452489125673",
+  ],
+  [
+    "95864-723123-854-9--792315-834-629-7-1943-5-657--19-426913--2747-5-9--3-3-21-469-",
+    "958641723123785469467923158834562917219437586576819342691358274745296831382174695",
+  ],
+  [
+    "---49187-9163-82-4-8-52-19--28---43937-289615-69143782-516--92-74-912-686-2857-41",
+    "235491876916378254487526193128765439374289615569143782851634927743912568692857341",
+  ],
+];
+var medium = [
+  [
+    "1--9-5-6469--3-517275-61-39758-96--2-6----378-4-72---6-1-2--6--8--659-2--26--3-9-",
+    "183975264694832517275461839758396142962514378341728956519247683837659421426183795",
+  ],
+  [
+    "685-3-294----92--5--3-56-7-21968354-45-92--8---8--512------9-1-19--7-46-87631-9--",
+    "685137294741892635923456871219683547457921386368745129534269718192578463876314952",
+  ],
+];
+var hard = [
+  [
+    "6-9--83-2-5-62-7----79-----5---1-26--6---5---7----2---976-----1415---6372-----594",
+    "649758312153624789827931456594817263362495178781362945976543821415289637238176594",
+  ],
+  [
+    "7----8-1---571--89-1---475--6187--439------7-57-9------9-1-6-37--7-8-6--8-6-37---",
+    "749528316625713489318694752261875943984362671573941268492156837137489625856237194",
+  ],
+  [
+    "--------47-4-8569--8---45-3--749-1-88-------24---12-6-376--9---92-6--4--1-8----36",
+    "592361874734285691681974523267493158819756342453812769376149285925638417148527936",
+  ],
+];
+getClass("left")[0].onclick = () => {
+  if (numselectmode > 0) {
+    getClass("selectmodess")[0].style.transform += "translateX(33.33%)";
+    numselectmode--;
+  }
+};
+getClass("right")[0].onclick = () => {
+  if (numselectmode < 2) {
+    getClass("selectmodess")[0].style.transform += "translateX(-33.33%)";
+    numselectmode++;
+  }
+};
+
+getId("startgame").onclick = () => {
+  if (numselectmode === 0) {
+    numrandom = Math.floor(Math.random() * easy.length);
+  } else if (numselectmode === 1) {
+    numrandom = Math.floor(Math.random() * medium.length);
+  } else {
+    numrandom = Math.floor(Math.random() * hard.length);
+  }
+  startgame();
+};
+
+startgame = () => {
+  getClass("mainscreen")[0].style.display = "none";
+  getClass("maingame")[0].style.display = "block";
+  createboard();
+  start = 1;
+};
+createboard = () => {
+  for (var i = 0; i < 9; i++) {
+    var box = document.createElement("div");
+    box.classList.add("grid-row");
+    getClass("board")[0].appendChild(box);
+  }
+
+  for (var iii = 0; iii < 9; iii++) {
+    for (var ii = 0; ii < 9; ii++) {
+      var box = document.createElement("div");
+      box.classList.add("boxs");
+
+      getClass("grid-row")[iii].appendChild(box);
+    }
+  }
+
+  // for (var ii = 0; ii < 9; i++) {
+  //   var boxss = document.createElement("div");
+  //   boxss.classList.add("boxss");
+  //   getClass("board")[ii].appendChild(boxss);
+  // }
+
+  for (var l = 0; l < 9; l++) {
+    getClass("boxs")[l].style.borderTop = "2px solid #ff0077";
+  }
+
+  for (var l = 8; l < 81; l += 9) {
+    getClass("boxs")[l].style.borderRight = "2px solid #ff0077";
+  }
+
+  for (var l = 72; l < 81; l++) {
+    getClass("boxs")[l].style.borderBottom = "2px solid #ff0077";
+  }
+  for (var l = 0; l < 81; l += 9) {
+    getClass("boxs")[l].style.borderLeft = "2px solid #ff0077";
+  }
+
+  //
+  for (var l = 2; l < 81; l += 9) {
+    getClass("boxs")[l].style.borderRight = "2px solid #ff0077";
+  }
+
+  for (var l = 6; l < 81; l += 9) {
+    getClass("boxs")[l].style.borderLeft = "2px solid #ff0077";
+  }
+  for (var l = 18; l < 27; l++) {
+    getClass("boxs")[l].style.borderBottom = "2px solid #ff0077";
+  }
+
+  for (var l = 45; l < 54; l++) {
+    getClass("boxs")[l].style.borderBottom = "2px solid #ff0077";
+  }
+  createmode();
+  checkclick();
+};
+
+// var easy = [
+//   "-52-71-48--6-4-1251-8--27-92-549-8168-4-165376-75832-4-2-764-817618-94524-9-25-73",
+//   "952671348376948125148352769235497816894216537617583294523764981761839452489125673",
+// ];
+function createmode() {
+  if (numselectmode == 0) {
+    for (var k = 0; k < getClass("boxs").length; k++) {
+      getClass("boxs")[k].innerText = easy[numrandom][0].charAt(k);
+      if (getClass("boxs")[k].innerText !== "-") {
+        getClass("boxs")[k].classList.add("nochange");
+      }
+      if (getClass("boxs")[k].innerText == "-") {
+        getClass("boxs")[k].innerText = "";
+        getClass("boxs")[k].classList.add("maychange");
+      }
+    }
+  } else if (numselectmode === 1) {
+    for (var k = 0; k < getClass("boxs").length; k++) {
+      getClass("boxs")[k].innerText = medium[numrandom][0].charAt(k);
+      if (getClass("boxs")[k].innerText !== "-") {
+        getClass("boxs")[k].classList.add("nochange");
+      }
+      if (getClass("boxs")[k].innerText == "-") {
+        getClass("boxs")[k].innerText = "";
+        getClass("boxs")[k].classList.add("maychange");
+      }
+    }
+  } else {
+    for (var k = 0; k < getClass("boxs").length; k++) {
+      getClass("boxs")[k].innerText = hard[numrandom][0].charAt(k);
+      if (getClass("boxs")[k].innerText !== "-") {
+        getClass("boxs")[k].classList.add("nochange");
+      }
+      if (getClass("boxs")[k].innerText == "-") {
+        getClass("boxs")[k].innerText = "";
+        getClass("boxs")[k].classList.add("maychange");
+      }
+    }
+  }
+}
+
+function checkclick() {
+  for (var k = 0; k < getClass("maychange").length; k++) {
+    getClass("maychange")[k].onclick = function () {
+      for (var l = 0; l < getClass("maychange").length; l++) {
+        getClass("maychange")[l].classList.remove("active");
+      }
+
+      this.classList.add("active");
+      this.innerText = number;
+      changeclick();
+      if (number == 0) {
+        this.innerText = "";
+      } else if (this.innerText == "X") {
+        this.innerText = "";
+      }
+    };
+  }
+}
+
+function changeclick() {
+  for (var m = 0; m < getClass("boxs").length; m++) {
+    if (numselectmode === 0) {
+      if (getClass("boxs")[m].innerText == easy[numrandom][1].charAt(m)) {
+        if (getClass("boxs")[m].classList.value == "boxs maychange active") {
+          getClass("boxs")[m].classList.add("true");
+        }
+
+        if (getClass("true").length == getClass("maychange").length) {
+          alert("WIN");
+          break;
+        }
+      } else {
+        getClass("boxs")[m].style.backgroundColor = "#f3f3f3";
+
+        getClass("boxs")[m].classList.remove("true");
+      }
+    } else if (numselectmode === 1) {
+      if (getClass("boxs")[m].innerText == medium[numrandom][1].charAt(m)) {
+        if (getClass("boxs")[m].classList.value == "boxs maychange active") {
+          getClass("boxs")[m].classList.add("true");
+        }
+
+        if (getClass("true").length == getClass("maychange").length) {
+          alert("WIN");
+          break;
+        }
+      } else {
+        getClass("boxs")[m].style.backgroundColor = "#f3f3f3";
+
+        getClass("boxs")[m].classList.remove("true");
+      }
+    } else if (numselectmode === 2) {
+      if (getClass("boxs")[m].innerText == hard[numrandom][1].charAt(m)) {
+        if (getClass("boxs")[m].classList.value == "boxs maychange active") {
+          getClass("boxs")[m].classList.add("true");
+        }
+
+        if (getClass("true").length == getClass("maychange").length) {
+          alert("WIN");
+          break;
+        }
+      } else {
+        getClass("boxs")[m].style.backgroundColor = "#f3f3f3";
+
+        getClass("boxs")[m].classList.remove("true");
+      }
+    }
+  }
+}
+for (var i = 0; i < btnnumber.length; i++) {
+  btnnumber[i].addEventListener("click", function () {
+    for (var j = 0; j < btnnumber.length; j++) {
+      btnnumber[j].classList.remove("active");
+    }
+
+    this.classList.add("active");
+
+    number = this.innerText;
+  });
+}
