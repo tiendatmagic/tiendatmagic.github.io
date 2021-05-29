@@ -81,26 +81,11 @@ startgame = () => {
   start = 1;
 };
 createboard = () => {
-  for (var i = 0; i < 9; i++) {
+  for (var i = 0; i < 81; i++) {
     var box = document.createElement("div");
-    box.classList.add("grid-row");
+    box.classList.add("boxs");
     getClass("board")[0].appendChild(box);
   }
-
-  for (var iii = 0; iii < 9; iii++) {
-    for (var ii = 0; ii < 9; ii++) {
-      var box = document.createElement("div");
-      box.classList.add("boxs");
-
-      getClass("grid-row")[iii].appendChild(box);
-    }
-  }
-
-  // for (var ii = 0; ii < 9; i++) {
-  //   var boxss = document.createElement("div");
-  //   boxss.classList.add("boxss");
-  //   getClass("board")[ii].appendChild(boxss);
-  // }
 
   for (var l = 0; l < 9; l++) {
     getClass("boxs")[l].style.borderTop = "2px solid #ff0077";
@@ -178,20 +163,12 @@ function createmode() {
 }
 
 function checkclick() {
-  for (var k = 0; k < getClass("maychange").length; k++) {
-    getClass("maychange")[k].onclick = function () {
-      for (var l = 0; l < getClass("maychange").length; l++) {
-        getClass("maychange")[l].classList.remove("active");
+  for (var m = 0; m < getClass("boxs").length; m++) {
+    getClass("boxs")[m].onclick = function () {
+      for (var l = 0; l < getClass("boxs").length; l++) {
+        getClass("boxs")[l].classList.remove("active");
       }
-
       this.classList.add("active");
-      this.innerText = number;
-      changeclick();
-      if (number == 0) {
-        this.innerText = "";
-      } else if (this.innerText == "X") {
-        this.innerText = "";
-      }
     };
   }
 }
@@ -253,7 +230,14 @@ for (var i = 0; i < btnnumber.length; i++) {
     }
 
     this.classList.add("active");
-
     number = this.innerText;
+    if (number == "X") {
+      document.getElementsByClassName("boxs maychange active")[0].innerText =
+        "";
+    } else {
+      document.getElementsByClassName("boxs maychange active")[0].innerText =
+        number;
+    }
+    changeclick();
   });
 }

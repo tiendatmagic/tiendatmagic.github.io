@@ -56,8 +56,8 @@ body {
 }
 .mainscreen .selectmode .left,
 .mainscreen .selectmode .right {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,6 +89,7 @@ body {
   border-radius: 30px;
   border: 1px solid #5f5f5f;
   color: #5f5f5f;
+  cursor: pointer;
   outline: none;
   background-color: #fafafa;
 }
@@ -131,6 +132,7 @@ body::-webkit-scrollbar-thumb {
   outline: none;
   border-radius: 50%;
   font-size: 17px;
+  cursor: pointer;
   transition: 0.2s ease-out;
 }
 .buttonnumber .btnn.active {
@@ -144,6 +146,7 @@ body::-webkit-scrollbar-thumb {
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
   transition: 0.2s ease-out;
 }
 .boxs.active {
@@ -171,6 +174,25 @@ body::-webkit-scrollbar-thumb {
   font-size: 20px;
 }
 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  position: absolute;
+  width: 80%;
+  height: 60vh;
+  background-color: rgba(24, 24, 24, 0.7);
+}
 @media only screen and (max-width: 319px) {
   .maingame .board {
     max-width: 280px;
@@ -235,12 +257,6 @@ body::-webkit-scrollbar-thumb {
   }
 }
 @media only screen and (min-width: 1000px) {
-  .maingame .board {
-    max-width: 450px;
-  }
-}
-
-@media only screen and (min-width: 1200px) {
   .maingame .board {
     max-width: 450px;
   }
