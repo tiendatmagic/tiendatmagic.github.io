@@ -29,7 +29,12 @@ body {
 
 .topnavigation .time {
   visibility: hidden;
-  font-size: 23px;
+  font-size: 20px;
+}
+
+.topnavigation .heart {
+  visibility: hidden;
+  font-size: 20px;
 }
 .mainscreen {
 }
@@ -149,15 +154,22 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
   transition: 0.2s ease-out;
 }
-.boxs.active {
-  border: 2px solid #080808;
-  border-radius: 5px;
-}
+
 .boxs.nochange {
   background-color: #e0c8c8;
 }
-.board .boxs.maychange.true {
-  background-color: #bdfbff !important;
+.boxs.maychange {
+  background-color: #f3f3f3;
+}
+
+.boxs.maychange.active {
+  border: 2px solid #080808;
+  background-color: #d8d8d8 !important;
+  border-radius: 5px;
+}
+.maingame .board .boxs.maychange.true {
+  background-color: #ffbef1 !important;
+  color: red;
 }
 .bottomnavigation {
   display: flex;
@@ -180,8 +192,7 @@ body::-webkit-scrollbar-thumb {
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  display: flex;
+  background-color: rgba(0, 0, 0, 0.13);
   display: none;
   justify-content: center;
   align-items: center;
@@ -191,7 +202,34 @@ body::-webkit-scrollbar-thumb {
   position: absolute;
   width: 80%;
   height: 60vh;
-  background-color: rgba(24, 24, 24, 0.7);
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(24, 24, 24, 0.5);
+}
+
+.modal-content .over {
+  display: none;
+  font-size: 30px;
+}
+.modal-content .false {
+  display: none;
+  font-size: 30px;
+}
+
+.modal-content .infoapp {
+  display: none;
+}
+
+.modal-content input {
+  padding: 20px;
+  background-color: #24ff24;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  color: #e2e2e2;
+  cursor: pointer;
 }
 @media only screen and (max-width: 319px) {
   .maingame .board {

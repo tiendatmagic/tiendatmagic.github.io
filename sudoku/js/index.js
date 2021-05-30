@@ -4,6 +4,12 @@ var btnnumber = document.querySelectorAll(".btnn");
 var btnbox = document.querySelectorAll(".boxs");
 var number = 0;
 var start = 0;
+var indexbox = 0;
+var falsee = 0;
+var minute = 0;
+var second = 0;
+var overgame = 0;
+var stime;
 function getId(id) {
   return document.getElementById(id);
 }
@@ -74,12 +80,12 @@ getId("startgame").onclick = () => {
   startgame();
 };
 
-startgame = () => {
+function startgame() {
   getClass("mainscreen")[0].style.display = "none";
   getClass("maingame")[0].style.display = "block";
   createboard();
   start = 1;
-};
+}
 createboard = () => {
   for (var i = 0; i < 81; i++) {
     var box = document.createElement("div");
@@ -119,6 +125,7 @@ createboard = () => {
   }
   createmode();
   checkclick();
+  starttime();
 };
 
 // var easy = [
@@ -160,17 +167,26 @@ function createmode() {
       }
     }
   }
+  getClass("time")[0].style.visibility = "visible";
+  getClass("heart")[0].style.visibility = "visible";
 }
 
 function checkclick() {
-  for (var m = 0; m < getClass("boxs").length; m++) {
-    getClass("boxs")[m].onclick = function () {
-      for (var l = 0; l < getClass("boxs").length; l++) {
-        getClass("boxs")[l].classList.remove("active");
+  for (var m = 0; m < getClass("boxs maychange").length; m++) {
+    getClass("boxs maychange")[m].onclick = function () {
+      for (var l = 0; l < getClass("boxs maychange").length; l++) {
+        getClass("boxs maychange")[l].classList.remove("active");
       }
       this.classList.add("active");
     };
   }
+}
+
+function starttime() {
+  stime = setInterval(() => {
+    second += 1;
+    getId("seconds").innerText = second;
+  }, 1000);
 }
 
 function changeclick() {
@@ -182,7 +198,8 @@ function changeclick() {
         }
 
         if (getClass("true").length == getClass("maychange").length) {
-          alert("WIN");
+          overgame = 1;
+          gameover();
           break;
         }
       } else {
@@ -197,7 +214,8 @@ function changeclick() {
         }
 
         if (getClass("true").length == getClass("maychange").length) {
-          alert("WIN");
+          overgame = 1;
+          gameover();
           break;
         }
       } else {
@@ -212,7 +230,8 @@ function changeclick() {
         }
 
         if (getClass("true").length == getClass("maychange").length) {
-          alert("WIN");
+          overgame = 1;
+          gameover();
           break;
         }
       } else {
@@ -223,21 +242,126 @@ function changeclick() {
     }
   }
 }
+
+function gameover() {
+  if (overgame === 1) {
+    clearInterval(stime);
+    getClass("modal")[0].style.display = "flex";
+    getId("mseconds").innerText = second;
+    document.querySelectorAll(
+      "#app > div.modal > div  > div.over"
+    )[0].style.display = "block";
+    document.querySelectorAll(
+      "#app > div.modal > div  > div.false"
+    )[0].style.display = "none";
+    document.querySelectorAll(
+      "#app > div.modal > div  > div.infoapp"
+    )[0].style.display = "none";
+  } else if (falsee >= 3) {
+    clearInterval(stime);
+    getClass("modal")[0].style.display = "flex";
+    getId("mseconds").innerText = second;
+    document.querySelectorAll(
+      "#app > div.modal > div  > div.over"
+    )[0].style.display = "none";
+    document.querySelectorAll(
+      "#app > div.modal > div  > div.false"
+    )[0].style.display = "block";
+    document.querySelectorAll(
+      "#app > div.modal > div  > div.infoapp"
+    )[0].style.display = "none";
+  }
+
+  /*
+
+
+
+
+  if (falsee >= 3) {
+    alert("GAME OVER");
+  }
+
+  */
+}
+
+getId("btn-reload").onclick = () => {
+  location.reload();
+};
+getId("btn-reloads").onclick = () => {
+  location.reload();
+};
+getId("btn-close").onclick = () => {
+  getClass("modal")[0].style.display = "none";
+};
+getClass("button-info")[0].onclick = () => {
+  getClass("modal")[0].style.display = "flex";
+  document.querySelectorAll(
+    "#app > div.modal > div  > div.over"
+  )[0].style.display = "none";
+  document.querySelectorAll(
+    "#app > div.modal > div  > div.false"
+  )[0].style.display = "none";
+  document.querySelectorAll(
+    "#app > div.modal > div  > div.infoapp"
+  )[0].style.display = "block";
+};
+
 for (var i = 0; i < btnnumber.length; i++) {
   btnnumber[i].addEventListener("click", function () {
-    for (var j = 0; j < btnnumber.length; j++) {
-      btnnumber[j].classList.remove("active");
-    }
+    if (getClass("boxs maychange active").length === 1) {
+      for (var j = 0; j < btnnumber.length; j++) {
+        btnnumber[j].classList.remove("active");
+      }
 
-    this.classList.add("active");
-    number = this.innerText;
-    if (number == "X") {
-      document.getElementsByClassName("boxs maychange active")[0].innerText =
-        "";
-    } else {
-      document.getElementsByClassName("boxs maychange active")[0].innerText =
-        number;
+      this.classList.add("active");
+      number = this.innerText;
+
+      if (number == "X") {
+        getClass("boxs maychange active")[0].innerText = "";
+      } else {
+        try {
+          getClass("boxs maychange active")[0].innerText = number;
+        } catch (error) {
+          alert("Chọn ô trước");
+        }
+      }
+
+      for (a = 0; a <= getClass("boxs").length; a++) {
+        try {
+          if (getClass("boxs")[a].classList.value == "boxs maychange active") {
+            indexbox = a;
+            break;
+          }
+        } catch (error) {}
+      }
+
+      if (numselectmode === 0) {
+        if (
+          getClass("boxs")[indexbox].innerText !==
+          easy[numrandom][1].charAt(indexbox)
+        ) {
+          falsee += 1;
+          getId("heart").innerText = falsee;
+        }
+      } else if (numselectmode === 1) {
+        if (
+          getClass("boxs")[indexbox].innerText !==
+          medium[numrandom][1].charAt(indexbox)
+        ) {
+          falsee += 1;
+          getId("heart").innerText = falsee;
+        }
+      } else if (numselectmode === 2) {
+        if (
+          getClass("boxs")[indexbox].innerText !==
+          hard[numrandom][1].charAt(indexbox)
+        ) {
+          falsee += 1;
+          getId("heart").innerText = falsee;
+        }
+      }
+      changeclick();
+      gameover();
     }
-    changeclick();
   });
 }
