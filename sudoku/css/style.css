@@ -212,14 +212,17 @@ body::-webkit-scrollbar-thumb {
 .modal-content .over {
   display: none;
   font-size: 30px;
+  color: #fff;
 }
 .modal-content .false {
   display: none;
   font-size: 30px;
+  color: #fff;
 }
 
 .modal-content .infoapp {
   display: none;
+  color: #fff;
 }
 
 .modal-content input {
@@ -228,7 +231,7 @@ body::-webkit-scrollbar-thumb {
   border: none;
   outline: none;
   border-radius: 10px;
-  color: #e2e2e2;
+  color: #000;
   cursor: pointer;
 }
 @media only screen and (max-width: 319px) {
