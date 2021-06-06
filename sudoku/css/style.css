@@ -7,12 +7,6 @@
 }
 
 body {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   width: 100%;
@@ -25,17 +19,85 @@ body {
   align-items: center;
   font-size: 25px;
   color: #5f5f5f;
+  position: relative;
 }
 
 .topnavigation .time {
   visibility: hidden;
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .topnavigation .heart {
   visibility: hidden;
   font-size: 20px;
 }
+
+.topnavigation .changecolor,
+.bottomnavigation .button-info {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  color: #5f5f5f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+.topnavigation .settingchangecolor {
+  visibility: hidden;
+  opacity: 0;
+  width: 80%;
+  max-width: 600px;
+  height: 42px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+.topnavigation .settingchangecolor.active {
+  visibility: visible;
+  opacity: 1;
+
+  transition: 0.5s ease-out;
+}
+
+.settingchangecolor .colors {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.settingchangecolor .colors.active {
+  border: 5px solid #8a8a8a;
+}
+
+.colors:nth-child(1) {
+  background-color: #f5f5f5;
+}
+
+.colors:nth-child(2) {
+  background-color: red;
+}
+.colors:nth-child(3) {
+  background-color: orange;
+}
+.colors:nth-child(4) {
+  background-color: palevioletred;
+}
+.colors:nth-child(5) {
+  background-color: blue;
+}
+.colors:nth-child(6) {
+  background-color: green;
+}
+.colors:nth-child(7) {
+  background-color: purple;
+}
+
 .mainscreen {
 }
 
@@ -44,12 +106,13 @@ body {
   height: 130px;
   border-radius: 50%;
   border: 3px solid #000;
-  background-color: rgb(250, 188, 131);
+  background-color: rgb(240, 240, 240);
   margin: 20px auto;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 60px;
+  transition: background-color 0.5s ease-out;
 }
 
 .mainscreen .selectmode {
@@ -176,16 +239,6 @@ body::-webkit-scrollbar-thumb {
   justify-content: space-around;
 }
 
-.bottomnavigation div {
-  color: #5f5f5f;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 20px;
-}
-
 .modal {
   position: fixed;
   top: 0;
@@ -196,6 +249,7 @@ body::-webkit-scrollbar-thumb {
   display: none;
   justify-content: center;
   align-items: center;
+  z-index: 99;
 }
 
 .modal-content {
@@ -207,6 +261,7 @@ body::-webkit-scrollbar-thumb {
   justify-content: center;
   align-items: center;
   background-color: rgba(24, 24, 24, 0.5);
+  z-index: 100;
 }
 
 .modal-content .over {
@@ -345,14 +400,5 @@ body::-webkit-scrollbar-thumb {
 @media only screen and (min-height: 700px) {
   .maingame .buttonnumber {
     margin: 2vh 0px;
-  }
-  .topnavigation div {
-    margin: 30px 0px;
-  }
-}
-@media only screen and (min-height: 800px) {
-  .topnavigation div {
-    margin-top: 30px;
-    margin-bottom: 40px;
   }
 }

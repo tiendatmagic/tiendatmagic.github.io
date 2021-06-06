@@ -1,21 +1,20 @@
 var numselectmode = 0;
 var numrandom = 0;
 var btnnumber = document.querySelectorAll(".btnn");
-var btnbox = document.querySelectorAll(".boxs");
 var number = 0;
 var start = 0;
 var indexbox = 0;
+var indexcolor = JSON.parse(localStorage.getItem("indexcolor"));
+if (indexcolor === null) {
+  indexcolor = 0;
+}
+
 var falsee = 0;
 var minute = 0;
 var second = 0;
 var overgame = 0;
 var stime;
-// var arrays = ["", "", "", "", "", "", "", "", ""];
-var arrays = [
-  "6	9	8	2	4	7	5	3	1  7	5	4	9	1	3	8	6	2  3	2	1	8	6	5	9	7	4  9	1	7	4	8	6	3	2	5  8	6	5	7	3	2	4	1	9  4	3	2	5	9	1	7	8	6  5	8	6	3	2	9	1	4	7  2	7	3	1	5	4	6	9	8  1	4	9	6	7	8	2	5	3",
-];
-arrays.join(" ");
-console.log(arrays);
+
 function getId(id) {
   return document.getElementById(id);
 }
@@ -24,6 +23,9 @@ function getClass(clss) {
     return document.getElementsByClassName(clss);
   }
 }
+window.onload = () => {
+  getClass("logo")[0].style.backgroundColor = colorss[indexcolor];
+};
 
 getClass("left")[0].onclick = () => {
   if (numselectmode > 0) {
@@ -52,6 +54,7 @@ getId("startgame").onclick = () => {
 function startgame() {
   getClass("mainscreen")[0].style.display = "none";
   getClass("maingame")[0].style.display = "block";
+  getClass("bottomnavigation")[0].style.display = "none";
   createboard();
   start = 1;
 }
@@ -149,6 +152,12 @@ function checkclick() {
 function starttime() {
   stime = setInterval(() => {
     second += 1;
+
+    if (second >= 60) {
+      second = 0;
+      minute += 1;
+    }
+    getId("minutes").innerText = minute;
     getId("seconds").innerText = second;
   }, 1000);
 }
@@ -211,6 +220,7 @@ function gameover() {
   if (overgame === 1) {
     clearInterval(stime);
     getClass("modal")[0].style.display = "flex";
+    getId("mminutes").innerText = minute;
     getId("mseconds").innerText = second;
     document.querySelectorAll(
       "#app > div.modal > div  > div.over"
@@ -224,6 +234,7 @@ function gameover() {
   } else if (falsee >= 3) {
     clearInterval(stime);
     getClass("modal")[0].style.display = "flex";
+    getId("mminutes").innerText = minute;
     getId("mseconds").innerText = second;
     document.querySelectorAll(
       "#app > div.modal > div  > div.over"
@@ -259,8 +270,41 @@ getClass("button-info")[0].onclick = () => {
   )[0].style.display = "block";
 };
 
+var colorss = [
+  "white",
+  "red",
+  "orange",
+  "palevioletred",
+  "blue",
+  "green",
+  "purple",
+];
+
+getClass("changecolor")[0].onclick = () => {
+  getClass("settingchangecolor")[0].classList.toggle("active");
+};
+
+for (var o = 0; o < getClass("colors").length; o++) {
+  getClass("colors")[o].onclick = function () {
+    for (var j = 0; j < getClass("colors").length; j++) {
+      getClass("colors")[j].classList.remove("active");
+    }
+    this.classList.add("active");
+    for (ab = 0; ab < getClass("colors").length; ab++) {
+      try {
+        if (getClass("colors")[ab].classList.value == "colors active") {
+          indexcolor = ab;
+          break;
+        }
+      } catch (error) {}
+    }
+    localStorage.setItem("indexcolor", JSON.stringify(indexcolor));
+    getClass("logo")[0].style.backgroundColor = colorss[indexcolor];
+  };
+}
+
 for (var i = 0; i < btnnumber.length; i++) {
-  btnnumber[i].addEventListener("click", function () {
+  btnnumber[i].onclick = function () {
     if (getClass("boxs maychange active").length === 1) {
       for (var j = 0; j < btnnumber.length; j++) {
         btnnumber[j].classList.remove("active");
@@ -313,5 +357,5 @@ for (var i = 0; i < btnnumber.length; i++) {
       changeclick();
       gameover();
     }
-  });
+  };
 }
