@@ -906,7 +906,7 @@ input[type="date"]:focus,
 
 @media only screen and (min-width: 675px) {
   .content .countday {
-    font-size: 50px;
+    font-size: 43px;
   }
 
   .datetime {

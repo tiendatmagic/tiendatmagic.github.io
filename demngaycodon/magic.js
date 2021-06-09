@@ -1,9 +1,24 @@
-const wrapper = document.querySelector(".wrapper");
-const fileName = document.querySelector(".file-name");
-const defaultBtn = document.querySelector("#default-btn");
-const customBtn = document.querySelector("#custom-btn");
-const cancelBtn = document.querySelector("#cancel-btn i");
-const img = document.querySelector("img");
+function getId(id) {
+  return document.getElementById(id);
+}
+
+function getClass(clss) {
+  return document.getElementsByClassName(clss);
+}
+
+function getQuery(query) {
+  return document.querySelector(query);
+}
+
+function getQueryAll(query) {
+  return document.querySelectorAll(query);
+}
+const wrapper = getQuery(".wrapper");
+const fileName = getQuery(".file-name");
+const defaultBtn = getQuery("#default-btn");
+const customBtn = getQuery("#custom-btn");
+const cancelBtn = getQuery("#cancel-btn i");
+const img = getQuery("img");
 var result = JSON.parse(localStorage.getItem("result"));
 if (result === null) {
   result = "";
@@ -13,11 +28,9 @@ let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
 function defaultBtnActive() {
   defaultBtn.click();
 }
-document
-  .getElementsByClassName("image")[0]
-  .addEventListener("click", function () {
-    document.getElementsByTagName("button")[0].click();
-  });
+getClass("image")[0].addEventListener("click", function () {
+  document.getElementsByTagName("button")[0].click();
+});
 defaultBtn.addEventListener("change", function () {
   const file = this.files[0];
   if (file) {
@@ -25,7 +38,7 @@ defaultBtn.addEventListener("change", function () {
     reader.onload = function () {
       result = reader.result;
       img.src = result;
-      document.getElementById("imgavatar").src = result;
+      getId("imgavatar").src = result;
       localStorage.setItem("result", JSON.stringify(result));
       wrapper.classList.add("active");
       simg = 1;
@@ -37,23 +50,23 @@ defaultBtn.addEventListener("change", function () {
     fileName.textContent = valueStore;
   }
 });
-var ten = document.getElementById("ten");
+var ten = getId("ten");
 var gioitinh = document.getElementsByName("gender");
 var dtieude = JSON.parse(localStorage.getItem("dtieude"));
 if (dtieude === null) {
   dtieude = "Đếm Ngày Cô Đơn";
 }
-var ngaysinh = document.getElementById("ngaysinh");
+var ngaysinh = getId("ngaysinh");
 var dngaysinh = JSON.parse(localStorage.getItem("dngaysinh"));
 if (dngaysinh === null) {
   dngaysinh = "";
 }
-var ngaybatdau = document.getElementById("ngaybatdau");
+var ngaybatdau = getId("ngaybatdau");
 var dngaybatdau = JSON.parse(localStorage.getItem("dngaybatdau"));
 if (dngaybatdau === null) {
   dngaybatdau = "";
 }
-var trangthai = document.getElementById("statuss");
+var trangthai = getId("statuss");
 var simg = 0;
 var sten = JSON.parse(localStorage.getItem("sten"));
 if (sten === null) {
@@ -96,7 +109,7 @@ var info2 = JSON.parse(localStorage.getItem("info2"));
 if (info2 === null || info2 === "") {
   info2 = "Ngày";
 }
-var text = document.getElementById("contentevent");
+var text = getId("contentevent");
 var data = JSON.parse(localStorage.getItem("datadncd"));
 var arrdncd = JSON.parse(localStorage.getItem("arrdncd"));
 if (arrdncd === null) {
@@ -152,7 +165,7 @@ var status_apps = [
   "Lần cuối cùng em khóc vì anh. Em sẽ ngừng khóc và ngừng  cả sự yêu thương.",
 ];
 window.addEventListener("load", displayprofile);
-document.getElementById("submit").addEventListener("click", () => {
+getId("submit").addEventListener("click", () => {
   sten = ten.value;
   localStorage.setItem("sten", JSON.stringify(sten));
   for (i = 0; i <= 2; i++) {
@@ -197,84 +210,72 @@ document.getElementById("submit").addEventListener("click", () => {
     displayprofile();
   }
 });
-document.getElementsByClassName("sli7")[0].addEventListener("click", () => {
-  document.getElementsByClassName("event")[0].style.display = "block";
+getClass("sli7")[0].addEventListener("click", () => {
+  getClass("event")[0].style.display = "block";
 });
-document.getElementsByClassName("sli5")[0].addEventListener("click", () => {
+getClass("sli5")[0].addEventListener("click", () => {
   profile = 0;
   localStorage.setItem("profile", JSON.stringify(profile));
   displayprofile();
   location.reload();
 });
-document.getElementsByClassName("sli6")[0].addEventListener("click", () => {
-  document.getElementsByClassName("options-2")[0].style.display = "block";
-  document.getElementsByClassName("options-3")[0].style.display = "none";
+getClass("sli6")[0].addEventListener("click", () => {
+  getClass("options-2")[0].style.display = "block";
+  getClass("options-3")[0].style.display = "none";
 });
-document.getElementsByClassName("dmht")[0].addEventListener("click", () => {
-  document.getElementById("dmht").click();
+getClass("dmht")[0].addEventListener("click", () => {
+  getId("dmht").click();
 });
-document.getElementsByClassName("dmng")[0].addEventListener("click", () => {
-  document.getElementById("dmng").click();
+getClass("dmng")[0].addEventListener("click", () => {
+  getId("dmng").click();
 });
-document.getElementsByClassName("dmtt")[0].addEventListener("click", () => {
-  document.getElementById("dmtt").click();
+getClass("dmtt")[0].addEventListener("click", () => {
+  getId("dmtt").click();
 });
-document.getElementsByClassName("huy")[0].addEventListener("click", () => {
-  document.getElementsByClassName("options-2")[0].style.display = "none";
+getClass("huy")[0].addEventListener("click", () => {
+  getClass("options-2")[0].style.display = "none";
 });
-document.getElementById("xacnhan").addEventListener("click", () => {
-  document.getElementsByClassName(
-    "info1"
-  )[0].innerText = document.getElementById("ndt").value;
-  document.getElementsByClassName(
-    "info2"
-  )[0].innerText = document.getElementById("ndd").value;
-  info1 = document.getElementById("ndt").value;
+getId("xacnhan").addEventListener("click", () => {
+  getClass("info1")[0].innerText = getId("ndt").value;
+  getClass("info2")[0].innerText = getId("ndd").value;
+  info1 = getId("ndt").value;
   localStorage.setItem("info1", JSON.stringify(info1));
-  info2 = document.getElementById("ndd").value;
+  info2 = getId("ndd").value;
   localStorage.setItem("info2", JSON.stringify(info2));
-  document.getElementsByClassName("options-3")[0].style.display = "none";
+  getClass("options-3")[0].style.display = "none";
 });
-document.getElementById("huy").addEventListener("click", () => {
-  document.getElementsByClassName("options-3")[0].style.display = "none";
+getId("huy").addEventListener("click", () => {
+  getClass("options-3")[0].style.display = "none";
 });
-document.getElementById("dmht").addEventListener("change", () => {
-  dmhts = document.getElementById("dmht").value;
-  document.getElementsByClassName("circle")[0].style.backgroundColor = dmhts;
+getId("dmht").addEventListener("change", () => {
+  dmhts = getId("dmht").value;
+  getClass("circle")[0].style.backgroundColor = dmhts;
   localStorage.setItem("dmhts", JSON.stringify(dmhts));
 });
-document.getElementById("dmng").addEventListener("change", () => {
-  dmngs = document.getElementById("dmng").value;
+getId("dmng").addEventListener("change", () => {
+  dmngs = getId("dmng").value;
   for (var j = 0; j <= 3; j++) {
-    document.getElementsByClassName("heart")[j].style.backgroundColor = dmngs;
+    getClass("heart")[j].style.backgroundColor = dmngs;
   }
   localStorage.setItem("dmngs", JSON.stringify(dmngs));
 });
-document.getElementById("dmtt").addEventListener("change", () => {
-  dmtts = document.getElementById("dmtt").value;
-  document.getElementsByClassName(
-    "contentstatus"
-  )[0].style.backgroundColor = dmtts;
+getId("dmtt").addEventListener("change", () => {
+  dmtts = getId("dmtt").value;
+  getClass("contentstatus")[0].style.backgroundColor = dmtts;
   localStorage.setItem("dmtts", JSON.stringify(dmtts));
 });
-
-document.getElementById("huyevent2").addEventListener("click", () => {
-  document
-    .getElementsByClassName("options2-event")[0]
-    .classList.toggle("active");
+getId("huyevent2").addEventListener("click", () => {
+  getClass("options2-event")[0].classList.toggle("active");
 });
-document.getElementById("huyevent3").addEventListener("click", () => {
-  document
-    .getElementsByClassName("options3-event")[0]
-    .classList.toggle("active");
+getId("huyevent3").addEventListener("click", () => {
+  getClass("options3-event")[0].classList.toggle("active");
 });
-
-document.getElementById("xacnhanevent2").addEventListener("click", () => {
-  if (document.getElementById("ngaybatdau2").value === "") {
+getId("xacnhanevent2").addEventListener("click", () => {
+  if (getId("ngaybatdau2").value === "") {
     alert("không được bỏ trống nha");
   } else {
-    dngaybatdau = document.getElementById("ngaybatdau2").value;
-    document.getElementsByClassName("snbdcd")[0].innerText =
+    dngaybatdau = getId("ngaybatdau2").value;
+    getClass("snbdcd")[0].innerText =
       new Date(ngaybatdau2.value).getDate() +
       "/" +
       (new Date(ngaybatdau2.value).getMonth() + 1) +
@@ -283,205 +284,163 @@ document.getElementById("xacnhanevent2").addEventListener("click", () => {
     sngaybatdau = Date.parse(dngaybatdau) - 25200000;
     localStorage.setItem("dngaybatdau", JSON.stringify(dngaybatdau));
     localStorage.setItem("sngaybatdau", JSON.stringify(sngaybatdau));
-    document.getElementById("ngaybatdau2").value = "";
+    getId("ngaybatdau2").value = "";
     displayprofile();
   }
 });
-document.getElementById("xacnhanevent3").addEventListener("click", () => {
-  if (document.getElementById("stieude").value === "") {
+getId("xacnhanevent3").addEventListener("click", () => {
+  if (getId("stieude").value === "") {
     alert("không được bỏ trống nha");
   } else {
-    dtieude = document.getElementById("stieude").value;
-    document.getElementsByClassName("stitle")[0].innerText = dtieude;
+    dtieude = getId("stieude").value;
+    getClass("stitle")[0].innerText = dtieude;
     localStorage.setItem("dtieude", JSON.stringify(dtieude));
     displayprofile();
-    document.getElementById("stieude").innerText === "";
+    getId("stieude").innerText === "";
   }
 });
-
-document
-  .getElementsByClassName("exitevent")[0]
-  .addEventListener("click", () => {
-    document.getElementsByClassName("event")[0].style.display = "none";
-  });
+getClass("exitevent")[0].addEventListener("click", () => {
+  getClass("event")[0].style.display = "none";
+});
 
 function displayprofile() {
   if (profile === 1) {
     if (dark === 1) {
-      document.getElementsByClassName("lightoff")[0].style.display = "block";
-      document.getElementsByClassName("lighton")[0].style.display = "none";
+      getClass("lightoff")[0].style.display = "block";
+      getClass("lighton")[0].style.display = "none";
       dmhns = "#272727";
-      document.getElementsByClassName("htitle")[0].style.color = "#fff";
-      document.querySelector(
-        "body > div > div.event > div.mainevent"
-      ).style.color = "#fff";
-      document.getElementsByClassName(
-        "statuseveryday"
-      )[0].style.backgroundColor = dmhns;
-      document.getElementsByClassName("buttonstatus")[0].style.color = "#fff";
+      getClass("htitle")[0].style.color = "#fff";
+      getQuery("body > div > div.event > div.mainevent").style.color = "#fff";
+      getClass("statuseveryday")[0].style.backgroundColor = dmhns;
+      getClass("buttonstatus")[0].style.color = "#fff";
       for (j = 0; j <= 3; j++) {
-        document.querySelectorAll(".datetime span")[j].style.color = "#fff";
+        getQueryAll(".datetime span")[j].style.color = "#fff";
       }
-      for (
-        k = 0;
-        k <= document.querySelectorAll(".setting-option li").length - 1;
-        k++
-      ) {
+      for (k = 0; k <= getQueryAll(".setting-option li").length - 1; k++) {
         document
           .querySelectorAll(".setting-option li")
           [k].classList.add("dark");
       }
     } else {
-      document.getElementsByClassName("lightoff")[0].style.display = "none";
-      document.getElementsByClassName("lighton")[0].style.display = "block";
+      getClass("lightoff")[0].style.display = "none";
+      getClass("lighton")[0].style.display = "block";
       dmhns = "#fff";
-      document.getElementsByClassName("htitle")[0].style.color = "#272727";
-      document.querySelector(
-        "body > div > div.event > div.mainevent"
-      ).style.color = "#272727";
-      document.getElementsByClassName(
-        "statuseveryday"
-      )[0].style.backgroundColor = dmhns;
-      document.getElementsByClassName("buttonstatus")[0].style.color = "red";
+      getClass("htitle")[0].style.color = "#272727";
+      getQuery("body > div > div.event > div.mainevent").style.color =
+        "#272727";
+      getClass("statuseveryday")[0].style.backgroundColor = dmhns;
+      getClass("buttonstatus")[0].style.color = "red";
       for (j = 0; j <= 3; j++) {
-        document.querySelectorAll(".datetime span")[j].style.color = "#272727";
+        getQueryAll(".datetime span")[j].style.color = "#272727";
       }
-      for (
-        k = 0;
-        k <= document.querySelectorAll(".setting-option li").length - 1;
-        k++
-      ) {
+      for (k = 0; k <= getQueryAll(".setting-option li").length - 1; k++) {
         document
           .querySelectorAll(".setting-option li")
           [k].classList.remove("dark");
       }
     }
-    document.getElementsByClassName("container")[0].style.overflow = "hidden";
-    document.getElementsByClassName("navigation")[0].style.display = "block";
-    document.getElementsByClassName("profile")[0].style.display = "none";
-    document.getElementsByClassName("main")[0].style.display = "block";
-    document.getElementsByClassName("htitle")[0].innerText = dtieude;
-    document.getElementsByClassName("dname")[0].innerText = sten;
-    document.getElementsByClassName("dname")[1].innerText = sten;
-    document.getElementsByClassName("imgavatar")[0].src = result;
-    document.getElementsByClassName("imgavatar")[1].src = result;
-    document.getElementsByClassName("dgioitinh")[0].innerText = sgt;
-    document.getElementsByClassName("ntns")[0].innerText = dngaysinh;
-    document.getElementsByClassName("stitle")[0].innerText = dtieude;
-    document.getElementsByClassName("snbdcd")[0].innerText =
+    getClass("container")[0].style.overflow = "hidden";
+    getClass("navigation")[0].style.display = "block";
+    getClass("profile")[0].style.display = "none";
+    getClass("main")[0].style.display = "block";
+    getClass("htitle")[0].innerText = dtieude;
+    getClass("dname")[0].innerText = sten;
+    getClass("dname")[1].innerText = sten;
+    getClass("imgavatar")[0].src = result;
+    getClass("imgavatar")[1].src = result;
+    getClass("dgioitinh")[0].innerText = sgt;
+    getClass("ntns")[0].innerText = dngaysinh;
+    getClass("stitle")[0].innerText = dtieude;
+    getClass("snbdcd")[0].innerText =
       new Date(dngaybatdau).getDate() +
       "/" +
       (new Date(dngaybatdau).getMonth() + 1) +
       "/" +
       new Date(dngaybatdau).getFullYear();
-    document.getElementsByClassName("dstatus")[0].innerText = strangthai;
-    document.getElementsByClassName(
-      "container"
-    )[0].style.backgroundColor = dmhns;
-    document.getElementsByClassName("event")[0].style.backgroundColor = dmhns;
-    document.getElementsByClassName("circle")[0].style.backgroundColor = dmhts;
-    document.getElementById("stieude").value = dtieude;
-    document.getElementById("ndt").value = info1;
-    document.getElementById("ndd").value = info2;
-    document.getElementsByClassName(
-      "info1"
-    )[0].innerText = document.getElementById("ndt").value;
-    document.getElementsByClassName(
-      "info2"
-    )[0].innerText = document.getElementById("ndd").value;
-    document.getElementsByClassName("contentstatuseveryday")[0].innerText =
+    getClass("dstatus")[0].innerText = strangthai;
+    getClass("container")[0].style.backgroundColor = dmhns;
+    getClass("event")[0].style.backgroundColor = dmhns;
+    getClass("circle")[0].style.backgroundColor = dmhts;
+    getId("stieude").value = dtieude;
+    getId("ndt").value = info1;
+    getId("ndd").value = info2;
+    getClass("info1")[0].innerText = getId("ndt").value;
+    getClass("info2")[0].innerText = getId("ndd").value;
+    getClass("contentstatuseveryday")[0].innerText =
       status_apps[orderstatus - 1];
     for (var j = 0; j <= 3; j++) {
-      document.getElementsByClassName("heart")[j].style.backgroundColor = dmngs;
+      getClass("heart")[j].style.backgroundColor = dmngs;
     }
-
-    document.getElementsByClassName(
-      "contentstatus"
-    )[0].style.backgroundColor = dmtts;
+    getClass("contentstatus")[0].style.backgroundColor = dmtts;
     localStorage.setItem("dngaysinh", JSON.stringify(dngaysinh));
     localStorage.setItem("dngaybatdau", JSON.stringify(dngaybatdau));
     setInterval(() => {
-      document.getElementsByClassName("countday")[0].innerText = Math.floor(
+      getClass("countday")[0].innerText = Math.floor(
         (new Date() - sngaybatdau) / 86400000
       );
-      document.getElementsByClassName("dage")[0].innerText =
+      getClass("dage")[0].innerText =
         new Date().getFullYear() - new Date(sngaysinh).getFullYear();
-      document.getElementsByClassName("dngay")[0].innerText = Math.floor(
+      getClass("dngay")[0].innerText = Math.floor(
         (new Date() - sngaybatdau) / 86400000
       );
-      document.getElementsByClassName(
-        "dgio"
-      )[0].innerText = new Date().getHours();
-      document.getElementsByClassName(
-        "dphut"
-      )[0].innerText = new Date().getMinutes();
-      document.getElementsByClassName(
-        "dgiay"
-      )[0].innerText = new Date().getSeconds();
+      getClass("dgio")[0].innerText = new Date().getHours();
+      getClass("dphut")[0].innerText = new Date().getMinutes();
+      getClass("dgiay")[0].innerText = new Date().getSeconds();
     }, 1000);
     switch (sgt) {
       case "Nam": {
-        document.getElementsByClassName("page")[0].style.backgroundColor =
-          "#719cfa";
+        getClass("page")[0].style.backgroundColor = "#719cfa";
         break;
       }
       case "Nữ": {
-        document.getElementsByClassName("page")[0].style.backgroundColor =
-          "pink";
+        getClass("page")[0].style.backgroundColor = "pink";
         break;
       }
       default: {
-        document.getElementsByClassName("page")[0].style.backgroundColor =
-          "#e6e6e6";
+        getClass("page")[0].style.backgroundColor = "#e6e6e6";
         break;
       }
     }
   } else {
-    document.getElementsByClassName("main")[0].style.display = "none";
+    getClass("main")[0].style.display = "none";
   }
 }
-document.getElementById("ngaysinh").max = new Date(
+getId("ngaysinh").max = new Date(
   new Date().getTime() - new Date().getTimezoneOffset() * 60000
 )
   .toISOString()
   .split("T")[0];
-document.getElementById("ngaybatdau").max = new Date(
+getId("ngaybatdau").max = new Date(
   new Date().getTime() - new Date().getTimezoneOffset() * 60000
 )
   .toISOString()
   .split("T")[0];
-document.getElementById("ngaybatdau2").max = new Date(
+getId("ngaybatdau2").max = new Date(
   new Date().getTime() - new Date().getTimezoneOffset() * 60000
 )
   .toISOString()
   .split("T")[0];
-document.getElementsByClassName("select1")[0].addEventListener("click", () => {
-  document.getElementsByClassName("content")[1].style.display = "block";
-  document.getElementsByClassName("setting")[0].style.display = "none";
-  document.getElementsByClassName("ssetting")[0].classList.remove("active");
-  document.getElementsByClassName("scontent")[0].style.transform =
-    "translateX(0%)";
+getClass("select1")[0].addEventListener("click", () => {
+  getClass("content")[1].style.display = "block";
+  getClass("setting")[0].style.display = "none";
+  getClass("ssetting")[0].classList.remove("active");
+  getClass("scontent")[0].style.transform = "translateX(0%)";
 });
-document.getElementsByClassName("select2")[0].addEventListener("click", () => {
-  document.getElementsByClassName("content")[1].style.display = "block";
-  document.getElementsByClassName("setting")[0].style.display = "none";
-  document.getElementsByClassName("ssetting")[0].classList.remove("active");
-  document.getElementsByClassName("scontent")[0].style.transform =
-    "translateX(-50%)";
+getClass("select2")[0].addEventListener("click", () => {
+  getClass("content")[1].style.display = "block";
+  getClass("setting")[0].style.display = "none";
+  getClass("ssetting")[0].classList.remove("active");
+  getClass("scontent")[0].style.transform = "translateX(-50%)";
 });
-document.getElementsByClassName("select3")[0].addEventListener("click", () => {
-  document.getElementsByClassName("content")[1].style.display = "none";
-  document.getElementsByClassName("setting")[0].style.display = "block";
-  document.getElementsByClassName("ssetting")[0].classList.add("active");
+getClass("select3")[0].addEventListener("click", () => {
+  getClass("content")[1].style.display = "none";
+  getClass("setting")[0].style.display = "block";
+  getClass("ssetting")[0].classList.add("active");
 });
-document
-  .getElementsByClassName("buttonstatus")[0]
-  .addEventListener("click", () => {
-    document
-      .getElementsByClassName("statuseveryday")[0]
-      .classList.toggle("active");
-    document.getElementsByClassName("circle")[0].classList.toggle("active");
-  });
+getClass("buttonstatus")[0].addEventListener("click", () => {
+  getClass("statuseveryday")[0].classList.toggle("active");
+  getClass("circle")[0].classList.toggle("active");
+});
 
 function checkdark() {
   if (dark === 1) {
@@ -493,47 +452,33 @@ function checkdark() {
   }
   displayprofile();
 }
-document.getElementsByClassName("sli1")[0].addEventListener("click", checkdark);
-document.getElementsByClassName("sli2")[0].addEventListener("click", () => {
-  document
-    .getElementsByClassName("options3-event")[0]
-    .classList.toggle("active");
+getClass("sli1")[0].addEventListener("click", checkdark);
+getClass("sli2")[0].addEventListener("click", () => {
+  getClass("options3-event")[0].classList.toggle("active");
 });
-document.getElementsByClassName("sli3")[0].addEventListener("click", () => {
-  document
-    .getElementsByClassName("options2-event")[0]
-    .classList.toggle("active");
+getClass("sli3")[0].addEventListener("click", () => {
+  getClass("options2-event")[0].classList.toggle("active");
 });
-document.getElementsByClassName("sli4")[0].addEventListener("click", () => {
-  document.getElementsByClassName("options-2")[0].style.display = "none";
-  document.getElementsByClassName("options-3")[0].style.display = "block";
+getClass("sli4")[0].addEventListener("click", () => {
+  getClass("options-2")[0].style.display = "none";
+  getClass("options-3")[0].style.display = "block";
 });
-
-//
-
-// getting all required elements
-const inputBox = document.querySelector(".inputField input");
-const addBtn = document.querySelector(".inputField button");
-const todoList = document.querySelector(".todoList");
-const deleteAllBtn = document.querySelector(".footer button");
-
-// onkeyup event
+const inputBox = getQuery(".inputField input");
+const addBtn = getQuery(".inputField button");
+const todoList = getQuery(".todoList");
+const deleteAllBtn = getQuery(".footer button");
 inputBox.onkeyup = () => {
-  let userEnteredValue = inputBox.value; //getting user entered value
+  let userEnteredValue = inputBox.value;
   if (userEnteredValue.trim() != 0) {
-    //if the user value isn't only spaces
-    addBtn.classList.add("active"); //active the add button
+    addBtn.classList.add("active");
   } else {
-    addBtn.classList.remove("active"); //unactive the add button
+    addBtn.classList.remove("active");
   }
 };
-
 showTasks();
-
 addBtn.onclick = () => {
   let userEnteredValue = inputBox.value;
   let getLocalStorageData = localStorage.getItem("New Todo");
-
   if (getLocalStorageData == null) {
     listArray = [];
   } else {
@@ -556,7 +501,7 @@ function showTasks() {
   } else {
     listArray = JSON.parse(getLocalStorageData);
   }
-  const pendingTasksNumb = document.querySelector(".pendingTasks");
+  const pendingTasksNumb = getQuery(".pendingTasks");
   pendingTasksNumb.textContent = listArray.length;
   if (listArray.length > 0) {
     deleteAllBtn.classList.add("active");
@@ -575,11 +520,9 @@ function deleteTask(index) {
   let getLocalStorageData = localStorage.getItem("New Todo");
   listArray = JSON.parse(getLocalStorageData);
   listArray.splice(index, 1);
-
   localStorage.setItem("New Todo", JSON.stringify(listArray));
   showTasks();
 }
-
 deleteAllBtn.onclick = () => {
   listArray = [];
   localStorage.setItem("New Todo", JSON.stringify(listArray));
