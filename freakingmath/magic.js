@@ -31,19 +31,16 @@ document
       "Điểm cao nhất:" + highscore;
     document.getElementsByClassName("highscore")[0].innerHTML =
       "Điểm cao nhất:" + highscore;
-    bgcolor = Math.floor(Math.random() * 4);
+    bgcolor = Math.floor(Math.random() * 3);
 
     switch (bgcolor) {
       case 0:
         document.getElementById("main").style.color = "#c92bc9";
         break;
       case 1:
-        document.getElementById("main").style.color = "#FF66FF";
-        break;
-      case 2:
         document.getElementById("main").style.color = "#0099FF";
         break;
-      case 3:
+      case 2:
         document.getElementById("main").style.color = "#FF6633";
         break;
       default:
