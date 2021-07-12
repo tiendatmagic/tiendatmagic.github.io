@@ -7,12 +7,12 @@ function answer() {
         say.length < 10 &&
         say !== "hihi" &&
         say.length < 10) ||
-      (say.search("hello") == 0 && say.length < 10) ||
-      (say.search("chào") == 0 && say.length < 10) ||
+      (say.search("hello") == 0 && say.length < 15) ||
+      (say.search("chào") == 0 && say.length < 15) ||
       (say.search("chào") == 0 &&
         say.substr(0, 1) === "c" &&
         say.length < 10) ||
-      (say.search("chào") == 0 && say.search("chị") == 0 && say.length < 10) ||
+      (say.search("chào") == 0 && say.search("chị") == 0 && say.length < 15) ||
       (say.search("chào") !== -1 && say.search("buổi sáng") !== -1)
     ) {
       num = Math.ceil(Math.random() * 4);
