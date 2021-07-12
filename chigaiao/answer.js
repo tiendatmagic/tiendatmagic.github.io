@@ -95,7 +95,8 @@ function answer() {
       say.indexOf("ny chưa") !== -1 ||
       say.indexOf("crush chưa") !== -1 ||
       say.indexOf("bạn trai chưa") !== -1 ||
-      say.indexOf("người yêu chưa") !== -1
+      say.indexOf("người yêu chưa") !== -1 ||
+      say.indexOf("yêu ai chưa") !== -1
     ) {
       ans = "chị không nói ra đâu, hihi";
     } else if (say.indexOf("hỏi gì") !== -1) {
@@ -945,6 +946,27 @@ function answer() {
     } else if (say.indexOf("em không") !== -1) {
       ans = "ừ em";
     } else if (
+      (say.indexOf("chị") !== -1 &&
+        (say.indexOf("nickname") !== -1 || say.indexOf("nick name") !== -1) &&
+        say.indexOf("hông") !== -1) ||
+      (say.indexOf("chị") !== -1 &&
+        (say.indexOf("nickname") !== -1 || say.indexOf("nick name") !== -1) &&
+        say.indexOf("là gì") !== -1)
+    ) {
+      ans = "nickname của chị là Thanhtu";
+    } else if (
+      say.indexOf("điểm mạnh") !== -1 &&
+      say.indexOf("chị") !== -1 &&
+      say.indexOf("là gì") !== -1
+    ) {
+      ans = "Nhiều nước";
+    } else if (
+      say.indexOf("điểm yếu") !== -1 &&
+      say.indexOf("chị") !== -1 &&
+      say.indexOf("là gì") !== -1
+    ) {
+      ans = "Dại trai";
+    } else if (
       say.indexOf("hay") !== -1 &&
       say.indexOf("hông") == -1 &&
       say.length > 4
@@ -1008,6 +1030,22 @@ function answer() {
       }
     } else if (say.indexOf("hông biết") !== -1 && say.indexOf("chị") !== -1) {
       ans = "làm sao chị biết được";
+    } else if (say.indexOf("chị") !== -1 && say.indexOf("thương em") !== -1) {
+      ans = "ừ có";
+    } else if (say.indexOf("chị") !== -1 && say.indexOf("ghét em") !== -1) {
+      ans = "hông đâu em";
+    } else if (say.indexOf("chị") !== -1 && say.indexOf("yêu em") !== -1) {
+      ans = "hông được đâu, chị có bồ rồi";
+    } else if (
+      say.indexOf("chị") !== -1 &&
+      say.indexOf("mệt") !== -1 &&
+      say.indexOf("hông") !== -1
+    ) {
+      if (date.getHours() >= 22) {
+        ans = "cũng hơi mệt, mà khuya rồi á em";
+      } else {
+        ans = "không em";
+      }
     } else if (
       (say.indexOf("dạ") !== -1 && say.length < 7) ||
       (say.indexOf("hông") !== -1 && say.indexOf("chị") !== -1) ||
