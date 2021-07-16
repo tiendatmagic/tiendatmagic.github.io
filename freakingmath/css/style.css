@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  outline: 0;
+  border: 0;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  background-color: #ffe7f5;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+html {
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+}
+
+#scr .score {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 40px);
+  font-size: 40px;
+  z-index: 2;
+  color: #fff;
+}
+
+.nametitle {
+  position: absolute;
+  padding: 10px;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  color: deeppink;
+  background-clip: text;
+  -webkit-background-clip: text;
+  font-size: 40px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+@supports (-webkit-background-clip: text) {
+  .nametitle {
+    color: transparent;
+    background-image: linear-gradient(50deg, deeppink, #0026ff);
+    -webkit-background-clip: text;
+  }
+}
+
+#mainstart {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-start {
+  padding: 4vh;
+  background-color: #fff;
+  color: #ff92bc;
+  outline: 0;
+  border: 0;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.btn-start:active {
+  background-color: #ff92bc;
+  color: #fff;
+}
+
+#maingame {
+  display: none;
+  position: relative;
+  z-index: 0;
+}
+.gover {
+  display: none;
+  color: #fff;
+}
+.gover h2 {
+  font-size: 28px;
+}
+.gover p {
+  line-height: 30px;
+  font-size: 20px;
+}
+.optiongover {
+  margin-top: 10px;
+  display: flex;
+}
+.optiongover div {
+  width: 85px;
+  height: 65px;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin: 0 10px;
+}
+.optiongover .replay {
+  color: #ff3bff;
+}
+.optiongover .replay:active {
+  background-color: #ff3bff;
+  color: #fff;
+}
+.optiongover .returnmainmenu {
+  color: #0099ff;
+}
+.optiongover .returnmainmenu:active {
+  background-color: #0099ff;
+  color: #fff;
+}
+.line {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 7px 0;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px 0px 0px 5px;
+}
+#main {
+  width: 100%;
+  height: 65vh;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: -1;
+}
+
+.displaynumber span {
+  font-size: 16vw;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+
+#truefalse {
+  display: flex;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px;
+}
+
+#truefalse div {
+  flex: 1;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30vh;
+  font-size: 14vh;
+  z-index: 1;
+  border-radius: 10px;
+}
+
+#truefalse .true {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: #0099ff;
+  margin: 5px;
+}
+#truefalse .true:active {
+  color: #fff;
+  background-color: #0099ff;
+}
+#truefalse .false {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  color: red;
+  margin: 5px;
+}
+#truefalse .false:active {
+  color: #fff;
+  background-color: red;
+}
+
+@media screen and (max-width: 500px) {
+  .displaynumber span {
+    font-size: 18vw;
+  }
+}
+@media screen and (max-height: 555px) {
+  .gover {
+    margin-top: 100px;
+  }
+}

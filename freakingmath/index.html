@@ -2,10 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
     <title>Freaking Math</title>
-    <link rel="stylesheet" href="./all.min.css" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./css/all.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
 
   <body>
@@ -17,13 +20,36 @@
         <p>Freaking Math</p>
       </div>
       <div id="mainstart">
-        <input type="button" class="btn-start" value="Chơi" />
+        <input type="button" class="btn-start" value="Start" />
       </div>
       <div id="maingame">
         <div class="line"></div>
         <div id="main">
-          <span class="s1"></span><span>+</span><span class="s2"></span
-          ><span>=</span><span></span><span class="s3"></span>
+          <div>
+            <div class="gover">
+              <h2>Game Over</h2>
+              <p>
+                Your score:
+                <span class="score">0</span>
+              </p>
+              <p>
+                Best score:
+                <span class="highscore">0</span>
+              </p>
+              <div class="optiongover">
+                <div class="replay">
+                  <i class="fas fa-redo-alt"></i>
+                </div>
+                <div class="returnmainmenu">
+                  <i class="fas fa-bars"></i>
+                </div>
+              </div>
+            </div>
+            <div class="displaynumber">
+              <span class="s1"></span><span>+</span><span class="s2"></span
+              ><span>=</span><span></span><span class="s3"></span>
+            </div>
+          </div>
         </div>
         <div id="truefalse">
           <div class="true">
@@ -33,19 +59,9 @@
             <span><i class="fas fa-times"></i></span>
           </div>
         </div>
-        <div class="modal">
-          <div class="modal-content">
-            <div class="md">
-              <h2 class="score"></h2>
-              <h2 class="highscore"></h2>
-              <br />
-              <input type="button" class="btn-reload" value="Chơi lại" />
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-    <script src="./all.min.js"></script>
-    <script src="./magic.js"></script>
+    <script src="./js/all.min.js"></script>
+    <script src="./js/magic.js"></script>
   </body>
 </html>
