@@ -19,34 +19,29 @@ function getClass(clss) {
     return document.getElementsByClassName(clss);
   }
 }
+
 function getTagName(tagname) {
   {
     return document.getElementsByTagName(tagname);
   }
 }
 getClass("highscore")[0].innerText = highscore;
-document
-  .getElementsByClassName("btn-start")[0]
-  .addEventListener("click", playgame);
-getClass("true")[0].addEventListener("click", truee);
-getClass("false")[0].addEventListener("click", falsee);
+document.getElementsByClassName("btn-start")[0].addEventListener("click", playgame);
+getClass("true")[0].onclick = truee;
+getClass("false")[0].onclick = falsee;
 getClass("replay")[0].onclick = () => {
   setTimeout(playgame, 300);
 };
 getClass("returnmainmenu")[0].onclick = () => {
   location.reload();
 };
-window.addEventListener(
-  "keydown",
-  function (event) {
-    if (event.which === 37) {
-      if (playg === 1) truee();
-    } else if (event.which === 39) {
-      if (playg === 1) falsee();
-    }
-  },
-  true
-);
+window.addEventListener("keydown", function (event) {
+  if (event.which === 37) {
+    truee();
+  } else if (event.which === 39) {
+    falsee();
+  }
+}, true);
 
 function playgame() {
   playg = 1;
@@ -68,27 +63,21 @@ function setcolor() {
   bgcolor = Math.floor(Math.random() * 6);
   switch (bgcolor) {
     case 0:
-      getTagName("body")[0].style.backgroundColor =
-        "#c92bc9";
+      getTagName("body")[0].style.backgroundColor = "#c92bc9";
       break;
     case 1:
-      getTagName("body")[0].style.backgroundColor =
-        "#5bbdff";
+      getTagName("body")[0].style.backgroundColor = "#5bbdff";
       break;
     case 2:
-      getTagName("body")[0].style.backgroundColor =
-        "#24AE5E";
+      getTagName("body")[0].style.backgroundColor = "#24AE5E";
       break;
     case 3:
-      getTagName("body")[0].style.backgroundColor =
-        "#800080";
+      getTagName("body")[0].style.backgroundColor = "#800080";
     case 4:
-      getTagName("body")[0].style.backgroundColor =
-        "#ff55b8";
+      getTagName("body")[0].style.backgroundColor = "#ff55b8";
       break;
     default:
-      getTagName("body")[0].style.backgroundColor =
-        "#FF6633";
+      getTagName("body")[0].style.backgroundColor = "#FF6633";
       break;
   }
 }
@@ -96,7 +85,6 @@ function setcolor() {
 function startgame() {
   a = Math.floor(Math.random() * 50);
   b = Math.floor(Math.random() * 50);
-
   rd = Math.ceil(Math.random() * 9);
   switch (rd) {
     case 2:
@@ -126,7 +114,6 @@ function startgame() {
       rd = Math.ceil(Math.random() * 8);
       break;
   }
-
   getClass("s1")[0].innerText = a;
   getClass("s2")[0].innerText = b;
   getClass("s3")[0].innerText = c;
@@ -148,26 +135,31 @@ function checktime() {
       getClass("displaynumber")[0].style.display = "none";
       getClass("score")[1].innerText = score;
     }
-
     rtimee = (time) / 30;
-
     getClass("line")[0].style.width = rtimee + "%";
   }, 1);
 }
+
 function runtime() {
-  setInterval(() => {
-
-
-  }, 1)
+  setInterval(() => { }, 1)
 }
+
 function truee() {
   answ = 1;
   checkclick();
+  getClass("true")[0].classList.add("active")
+  setTimeout(() => {
+    getClass("true")[0].classList.remove("active")
+  }, 100)
 }
 
 function falsee() {
   answ = 0;
   checkclick();
+  getClass("false")[0].classList.add("active")
+  setTimeout(() => {
+    getClass("false")[0].classList.remove("active")
+  }, 100)
 }
 
 function checkclick() {

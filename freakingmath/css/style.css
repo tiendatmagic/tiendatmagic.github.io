@@ -189,7 +189,7 @@ html {
   color: #0099ff;
   margin: 5px;
 }
-#truefalse .true:active {
+#truefalse .true.active {
   color: #fff;
   background-color: #0099ff;
 }
@@ -202,7 +202,7 @@ html {
   color: red;
   margin: 5px;
 }
-#truefalse .false:active {
+#truefalse .false.active {
   color: #fff;
   background-color: red;
 }
