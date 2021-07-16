@@ -1,5 +1,5 @@
 var score = 0;
-var time = 1000;
+var time;
 var tim;
 var playg = 0;
 var bgcolor = 0;
@@ -48,15 +48,19 @@ function playgame() {
   score = 0;
   time = 3000;
   clearInterval(tim);
-  getClass("gover")[0].style.display = "none";
+  getClass("gover")[0].classList.remove("active");
   getClass("displaynumber")[0].style.display = "block";
   getClass("nametitle")[0].style.display = "none";
   getClass("score")[0].innerText = score;
   getId("mainstart").style.display = "none";
   getId("maingame").style.display = "block";
   setcolor();
-  startgame();
   checktime();
+  try {
+    startgame();
+  } catch (error) {
+    playgame();
+  }
 }
 
 function setcolor() {
@@ -74,7 +78,7 @@ function setcolor() {
     case 3:
       getTagName("body")[0].style.backgroundColor = "#800080";
     case 4:
-      getTagName("body")[0].style.backgroundColor = "#ff55b8";
+      getTagName("body")[0].style.backgroundColor = "#ff189e";
       break;
     default:
       getTagName("body")[0].style.backgroundColor = "#FF6633";
@@ -117,7 +121,6 @@ function startgame() {
   getClass("s1")[0].innerText = a;
   getClass("s2")[0].innerText = b;
   getClass("s3")[0].innerText = c;
-  runtime();
 }
 
 function checktime() {
@@ -131,17 +134,13 @@ function checktime() {
       audio_false.play();
       clearInterval(tim);
       getClass("score")[0].innerText = score;
-      getClass("gover")[0].style.display = "block";
+      getClass("gover")[0].classList.add("active");
       getClass("displaynumber")[0].style.display = "none";
       getClass("score")[1].innerText = score;
     }
     rtimee = (time) / 30;
     getClass("line")[0].style.width = rtimee + "%";
   }, 1);
-}
-
-function runtime() {
-  setInterval(() => { }, 1)
 }
 
 function truee() {
@@ -174,7 +173,7 @@ function checkclick() {
       playg = 0;
       audio_false.play();
       getClass("score")[0].innerText = score;
-      getClass("gover")[0].style.display = "block";
+      getClass("gover")[0].classList.add("active");
       getClass("displaynumber")[0].style.display = "none";
       time = 0;
     }
