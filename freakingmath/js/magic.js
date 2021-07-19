@@ -89,7 +89,7 @@ function setcolor() {
 function startgame() {
   a = Math.floor(Math.random() * 50);
   b = Math.floor(Math.random() * 50);
-  rd = Math.ceil(Math.random() * 9);
+  rd = Math.ceil(Math.random() * 8);
   switch (rd) {
     case 2:
     case 4:
