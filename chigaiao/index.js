@@ -173,8 +173,7 @@ function loaddark() {
     document.getElementsByClassName("lighton")[0].style.display = "block";
     document.getElementsByTagName("body")[0].style.backgroundColor =
       "#ffe8f6";
-    document.querySelector("body > div > div.inputname > span").style.color =
-      "#272727";
+    document.querySelector("div.main > div.inputname > div > span").style.color = "#272727";
     document.querySelector("#app > div.app1 > div > span").style.color =
       "#272727";
 
