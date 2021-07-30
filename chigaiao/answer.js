@@ -1180,6 +1180,7 @@ function answer() {
       notans += 1;
     }
     message.innerHTML += "<li class='ans' >" + ans + "</li>";
+    document.querySelectorAll(".ans")[document.querySelectorAll(".ans").length - 1].scrollIntoView();
     write = 1;
 
     loaddark();

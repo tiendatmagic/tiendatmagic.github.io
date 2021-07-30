@@ -1,3 +1,4 @@
+
 var version = 0;
 var say = "";
 var ans = "";
@@ -22,11 +23,11 @@ if (dark === null) {
 }
 var dmnns = JSON.parse(localStorage.getItem("dmnns"));
 if (dmnns === null) {
-  dmnns = "#ff97e9";
+  dmnns = "#ff41d6";
 }
 var dmngs = JSON.parse(localStorage.getItem("dmngs"));
 if (dmngs === null) {
-  dmngs = "#76a1ff";
+  dmngs = "#c853ff";
 }
 var message = document.getElementsByClassName("message")[0];
 var copy = [];
@@ -102,6 +103,7 @@ btnaccept.onclick = () => {
 };
 btnok.onclick = () => {
   if (write === 1) {
+
     say = document.getElementById("say").value.toLowerCase();
     say = say.replace(/[&?\/\\#+()$~%.!@^()'":*<>{}]/g, "");
     if (say === "") {
@@ -109,6 +111,7 @@ btnok.onclick = () => {
       write = 1;
     } else {
       message.innerHTML += "<li class='que'>" + say + "</li>";
+      document.querySelectorAll(".ans")[document.querySelectorAll(".ans").length - 1].scrollIntoView();
       setTimeout(answer, 1000);
       document.getElementById("say").value = "";
 
@@ -150,17 +153,14 @@ function loaddark() {
   if (dark === 1) {
     document.getElementsByClassName("lightoff")[0].style.display = "block";
     document.getElementsByClassName("lighton")[0].style.display = "none";
-    document.getElementsByClassName("main")[0].style.backgroundColor =
+    document.getElementsByTagName("body")[0].style.backgroundColor =
       "#272727";
-    document.getElementsByClassName("navigation")[0].style.backgroundColor =
-      "#272727";
-    document.querySelector("body > div > div.inputname > span").style.color =
+
+    document.querySelector("body > div > div.inputname  span").style.color =
       "#fff";
 
     document.querySelector("#app > div.app1 > div > span").style.color = "#fff";
-    for (h = 0; h <= document.querySelectorAll(".message li").length - 1; h++) {
-      document.querySelectorAll(".message li")[h].style.color = "#fff";
-    }
+
     for (
       k = 0;
       k <= document.querySelectorAll(".setting-option li").length - 1;
@@ -171,18 +171,13 @@ function loaddark() {
   } else {
     document.getElementsByClassName("lightoff")[0].style.display = "none";
     document.getElementsByClassName("lighton")[0].style.display = "block";
-    document.getElementsByClassName("main")[0].style.backgroundColor =
-      "#ffe0f3";
-    document.getElementsByClassName("navigation")[0].style.backgroundColor =
-      "#ffe0f3";
+    document.getElementsByTagName("body")[0].style.backgroundColor =
+      "#ffe8f6";
     document.querySelector("body > div > div.inputname > span").style.color =
       "#272727";
     document.querySelector("#app > div.app1 > div > span").style.color =
       "#272727";
-    document.querySelector(".message li").style.color = "#272727";
-    for (h = 0; h <= document.querySelectorAll(".message li").length - 1; h++) {
-      document.querySelectorAll(".message li")[h].style.color = "#272727";
-    }
+
     for (
       k = 0;
       k <= document.querySelectorAll(".setting-option li").length - 1;
@@ -190,7 +185,7 @@ function loaddark() {
     ) {
       document
         .querySelectorAll(".setting-option li")
-        [k].classList.remove("dark");
+      [k].classList.remove("dark");
     }
   }
 }

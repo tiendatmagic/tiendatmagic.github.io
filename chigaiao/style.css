@@ -1,11 +1,19 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700");
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 * {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Poppins', sans-serif;
+
 }
+*,
+*::before,
+*::after {
+box-sizing: border-box;
+}
+
+
 body {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -15,6 +23,7 @@ body {
   user-select: none;
   visibility: hidden;
   opacity: 0;
+background-color: #ffe8f6;
   transition: 0.5s ease-out;
 }
 html {
@@ -29,7 +38,7 @@ html {
   transition: 0.2s ease-out;
   border: 1px solid #64646469;
   border-radius: 10px;
-  margin: 0 auto;
+  margin: 10px auto;
 }
 .message::-webkit-scrollbar {
   width: 3px;
@@ -43,14 +52,10 @@ html {
 .setting-option::-webkit-scrollbar-thumb {
   background: grey;
 }
-.title {
-  text-align: center;
-  color: deeppink;
-  font-size: 30px;
-}
+
 input[type="text"] {
   width: 90%;
-  background-color: #eeeeee;
+  background-color: #eeeeeead;
   display: block;
   margin: 0 auto;
   height: 55px;
@@ -63,12 +68,12 @@ input[type="text"] {
 input[type="text"]:focus {
   outline: none;
   background-color: #fff;
-  box-shadow: 0 5px 10px -5px #cacaca;
+
 }
 
 button {
-  background-color: #0554ff;
-  padding: 10px;
+  background-color: #ff57db;
+  padding: 10px 20px;
   border: none;
   outline: none;
   color: #fff;
@@ -94,21 +99,32 @@ a {
   align-items: center;
   text-indent: 10px;
   font-size: 16px;
-  border-radius: 10px;
+  border-radius: 8px;
   text-shadow: 1px -2px 20px grey;
+
 }
 .message a {
   color: red;
 }
 .message li.que {
-  background-color: #76a1ff;
+  background-color: #ff97e9;
+  color: #fff;
 }
 .message li.ans {
-  background-color: #ff97e9;
+  background-color: #ffcaf3;
+  color: #fff ;
 }
 #scroll {
   background-color: #333333;
   height: 10px;
+}
+.inputname {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 .inputname span {
   text-align: center;
@@ -126,7 +142,6 @@ a {
 .main {
   width: 100%;
   height: 100vh;
-  background-color: #ffe0f3;
   position: relative;
   transition: 0.3s ease-out;
   overflow: hidden;
@@ -148,7 +163,6 @@ a {
 .navigation {
   width: 100%;
   margin: 0 auto;
-
   padding: 10px;
   position: absolute;
   bottom: 0px;
@@ -174,11 +188,11 @@ a {
 }
 
 .navigation li:nth-child(1) {
-  color: #0099ff;
+  color: #ff57db;
 }
 
 .navigation li:nth-child(2) {
-  color: #9e9e9e;
+  color: #707070;
 }
 
 #app {
@@ -202,7 +216,7 @@ a {
 }
 
 .setting-option li {
-  border-radius: 20px;
+  border-radius: 15px;
   height: 60px;
   margin-top: 10px;
   display: flex;
@@ -280,9 +294,10 @@ a {
 .colors {
   display: none;
 }
+
 @media only screen and (max-height: 450px) {
   .message {
-    height: 35vh;
+    height: 40vh;
   }
 }
 @media only screen and (min-height: 450px) {
