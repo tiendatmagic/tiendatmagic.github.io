@@ -27,12 +27,22 @@ function getTagName(tagname) {
 }
 getClass("highscore")[0].innerText = highscore;
 document.getElementsByClassName("btn-start")[0].addEventListener("click", playgame);
+document.getElementById("btn-rate").addEventListener("click", rategame);
+function rategame() {
+  cordova.plugins.market.open('com.tiendatmagic.freakingmath');
+}
 getClass("true")[0].onclick = truee;
 getClass("false")[0].onclick = falsee;
 getClass("replay")[0].onclick = () => {
   setTimeout(playgame, 300);
 };
 getClass("returnmainmenu")[0].onclick = () => {
+  admob.interstitial.config({
+    id: 'ca-app-pub-2636216160874899/3958243223',
+
+  })
+  admob.interstitial.prepare()
+  admob.interstitial.show()
   location.reload();
 };
 window.addEventListener("keydown", function (event) {
@@ -50,6 +60,7 @@ function playgame() {
   clearInterval(tim);
   getClass("gover")[0].classList.remove("active");
   getClass("displaynumber")[0].style.display = "block";
+  getClass("version")[0].style.display = "none";
   getClass("nametitle")[0].style.display = "none";
   getClass("score")[0].innerText = score;
   getId("mainstart").style.display = "none";
@@ -89,33 +100,47 @@ function setcolor() {
 function startgame() {
   a = Math.floor(Math.random() * 50);
   b = Math.floor(Math.random() * 50);
-  rd = Math.ceil(Math.random() * 8);
+  rd = Math.ceil(Math.random() * 12);
   switch (rd) {
     case 2:
     case 4:
     case 6:
     case 8:
+    case 10:
+    case 12:
       c = a + b;
       ques = 1;
       break;
+
     case 1:
-      c = a + b + Math.ceil(Math.random() * 10);
-      ques = 0;
-      break;
-    case 3:
       c = a + b + 10;
       ques = 0;
       break;
-    case 5:
-      c = a + b - Math.ceil(Math.random() * 10);
-      ques = 0;
-      break;
-    case 7:
+
+    case 11:
       c = a + b - 10;
       ques = 0;
       break;
+    case 3:
+      c = a + b + Math.ceil(Math.random() * 10);
+      ques = 0;
+      break;
+
+    case 9:
+      c = a + b - Math.ceil(Math.random() * 10);
+      ques = 0;
+      break;
+
+    case 5:
+      c = a + b + Math.ceil(Math.random() * 5);
+      ques = 0;
+      break;
+    case 7:
+      c = a + b - Math.ceil(Math.random() * 5);
+      ques = 0;
+      break;
     default:
-      rd = Math.ceil(Math.random() * 8);
+      rd = Math.ceil(Math.random() * 12);
       break;
   }
   getClass("s1")[0].innerText = a;
@@ -188,4 +213,15 @@ function savehighscore() {
     localStorage.setItem("highscore", JSON.stringify(highscore));
     getClass("highscore")[0].innerText = highscore;
   }
+}
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+
+  admob.banner.prepare();
+  admob.banner.show({
+    id: 'ca-app-pub-2636216160874899/8780352736',
+    autoShow: true
+  });
+
 }

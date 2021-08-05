@@ -21,7 +21,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: #ffd0ec;
+  background-color: #ff81ff;
   width: 100%;
   height: 100vh;
   overflow: hidden;
@@ -46,6 +46,15 @@ html {
   color: #fff;
 }
 
+.version {
+  position: absolute;
+  padding: 10px;
+  top: 0%;
+  left: 0%;
+  color: deeppink;
+  font-size: 20px;
+
+}
 .nametitle {
   position: absolute;
   padding: 10px;
@@ -54,21 +63,13 @@ html {
   -webkit-transform: translateX(-50%) translateY(-50%);
   -ms-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  color: deeppink;
-  background-clip: text;
-  -webkit-background-clip: text;
+  color: #fff;
+
   font-size: 40px;
   font-weight: bold;
   white-space: nowrap;
 }
-@supports (-webkit-background-clip: text) {
-  .nametitle {
-    color: transparent;
-    background-image: -o-linear-gradient(40deg, deeppink, #0026ff);
-    background-image: linear-gradient(50deg, deeppink, #0026ff);
-    -webkit-background-clip: text;
-  }
-}
+
 
 #mainstart {
   text-align: center;
@@ -84,19 +85,23 @@ html {
   -ms-flex-align: center;
   align-items: center;
 }
-
-.btn-start {
-  padding: 4vh;
+#mainstart input {
+  display: block;
+  margin: 20px auto;
+}
+.btn-start, .btn-rate {
+  padding: 4vh 5vh;
   background-color: #fff;
-  color: #ff92bc;
+  color: #ff00d4;
   outline: 0;
   border: 0;
-  font-size: 20px;
+  font-size: 3vh;
+  font-weight: bold;
   border-radius: 10px;
   cursor: pointer;
 }
-.btn-start:active {
-  background-color: #ff92bc;
+.btn-start:active, .btn-rate:active  {
+  background-color: #ff00d4;
   color: #fff;
 }
 
@@ -234,7 +239,7 @@ html {
 }
 
 .displaynumber span {
-  font-size: 16vw;
+  font-size: 8rem;
   color: #fff;
   position: relative;
   z-index: 1;
@@ -308,11 +313,50 @@ html {
 
 @media screen and (max-width: 500px) {
   .displaynumber span {
-    font-size: 18vw;
+    font-size: 17vw;
+
   }
 }
 @media screen and (max-height: 555px) {
   .gover {
     margin-top: 100px;
   }
+}
+
+@media screen and (min-width: 500px) and (min-height: 800px) {
+  .nametitle {
+    font-size: 50px;
+  }
+  .gover h2 {
+    font-size: 40px;
+  }
+  .gover p {
+    line-height: 40px;
+    font-size: 30px;
+  }
+  .optiongover div {
+    width: calc(85px * 1.2);
+    height: calc(65px * 1.2);
+   }
+}
+
+@media screen and (min-width: 700px) and (min-height: 1000px) {
+  #scr .score {
+    font-size: 60px;
+  }
+  .nametitle {
+    font-size: 70px;
+  }
+  .gover h2 {
+    font-size: 60px;
+  }
+  .gover p {
+    line-height: 60px;
+    font-size: 40px;
+  }
+  .optiongover div {
+    width: calc(85px * 1.8);
+    height: calc(65px * 1.6);
+    font-size: 50px;
+   }
 }
