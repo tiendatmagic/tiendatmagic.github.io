@@ -25,6 +25,21 @@ function getTagName(tagname) {
     return document.getElementsByTagName(tagname);
   }
 }
+var admobid = {
+  banner: 'ca-app-pub-2636216160874899/1453221586',
+};
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+
+  AdMob.createBanner({
+    adId: admobid.banner,
+    position: AdMob.AD_POSITION.BOTTOM_CENTER,
+    isTesting: true,
+    overlap: false,
+    offsetTopBar: false,
+    bgColor: 'black'
+  });
+}
 getClass("highscore")[0].innerText = highscore;
 document.getElementsByClassName("btn-start")[0].addEventListener("click", playgame);
 document.getElementById("btn-rate").addEventListener("click", rategame);
@@ -37,12 +52,7 @@ getClass("replay")[0].onclick = () => {
   setTimeout(playgame, 300);
 };
 getClass("returnmainmenu")[0].onclick = () => {
-  admob.interstitial.config({
-    id: 'ca-app-pub-2636216160874899/3958243223',
 
-  })
-  admob.interstitial.prepare()
-  admob.interstitial.show()
   location.reload();
 };
 window.addEventListener("keydown", function (event) {
@@ -215,13 +225,3 @@ function savehighscore() {
   }
 }
 
-document.addEventListener("deviceready", onDeviceReady, false);
-function onDeviceReady() {
-
-  admob.banner.prepare();
-  admob.banner.show({
-    id: 'ca-app-pub-2636216160874899/8780352736',
-    autoShow: true
-  });
-
-}
