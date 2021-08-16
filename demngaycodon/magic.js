@@ -15,7 +15,7 @@ function getQueryAll(query) {
 }
 
 const wrapper = getQuery(".wrapper");
-const fileName = getQuery(".file-name");
+
 const defaultBtn = getQuery("#default-btn");
 const customBtn = getQuery("#custom-btn");
 const cancelBtn = getQuery("#cancel-btn i");
@@ -46,10 +46,7 @@ function insertimage() {
     };
     reader.readAsDataURL(file);
   }
-  if (this.value) {
-    let valueStore = this.value.match(regExp);
-    fileName.textContent = valueStore;
-  }
+
 }
 var ten = getId("ten");
 var gioitinh = document.getElementsByName("gender");
@@ -168,7 +165,7 @@ var status_apps = [
 window.addEventListener("load", function () {
   setTimeout(function () {
     document.getElementsByTagName("body")[0].style.opacity = '1';
-  }, 2500)
+  }, 1000)
   displayprofile();
 
 });
