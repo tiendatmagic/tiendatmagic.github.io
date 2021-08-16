@@ -13,6 +13,7 @@ function getQuery(query) {
 function getQueryAll(query) {
   return document.querySelectorAll(query);
 }
+
 const wrapper = getQuery(".wrapper");
 const fileName = getQuery(".file-name");
 const defaultBtn = getQuery("#default-btn");
@@ -28,10 +29,10 @@ let regExp = /[0-9a-zA-Z\^\&\'\@\{\}\[\]\,\$\=\!\-\#\(\)\.\%\+\~\_ ]+$/;
 function defaultBtnActive() {
   defaultBtn.click();
 }
-getClass("image")[0].addEventListener("click", function () {
-  document.getElementsByTagName("button")[0].click();
-});
-defaultBtn.addEventListener("change", function () {
+getClass("image")[0].addEventListener("click", defaultBtnActive);
+defaultBtn.addEventListener("change", insertimage);
+function insertimage() {
+
   const file = this.files[0];
   if (file) {
     const reader = new FileReader();
@@ -49,7 +50,7 @@ defaultBtn.addEventListener("change", function () {
     let valueStore = this.value.match(regExp);
     fileName.textContent = valueStore;
   }
-});
+}
 var ten = getId("ten");
 var gioitinh = document.getElementsByName("gender");
 var dtieude = JSON.parse(localStorage.getItem("dtieude"));
@@ -154,17 +155,23 @@ var status_apps = [
   "Con người trở nên cô đơn vì trong cuộc đời, thay vì xây những chiếc cầu người ta lại xây những bức tường.",
   "Con người sinh ra không phải để tan biến đi như một hạt cát vô danh. Họ sinh ra để in dấu lại trên mặt đất, in dấu lại trong trái tim người khác.",
   "Đừng nói mà hãy làm. Đừng huyên thuyên mà hãy hành động. Đừng hứa mà hãy chứng minh.",
-  "Đừng che dấu tình yêu và sự dịu dàng của mình cho đến khi bạn lìa đời. Hãy làm cuộc đời bạn tràn đầy sự ngọt ngào. Hãy nói những lời thân thương khi bạn còn nghe được và tim bạn còn rung động.",
+  "Độc thân không phải là ế mà là đang chờ người tử tế để yêu",
   "Đừng bao giờ quyết định những vấn đề lâu dài trong lúc cảm xúc đang ngắn hạn.",
   "Hạnh phúc không có sẵn. Hạnh phúc xuất phát từ chính hành động của bạn.",
   "Hãy nhớ rằng mối quan hệ đẹp nhất là khi tình yêu thương bạn dành cho nhau vượt trên những nhu cầu đòi hỏi từ nhau.",
-  "Thời gian là miễn phí nhưng nó vô giá. Bạn không thể sở hữu nó, nhưng bạn có thể sử dụng nó. Bạn có thể dùng nó, nhưng bạn không thể giữ nó. Một khi bạn làm mất nó, bạn sẽ không thể nào có lại được nó.",
-  "Tuổi 18. Cái tuổi đã đủ để nhận thức về bản thân. Đủ để chịu trách nhiệm về những việc mình làm, đánh dấu sự trưởng thành trong tư tưởng lẫn nhân cách, là cả một tương lai đang chờ tôi bước đến.",
+  "Độc thân không đáng sợ … đáng sợ là đang yêu mà cảm giác như chỉ có một mình",
+  "Thà sống một mình còn hơn là khi có ai đó bên cạnh mà vẫn cảm thấy cô đơn",
   "Nếu bạn thật sự quan trọng với một người, thì người đó sẽ luôn có thời gian dành cho bạn: không lý do, không dối trá và không thất hứa.",
   "Cảm ơn ai đó đã vô tâm hời hợt để rồi tôi biết mình nên dừng lại ở đâu.",
   "Lần cuối cùng em khóc vì anh. Em sẽ ngừng khóc và ngừng  cả sự yêu thương.",
 ];
-window.addEventListener("load", displayprofile);
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    document.getElementsByTagName("body")[0].style.opacity = '1';
+  }, 2500)
+  displayprofile();
+
+});
 getId("submit").addEventListener("click", () => {
   sten = ten.value;
   localStorage.setItem("sten", JSON.stringify(sten));
@@ -267,7 +274,7 @@ getId("dmtt").addEventListener("change", () => {
 getId("huyevent2").addEventListener("click", () => {
   getClass("options2-event")[0].classList.toggle("active");
 });
-getId("huyevent3").addEventListener("click", () => {
+getId("declineevent3").addEventListener("click", () => {
   getClass("options3-event")[0].classList.toggle("active");
 });
 getId("xacnhanevent2").addEventListener("click", () => {
@@ -288,7 +295,7 @@ getId("xacnhanevent2").addEventListener("click", () => {
     displayprofile();
   }
 });
-getId("xacnhanevent3").addEventListener("click", () => {
+getId("acceptevent2").addEventListener("click", () => {
   if (getId("stieude").value === "") {
     alert("không được bỏ trống nha");
   } else {
@@ -319,7 +326,7 @@ function displayprofile() {
       for (k = 0; k <= getQueryAll(".setting-option li").length - 1; k++) {
         document
           .querySelectorAll(".setting-option li")
-          [k].classList.add("dark");
+        [k].classList.add("dark");
       }
     } else {
       getClass("lightoff")[0].style.display = "none";
@@ -336,7 +343,7 @@ function displayprofile() {
       for (k = 0; k <= getQueryAll(".setting-option li").length - 1; k++) {
         document
           .querySelectorAll(".setting-option li")
-          [k].classList.remove("dark");
+        [k].classList.remove("dark");
       }
     }
     getClass("container")[0].style.overflow = "hidden";
