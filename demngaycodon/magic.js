@@ -107,6 +107,11 @@ var info2 = JSON.parse(localStorage.getItem("info2"));
 if (info2 === null || info2 === "") {
   info2 = "Ngày";
 }
+
+var hiddentitle = JSON.parse(localStorage.getItem("hiddentitle"));
+if (hiddentitle === null || hiddentitle === "") {
+  hiddentitle = true;
+}
 var text = getId("contentevent");
 var data = JSON.parse(localStorage.getItem("datadncd"));
 var arrdncd = JSON.parse(localStorage.getItem("arrdncd"));
@@ -214,9 +219,7 @@ getId("submit").addEventListener("click", () => {
     displayprofile();
   }
 });
-getClass("sli7")[0].addEventListener("click", () => {
-  getClass("event")[0].style.display = "block";
-});
+
 getClass("sli5")[0].addEventListener("click", () => {
   profile = 0;
   localStorage.setItem("profile", JSON.stringify(profile));
@@ -224,8 +227,17 @@ getClass("sli5")[0].addEventListener("click", () => {
   location.reload();
 });
 getClass("sli6")[0].addEventListener("click", () => {
-  getClass("options-2")[0].style.display = "block";
-  getClass("options-3")[0].style.display = "none";
+  getClass("options-2")[0].classList.toggle("active");
+  getClass("options-3")[0].classList.remove("active");
+  getClass("options2-event")[0].classList.remove("active");
+  getClass("options3-event")[0].classList.remove("active");
+
+});
+getClass("sli7")[0].addEventListener("click", () => {
+  getClass("event")[0].style.display = "block";
+});
+getClass("sli8")[0].addEventListener("click", () => {
+  cordova.plugins.market.open('com.tiendatmagic.demngaycodon');
 });
 getClass("dmht")[0].addEventListener("click", () => {
   getId("dmht").click();
@@ -237,7 +249,7 @@ getClass("dmtt")[0].addEventListener("click", () => {
   getId("dmtt").click();
 });
 getClass("huy")[0].addEventListener("click", () => {
-  getClass("options-2")[0].style.display = "none";
+  getClass("options-2")[0].classList.remove("active");
 });
 getId("xacnhan").addEventListener("click", () => {
   getClass("info1")[0].innerText = getId("ndt").value;
@@ -246,10 +258,10 @@ getId("xacnhan").addEventListener("click", () => {
   localStorage.setItem("info1", JSON.stringify(info1));
   info2 = getId("ndd").value;
   localStorage.setItem("info2", JSON.stringify(info2));
-  getClass("options-3")[0].style.display = "none";
+  getClass("options-3")[0].classList.remove("active");
 });
 getId("huy").addEventListener("click", () => {
-  getClass("options-3")[0].style.display = "none";
+  getClass("options-3")[0].classList.remove("active");
 });
 getId("dmht").addEventListener("change", () => {
   dmhts = getId("dmht").value;
@@ -309,40 +321,7 @@ getClass("exitevent")[0].addEventListener("click", () => {
 
 function displayprofile() {
   if (profile === 1) {
-    if (dark === 1) {
-      getClass("lightoff")[0].style.display = "block";
-      getClass("lighton")[0].style.display = "none";
-      dmhns = "#272727";
-      getClass("htitle")[0].style.color = "#fff";
-      getQuery("body > div > div.event > div.mainevent").style.color = "#fff";
-      getClass("statuseveryday")[0].style.backgroundColor = dmhns;
-      getClass("buttonstatus")[0].style.color = "#fff";
-      for (j = 0; j <= 3; j++) {
-        getQueryAll(".datetime span")[j].style.color = "#fff";
-      }
-      for (k = 0; k <= getQueryAll(".setting-option li").length - 1; k++) {
-        document
-          .querySelectorAll(".setting-option li")
-        [k].classList.add("dark");
-      }
-    } else {
-      getClass("lightoff")[0].style.display = "none";
-      getClass("lighton")[0].style.display = "block";
-      dmhns = "#fff";
-      getClass("htitle")[0].style.color = "#272727";
-      getQuery("body > div > div.event > div.mainevent").style.color =
-        "#272727";
-      getClass("statuseveryday")[0].style.backgroundColor = dmhns;
-      getClass("buttonstatus")[0].style.color = "red";
-      for (j = 0; j <= 3; j++) {
-        getQueryAll(".datetime span")[j].style.color = "#272727";
-      }
-      for (k = 0; k <= getQueryAll(".setting-option li").length - 1; k++) {
-        document
-          .querySelectorAll(".setting-option li")
-        [k].classList.remove("dark");
-      }
-    }
+    loaddark();
     getClass("container")[0].style.overflow = "hidden";
     getClass("navigation")[0].style.display = "block";
     getClass("profile")[0].style.display = "none";
@@ -372,10 +351,23 @@ function displayprofile() {
     getClass("info2")[0].innerText = getId("ndd").value;
     getClass("contentstatuseveryday")[0].innerText =
       status_apps[orderstatus - 1];
+
+
     for (var j = 0; j <= 3; j++) {
       getClass("heart")[j].style.backgroundColor = dmngs;
     }
     getClass("contentstatus")[0].style.backgroundColor = dmtts;
+    if (hiddentitle == true) {
+      getClass("header")[0].classList.add("hidden");
+      getClass("ssetting")[0].classList.add("height");
+      getId("switch").checked = false;
+    }
+    else {
+      getClass("header")[0].classList.remove("hidden");
+      getClass("ssetting")[0].classList.remove("height");
+
+      getId("switch").checked = true;
+    }
     localStorage.setItem("dngaysinh", JSON.stringify(dngaysinh));
     localStorage.setItem("dngaybatdau", JSON.stringify(dngaybatdau));
     setInterval(() => {
@@ -429,23 +421,70 @@ getClass("select1")[0].addEventListener("click", () => {
   getClass("setting")[0].style.display = "none";
   getClass("ssetting")[0].classList.remove("active");
   getClass("scontent")[0].style.transform = "translateX(0%)";
+  getClass("content2")[0].classList.remove("active");
 });
 getClass("select2")[0].addEventListener("click", () => {
   getClass("content")[1].style.display = "block";
   getClass("setting")[0].style.display = "none";
   getClass("ssetting")[0].classList.remove("active");
   getClass("scontent")[0].style.transform = "translateX(-50%)";
+
 });
 getClass("select3")[0].addEventListener("click", () => {
   getClass("content")[1].style.display = "none";
   getClass("setting")[0].style.display = "block";
   getClass("ssetting")[0].classList.add("active");
+  getClass("content2")[0].classList.add("active");
 });
 getClass("buttonstatus")[0].addEventListener("click", () => {
   getClass("statuseveryday")[0].classList.toggle("active");
   getClass("circle")[0].classList.toggle("active");
 });
+function loaddark() {
+  if (dark === 1) {
+    getClass("lightoff")[0].style.display = "block";
+    getClass("lighton")[0].style.display = "none";
+    dmhns = "#272727";
+    getClass("htitle")[0].style.color = "#fff";
+    getQuery("body > div > div.event > div.mainevent").style.color = "#fff";
+    getClass("statuseveryday")[0].style.backgroundColor = dmhns;
+    getClass("buttonstatus")[0].style.color = "#fff";
 
+    for (l = 0; l < listArray.length; l++) {
+      getQueryAll(".todoList li")[l].style.backgroundColor = "#fff";
+      getQueryAll(".todoList li")[l].style.color = "#000";
+    }
+    for (j = 0; j <= 3; j++) {
+      getQueryAll(".datetime span")[j].style.color = "#fff";
+    }
+    for (k = 0; k <= getQueryAll(".setting-option li").length - 1; k++) {
+      document
+        .querySelectorAll(".setting-option li")
+      [k].classList.add("dark");
+    }
+  } else {
+    getClass("lightoff")[0].style.display = "none";
+    getClass("lighton")[0].style.display = "block";
+    dmhns = "#fff";
+    getClass("htitle")[0].style.color = "#272727";
+    getQuery("body > div > div.event > div.mainevent").style.color =
+      "#272727";
+    getClass("statuseveryday")[0].style.backgroundColor = dmhns;
+    getClass("buttonstatus")[0].style.color = "red";
+    for (l = 0; l < listArray.length; l++) {
+      getQueryAll(".todoList li")[l].style.backgroundColor = "#ccc";
+      getQueryAll(".todoList li")[l].style.color = "#fff";
+    }
+    for (j = 0; j <= 3; j++) {
+      getQueryAll(".datetime span")[j].style.color = "#272727";
+    }
+    for (k = 0; k <= getQueryAll(".setting-option li").length - 1; k++) {
+      document
+        .querySelectorAll(".setting-option li")
+      [k].classList.remove("dark");
+    }
+  }
+}
 function checkdark() {
   if (dark === 1) {
     dark = 0;
@@ -459,13 +498,21 @@ function checkdark() {
 getClass("sli1")[0].addEventListener("click", checkdark);
 getClass("sli2")[0].addEventListener("click", () => {
   getClass("options3-event")[0].classList.toggle("active");
+  getClass("options2-event")[0].classList.remove("active");
+  getClass("options-3")[0].classList.remove("active");
+  getClass("options-2")[0].classList.remove("active");
 });
 getClass("sli3")[0].addEventListener("click", () => {
   getClass("options2-event")[0].classList.toggle("active");
+  getClass("options3-event")[0].classList.remove("active");
+  getClass("options-3")[0].classList.remove("active");
+  getClass("options-2")[0].classList.remove("active");
 });
 getClass("sli4")[0].addEventListener("click", () => {
-  getClass("options-2")[0].style.display = "none";
-  getClass("options-3")[0].style.display = "block";
+  getClass("options-3")[0].classList.toggle("active");
+  getClass("options-2")[0].classList.remove("active");
+  getClass("options2-event")[0].classList.remove("active");
+  getClass("options3-event")[0].classList.remove("active");
 });
 const inputBox = getQuery(".inputField input");
 const addBtn = getQuery(".inputField button");
@@ -491,10 +538,12 @@ addBtn.onclick = () => {
   if (userEnteredValue === "") {
     alert("không được bỏ trống");
   } else {
+
     listArray.push(userEnteredValue);
     localStorage.setItem("New Todo", JSON.stringify(listArray));
     showTasks();
     addBtn.classList.remove("active");
+
   }
 };
 
@@ -518,6 +567,8 @@ function showTasks() {
   });
   todoList.innerHTML = newLiTag;
   inputBox.value = "";
+  loaddark();
+
 }
 
 function deleteTask(index) {
@@ -532,3 +583,16 @@ deleteAllBtn.onclick = () => {
   localStorage.setItem("New Todo", JSON.stringify(listArray));
   showTasks();
 };
+
+getId("switch").onclick = function () {
+  if (getId("switch").checked) {
+    getClass("header")[0].classList.remove("hidden");
+    getClass("ssetting")[0].classList.remove("height");
+    hiddentitle = false;
+  } else {
+    getClass("header")[0].classList.add("hidden");
+    getClass("ssetting")[0].classList.add("height");
+    hiddentitle = true;
+  }
+  localStorage.setItem("hiddentitle", JSON.stringify(hiddentitle));
+}

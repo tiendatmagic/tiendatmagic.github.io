@@ -5,11 +5,17 @@
 *::after {
 	margin: 0;
 	padding: 0;
+	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	font-family: 'Roboto', sans-serif;
 }
+
+::-moz-selection {
+	background-color: pink;
+}
+
 ::selection {
-  background-color: pink;
+	background-color: pink;
 }
 
 body {
@@ -37,6 +43,8 @@ html {
 	height: 100%;
 	position: relative;
 	background-size: cover;
+	-webkit-transition: 0.5s ease-out;
+	-o-transition: 0.5s ease-out;
 	transition: 0.5s ease-out;
 }
 
@@ -48,8 +56,14 @@ html {
 	border-radius: 10px;
 	background: #fff;
 	border: 2px solid #c2cdda;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 	overflow: hidden;
 }
@@ -58,8 +72,14 @@ html {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 }
 
@@ -85,8 +105,6 @@ html {
 	display: none;
 }
 
-
-
 .profile h2,
 p {
 	text-align: center;
@@ -104,8 +122,14 @@ p {
 }
 
 .profile .selectgender {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: space-evenly;
+	-ms-flex-pack: space-evenly;
 	justify-content: space-evenly;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	max-width: 500px;
 	border: 1px solid #e2e2e2;
@@ -113,8 +137,14 @@ p {
 }
 
 .profile .selectgender div {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	width: 70px;
 }
@@ -173,13 +203,14 @@ input[type="date"] {
 .options-3 input[type="text"],
 .options3-event input[type="text"] {
 	width: 100% !important;
-	height: 40px;
+	height: 50px;
 	padding: 10px;
 	border-radius: 10px;
 	outline: none;
 	background-color: #f9f7ff;
 	border: 1px solid #c2c2c2;
 	margin-top: 10px;
+	font-size: 17px;
 }
 
 .profile textarea {
@@ -206,11 +237,16 @@ input[type="date"] {
 	outline: none;
 	padding: 10px;
 	border-radius: 4px;
+	-webkit-box-shadow: 1px 0px 2px #000;
 	box-shadow: 1px 0px 2px #000;
 }
 
 .ops-buttons {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: space-evenly;
+	-ms-flex-pack: space-evenly;
 	justify-content: space-evenly;
 	margin: 10px;
 }
@@ -221,13 +257,23 @@ input[type="date"] {
 }
 
 .main .header {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 }
 
+.main .header.hidden {
+	display: none;
+}
+
 .dname {
-	font-size: 22px;
+	font-size: 24px;
 }
 
 .dgioitinh {
@@ -239,23 +285,64 @@ input[type="date"] {
 	width: 36px;
 	height: 36px;
 	background-color: #eff1f3;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	z-index: 2;
 }
 
 .scontent {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 	width: 200%;
+	-webkit-transform: translateX(0%);
+	-ms-transform: translateX(0%);
 	transform: translateX(0%);
+	-webkit-transition: 0.3s ease-in-out;
+	-o-transition: 0.3s ease-in-out;
 	transition: 0.3s ease-in-out;
+}
+
+.scontent .content2.active {
+	-webkit-transform: translateX(-50%);
+	-ms-transform: translateX(-50%);
+	transform: translateX(-50%);
+	-webkit-animation: tab2 0.2s forwards;
+	animation: tab2 0.2s forwards;
+}
+
+@-webkit-keyframes tab2 {
+
+	to {
+		-webkit-transform: translateX(0%);
+		transform: translateX(0%);
+	}
+}
+
+@keyframes tab2 {
+
+	to {
+		-webkit-transform: translateX(0%);
+		transform: translateX(0%);
+	}
 }
 
 .scontent .content1,
 .scontent .content2 {
 	width: 100%;
+	-webkit-transition: 0.2s ease;
+	-o-transition: 0.2s ease;
+	transition: 0.2s ease;
 }
 
 .setting {
@@ -266,15 +353,42 @@ input[type="date"] {
 	height: 80vh;
 	overflow-y: scroll;
 	position: relative;
-	transition: 0.5s ease-out;
 	visibility: hidden;
 	opacity: 0;
+	-webkit-transform: translateX(0%);
+	-ms-transform: translateX(0%);
+	transform: translateX(0%);
+}
+
+.ssetting.height {
+	height: 90vh;
 }
 
 .ssetting.active {
 	top: 0px;
 	visibility: visible;
 	opacity: 1;
+	-webkit-transform: translateX(50%);
+	-ms-transform: translateX(50%);
+	transform: translateX(50%);
+	-webkit-animation: tab 0.2s forwards;
+	animation: tab 0.2s forwards;
+}
+
+@-webkit-keyframes tab {
+
+	to {
+		-webkit-transform: translateX(0%);
+		transform: translateX(0%);
+	}
+}
+
+@keyframes tab {
+
+	to {
+		-webkit-transform: translateX(0%);
+		transform: translateX(0%);
+	}
 }
 
 .setting-option {
@@ -284,8 +398,12 @@ input[type="date"] {
 
 .setting-option li {
 	height: 60px;
-	margin-top: 10px;
+	margin: 10px 0;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	position: relative;
 }
@@ -293,8 +411,14 @@ input[type="date"] {
 .setting-option .icon {
 	width: 80px;
 	height: 40px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 }
 
@@ -331,14 +455,22 @@ input[type="date"] {
 	border-radius: 50%;
 	border: 1px solid #dbdbdb;
 	background-color: rgba(0, 0, 0, 0.185);
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	font-size: 30px;
 	position: absolute;
 	left: 20px;
 	z-index: 1;
 	color: red;
+	-webkit-animation: heartbeat 1s infinite;
+	animation: heartbeat 1s infinite;
 }
 
 .content .statuseveryday {
@@ -352,23 +484,93 @@ input[type="date"] {
 	color: deeppink;
 	display: none;
 	overflow-y: scroll;
-	margin-top: 50px;
+	margin-top: 70px;
+	-webkit-transition: 0.3s ease-out;
+	-o-transition: 0.3s ease-out;
 	transition: 0.3s ease-out;
 }
 
 .content .statuseveryday.active {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
-	transition: 0.2s ease-out;
+	-webkit-animation: 0.2s scale ease-out;
 	animation: 0.2s scale ease-out;
 }
 
-@keyframes scale {
+@-webkit-keyframes scale {
 	from {
+		-webkit-transform: scale(0.7);
 		transform: scale(0.7);
 	}
 
 	to {
+		-webkit-transform: scale(1);
 		transform: scale(1);
+	}
+}
+
+@keyframes scale {
+	from {
+		-webkit-transform: scale(0.7);
+		transform: scale(0.7);
+	}
+
+	to {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+}
+
+@-webkit-keyframes heartbeat {
+	0% {
+		font-size: 26px;
+	}
+
+	20% {
+		font-size: 33px;
+	}
+
+	40% {
+		font-size: 26px;
+	}
+
+	60% {
+		font-size: 33px;
+	}
+
+	80% {
+		font-size: 26px;
+	}
+
+	100% {
+		font-size: 26px;
+	}
+}
+
+@keyframes heartbeat {
+	0% {
+		font-size: 26px;
+	}
+
+	20% {
+		font-size: 33px;
+	}
+
+	40% {
+		font-size: 26px;
+	}
+
+	60% {
+		font-size: 33px;
+	}
+
+	80% {
+		font-size: 26px;
+	}
+
+	100% {
+		font-size: 26px;
 	}
 }
 
@@ -377,8 +579,14 @@ input[type="date"] {
 	word-wrap: break-all;
 	margin: 0 auto;
 	text-align: justify;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 }
 
@@ -386,16 +594,23 @@ input[type="date"] {
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
-	border: 6px solid red;
+	border: 3px solid #ff00d4;
 	margin: 0 auto;
 	display: none;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
-	transition: 0.2s ease-out;
 }
 
 .content .circle.active {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-animation: 0.2s scale ease-out;
+	animation: 0.2s scale ease-out;
 }
 
 .content .countday {
@@ -408,8 +623,14 @@ input[type="date"] {
 }
 
 .personal_info {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	width: 90%;
 	max-width: 800px;
@@ -422,17 +643,28 @@ input[type="date"] {
 
 .personal_info .personall {
 	height: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 }
 
 .personal_info .personall:nth-child(1) {
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
 	flex: 1;
 }
 
 .personal_info .personall:nth-child(2) {
+	-webkit-box-flex: 2;
+	-ms-flex: 2;
 	flex: 2;
 	width: 100%;
 	overflow: scroll;
@@ -451,10 +683,29 @@ input[type="date"] {
 }
 
 .fa-camera {
+}
+
+.iconcamera {
 	position: absolute;
 	bottom: 0px;
 	right: 0px;
-	font-size: 25px;
+	font-size: 14px;
+	padding: 5px;
+	width: 30px;
+	height: 30px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	border-radius: 50%;
+	background-color: #fff;
+	-webkit-box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 }
 
 .ssetting .pavatar {
@@ -463,6 +714,8 @@ input[type="date"] {
 	margin: 0 auto;
 	border-radius: 50%;
 	border: 3px solid #a800a8;
+	-webkit-transition: 0.3s ease-out;
+	-o-transition: 0.3s ease-out;
 	transition: 0.3s ease-out;
 }
 
@@ -480,12 +733,18 @@ input[type="date"] {
 	width: 100px;
 	border-radius: 50px;
 	margin: 0 auto;
+	padding: 3px;
 }
 
 .datetime {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	text-align: center;
+	-webkit-box-pack: space-evenly;
+	-ms-flex-pack: space-evenly;
 	justify-content: space-evenly;
 }
 
@@ -498,10 +757,18 @@ input[type="date"] {
 	width: 50px;
 	height: 50px;
 	border-radius: 30px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	background-color: #0099ff;
+	-webkit-transition: 0.3s ease-out;
+	-o-transition: 0.3s ease-out;
 	transition: 0.3s ease-out;
 }
 
@@ -521,7 +788,7 @@ input[type="date"] {
 .statuseveryday::-webkit-scrollbar,
 .personall::-webkit-scrollbar,
 .todoList::-webkit-scrollbar {
-	width: 3px;
+	width: 0px;
 }
 
 .contentstatus::-webkit-scrollbar-thumb,
@@ -547,6 +814,14 @@ input[type="date"] {
 	z-index: 3;
 }
 
+.options-2.active {
+	display: block;
+}
+
+.options-3.active {
+	display: block;
+}
+
 .options-2 ul {
 	margin-top: 10px;
 }
@@ -554,6 +829,8 @@ input[type="date"] {
 .options-2 li {
 	list-style: none;
 	padding: 10px;
+	-webkit-transition: 0.3s ease-in-out;
+	-o-transition: 0.3s ease-in-out;
 	transition: 0.3s ease-in-out;
 	border-radius: 5px;
 }
@@ -578,6 +855,7 @@ input[type="date"] {
 	padding: 2px;
 	border-radius: 5px;
 	z-index: 3;
+	-webkit-box-shadow: -2px 5px 12px 0px rgb(0 0 0 / 38%);
 	box-shadow: -2px 5px 12px 0px rgb(0 0 0 / 38%);
 }
 
@@ -606,13 +884,16 @@ input[type="date"] {
 }
 
 .event .todoList li {
-	background-color: #e0e0e0;
-	margin-bottom: 10px;
+	margin: 5px 0;
 	padding: 10px;
 	border-radius: 7px;
 	position: relative;
 	overflow: hidden;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
 	text-align: left;
 	width: 100%;
@@ -627,9 +908,17 @@ input[type="date"] {
 	height: 40px;
 	position: absolute;
 	right: -40px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-webkit-transition: 0.3s ease-out;
+	-o-transition: 0.3s ease-out;
 	transition: 0.3s ease-out;
 }
 
@@ -638,20 +927,34 @@ input[type="date"] {
 }
 
 .event .inputField {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
 }
 
 .event .footer {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
 	margin: 0 auto;
 }
 
 .event .footer .footers:nth-child(1) {
+	-webkit-box-flex: 1;
+	-ms-flex: 1;
 	flex: 1;
 }
 
@@ -716,9 +1019,13 @@ input[type="date"] {
 }
 
 .navigation ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
 	height: 100%;
+	-webkit-box-pack: space-evenly;
+	-ms-flex-pack: space-evenly;
 	justify-content: space-evenly;
 }
 
@@ -726,10 +1033,16 @@ input[type="date"] {
 	list-style: none;
 	font-size: 25px;
 	width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
 	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
-	cursor: pointer;
+	border-radius: 5px;
 }
 
 .navigation li:nth-child(1) {
@@ -748,7 +1061,69 @@ input[type="date"] {
 	display: block;
 }
 
+.col {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin: 5px auto;
+}
+
+.switch-wrapper {
+	position: relative;
+	cursor: pointer;
+	width: 50px;
+	height: 25px;
+	display: -webkit-inline-box;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	margin: 0px auto;
+	overflow: hidden;
+	-webkit-box-shadow: #cfcfcf 0px 0px 10px 0px;
+	box-shadow: #cfcfcf 0px 0px 10px 0px;
+	border-radius: 100rem;
+	-webkit-transition: background-color 0.25s linear;
+	-o-transition: background-color 0.25s linear;
+	transition: background-color 0.25s linear;
+	padding: 5px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.switch-input {
+	display: none;
+}
+
+.switch-input:checked+.switch-wrapper {
+	background-color: deeppink;
+}
+
+.switch-input:checked+.switch-wrapper .switch-spin {
+	background-color: white;
+	-webkit-transform: translateX(calc(50px - calc(25px - calc(5px * 2)) - calc(5px * 2)));
+	-ms-transform: translateX(calc(50px - calc(25px - calc(5px * 2)) - calc(5px * 2)));
+	transform: translateX(calc(50px - calc(25px - calc(5px * 2)) - calc(5px * 2)));
+}
+
+.switch-spin {
+	width: calc(25px - calc(5px * 2));
+	height: calc(25px - calc(5px * 2));
+	border-radius: 100rem;
+	background-color: deeppink;
+	-webkit-transition: background-color 0.25s linear, -webkit-transform 0.25s linear;
+	transition: background-color 0.25s linear, -webkit-transform 0.25s linear;
+	-o-transition: transform 0.25s linear, background-color 0.25s linear;
+	transition: transform 0.25s linear, background-color 0.25s linear;
+	transition: transform 0.25s linear, background-color 0.25s linear, -webkit-transform 0.25s linear;
+}
+
 @media only screen and (min-height: 550px) {
+
 	.profile h2 {
 		font-size: 20px;
 	}
@@ -759,6 +1134,10 @@ input[type="date"] {
 
 	.datetime span {
 		margin-top: 20px;
+	}
+
+	.content .countday {
+		font-size: 40px;
 	}
 
 	.content .buttonstatus {
@@ -779,7 +1158,7 @@ input[type="date"] {
 	}
 
 	.content .statuseveryday {
-		margin-top: 90px;
+		margin-top: 100px;
 	}
 
 	.setting .pavatar {
@@ -821,6 +1200,8 @@ input[type="date"] {
 		width: 75px;
 		height: 75px;
 		font-size: 20px;
+		-webkit-transition: 0.3s ease-out;
+		-o-transition: 0.3s ease-out;
 		transition: 0.3s ease-out;
 	}
 
@@ -828,8 +1209,12 @@ input[type="date"] {
 		font-size: 30px;
 	}
 
+	.content .countday {
+		font-size: 48px;
+	}
+
 	.content .statuseveryday {
-		margin-top: 100px;
+		margin-top: 110px;
 	}
 
 	.contentstatus {
@@ -846,6 +1231,10 @@ input[type="date"] {
 @media only screen and (min-height: 735px) {
 	.info p {
 		font-size: 23px;
+	}
+
+	.content .countday {
+		font-size: 52px;
 	}
 
 	.content .circle {
@@ -874,10 +1263,6 @@ input[type="date"] {
 }
 
 @media only screen and (min-width: 375px) {
-	.content .countday {
-		font-size: 40px;
-	}
-
 	.personal_info .pavatar {
 		width: 90px;
 		height: 90px;
@@ -887,18 +1272,24 @@ input[type="date"] {
 }
 
 @media only screen and (min-width: 675px) {
-	.content .countday {
-		font-size: 43px;
-	}
+
 
 	.datetime {
+		display: -webkit-box;
+		display: -ms-flexbox;
 		display: flex;
 		text-align: center;
+		-webkit-box-pack: space-evenly;
+		-ms-flex-pack: space-evenly;
 		justify-content: space-evenly;
 	}
 
 	.content .statuseveryday {
+		-webkit-box-pack: center;
+		-ms-flex-pack: center;
 		justify-content: center;
+		-webkit-box-align: center;
+		-ms-flex-align: center;
 		align-items: center;
 	}
 

@@ -102,7 +102,7 @@
                 <div class="heart dgiay"></div> <span>Giây</span>
               </div>
             </div>
-            <p>💗 <b class="ntns"></b> 💗</p>
+            <p><i class="fas fa-heart"></i> <b class="ntns"></b> <i class="fas fa-heart"></i></p>
             <div class="contentstatus"> Trạng thái:
               <div class="dstatus"></div>
             </div>
@@ -127,7 +127,11 @@
       <div class="setting">
         <div class="ssetting">
           <div class="pavatar" id="pavatar" onclick="defaultBtnActive()"> <img src="" alt="" class="imgavatar"
-              id="imgavatar" /> <i class="fas fa-camera"></i> </div>
+              id="imgavatar" />
+            <div class="iconcamera">
+              <i class="fas fa-camera"></i>
+            </div>
+          </div>
           <div class="pname">
             <p class="dname">Không có tên</p>
           </div>
@@ -161,7 +165,7 @@
               <li class="sli3 waves-effect ">
                 <div class="icon"> <i class="fas fa-hourglass-start"></i> </div>
                 <div class="namesetting">
-                  <p>Ngày bắt đầu cô đơn</p>
+                  <p>Ngày bắt đầu đếm</p>
                   <p class="s_setting snbdcd">N/A</p>
                 </div>
                 <div class="icon"> <i class="fas fa-chevron-right"></i> </div>
@@ -187,6 +191,14 @@
                 </div>
                 <div class="icon"> <i class="fas fa-chevron-right"></i> </div>
               </li>
+              <li class="sli8 waves-effect ">
+                <div class="icon"> <i class="fas fa-star"></i> </div>
+                <div class="namesetting">
+                  <p>Đánh giá ứng dụng</p>
+                </div>
+                <div class="icon"> <i class="fas fa-chevron-right"></i> </div>
+              </li>
+
             </ul>
           </div>
         </div>
@@ -206,6 +218,15 @@
     </div>
     <div class="options3-event">
       <div class="ops">
+        <div class="col">
+          <label for="statustitle">Trạng thái</label>
+          <div class="ui-switch">
+            <input type="checkbox" checked id="switch" name="switch" class="switch-input" onclick="checkb()" />
+            <label for="switch" class="switch-wrapper">
+              <div class="switch-spin"></div>
+            </label>
+          </div>
+        </div>
         <label for="contentevent">Tiêu đề</label>
         <input type="text" id="stieude" value="" />
       </div>
@@ -224,7 +245,7 @@
     </div>
     <div class="options2-event">
       <div class="ops">
-        <label for="contentevent">Ngày bắt đầu cô đơn</label>
+        <label for="contentevent">Ngày bắt đầu đếm</label>
         <input type="date" name="ngaybatdau2" min="1900-01-01" id="ngaybatdau2" value="" />
       </div>
       <div class="ops-buttons">
@@ -265,7 +286,7 @@
       </div>
     </div>
   </div>
-
+  <script src="cordova.js"></script>
   <script src="./waves.min.js"></script>
   <script src="./all.min.js"></script>
   <script src="./magic.js"></script>
