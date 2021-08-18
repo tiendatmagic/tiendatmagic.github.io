@@ -5,12 +5,11 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+  <meta name="theme-color" content="#ff0099">
   <title>Đếm ngày cô đơn</title>
-
   <link rel="stylesheet" href="./waves.min.css">
   <link rel="stylesheet" href="./all.min.css" />
   <link rel="stylesheet" href="./style.css" />
-
 </head>
 
 <body>
@@ -27,7 +26,6 @@
         <div class="content">
           <div class="text">Chọn ảnh để upload</div>
         </div>
-
       </div>
       <button style="display:none" onclick="defaultBtnActive()" id="custom-btn">Chọn ảnh</button>
       <input id="default-btn" type="file" hidden />
@@ -90,16 +88,30 @@
           <div class="content2">
             <div class="datetime">
               <div class="ngay">
-                <div class="heart dngay"></div> <span> Ngày </span>
+                <div class="date-item heart">
+                  <span class="dngay"></span>
+                </div>
+                <span class="ndate"> Ngày </span>
               </div>
               <div class="gio">
-                <div class="heart dgio"></div> <span> Giờ </span>
+                <div class="date-item heart">
+                  <span class="dgio"></span>
+                </div>
+                <span class="ndate"> Giờ </span>
               </div>
               <div class="phut">
-                <div class="heart dphut"></div> <span>Phút</span>
+                <div class="date-item  heart">
+                  <span class="dphut">
+
+                  </span>
+
+                </div> <span class="ndate">Phút</span>
               </div>
               <div class="giay">
-                <div class="heart dgiay"></div> <span>Giây</span>
+                <div class="date-item  heart">
+                  <span class="dgiay"></span>
+
+                </div> <span class="ndate">Giây</span>
               </div>
             </div>
             <p><i class="fas fa-heart"></i> <b class="ntns"></b> <i class="fas fa-heart"></i></p>
@@ -128,9 +140,7 @@
         <div class="ssetting">
           <div class="pavatar" id="pavatar" onclick="defaultBtnActive()"> <img src="" alt="" class="imgavatar"
               id="imgavatar" />
-            <div class="iconcamera">
-              <i class="fas fa-camera"></i>
-            </div>
+            <div class="iconcamera"> <i class="fas fa-camera"></i> </div>
           </div>
           <div class="pname">
             <p class="dname">Không có tên</p>
@@ -198,7 +208,6 @@
                 </div>
                 <div class="icon"> <i class="fas fa-chevron-right"></i> </div>
               </li>
-
             </ul>
           </div>
         </div>
@@ -292,9 +301,7 @@
   <script src="./magic.js"></script>
   <script>
     Waves.attach('.waves-effect');
-
     Waves.init();
-
   </script>
 </body>
 

@@ -354,7 +354,9 @@ function displayprofile() {
 
 
     for (var j = 0; j <= 3; j++) {
-      getClass("heart")[j].style.backgroundColor = dmngs;
+
+      getClass("heart")[j].style.setProperty('--after', dmngs)
+
     }
     getClass("contentstatus")[0].style.backgroundColor = dmtts;
     if (hiddentitle == true) {
@@ -455,7 +457,7 @@ function loaddark() {
       getQueryAll(".todoList li")[l].style.color = "#000";
     }
     for (j = 0; j <= 3; j++) {
-      getQueryAll(".datetime span")[j].style.color = "#fff";
+      getQueryAll(".ndate")[j].style.color = "#fff";
     }
     for (k = 0; k <= getQueryAll(".setting-option li").length - 1; k++) {
       document
@@ -476,7 +478,7 @@ function loaddark() {
       getQueryAll(".todoList li")[l].style.color = "#fff";
     }
     for (j = 0; j <= 3; j++) {
-      getQueryAll(".datetime span")[j].style.color = "#272727";
+      getQueryAll(".ndate")[j].style.color = "#272727";
     }
     for (k = 0; k <= getQueryAll(".setting-option li").length - 1; k++) {
       document
@@ -595,4 +597,9 @@ getId("switch").onclick = function () {
     hiddentitle = true;
   }
   localStorage.setItem("hiddentitle", JSON.stringify(hiddentitle));
+}
+document.onkeydown = function (t) {
+  if (t.which == 9) {
+    return false;
+  }
 }
