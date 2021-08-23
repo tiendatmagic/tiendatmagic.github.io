@@ -31,7 +31,7 @@ html {
   margin: 0.5vh;
   width: 11vh;
   height: 11vh;
-  background-color: blue;
+  background-color: #0077ff;
   border-radius: 30px;
   background-size: cover;
   position: relative;
@@ -46,7 +46,7 @@ html {
   width: 100%;
   height: 100%;
   display: block;
-  background-image: url("./img/tiendatmagic.png");
+
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -74,7 +74,7 @@ html {
   outline: 0;
   border: 0;
   font-size: 5vw;
-  border-radius: 36%;
+  border-radius: 36px;
 }
 
 #scr {
@@ -102,7 +102,7 @@ html {
   padding: 2vh;
   background-color: red;
   border: 0;
-  border-radius: 20%;
+  border-radius: 20px;
   font-size: 2vh;
 }
 
@@ -130,7 +130,7 @@ html {
 .btn-reload {
   padding: 4vh;
   font-size: 3vh;
-  border-radius: 20%;
+  border-radius: 20px;
   background-color: rgb(71, 255, 47);
 }
 
