@@ -46,6 +46,7 @@ function playg() {
   document.getElementsByTagName("body")[0].style.backgroundColor = '#FFC7C7';
   getId("mainstart").style.display = 'none';
   getId("maingame").style.display = 'block';
+  getClass("listbtn")[0].style.display = 'flex';
 
   checklevel();
   var elementfood = ``;

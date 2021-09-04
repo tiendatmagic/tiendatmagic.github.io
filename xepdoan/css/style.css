@@ -199,9 +199,7 @@ html {
 }
 
 .listfood.listbtn {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
+display: none;
 	-webkit-box-pack: center;
 	    -ms-flex-pack: center;
 	        justify-content: center;
@@ -340,6 +338,8 @@ html {
 	box-shadow: -2px 0px 10px 7px rgba(0, 0, 0, 0.2);
 	padding: 10px;
 	border-radius: 10px;
+	z-index: 9;
+
 }
 
 .gover.active {
@@ -413,9 +413,9 @@ html {
 
 .optiongover {
 	margin-top: 10px;
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
+
+
 }
 
 .optiongover div {
