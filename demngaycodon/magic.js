@@ -368,6 +368,7 @@ function loaddark() {
     getClass("lighton")[0].style.display = "none";
     dmhns = "#272727";
     getClass("htitle")[0].style.color = "#fff";
+    getClass("navigation")[0].style.backgroundColor = "#272727";
     getQuery("body > div > div.event > div.mainevent").style.color = "#fff";
     getClass("statuseveryday")[0].style.backgroundColor = dmhns;
     getClass("buttonstatus")[0].style.color = "#fff";
@@ -386,6 +387,7 @@ function loaddark() {
     getClass("lighton")[0].style.display = "block";
     dmhns = "#fff";
     getClass("htitle")[0].style.color = "#272727";
+    getClass("navigation")[0].style.backgroundColor = "#fff";
     getQuery("body > div > div.event > div.mainevent").style.color = "#272727";
     getClass("statuseveryday")[0].style.backgroundColor = dmhns;
     getClass("buttonstatus")[0].style.color = "red";

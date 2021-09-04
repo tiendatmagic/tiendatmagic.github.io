@@ -122,32 +122,24 @@ p {
 }
 
 .profile .selectgender {
-	display: -webkit-box;
-	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: space-evenly;
-	-ms-flex-pack: space-evenly;
-	justify-content: space-evenly;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
 	align-items: center;
-	max-width: 500px;
+	max-width: 400px;
 	border: 1px solid #e2e2e2;
 	border-radius: 20px;
 }
 
 .profile .selectgender div {
-	display: -webkit-box;
-	display: -ms-flexbox;
+	flex:  1;
 	display: flex;
-	-webkit-box-pack: justify;
-	-ms-flex-pack: justify;
-	justify-content: space-between;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	width: 70px;
+	text-align: center;
+	justify-content: center;
 }
+.profile .selectgender div span{
+
+	margin-left: 20px;
+}
+
 
 input[type="radio"] {
 	width: 23px;
@@ -262,6 +254,7 @@ input[type="date"] {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
+	padding: 10px;
 }
 
 .main .header.hidden {
@@ -346,7 +339,7 @@ input[type="date"] {
 }
 
 .ssetting {
-	height: 80vh;
+	height: 100vh;
 	overflow-y: scroll;
 	position: relative;
 	visibility: hidden;
@@ -354,10 +347,12 @@ input[type="date"] {
 	-webkit-transform: translateX(0%);
 	-ms-transform: translateX(0%);
 	transform: translateX(0%);
+	padding-bottom: 90px;
 }
 
 .ssetting.height {
-	height: 90vh;
+	height: 100vh;
+	padding-bottom: 40px;
 }
 
 .ssetting.active {
@@ -739,9 +734,13 @@ input[type="date"] {
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 	text-align: center;
-	-webkit-box-pack: space-evenly;
-	-ms-flex-pack: space-evenly;
-	justify-content: space-evenly;
+	justify-content: center;
+}
+.datetime div {
+	flex: 1;
+	display: block;
+	margin: 0 auto;
+	text-align: center;
 }
 
 .date-item span {
@@ -1040,6 +1039,8 @@ input[type="date"] {
 	position: fixed;
 	bottom: 0px;
 	display: none;
+	background-color: #fff;
+	transition: 0.3s ease-out;
 }
 
 .navigation ul {
@@ -1397,10 +1398,6 @@ input[type="date"] {
 @media only screen and (min-height: 550px) {
 	.personal_info {
 		margin-top: 0px;
-	}
-
-	.ssetting {
-		height: 85vh;
 	}
 }
 
