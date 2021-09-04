@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+  <title>Xếp đồ ăn</title>
+  <link rel="stylesheet" href="./css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+  <div id="app">
+    <div class="version">
+      <p> v1.3 </p>
+    </div>
+    <div class="nametitle">
+      <p>Xếp đồ ăn</p>
+    </div>
+    <div id="mainstart">
+      <div>
+        <input type="button" id="btn-start" class="btn-start" value="Start" />
+        <input type="button" id="btn-rate" class="btn-rate" value="Rate" />
+      </div>
+    </div>
+    <div id="maingame">
+      <div class="headergame">
+        <div class="scoreheader"> <i class="fas fa-birthday-cake"></i> <span id="scorex">
+            0 </span> </div>
+        <div class="timegame"> <i class="far fa-clock"></i> <span class="date">
+            <span id="minutes">00</span> : <span id="seconds">00</span> </span>
+        </div>
+      </div>
+      <div class="list">
+        <div class="appfood">
+          <div class="tree">
+            <div class="listfood applist"> </div>
+          </div>
+        </div>
+        <div class="myfood">
+          <div class="tree">
+            <div class="listfood mylist"> </div>
+          </div>
+        </div>
+      </div>
+      <div class="gover">
+        <h2>Game Over</h2>
+        <p>
+          Your score:
+          <span class="score">0</span>
+        </p>
+        <p>
+          Best score:
+          <span class="highscore">0</span>
+        </p>
+        <div class="optiongover">
+          <div class="replay">
+            <i class="fas fa-redo-alt"></i>
+          </div>
+          <div class="returnmainmenu">
+            <i class="fas fa-bars"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="listfood listbtn">
+        <div>
+          <div class="sfood sbtn af1">1</div>
+        </div>
+        <div>
+          <div class="sfood sbtn af2">2</div>
+        </div>
+        <div>
+          <div class="sfood sbtn af3">3</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <script src="cordova.js"></script>
+  <script src="./js/all.min.js"></script>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
