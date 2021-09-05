@@ -1,3 +1,10 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * {
@@ -267,21 +274,21 @@ display: none;
 }
 
 .listfood .af1 {
-	background-image: url(../img/1.png);
 	background-size: 100% 100%;
 	background-color: transparent;
+	background-image: url(../img/1.png);
 }
 
 .listfood .af2 {
-	background-image: url(../img/2.png);
 	background-size: 100% 100%;
 	background-color: transparent;
+	background-image: url(../img/2.png);
 }
 
 .listfood .af3 {
-	background-image: url(../img/3.png);
 	background-size: 100% 100%;
 	background-color: transparent;
+	background-image: url(../img/3.png);
 }
 
 .listfood .sfood {
@@ -298,6 +305,7 @@ display: none;
 	align-items: center;
 	font-size: 0px;
 	position: relative;
+
 }
 
 .listfood .sfood::after {
@@ -413,6 +421,8 @@ display: none;
 
 .optiongover {
 	margin-top: 10px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
 
 

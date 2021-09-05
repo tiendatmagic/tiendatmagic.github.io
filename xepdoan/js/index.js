@@ -1,3 +1,23 @@
+
+var arrquestion = [1, 2, 3];
+var appfoodarr = [];
+var resultarr = []
+var canplay = false;
+var tim;
+var scorex = JSON.parse(localStorage.getItem("scorex"));
+if (scorex === null) {
+  scorex = 0;
+}
+var highscorex = JSON.parse(localStorage.getItem("highscorex"));
+if (highscorex === null) {
+  highscorex = 0;
+}
+var foodlength = 3;
+var seconds = 60;
+var audio_click = new Audio("./sound/pop.mp3");
+var audio_win = new Audio("./sound/win.mp3");
+var audio_lose = new Audio("./sound/lose.mp3");
+
 function getId(id) {
   return document.getElementById(id);
 }
@@ -21,31 +41,13 @@ getId("btn-rate").onclick = () => {
   cordova.plugins.market.open('com.tiendatmagic.xepdoan');
 }
 
-var arrquestion = [1, 2, 3];
-var appfoodarr = [];
-var resultarr = []
-var canplay = false;
-var tim;
-var scorex = JSON.parse(localStorage.getItem("scorex"));
-if (scorex === null) {
-  scorex = 0;
-}
-var highscorex = JSON.parse(localStorage.getItem("highscorex"));
-if (highscorex === null) {
-  highscorex = 0;
-}
-var foodlength = 3;
-var seconds = 60;
-var audio_click = new Audio("./sound/pop.mp3");
-var audio_win = new Audio("./sound/win.mp3");
-var audio_lose = new Audio("./sound/lose.mp3");
-
 function playg() {
   getClass("version")[0].style.display = 'none';
   getClass("nametitle")[0].style.display = 'none';
   document.getElementsByTagName("body")[0].style.backgroundColor = '#FFC7C7';
   getId("mainstart").style.display = 'none';
   getId("maingame").style.display = 'block';
+  getClass("listbtn")[0].style.display = 'flex';
 
   checklevel();
   var elementfood = ``;
