@@ -42,5 +42,4 @@ var list_item_map = list_item.map(function (x) {
   `;
 });
 
-console.log(list_item_map)
-document.getElementById("main").innerHTML = list_item_map;
+document.getElementById("main").innerHTML = list_item_map.join("");
