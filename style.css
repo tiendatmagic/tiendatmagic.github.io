@@ -2,15 +2,17 @@
   margin: 0px;
   padding: 0px;
   font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
 }
 
 body .text-d {
   text-align: center;
 }
 
-.text-name {
+.text-name a{
   color: #ff0099;
   font-size: 1.4em;
+
 }
 
 body {
