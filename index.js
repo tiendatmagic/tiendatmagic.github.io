@@ -33,13 +33,17 @@ var list_item = [{
 ]
 
 var list_item_map = list_item.map(function (x) {
-  return `
-    <div class="main-item">
-    <h4 class="text-name"><a href="${x.link}">${x.name}</a></h4>
-    <a href="${x.link}"><input type="button" value="Xem" class="btn btn-success" /></a>
 
-  </div>
-  `;
+  // sử dụng cho IE 11 :((
+  return '<div class="main-item"><h4 class="text-name"><a href="' + x.link + '">' + x.name + '</a></h4><a href="' + x.link + '"><input type="button" value="Xem" class="btn btn-success" /></a></div>';
+
+  //   return `
+  //   <div class="main-item">
+  //   <h4 class="text-name"><a href="${x.link}">${x.name}</a></h4>
+  //   <a href="${x.link}"><input type="button" value="Xem" class="btn btn-success" /></a>
+
+  // </div>
+  // `;
 });
 
 document.getElementById("main").innerHTML = list_item_map.join("");
