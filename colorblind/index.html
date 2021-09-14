@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
+	<title>Color Blind</title>
+	<link rel="stylesheet" href="./css/all.min.css" />
+	<link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+	<div id="app">
+		<div id="mainmenu">
+			<div class="version">
+				<p> v1.3 </p>
+			</div>
+			<div id="mainstart">
+				<div>
+					<div class="nametitle">
+						<p>Color Blind</p>
+					</div>
+					<input type="button" id="btn-start" class="btn-start" value="Start" />
+					<input type="button" id="btn-rate" class="btn-rate" value="Rate" />
+				</div>
+			</div>
+		</div>
+		<div id="maingame">
+			<div class="line"></div>
+			<div class="d-flex">
+				<div>
+					<div class="headergame"> <span class="dbestscore"> BEST: <span id="bestscore"> 0</span> </span>
+						<div class="circle">
+							<h2>
+								<span id="score"> 0</span>
+
+							</h2>
+						</div>
+					</div>
+					<div class="ingame">
+						<div class="grid-box" id="grid-box"> </div>
+					</div>
+					<div class="overgame">
+						<div class="reloadgame" id="reloadgame"> <i class="fas fa-sync-alt"></i> </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="cordova.js"></script>
+	<script src="./js/all.min.js"></script>
+	<script src="./js/index.js"></script>
+</body>
+
+</html>
