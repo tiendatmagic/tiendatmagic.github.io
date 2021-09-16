@@ -444,8 +444,6 @@ input[type="date"] {
 	width: 60px;
 	height: 60px;
 	border-radius: 50%;
-	border: 1px solid #dbdbdb;
-	background-color: rgba(0, 0, 0, 0.185);
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
@@ -457,19 +455,22 @@ input[type="date"] {
 	align-items: center;
 	font-size: 30px;
 	position: absolute;
-	left: 20px;
+	left: 15px;
 	z-index: 1;
 	color: red;
 	-webkit-animation: heartbeat 1s infinite;
 	animation: heartbeat 1s infinite;
-}
+	box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
 
+}
+.content .buttonstatus.dark {
+	box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
+}
 .content .statuseveryday {
 	width: 90%;
 	height: 150px;
 	margin: 0 auto;
 	border-radius: 15px;
-	border: 1px solid #dbdada;
 	position: relative;
 	background-color: #fff;
 	color: deeppink;
@@ -479,8 +480,11 @@ input[type="date"] {
 	-webkit-transition: 0.3s ease-out;
 	-o-transition: 0.3s ease-out;
 	transition: 0.3s ease-out;
+	box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
 }
-
+.content .statuseveryday.dark {
+	box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
+}
 .content .statuseveryday.active {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -579,13 +583,13 @@ input[type="date"] {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
+
 }
 
 .content .circle {
 	width: 150px;
 	height: 150px;
 	border-radius: 50%;
-	border: 3px solid #ff00d4;
 	margin: 0 auto;
 	display: none;
 	-webkit-box-pack: center;
@@ -594,8 +598,11 @@ input[type="date"] {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
+	box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
 }
-
+.content .circle.dark {
+	box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
+}
 .content .circle.active {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -624,12 +631,15 @@ input[type="date"] {
 	-ms-flex-align: center;
 	align-items: center;
 	width: 90%;
-	max-width: 800px;
-	height: 100px;
+	height: 110px;
 	margin: 0 auto;
-	border: 1px solid #adadada6;
 	border-radius: 20px;
-	margin-top: 20px;
+	margin-top: 10px;
+	box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
+}
+
+.personal_info.dark {
+	box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
 }
 
 .personal_info .personall {
@@ -671,6 +681,7 @@ input[type="date"] {
 
 #pavatar {
 	position: relative;
+
 }
 
 .fa-camera {
@@ -700,14 +711,20 @@ input[type="date"] {
 }
 
 .ssetting .pavatar {
-	width: 100px;
-	height: 100px;
-	margin: 0 auto;
+	width: 110px;
+	height: 110px;
+	margin: 5px auto;
 	border-radius: 50%;
-	border: 3px solid #a800a8;
 	-webkit-transition: 0.3s ease-out;
 	-o-transition: 0.3s ease-out;
 	transition: 0.3s ease-out;
+	padding: 10px;
+	box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
+
+}
+
+.ssetting .pavatar.dark {
+	box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
 }
 
 .personal_info .pavatar img,
@@ -715,7 +732,6 @@ input[type="date"] {
 	width: 100%;
 	height: 100%;
 	border-radius: 50%;
-	border: 3px solid #fff;
 }
 
 .personal_info .page {
@@ -735,6 +751,7 @@ input[type="date"] {
 	flex-wrap: wrap;
 	text-align: center;
 	justify-content: center;
+	margin: 10px 0;
 }
 .datetime div {
 	flex: 1;
@@ -798,14 +815,17 @@ input[type="date"] {
 .contentstatus {
 	width: 90%;
 	height: 100px;
-	margin: 0 auto;
+	margin: 10px auto;
 	border-radius: 10px;
 	padding: 10px;
 	font-size: 14px;
 	word-break: break-all;
 	overflow: scroll;
+	box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
 }
-
+.contentstatus.dark {
+	box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
+}
 .contentstatus::-webkit-scrollbar,
 .ssetting::-webkit-scrollbar,
 .statuseveryday::-webkit-scrollbar,
@@ -1176,14 +1196,15 @@ input[type="date"] {
 	}
 
 	.setting .pavatar {
-		width: 110px;
-		height: 110px;
-		margin-top: 30px;
+		width: 130px;
+		height: 130px;
+		margin: 10px auto;
+		padding: 10px;
+
 	}
 
 	.datetime {
-		margin-top: 30px;
-		margin-bottom: 30px;
+		margin: 30px 0;
 	}
 
 	.content2 p {
@@ -1191,8 +1212,7 @@ input[type="date"] {
 	}
 
 	.contentstatus {
-		margin-top: 10px;
-		margin-bottom: 10px;
+		margin: 20px auto;
 	}
 
 	.event .todoList {
@@ -1206,8 +1226,7 @@ input[type="date"] {
 	}
 
 	.datetime {
-		margin-top: 50px;
-		margin-bottom: 50px;
+		margin: 40px 0;
 	}
 
 	.date-item span {
@@ -1260,8 +1279,7 @@ input[type="date"] {
 	}
 
 	.contentstatus {
-		margin-top: 20px;
-		margin-bottom: 20px;
+		margin: 25px auto;
 		font-size: 17px;
 	}
 
@@ -1330,8 +1348,8 @@ input[type="date"] {
 	}
 
 	.setting .pavatar {
-		width: 120px;
-		height: 120px;
+		width: 140px;
+		height: 140px;
 	}
 
 	.contentstatus {
@@ -1385,6 +1403,7 @@ input[type="date"] {
 		word-wrap: break-all;
 		margin: 0 auto;
 		text-align: center;
+
 	}
 }
 

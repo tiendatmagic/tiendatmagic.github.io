@@ -84,18 +84,12 @@ if (strangthai === null) {
   strangthai = "";
 }
 var dmhns = "";
-var dmhts = JSON.parse(localStorage.getItem("dmhts"));
-if (dmhts === null) {
-  dmhts = "pink";
-}
+
 var dmngs = JSON.parse(localStorage.getItem("dmngs"));
 if (dmngs === null) {
   dmngs = "red";
 }
-var dmtts = JSON.parse(localStorage.getItem("dmtts"));
-if (dmtts === null) {
-  dmtts = "pink";
-}
+
 var info1 = JSON.parse(localStorage.getItem("info1"));
 if (info1 === null || info1 === "") {
   info1 = "Đã cô đơn";
@@ -188,15 +182,11 @@ getClass("sli7")[0].addEventListener("click", () => {
 getClass("sli8")[0].addEventListener("click", () => {
   cordova.plugins.market.open('com.tiendatmagic.demngaycodon');
 });
-getClass("dmht")[0].addEventListener("click", () => {
-  getId("dmht").click();
-});
+
 getClass("dmng")[0].addEventListener("click", () => {
   getId("dmng").click();
 });
-getClass("dmtt")[0].addEventListener("click", () => {
-  getId("dmtt").click();
-});
+
 getClass("huy")[0].addEventListener("click", () => {
   getClass("options-2")[0].classList.remove("active");
 });
@@ -212,11 +202,7 @@ getId("xacnhan").addEventListener("click", () => {
 getId("huy").addEventListener("click", () => {
   getClass("options-3")[0].classList.remove("active");
 });
-getId("dmht").addEventListener("change", () => {
-  dmhts = getId("dmht").value;
-  getClass("circle")[0].style.backgroundColor = dmhts;
-  localStorage.setItem("dmhts", JSON.stringify(dmhts));
-});
+
 getId("dmng").addEventListener("change", () => {
   dmngs = getId("dmng").value;
   for (var j = 0; j <= 3; j++) {
@@ -224,11 +210,7 @@ getId("dmng").addEventListener("change", () => {
   }
   localStorage.setItem("dmngs", JSON.stringify(dmngs));
 });
-getId("dmtt").addEventListener("change", () => {
-  dmtts = getId("dmtt").value;
-  getClass("contentstatus")[0].style.backgroundColor = dmtts;
-  localStorage.setItem("dmtts", JSON.stringify(dmtts));
-});
+
 getId("huyevent2").addEventListener("click", () => {
   getClass("options2-event")[0].classList.toggle("active");
 });
@@ -282,7 +264,7 @@ function displayprofile() {
     getClass("dstatus")[0].innerText = strangthai;
     getClass("container")[0].style.backgroundColor = dmhns;
     getClass("event")[0].style.backgroundColor = dmhns;
-    getClass("circle")[0].style.backgroundColor = dmhts;
+
     getId("stieude").value = dtieude;
     getId("ndt").value = info1;
     getId("ndd").value = info2;
@@ -292,7 +274,7 @@ function displayprofile() {
     for (var j = 0; j <= 3; j++) {
       getClass("heart")[j].style.setProperty('--after', dmngs)
     }
-    getClass("contentstatus")[0].style.backgroundColor = dmtts;
+
     if (hiddentitle == true) {
       getClass("header")[0].classList.add("hidden");
       getClass("ssetting")[0].classList.add("height");
@@ -372,6 +354,14 @@ function loaddark() {
     getQuery("body > div > div.event > div.mainevent").style.color = "#fff";
     getClass("statuseveryday")[0].style.backgroundColor = dmhns;
     getClass("buttonstatus")[0].style.color = "#fff";
+    getQuery(".content .circle").classList.add("dark");
+    getQuery(".personal_info").classList.add("dark");
+    getQuery(".ssetting .pavatar").classList.add("dark");
+    getQuery(".contentstatus").classList.add("dark");
+    getQuery(".content .statuseveryday").classList.add("dark");
+    getQuery(".content .buttonstatus").classList.add("dark");
+    getQuery(".content .countday").style.color = '#fff';
+    getQuery(".contentstatus").style.color = '#fff';
     for (l = 0; l < listArray.length; l++) {
       getQueryAll(".todoList li")[l].style.backgroundColor = "#fff";
       getQueryAll(".todoList li")[l].style.color = "#000";
@@ -391,6 +381,14 @@ function loaddark() {
     getQuery("body > div > div.event > div.mainevent").style.color = "#272727";
     getClass("statuseveryday")[0].style.backgroundColor = dmhns;
     getClass("buttonstatus")[0].style.color = "red";
+    getQuery(".content .circle").classList.remove("dark");
+    getQuery(".personal_info").classList.remove("dark");
+    getQuery(".ssetting .pavatar").classList.remove("dark");
+    getQuery(".contentstatus").classList.remove("dark");
+    getQuery(".content .statuseveryday").classList.remove("dark");
+    getQuery(".content .buttonstatus").classList.remove("dark");
+    getQuery(".content .countday").style.color = '#000';
+    getQuery(".contentstatus").style.color = '#000';
     for (l = 0; l < listArray.length; l++) {
       getQueryAll(".todoList li")[l].style.backgroundColor = "#ccc";
       getQueryAll(".todoList li")[l].style.color = "#fff";
