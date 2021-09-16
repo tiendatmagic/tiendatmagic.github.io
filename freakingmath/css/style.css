@@ -239,7 +239,7 @@ html {
 }
 
 .displaynumber span {
-  font-size: 8rem;
+  font-size: 3.5rem;
   color: #fff;
   position: relative;
   z-index: 1;
@@ -251,7 +251,7 @@ html {
   display: flex;
   cursor: pointer;
   z-index: 1;
-  padding: 10px;
+  padding: 0 5px;
 }
 
 #truefalse div {
@@ -265,11 +265,11 @@ html {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  width: 100%;
   height: 30vh;
   font-size: 14vh;
   z-index: 1;
   border-radius: 10px;
+  margin: 0 7px;
 }
 
 #truefalse .true {
@@ -285,7 +285,7 @@ html {
   align-items: center;
   background-color: #fff;
   color: #0099ff;
-  margin: 5px;
+
 }
 #truefalse .true.active {
   color: #fff;
@@ -304,16 +304,22 @@ html {
   align-items: center;
   background-color: #fff;
   color: red;
-  margin: 5px;
+
 }
 #truefalse .false.active {
   color: #fff;
   background-color: red;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 375px) {
   .displaynumber span {
-    font-size: 17vw;
+    font-size: 4rem;
+
+  }
+}
+@media screen and (min-width: 500px) {
+  .displaynumber span {
+    font-size: 5rem;
 
   }
 }
@@ -340,7 +346,7 @@ html {
    }
 }
 
-@media screen and (min-width: 700px) and (min-height: 1000px) {
+@media screen and (min-width: 700px) and (min-height: 900px) {
   #scr .score {
     font-size: 60px;
   }
@@ -359,4 +365,18 @@ html {
     height: calc(65px * 1.6);
     font-size: 50px;
    }
+}
+
+@media screen and (min-width: 700px) {
+  .displaynumber span {
+    font-size: 6rem
+
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .displaynumber span {
+    font-size: 7rem
+
+  }
 }

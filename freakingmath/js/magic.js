@@ -26,7 +26,7 @@ function getTagName(tagname) {
   }
 }
 var admobid = {
-  banner: 'ca-app-pub-2636216160874899/1453221586',
+  banner: 'ca-app-pub-2636216160874899/8780352736',
 };
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
@@ -48,10 +48,10 @@ function rategame() {
 }
 getClass("true")[0].onclick = truee;
 getClass("false")[0].onclick = falsee;
-getClass("replay")[0].onclick = () => {
+getClass("replay")[0].onclick = function () {
   setTimeout(playgame, 300);
 };
-getClass("returnmainmenu")[0].onclick = () => {
+getClass("returnmainmenu")[0].onclick = function () {
 
   location.reload();
 };
@@ -160,7 +160,7 @@ function startgame() {
 
 function checktime() {
   var tim = setInterval(function () {
-    time -= 6;
+    time -= 7;
     if (time <= 0) {
       time = 0;
     }
@@ -182,7 +182,7 @@ function truee() {
   answ = 1;
   checkclick();
   getClass("true")[0].classList.add("active")
-  setTimeout(() => {
+  setTimeout(function () {
     getClass("true")[0].classList.remove("active")
   }, 100)
 }
@@ -191,7 +191,7 @@ function falsee() {
   answ = 0;
   checkclick();
   getClass("false")[0].classList.add("active")
-  setTimeout(() => {
+  setTimeout(function () {
     getClass("false")[0].classList.remove("active")
   }, 100)
 }

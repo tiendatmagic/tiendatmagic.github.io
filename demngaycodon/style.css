@@ -628,7 +628,7 @@ input[type="date"] {
 	height: 100px;
 	margin: 0 auto;
 	border: 1px solid #adadada6;
-	border-radius: 12px;
+	border-radius: 20px;
 	margin-top: 20px;
 }
 
@@ -845,21 +845,13 @@ input[type="date"] {
 	display: block;
 }
 
-.options-2 ul {
-	margin-top: 10px;
-}
-
 .options-2 li {
 	list-style: none;
-	padding: 10px;
+	padding: 12.5px;
 	-webkit-transition: 0.3s ease-in-out;
 	-o-transition: 0.3s ease-in-out;
 	transition: 0.3s ease-in-out;
 	border-radius: 5px;
-}
-
-.options-2 li:hover {
-	background-color: #dbdada;
 }
 
 .colors {
@@ -958,6 +950,7 @@ input[type="date"] {
 	-webkit-box-pack: justify;
 	-ms-flex-pack: justify;
 	justify-content: space-between;
+	margin-top: 15px;
 }
 
 .event .footer {
@@ -972,7 +965,7 @@ input[type="date"] {
 	-webkit-box-pack: center;
 	-ms-flex-pack: center;
 	justify-content: center;
-	margin: 0 auto;
+	margin: 10px auto;
 }
 
 .event .footer .footers:nth-child(1) {
