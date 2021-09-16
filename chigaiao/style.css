@@ -14,28 +14,26 @@ box-sizing: border-box;
 }
 
 
-body {
+body,html {
+  width: 100%;
+  height: 100vh;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   -o-user-select: none;
   user-select: none;
-  visibility: hidden;
-  opacity: 0;
-background-color: #ffe8f6;
-  transition: 0.5s ease-out;
-}
-html {
+  background-color: #ffe8f6;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
 }
+
 
 .message {
   width: 90%;
   height: 50vh;
   overflow-y: scroll;
-  transition: 0.2s ease-out;
   border: 1px solid #64646469;
   border-radius: 10px;
   margin: 10px auto;
@@ -143,7 +141,6 @@ a {
   width: 100%;
   height: 100vh;
   position: relative;
-  transition: 0.3s ease-out;
   overflow: hidden;
 }
 
@@ -167,7 +164,7 @@ a {
   position: absolute;
   bottom: 0px;
   display: none;
-  transition: 0.3s ease-out;
+
 }
 
 .navigation ul {
@@ -199,8 +196,9 @@ a {
   display: flex;
   justify-content: center;
   width: 200%;
+  transition: 0.3s ease;
   transform: translateX(0%);
-  transition: 0.3s ease-in-out;
+
 }
 #app .app1,
 #app .app2 {

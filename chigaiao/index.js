@@ -32,13 +32,6 @@ if (dmngs === null) {
 var message = document.getElementsByClassName("message")[0];
 var copy = [];
 var copynumber = 0;
-window.addEventListener("load", openapp);
-function openapp() {
-  setTimeout(() => {
-    document.getElementsByTagName("body")[0].style.visibility = "visible";
-    document.getElementsByTagName("body")[0].style.opacity = "1";
-  }, 1000);
-}
 window.addEventListener("load", loadapp);
 function loadapp() {
   if (profile === 1) {
@@ -66,23 +59,43 @@ document.getElementById("say").onkeyup = (event) => {
     btnok.click();
   } else if (event.keyCode === 38) {
     copynumber += 1;
-    if (copynumber === 1) {
-      document.getElementById("say").value = copy[copy.length - 1];
-    } else if (copynumber === 2) {
-      document.getElementById("say").value = copy[copy.length - 2];
-    } else {
-      document.getElementById("say").value = copy[copy.length - 3];
+    if (copynumber >= 3) {
       copynumber = 3;
+    }
+    if (copynumber === 1) {
+      if (copy[copy.length - 1] !== undefined) {
+        document.getElementById("say").value = copy[copy.length - 1];
+      }
+
+
+    } else if (copynumber === 2) {
+      if (copy[copy.length - 2] !== undefined) {
+        document.getElementById("say").value = copy[copy.length - 2];
+      }
+    } else {
+      if (copy[copy.length - 3] !== undefined) {
+        document.getElementById("say").value = copy[copy.length - 3];
+        copynumber = 3;
+      }
     }
   } else if (event.keyCode === 40) {
     copynumber -= 1;
+    if (copynumber <= 0) {
+      copynumber = 0;
+    }
     if (copynumber === 1) {
-      document.getElementById("say").value = copy[copy.length - 1];
+      if (copy[copy.length - 1] !== undefined) {
+        document.getElementById("say").value = copy[copy.length - 1];
+      }
     } else if (copynumber === 2) {
-      document.getElementById("say").value = copy[copy.length - 2];
+      if (copy[copy.length - 2] !== undefined) {
+        document.getElementById("say").value = copy[copy.length - 2];
+      }
     } else {
-      document.getElementById("say").value = copy[copy.length - 3];
-      copynumber = 1;
+      if (copy[copy.length - 3] !== undefined) {
+        document.getElementById("say").value = copy[copy.length - 3];
+        copynumber = 1;
+      }
     }
   }
 };
@@ -124,6 +137,8 @@ btnok.onclick = () => {
 };
 btndel.onclick = () => {
   message.innerHTML = "";
+  ans = "";
+  loadapp();
 };
 document.getElementById("select1").onclick = () => {
   document.getElementById("app").style.transform = "translateX(0%)";
