@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' />
-  <meta name="theme-color" content="#ff0099">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="theme-color" content="#ff0099" />
   <title>Đếm ngày cô đơn</title>
-  <link rel="stylesheet" href="./waves.min.css">
+  <link rel="stylesheet" href="./waves.min.css" />
   <link rel="stylesheet" href="./all.min.css" />
   <link rel="stylesheet" href="./style.css" />
 </head>
@@ -17,17 +17,17 @@
     <div class="profile">
       <h2>THÔNG TIN CỦA BẠN</h2>
       <h3>
-        <label for="" style="text-align: center;"> Ảnh đại diện</label>
-
-
+        <label for="" style="text-align: center"> Ảnh đại diện</label>
       </h3>
       <div class="wrapper">
-        <div class="image"><img src="" alt="" /></div>
-        <div class="content">
-          <div class="text">Chọn ảnh để upload</div>
+        <div class="image">
+          <img onerror="this.src='./error.png'" src="./error.png" alt="" />
         </div>
+
       </div>
-      <button style="display:none" onclick="defaultBtnActive()" id="custom-btn">Chọn ảnh</button>
+      <button style="display: none" onclick="defaultBtnActive()" id="custom-btn">
+        Chọn ảnh
+      </button>
       <input id="default-btn" type="file" hidden />
       <div class="name">
         <label for="name">Tên</label>
@@ -38,21 +38,15 @@
         <div class="selectgender">
           <div class="radio">
             <input type="radio" value="Nam" name="gender" />
-            <span>
-              Nam
-            </span>
+            <span> Nam </span>
           </div>
           <div class="radio">
             <input type="radio" value="Nữ" name="gender" />
-            <span>
-              Nữ
-            </span>
+            <span> Nữ </span>
           </div>
           <div class="radio">
             <input type="radio" value="Khác" name="gender" />
-            <span>
-              Khác
-            </span>
+            <span> Khác </span>
           </div>
         </div>
       </div>
@@ -67,10 +61,11 @@
       <div class="status">
         <label for="status
           ">Trích dẫn</label>
-        <textarea name="" id="statuss"> Phải cố gắng thay đổi bản thân</textarea>
+        <textarea name="" id="statuss">
+ Phải cố gắng thay đổi bản thân</textarea>
       </div>
       <div class="button">
-        <button id="submit">Xác nhận</button>
+        <button id="submit" class="waves-effect">Xác nhận</button>
       </div>
     </div>
     <div class="main">
@@ -82,7 +77,9 @@
       <div class="content">
         <div class="scontent">
           <div class="content1">
-            <div class="buttonstatus waves-effect"> <i class="fas fa-heart"></i> </div>
+            <div class="buttonstatus waves-effect">
+              <i class="fas fa-heart"></i>
+            </div>
             <div class="statuseveryday">
               <div class="contentstatuseveryday">abcc</div>
             </div>
@@ -97,22 +94,30 @@
           <div class="content2">
             <div class="datetime">
               <div class="ngay">
-                <div class="date-item heart"> <span class="dngay"></span> </div> <span class="ndate"> Ngày </span>
+                <div class="date-item heart"><span class="dngay"></span></div>
+                <span class="ndate"> Ngày </span>
               </div>
               <div class="gio">
-                <div class="date-item heart"> <span class="dgio"></span> </div> <span class="ndate"> Giờ </span>
+                <div class="date-item heart"><span class="dgio"></span></div>
+                <span class="ndate"> Giờ </span>
               </div>
               <div class="phut">
-                <div class="date-item  heart"> <span class="dphut">
-
-                  </span> </div> <span class="ndate">Phút</span>
+                <div class="date-item heart">
+                  <span class="dphut"> </span>
+                </div>
+                <span class="ndate">Phút</span>
               </div>
               <div class="giay">
-                <div class="date-item  heart"> <span class="dgiay"></span> </div> <span class="ndate">Giây</span>
+                <div class="date-item heart"><span class="dgiay"></span></div>
+                <span class="ndate">Giây</span>
               </div>
             </div>
-            <p><i class="fas fa-heart"></i> <b class="ntns"></b> <i class="fas fa-heart"></i></p>
-            <div class="contentstatus"> Trạng thái:
+            <p>
+              <i class="fas fa-heart"></i> <b class="ntns"></b>
+              <i class="fas fa-heart"></i>
+            </p>
+            <div class="contentstatus">
+              Trạng thái:
               <div class="dstatus"></div>
             </div>
           </div>
@@ -135,9 +140,9 @@
       </div>
       <div class="setting">
         <div class="ssetting">
-          <div class="pavatar" id="pavatar" onclick="defaultBtnActive()"> <img src="" alt="" class="imgavatar"
-              id="imgavatar" />
-            <div class="iconcamera"> <i class="fas fa-camera"></i> </div>
+          <div class="pavatar" id="pavatar" onclick="defaultBtnActive()">
+            <img src="" alt="" class="imgavatar" id="imgavatar" />
+            <div class="iconcamera"><i class="fas fa-camera"></i></div>
           </div>
           <div class="pname">
             <p class="dname">Không có tên</p>
@@ -147,63 +152,66 @@
           </div>
           <div class="setting-option">
             <ul>
-              <li class="sli1 waves-effect ">
-                <div class="icon"> <i class="fas fa-lightbulb"></i> </div>
+              <li class="sli1 waves-effect">
+                <div class="icon"><i class="fas fa-lightbulb"></i></div>
                 <div class="namesetting">
                   <p>Nền tối</p>
                 </div>
-                <div class="icon"> <i class="lightoff fas fa-moon"></i> <i class="lighton fas fa-sun"></i> </div>
+                <div class="icon">
+                  <i class="lightoff fas fa-moon"></i>
+                  <i class="lighton fas fa-sun"></i>
+                </div>
               </li>
-              <li class="sli7 waves-effect ">
-                <div class="icon"> <i class="fas fa-clipboard"></i> </div>
+              <li class="sli7 waves-effect">
+                <div class="icon"><i class="fas fa-clipboard"></i></div>
                 <div class="namesetting">
                   <p>Sự kiện</p>
                 </div>
-                <div class="icon"> <i class="fas fa-chevron-right"></i> </div>
+                <div class="icon"><i class="fas fa-chevron-right"></i></div>
               </li>
-              <li class="sli2 waves-effect ">
-                <div class="icon"> <i class="fas fa-heading"></i> </div>
+              <li class="sli2 waves-effect">
+                <div class="icon"><i class="fas fa-heading"></i></div>
                 <div class="namesetting">
                   <p>Tiêu đề</p>
                   <p class="s_setting stitle"></p>
                 </div>
-                <div class="icon"> <i class="fas fa-chevron-right"></i> </div>
+                <div class="icon"><i class="fas fa-chevron-right"></i></div>
               </li>
-              <li class="sli3 waves-effect ">
-                <div class="icon"> <i class="fas fa-hourglass-start"></i> </div>
+              <li class="sli3 waves-effect">
+                <div class="icon"><i class="fas fa-hourglass-start"></i></div>
                 <div class="namesetting">
                   <p>Ngày bắt đầu đếm</p>
                   <p class="s_setting snbdcd">N/A</p>
                 </div>
-                <div class="icon"> <i class="fas fa-chevron-right"></i> </div>
+                <div class="icon"><i class="fas fa-chevron-right"></i></div>
               </li>
-              <li class="sli4 waves-effect ">
-                <div class="icon"> <i class="fas fa-font"></i> </div>
+              <li class="sli4 waves-effect">
+                <div class="icon"><i class="fas fa-font"></i></div>
                 <div class="namesetting">
                   <p>Thay đổi chữ</p>
                 </div>
-                <div class="icon"> <i class="fas fa-chevron-right"></i> </div>
+                <div class="icon"><i class="fas fa-chevron-right"></i></div>
               </li>
-              <li class="sli6 waves-effect ">
-                <div class="icon"> <i class="fas fa-palette"></i> </div>
+              <li class="sli6 waves-effect">
+                <div class="icon"><i class="fas fa-palette"></i></div>
                 <div class="namesetting">
                   <p>Tùy chỉnh màu sắc</p>
                 </div>
-                <div class="icon"> <i class="fas fa-chevron-right"></i> </div>
+                <div class="icon"><i class="fas fa-chevron-right"></i></div>
               </li>
-              <li class="sli5 waves-effect ">
-                <div class="icon"> <i class="fas fa-power-off"></i> </div>
+              <li class="sli5 waves-effect">
+                <div class="icon"><i class="fas fa-power-off"></i></div>
                 <div class="namesetting">
                   <p>Đặt lại thông tin</p>
                 </div>
-                <div class="icon"> <i class="fas fa-chevron-right"></i> </div>
+                <div class="icon"><i class="fas fa-chevron-right"></i></div>
               </li>
-              <li class="sli8 waves-effect ">
-                <div class="icon"> <i class="fas fa-star"></i> </div>
+              <li class="sli8 waves-effect">
+                <div class="icon"><i class="fas fa-star"></i></div>
                 <div class="namesetting">
                   <p>Đánh giá ứng dụng</p>
                 </div>
-                <div class="icon"> <i class="fas fa-chevron-right"></i> </div>
+                <div class="icon"><i class="fas fa-chevron-right"></i></div>
               </li>
             </ul>
           </div>
@@ -212,9 +220,9 @@
     </div>
     <div class="navigation">
       <ul>
-        <li class="select1 waves-effect "><i class="fas fa-home"></i></li>
-        <li class="select2 waves-effect "><i class="fas fa-heart"></i></li>
-        <li class="select3 waves-effect "><i class="fas fa-cog"></i></li>
+        <li class="select1 waves-effect"><i class="fas fa-home"></i></li>
+        <li class="select2 waves-effect"><i class="fas fa-heart"></i></li>
+        <li class="select3 waves-effect"><i class="fas fa-cog"></i></li>
       </ul>
     </div>
     <div class="colors">
@@ -237,8 +245,8 @@
         <input type="text" id="stieude" value="" />
       </div>
       <div class="ops-buttons">
-        <button id="acceptevent2">Xác nhận</button>
-        <button id="declineevent3">Hủy</button>
+        <button id="acceptevent2" class="waves-effect">Xác nhận</button>
+        <button id="declineevent3" class="waves-effect">Hủy</button>
       </div>
     </div>
     <div class="options-2">
@@ -253,8 +261,8 @@
         <input type="date" name="ngaybatdau2" min="1900-01-01" id="ngaybatdau2" value="" />
       </div>
       <div class="ops-buttons">
-        <button id="xacnhanevent2">Xác nhận</button>
-        <button id="huyevent2">Hủy</button>
+        <button id="xacnhanevent2" class="waves-effect">Xác nhận</button>
+        <button id="huyevent2" class="waves-effect">Hủy</button>
       </div>
     </div>
     <div class="options-3">
@@ -267,8 +275,8 @@
         <input type="text" id="ndd" value="" />
       </div>
       <div class="ops-buttons">
-        <button id="xacnhan">Xác nhận</button>
-        <button id="huy">Hủy</button>
+        <button id="xacnhan" class="waves-effect">Xác nhận</button>
+        <button id="huy" class="waves-effect">Hủy</button>
       </div>
     </div>
     <div class="event">
@@ -277,14 +285,17 @@
         <h3>Nhấn (+) để tạo sự kiện của bạn</h3>
         <div class="inputField">
           <input type="text" placeholder="Thêm sự kiện của bạn" />
-          <button class="btnaddevent"><i class="fas fa-plus"></i></button>
+          <button class="btnaddevent waves-effect">
+            <i class="fas fa-plus"></i>
+          </button>
         </div>
         <ul class="todoList"></ul>
         <div class="footer">
-          <div class="footers"> <span>Bạn có <span class="pendingTasks"></span> sự kiện</span>
+          <div class="footers">
+            <span>Bạn có <span class="pendingTasks"></span> sự kiện</span>
           </div>
           <div class="footers">
-            <button>Xóa tất cả</button>
+            <button class="waves-effect">Xóa tất cả</button>
           </div>
         </div>
       </div>
@@ -295,7 +306,7 @@
   <script src="./all.min.js"></script>
   <script src="./magic.js"></script>
   <script>
-    Waves.attach('.waves-effect');
+    Waves.attach(".waves-effect");
     Waves.init();
   </script>
 </body>
