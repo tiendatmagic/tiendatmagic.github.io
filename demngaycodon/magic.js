@@ -221,14 +221,14 @@ getClass("sli5")[0].addEventListener("click", function () {
   displayprofile();
   location.reload();
 });
-getClass("sli6")[0].addEventListener("click", function () {
-  getClass("options-2")[0].classList.toggle("active");
-  getClass("options-3")[0].classList.remove("active");
-  getClass("options2-event")[0].classList.remove("active");
-  getClass("options3-event")[0].classList.remove("active");
-});
+
 getClass("sli7")[0].addEventListener("click", function () {
   getClass("event")[0].style.display = "block";
+  getClass("options3-event")[0].classList.remove("active");
+  getClass("options2-event")[0].classList.remove("active");
+  getClass("options-3")[0].classList.remove("active");
+  getClass("options-2")[0].classList.remove("active");
+
 });
 getClass("sli8")[0].addEventListener("click", function () {
   cordova.plugins.market.open("com.tiendatmagic.demngaycodon");
@@ -240,6 +240,7 @@ getClass("dmng")[0].addEventListener("click", function () {
 
 getClass("huy")[0].addEventListener("click", function () {
   getClass("options-2")[0].classList.remove("active");
+  getClass("main")[0].classList.remove("blur");
 });
 getId("xacnhan").addEventListener("click", function () {
   getClass("info1")[0].innerText = getId("ndt").value;
@@ -249,9 +250,11 @@ getId("xacnhan").addEventListener("click", function () {
   info2 = getId("ndd").value;
   localStorage.setItem("info2", JSON.stringify(info2));
   getClass("options-3")[0].classList.remove("active");
+  getClass("main")[0].classList.remove("blur");
 });
 getId("huy").addEventListener("click", function () {
   getClass("options-3")[0].classList.remove("active");
+  getClass("main")[0].classList.remove("blur");
 });
 
 getId("dmng").addEventListener("change", function () {
@@ -264,9 +267,11 @@ getId("dmng").addEventListener("change", function () {
 
 getId("huyevent2").addEventListener("click", function () {
   getClass("options2-event")[0].classList.toggle("active");
+  getClass("main")[0].classList.remove("blur");
 });
 getId("declineevent3").addEventListener("click", function () {
   getClass("options3-event")[0].classList.toggle("active");
+  getClass("main")[0].classList.remove("blur");
 });
 getId("xacnhanevent2").addEventListener("click", function () {
   if (getId("ngaybatdau2").value === "") {
@@ -288,6 +293,8 @@ getId("xacnhanevent2").addEventListener("click", function () {
     localStorage.setItem("dngaybatdau", JSON.stringify(dngaybatdau));
     localStorage.setItem("sngaybatdau", JSON.stringify(sngaybatdau));
     getId("ngaybatdau2").value = "";
+    getClass("options2-event")[0].classList.toggle("active");
+    getClass("main")[0].classList.remove("blur");
     displayprofile();
   }
 });
@@ -305,10 +312,13 @@ getId("acceptevent2").addEventListener("click", function () {
     localStorage.setItem("dtieude", JSON.stringify(dtieude));
     displayprofile();
     getId("stieude").innerText === "";
+    getClass("options3-event")[0].classList.toggle("active");
+    getClass("main")[0].classList.remove("blur");
   }
 });
 getClass("exitevent")[0].addEventListener("click", function () {
   getClass("event")[0].style.display = "none";
+  getClass("main")[0].classList.remove("blur");
 });
 
 function displayprofile() {
@@ -386,6 +396,10 @@ function displayprofile() {
       }
     }
   } else {
+    getClass("options3-event")[0].style.display = 'none';
+    getClass("options2-event")[0].style.display = 'none';
+    getClass("options-3")[0].style.display = 'none';
+    getClass("options-2")[0].style.display = 'none';
     getClass("main")[0].style.display = "none";
   }
 }
@@ -430,12 +444,13 @@ getClass("buttonstatus")[0].addEventListener("click", function () {
 
 function loaddark() {
   if (dark === 1) {
+
     getClass("lightoff")[0].style.display = "block";
     getClass("lighton")[0].style.display = "none";
     dmhns = "#272727";
     getClass("htitle")[0].style.color = "#fff";
     getClass("navigation")[0].style.backgroundColor = "#272727";
-    getQuery("body > div > div.event > div.mainevent").style.color = "#fff";
+    getClass("mainevent")[0].style.color = "#fff";
     getClass("statuseveryday")[0].style.backgroundColor = dmhns;
     getQuery(".content .circle").classList.add("dark");
     getQuery(".personal_info").classList.add("dark");
@@ -463,7 +478,7 @@ function loaddark() {
     dmhns = "#fff";
     getClass("htitle")[0].style.color = "#272727";
     getClass("navigation")[0].style.backgroundColor = "#fff";
-    getQuery("body > div > div.event > div.mainevent").style.color = "#272727";
+    getClass("mainevent")[0].style.color = "#272727";
     getClass("statuseveryday")[0].style.backgroundColor = dmhns;
     getQuery(".content .circle").classList.remove("dark");
     getQuery(".personal_info").classList.remove("dark");
@@ -506,18 +521,49 @@ getClass("sli2")[0].addEventListener("click", function () {
   getClass("options2-event")[0].classList.remove("active");
   getClass("options-3")[0].classList.remove("active");
   getClass("options-2")[0].classList.remove("active");
+  getClass("main")[0].classList.add("blur");
+  if (getClass("options3-event")[0].className == 'options3-event'
+  ) {
+    getClass("main")[0].classList.remove("blur");
+  }
+
 });
 getClass("sli3")[0].addEventListener("click", function () {
   getClass("options2-event")[0].classList.toggle("active");
   getClass("options3-event")[0].classList.remove("active");
   getClass("options-3")[0].classList.remove("active");
   getClass("options-2")[0].classList.remove("active");
+  getClass("main")[0].classList.add("blur");
+  if (getClass("options2-event")[0].className == 'options2-event'
+  ) {
+    getClass("main")[0].classList.remove("blur");
+  }
+
 });
 getClass("sli4")[0].addEventListener("click", function () {
   getClass("options-3")[0].classList.toggle("active");
   getClass("options-2")[0].classList.remove("active");
   getClass("options2-event")[0].classList.remove("active");
   getClass("options3-event")[0].classList.remove("active");
+  getClass("main")[0].classList.add("blur");
+
+  if (getClass("options-3")[0].className == 'options-3'
+  ) {
+    getClass("main")[0].classList.remove("blur");
+  }
+
+});
+getClass("sli6")[0].addEventListener("click", function () {
+  getClass("options-2")[0].classList.toggle("active");
+  getClass("options-3")[0].classList.remove("active");
+  getClass("options2-event")[0].classList.remove("active");
+  getClass("options3-event")[0].classList.remove("active");
+  getClass("main")[0].classList.add("blur");
+
+  if (getClass("options-2")[0].className == 'options-2'
+  ) {
+    getClass("main")[0].classList.remove("blur");
+  }
 });
 const inputBox = getQuery(".inputField input");
 const addBtn = getQuery(".inputField button");
@@ -541,7 +587,12 @@ addBtn.onclick = function () {
     listArray = JSON.parse(getLocalStorageData);
   }
   if (userEnteredValue === "") {
-    alert("không được bỏ trống");
+    navigator.notification.alert(
+      "Không được bỏ trống nha 😑",
+      alertDismissed,
+      "Thông báo",
+      "OK"
+    );
   } else {
     listArray.push(userEnteredValue);
     localStorage.setItem("New Todo", JSON.stringify(listArray));

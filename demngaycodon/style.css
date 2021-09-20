@@ -67,9 +67,9 @@ html {
   -ms-flex-pack: center;
   justify-content: center;
   overflow: hidden;
-  -webkit-box-shadow: inset 2px 2px calc(2px * 1.4) #cccccc,
+  -webkit-box-shadow: inset 2px 2px calc(2px * 1.4) #aaaaaa,
     inset -2px -2px calc(2px * 1.4) #eeeeee;
-  box-shadow: inset 2px 2px calc(2px * 1.4) #cccccc,
+  box-shadow: inset 2px 2px calc(2px * 1.4) #aaaaaa,
     inset -2px -2px calc(2px * 1.4) #eeeeee;
   cursor: pointer;
 }
@@ -95,12 +95,10 @@ html {
   object-fit: cover;
 }
 .wrapper .content {
-  z-index: 9;
   position: absolute;
   top: 170px;
 }
 .wrapper .text {
-  z-index: 9;
   font-size: 20px;
   font-weight: 500;
   color: #5b5b7b;
@@ -163,6 +161,9 @@ p {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .profile .selectgender div span {
   margin-left: 20px;
@@ -227,9 +228,13 @@ input[type="date"] {
   border-radius: 10px;
   outline: none;
   background-color: #f9f7ff;
-  border: 1px solid #c2c2c2;
+  border: none;
   margin-top: 10px;
   font-size: 17px;
+  -webkit-box-shadow: inset 2px 2px calc(2px * 1.4) #cccccc,
+    inset -2px -2px calc(2px * 1.4) #eeeeee;
+  box-shadow: inset 2px 2px calc(2px * 1.4) #cccccc,
+    inset -2px -2px calc(2px * 1.4) #eeeeee;
 }
 
 .profile textarea {
@@ -278,6 +283,9 @@ input[type="date"] {
   display: none;
   position: relative;
 }
+.main.blur {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 
 .main .header {
   display: -webkit-box;
@@ -321,7 +329,6 @@ input[type="date"] {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  z-index: 2;
 }
 
 .scontent {
@@ -490,7 +497,7 @@ input[type="date"] {
   font-size: 30px;
   position: absolute;
   left: 15px;
-  z-index: 1;
+
   color: red;
   -webkit-animation: heartbeat 1s infinite;
   animation: heartbeat 1s infinite;
@@ -752,17 +759,18 @@ input[type="date"] {
   -ms-flex-align: center;
   align-items: center;
   border-radius: 50%;
-  background-color: #fff;
-  -webkit-box-shadow: 2px 2px calc(2px * 1.4) #aaaaaa,
+  /* background-color: #fff; */
+  -webkit-box-shadow: 2px 2px calc(2px * 1.4) #cccccc,
     -2px -2px calc(2px * 1.4) #eeeeee;
-  box-shadow: 2px 2px calc(2px * 1.4) #aaaaaa, -2px -2px calc(2px * 1.4) #eeeeee;
+  box-shadow: 2px 2px calc(2px * 1.4) #cccccc, -2px -2px calc(2px * 1.4) #eeeeee;
   -webkit-transition: 0.2s ease;
   -o-transition: 0.2s ease;
+
   transition: 0.2s ease;
 }
 
 .iconcamera.dark {
-  background-color: #272727;
+  /* background-color: #272727; */
   color: #fff;
   -webkit-box-shadow: 2px 2px calc(2px * 1.4) #131313,
     -2px -2px calc(2px * 1.4) #444444;
@@ -915,25 +923,35 @@ input[type="date"] {
 .options-3 {
   position: absolute;
   width: 100%;
-  display: none;
+  display: block;
   bottom: 0px;
   left: 0px;
-  border: 1px solid #c2cdda;
   background-color: #fff;
   color: #000;
   padding: 10px;
   border-radius: 10px;
-  z-index: 3;
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .options-2.active {
   display: block;
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
 }
 .options-3 {
   padding: 20px;
 }
 .options-3.active {
   display: block;
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
 }
 
 .options-3 .ops:nth-child(2) {
@@ -963,7 +981,7 @@ input[type="date"] {
   color: #000;
   padding: 2px;
   border-radius: 5px;
-  z-index: 3;
+
   -webkit-box-shadow: -2px 5px 12px 0px rgb(0 0 0 / 38%);
   box-shadow: -2px 5px 12px 0px rgb(0 0 0 / 38%);
 }
@@ -1078,9 +1096,9 @@ input[type="date"] {
   display: inline;
   background-color: #fff;
   color: #000;
-  -webkit-box-shadow: 2px 2px calc(2px * 1.4) #aaaaaa,
+  -webkit-box-shadow: 2px 2px calc(2px * 1.4) #cccccc,
     -2px -2px calc(2px * 1.4) #eeeeee;
-  box-shadow: inset 2px 2px calc(2px * 1.4) #aaaaaa,
+  box-shadow: inset 2px 2px calc(2px * 1.4) #cccccc,
     inset -2px -2px calc(2px * 1.4) #eeeeee;
 }
 .event input[type="text"].dark {
@@ -1115,20 +1133,21 @@ input[type="date"] {
   bottom: 0px;
   left: 0px;
   border-radius: 10px;
-  padding: 10px;
-  border: 1px solid #c2cdda;
-}
-
-.options2-event,
-.options3-event {
-  display: none;
+  padding: 20px;
+  -webkit-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .options2-event.active,
 .options3-event.active {
-  z-index: 9999;
-  padding: 20px;
   display: block;
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
 }
 
 .navigation {
@@ -1247,21 +1266,9 @@ input[type="date"] {
   height: calc(25px - calc(5px * 2));
   border-radius: 100rem;
   background-color: deeppink;
-  -webkit-transition: background-color 0.25s linear,
-    -webkit-transform 0.25s linear;
-  transition: background-color 0.25s linear, -webkit-transform 0.25s linear;
-  -o-transition: transform 0.25s linear, background-color 0.25s linear;
-  -webkit-transition: background-color 0.25s linear,
-    -webkit-transform 0.25s linear;
-  -webkit-transition: background-color 0.25s linear,
-    -webkit-transform 0.25s linear;
-  transition: transform 0.25s linear, background-color 0.25s linear;
-  transition: transform 0.25s linear, background-color 0.25s linear,
-    -webkit-transform 0.25s linear;
-  transition: transform 0.25s linear, background-color 0.25s linear,
-    -webkit-transform 0.25s linear;
-  transition: transform 0.25s linear, background-color 0.25s linear,
-    -webkit-transform 0.25s linear;
+  -webkit-transition: background-color 0.25s linear;
+  -o-transition: background-color 0.25s linear;
+  transition: background-color 0.25s linear;
 }
 
 @media only screen and (min-height: 550px) {
