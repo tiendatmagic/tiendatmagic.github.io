@@ -1,4 +1,5 @@
 console.log("%cTiendatmagic", "color: deeppink; font-size: x-large");
+
 function getId(id) {
   return document.getElementById(id);
 }
@@ -14,6 +15,9 @@ function getQuery(query) {
 function getQueryAll(query) {
   return document.querySelectorAll(query);
 }
+var admobid = {
+  interstitial: "",
+};
 const wrapper = getQuery(".wrapper");
 const defaultBtn = getQuery("#default-btn");
 const customBtn = getQuery("#custom-btn");
@@ -86,12 +90,14 @@ if (strangthai === null) {
   strangthai = "";
 }
 var dmhns = "";
-
 var dmngs = JSON.parse(localStorage.getItem("dmngs"));
 if (dmngs === null) {
   dmngs = "red";
 }
-
+var dmcs = JSON.parse(localStorage.getItem("dmcs"));
+if (dmcs === null) {
+  dmcs = "deeppink";
+}
 var info1 = JSON.parse(localStorage.getItem("info1"));
 if (info1 === null || info1 === "") {
   info1 = "Đã cô đơn";
@@ -124,6 +130,11 @@ var orderstatus = JSON.parse(localStorage.getItem("orderstatus"));
 if (orderstatus === null) {
   orderstatus = new Date().getDate();
 }
+var fontfamily = JSON.parse(localStorage.getItem("fontfamily"));
+if (fontfamily === null) {
+  fontfamily = '"Roboto", sans-serif';
+}
+var openwindow = 0;
 var status_apps = [
   "Đau khổ nhất là khi yêu ai đó, thương ai đó mà không thể ở bên, không thể nói ra nỗi lòng của mình với người ấy",
   "Bây giờ tôi mới đau khổ nhận ra một sự thật là có những người chỉ có thể ở trong tim ta chứ không bao giờ có thể bước cùng ta đi đến cuối cuộc đời",
@@ -157,17 +168,16 @@ var status_apps = [
   "Thà sống một mình còn hơn là khi có ai đó bên cạnh mà vẫn cảm thấy cô đơn",
   "Nếu bạn thật sự quan trọng với một người, thì người đó sẽ luôn có thời gian dành cho bạn: không lý do, không dối trá và không thất hứa.",
   "Cảm ơn ai đó đã vô tâm hời hợt để rồi tôi biết mình nên dừng lại ở đâu.",
-  "Lần cuối cùng em khóc vì anh. Em sẽ ngừng khóc và ngừng  cả sự yêu thương.",
+  "Lần cuối cùng em khóc vì anh. Em sẽ ngừng khóc và ngừng cả sự yêu thương.",
 ];
 
 function alertDismissed() { }
-
 window.onload = function () {
   setTimeout(function () {
-    document.getElementsByTagName("body")[0].style.visibility = "visible";
-    document.getElementsByTagName("body")[0].style.opacity = "1";
-    getClass("selectgender")[0].style.opacity = "1";
-  }, 1000);
+    getQueryAll("body")[0].style.opacity = "1";
+    getQueryAll("body")[0].style.visibility = "visible";
+    getClass("selectgender")[0].style.display = "flex";
+  }, 500);
   displayprofile();
 };
 getId("submit").addEventListener("click", function () {
@@ -198,9 +208,15 @@ getId("submit").addEventListener("click", function () {
     sten == "" ||
     sgt == "" ||
     strangthai == ""
-
   ) {
-    alert("OK")
+    try {
+      navigator.notification.alert(
+        "Không được bỏ trống nha 😑",
+        alertDismissed,
+        "Thông báo",
+        "OK"
+      );
+    } catch (error) { }
   } else {
     if (sngaysinh >= Date.parse(new Date())) {
       sngaysinh = Date.parse(new Date());
@@ -220,27 +236,38 @@ getClass("sli5")[0].addEventListener("click", function () {
   localStorage.setItem("profile", JSON.stringify(profile));
   displayprofile();
   location.reload();
+  AdMob.prepareInterstitial({
+    adId: admobid.interstitial,
+    isTesting: true,
+    autoShow: true,
+  });
 });
-
 getClass("sli7")[0].addEventListener("click", function () {
-  getClass("event")[0].style.display = "block";
-  getClass("options3-event")[0].classList.remove("active");
-  getClass("options2-event")[0].classList.remove("active");
-  getClass("options-3")[0].classList.remove("active");
-  getClass("options-2")[0].classList.remove("active");
-
+  loadevent();
 });
 getClass("sli8")[0].addEventListener("click", function () {
   cordova.plugins.market.open("com.tiendatmagic.demngaycodon");
 });
-
 getClass("dmng")[0].addEventListener("click", function () {
   getId("dmng").click();
 });
-
+getClass("dmc")[0].addEventListener("click", function () {
+  getId("dmc").click();
+});
+getClass("dkc")[0].addEventListener("click", function () {
+  getClass("fontfa")[0].classList.add("active");
+  getClass("options-4")[0].classList.remove("active");
+  getClass("blur")[0].classList.add("active");
+});
 getClass("huy")[0].addEventListener("click", function () {
+  openwindow = 1;
   getClass("options-2")[0].classList.remove("active");
-  getClass("main")[0].classList.remove("blur");
+  getClass("blur")[0].classList.remove("active");
+});
+getClass("huy4")[0].addEventListener("click", function () {
+  openwindow = 1;
+  getClass("options-4")[0].classList.remove("active");
+  getClass("blur")[0].classList.remove("active");
 });
 getId("xacnhan").addEventListener("click", function () {
   getClass("info1")[0].innerText = getId("ndt").value;
@@ -250,13 +277,22 @@ getId("xacnhan").addEventListener("click", function () {
   info2 = getId("ndd").value;
   localStorage.setItem("info2", JSON.stringify(info2));
   getClass("options-3")[0].classList.remove("active");
-  getClass("main")[0].classList.remove("blur");
+  getClass("blur")[0].classList.remove("active");
 });
 getId("huy").addEventListener("click", function () {
+  openwindow = 1;
   getClass("options-3")[0].classList.remove("active");
-  getClass("main")[0].classList.remove("blur");
+  getClass("blur")[0].classList.remove("active");
 });
-
+getId("huy-exit").addEventListener("click", function () {
+  getClass("blur")[0].classList.remove("active");
+  getClass("options-exit")[0].classList.remove("active");
+});
+getId("xacnhan-exit").addEventListener("click", function () {
+  setTimeout(function () {
+    navigator.app.exitApp();
+  }, 500);
+});
 getId("dmng").addEventListener("change", function () {
   dmngs = getId("dmng").value;
   for (var j = 0; j <= 3; j++) {
@@ -264,23 +300,33 @@ getId("dmng").addEventListener("change", function () {
   }
   localStorage.setItem("dmngs", JSON.stringify(dmngs));
 });
-
+getId("dmc").addEventListener("change", function () {
+  dmcs = getId("dmc").value;
+  for (var j = 0; j < getClass("pcolor").length; j++) {
+    getQueryAll(".pcolor")[j].style.color = dmcs;
+  }
+  localStorage.setItem("dmcs", JSON.stringify(dmcs));
+});
 getId("huyevent2").addEventListener("click", function () {
+  openwindow = 1;
   getClass("options2-event")[0].classList.toggle("active");
-  getClass("main")[0].classList.remove("blur");
+  getClass("blur")[0].classList.remove("active");
 });
 getId("declineevent3").addEventListener("click", function () {
+  openwindow = 1;
   getClass("options3-event")[0].classList.toggle("active");
-  getClass("main")[0].classList.remove("blur");
+  getClass("blur")[0].classList.remove("active");
 });
 getId("xacnhanevent2").addEventListener("click", function () {
   if (getId("ngaybatdau2").value === "") {
-    navigator.notification.alert(
-      "Không được bỏ trống nha 😑",
-      alertDismissed,
-      "Thông báo",
-      "OK"
-    );
+    try {
+      navigator.notification.alert(
+        "Không được bỏ trống nha 😑",
+        alertDismissed,
+        "Thông báo",
+        "OK"
+      );
+    } catch (error) { }
   } else {
     dngaybatdau = getId("ngaybatdau2").value;
     getClass("snbdcd")[0].innerText =
@@ -294,18 +340,20 @@ getId("xacnhanevent2").addEventListener("click", function () {
     localStorage.setItem("sngaybatdau", JSON.stringify(sngaybatdau));
     getId("ngaybatdau2").value = "";
     getClass("options2-event")[0].classList.toggle("active");
-    getClass("main")[0].classList.remove("blur");
+    getClass("blur")[0].classList.remove("active");
     displayprofile();
   }
 });
 getId("acceptevent2").addEventListener("click", function () {
   if (getId("stieude").value === "") {
-    navigator.notification.alert(
-      "Không được bỏ trống nha 😑",
-      alertDismissed,
-      "Thông báo",
-      "OK"
-    );
+    try {
+      navigator.notification.alert(
+        "Không được bỏ trống nha 😑",
+        alertDismissed,
+        "Thông báo",
+        "OK"
+      );
+    } catch (error) { }
   } else {
     dtieude = getId("stieude").value;
     getClass("stitle")[0].innerText = dtieude;
@@ -313,20 +361,35 @@ getId("acceptevent2").addEventListener("click", function () {
     displayprofile();
     getId("stieude").innerText === "";
     getClass("options3-event")[0].classList.toggle("active");
-    getClass("main")[0].classList.remove("blur");
+    getClass("blur")[0].classList.remove("active");
   }
 });
 getClass("exitevent")[0].addEventListener("click", function () {
+  openwindow = 1;
   getClass("event")[0].style.display = "none";
-  getClass("main")[0].classList.remove("blur");
+  getClass("blur")[0].classList.remove("active");
+  setTimeout(function () {
+    AdMob.prepareInterstitial({
+      adId: admobid.interstitial,
+      isTesting: true,
+      autoShow: true,
+    });
+  }, 1000);
 });
 
 function displayprofile() {
   if (profile === 1) {
     loaddark();
+    getQueryAll("body")[0].style.fontFamily = fontfamily;
     getClass("container")[0].style.overflow = "hidden";
     getClass("navigation")[0].style.display = "block";
     getClass("profile")[0].style.display = "none";
+    getClass("options3-event")[0].style.display = "block";
+    getClass("options2-event")[0].style.display = "block";
+    getClass("options-exit")[0].style.display = "block";
+    getClass("options-4")[0].style.display = "block";
+    getClass("options-3")[0].style.display = "block";
+    getClass("options-2")[0].style.display = "block";
     getClass("main")[0].style.display = "block";
     getClass("htitle")[0].innerText = dtieude;
     getClass("dname")[0].innerText = sten;
@@ -345,7 +408,6 @@ function displayprofile() {
     getClass("dstatus")[0].innerText = strangthai;
     getClass("container")[0].style.backgroundColor = dmhns;
     getClass("event")[0].style.backgroundColor = dmhns;
-
     getId("stieude").value = dtieude;
     getId("ndt").value = info1;
     getId("ndd").value = info2;
@@ -356,7 +418,9 @@ function displayprofile() {
     for (var j = 0; j <= 3; j++) {
       getClass("heart")[j].style.setProperty("--after", dmngs);
     }
-
+    for (var j = 0; j < getClass("pcolor").length; j++) {
+      getQueryAll(".pcolor")[j].style.color = dmcs;
+    }
     if (hiddentitle == true) {
       getClass("header")[0].classList.add("hidden");
       getClass("ssetting")[0].classList.add("height");
@@ -396,11 +460,6 @@ function displayprofile() {
       }
     }
   } else {
-    getClass("options3-event")[0].style.display = 'none';
-    getClass("options2-event")[0].style.display = 'none';
-    getClass("options-3")[0].style.display = 'none';
-    getClass("options-2")[0].style.display = 'none';
-    getClass("main")[0].style.display = "none";
   }
 }
 getId("ngaysinh").max = new Date(
@@ -419,6 +478,7 @@ getId("ngaybatdau2").max = new Date(
   .toISOString()
   .split("T")[0];
 getClass("select1")[0].addEventListener("click", function () {
+  openwindow = 0;
   getClass("content")[0].style.display = "block";
   getClass("setting")[0].style.display = "none";
   getClass("ssetting")[0].classList.remove("active");
@@ -426,12 +486,14 @@ getClass("select1")[0].addEventListener("click", function () {
   getClass("content2")[0].classList.remove("active");
 });
 getClass("select2")[0].addEventListener("click", function () {
+  openwindow = 1;
   getClass("content")[0].style.display = "block";
   getClass("setting")[0].style.display = "none";
   getClass("ssetting")[0].classList.remove("active");
   getClass("scontent")[0].style.transform = "translateX(-50%)";
 });
 getClass("select3")[0].addEventListener("click", function () {
+  openwindow = 1;
   getClass("content")[0].style.display = "none";
   getClass("setting")[0].style.display = "block";
   getClass("ssetting")[0].classList.add("active");
@@ -441,10 +503,20 @@ getClass("buttonstatus")[0].addEventListener("click", function () {
   getClass("statuseveryday")[0].classList.toggle("active");
   getClass("circle")[0].classList.toggle("active");
 });
-
+getClass("buttonsk")[0].addEventListener("click", function () {
+  loadevent();
+});
+function loadevent() {
+  openwindow = 1;
+  getClass("event")[0].style.display = "block";
+  getClass("options3-event")[0].classList.remove("active");
+  getClass("options2-event")[0].classList.remove("active");
+  getClass("options-4")[0].classList.remove("active");
+  getClass("options-3")[0].classList.remove("active");
+  getClass("options-2")[0].classList.remove("active");
+}
 function loaddark() {
   if (dark === 1) {
-
     getClass("lightoff")[0].style.display = "block";
     getClass("lighton")[0].style.display = "none";
     dmhns = "#272727";
@@ -458,6 +530,7 @@ function loaddark() {
     getQuery(".contentstatus").classList.add("dark");
     getQuery(".content .statuseveryday").classList.add("dark");
     getQuery(".content .buttonstatus").classList.add("dark");
+    getQuery(".content .buttonsk").classList.add("dark");
     getQuery(".event input[type='text']").classList.add("dark");
     getQuery(".iconcamera").classList.add("dark");
     getQuery(".content .countday").style.color = "#fff";
@@ -486,6 +559,7 @@ function loaddark() {
     getQuery(".contentstatus").classList.remove("dark");
     getQuery(".content .statuseveryday").classList.remove("dark");
     getQuery(".content .buttonstatus").classList.remove("dark");
+    getQuery(".content .buttonsk").classList.remove("dark");
     getQuery(".event input[type='text']").classList.remove("dark");
     getQuery(".iconcamera").classList.remove("dark");
     getQuery(".content .countday").style.color = "#000";
@@ -517,52 +591,63 @@ function checkdark() {
 }
 getClass("sli1")[0].addEventListener("click", checkdark);
 getClass("sli2")[0].addEventListener("click", function () {
+  openwindow = 2;
   getClass("options3-event")[0].classList.toggle("active");
   getClass("options2-event")[0].classList.remove("active");
+  getClass("options-4")[0].classList.remove("active");
   getClass("options-3")[0].classList.remove("active");
   getClass("options-2")[0].classList.remove("active");
-  getClass("main")[0].classList.add("blur");
-  if (getClass("options3-event")[0].className == 'options3-event'
-  ) {
-    getClass("main")[0].classList.remove("blur");
+  getClass("blur")[0].classList.add("active");
+  if (getClass("options3-event")[0].className == "options3-event") {
+    getClass("blur")[0].classList.remove("active");
   }
-
 });
 getClass("sli3")[0].addEventListener("click", function () {
+  openwindow = 2;
   getClass("options2-event")[0].classList.toggle("active");
   getClass("options3-event")[0].classList.remove("active");
+  getClass("options-4")[0].classList.remove("active");
   getClass("options-3")[0].classList.remove("active");
   getClass("options-2")[0].classList.remove("active");
-  getClass("main")[0].classList.add("blur");
-  if (getClass("options2-event")[0].className == 'options2-event'
-  ) {
-    getClass("main")[0].classList.remove("blur");
+  getClass("blur")[0].classList.add("active");
+  if (getClass("options2-event")[0].className == "options2-event") {
+    getClass("blur")[0].classList.remove("active");
   }
-
 });
 getClass("sli4")[0].addEventListener("click", function () {
+  openwindow = 2;
   getClass("options-3")[0].classList.toggle("active");
+  getClass("options-4")[0].classList.remove("active");
   getClass("options-2")[0].classList.remove("active");
   getClass("options2-event")[0].classList.remove("active");
   getClass("options3-event")[0].classList.remove("active");
-  getClass("main")[0].classList.add("blur");
-
-  if (getClass("options-3")[0].className == 'options-3'
-  ) {
-    getClass("main")[0].classList.remove("blur");
+  getClass("blur")[0].classList.add("active");
+  if (getClass("options-3")[0].className == "options-3") {
+    getClass("blur")[0].classList.remove("active");
   }
-
 });
-getClass("sli6")[0].addEventListener("click", function () {
-  getClass("options-2")[0].classList.toggle("active");
+getClass("sli9")[0].addEventListener("click", function () {
+  openwindow = 2;
+  getClass("options-4")[0].classList.toggle("active");
   getClass("options-3")[0].classList.remove("active");
+  getClass("options-2")[0].classList.remove("active");
   getClass("options2-event")[0].classList.remove("active");
   getClass("options3-event")[0].classList.remove("active");
-  getClass("main")[0].classList.add("blur");
-
-  if (getClass("options-2")[0].className == 'options-2'
-  ) {
-    getClass("main")[0].classList.remove("blur");
+  getClass("blur")[0].classList.add("active");
+  if (getClass("options-4")[0].className == "options-4") {
+    getClass("blur")[0].classList.remove("active");
+  }
+});
+getClass("sli6")[0].addEventListener("click", function () {
+  openwindow = 2;
+  getClass("options-2")[0].classList.toggle("active");
+  getClass("options-3")[0].classList.remove("active");
+  getClass("options-4")[0].classList.remove("active");
+  getClass("options2-event")[0].classList.remove("active");
+  getClass("options3-event")[0].classList.remove("active");
+  getClass("blur")[0].classList.add("active");
+  if (getClass("options-2")[0].className == "options-2") {
+    getClass("blur")[0].classList.remove("active");
   }
 });
 const inputBox = getQuery(".inputField input");
@@ -587,12 +672,14 @@ addBtn.onclick = function () {
     listArray = JSON.parse(getLocalStorageData);
   }
   if (userEnteredValue === "") {
-    navigator.notification.alert(
-      "Không được bỏ trống nha 😑",
-      alertDismissed,
-      "Thông báo",
-      "OK"
-    );
+    try {
+      navigator.notification.alert(
+        "Không được bỏ trống nha 😑",
+        alertDismissed,
+        "Thông báo",
+        "OK"
+      );
+    } catch (error) { }
   } else {
     listArray.push(userEnteredValue);
     localStorage.setItem("New Todo", JSON.stringify(listArray));
@@ -617,7 +704,6 @@ function showTasks() {
   }
   let newLiTag = "";
   listArray.forEach(function (element, index) {
-    // newLiTag += `<li>${element}<span class="icon" onclick="deleteTask(${index})"><i class="fas fa-trash"></i></span></li>`;
     newLiTag +=
       "<li>" +
       element +
@@ -654,8 +740,47 @@ getId("switch").onclick = function () {
   }
   localStorage.setItem("hiddentitle", JSON.stringify(hiddentitle));
 };
+for (f = 0; f < getClass("font").length; f++) {
+  getClass("font")[f].onclick = function () {
+    fontfamily = this.innerText;
+    getQueryAll("body")[0].style.fontFamily =
+      this.innerText + "," + "sans-serif";
+    localStorage.setItem("fontfamily", JSON.stringify(fontfamily));
+    getClass("blur")[0].classList.remove("active");
+    getClass("fontfa")[0].classList.remove("active");
+  };
+}
 document.onkeydown = function (t) {
   if (t.which == 9) {
     return false;
   }
 };
+function onDeviceReady() {
+  document.addEventListener("backbutton", onBackButton, false);
+}
+
+function onBackButton() {
+  if (openwindow == 2) {
+    getClass("blur")[0].classList.remove("active");
+    getClass("options3-event")[0].classList.remove("active");
+    getClass("options2-event")[0].classList.remove("active");
+    getClass("options-4")[0].classList.remove("active");
+    getClass("options-3")[0].classList.remove("active");
+    getClass("options-2")[0].classList.remove("active");
+    openwindow = 1;
+  } else if (openwindow == 1) {
+    getClass("event")[0].style.display = "none";
+    getClass("content")[0].style.display = "block";
+    getClass("setting")[0].style.display = "none";
+    getClass("ssetting")[0].classList.remove("active");
+    getClass("scontent")[0].style.transform = "translateX(0%)";
+    getClass("content2")[0].classList.remove("active");
+    openwindow = 0;
+  } else if (openwindow == 0) {
+    getClass("blur")[0].classList.toggle("active");
+    getClass("options-exit")[0].classList.toggle("active");
+  }
+}
+document.addEventListener("deviceready", function () {
+  onDeviceReady();
+});

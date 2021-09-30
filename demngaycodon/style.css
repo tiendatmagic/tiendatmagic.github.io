@@ -1,5 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Yaldevi:wght@400;500;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Overlock:wght@400;700&display=swap");
+
 *,
 *::before,
 *::after {
@@ -7,7 +19,6 @@
   padding: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
 }
 
 ::-moz-selection {
@@ -29,9 +40,10 @@ body {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   width: 100%;
   height: 100vh;
-  position: relative;
-  visibility: hidden;
   opacity: 0;
+  visibility: hidden;
+  position: relative;
+  font-family: "Roboto", sans-serif;
 }
 
 html {
@@ -94,15 +106,16 @@ html {
   -o-object-fit: cover;
   object-fit: cover;
 }
+
 .wrapper .content {
   position: absolute;
   top: 170px;
 }
+
 .wrapper .text {
   font-size: 20px;
   font-weight: 500;
   color: #5b5b7b;
-
   pointer-events: none;
 }
 
@@ -133,10 +146,7 @@ p {
 }
 
 .profile .selectgender {
-  opacity: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
@@ -165,6 +175,7 @@ p {
   -ms-flex-align: center;
   align-items: center;
 }
+
 .profile .selectgender div span {
   margin-left: 20px;
 }
@@ -263,7 +274,7 @@ input[type="date"] {
   color: #fff;
   border: none;
   outline: none;
-  padding: 10px;
+  padding: 12px 15px;
   border-radius: 4px;
   -webkit-box-shadow: 1px 0px 2px #000;
   box-shadow: 1px 0px 2px #000;
@@ -282,9 +293,6 @@ input[type="date"] {
 .main {
   display: none;
   position: relative;
-}
-.main.blur {
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .main .header {
@@ -314,8 +322,9 @@ input[type="date"] {
 
 .addnotes,
 .exitevent {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
+  margin-bottom: 10px;
   background-color: deeppink;
   color: #fff;
   border-radius: 4px;
@@ -376,7 +385,9 @@ input[type="date"] {
   -o-transition: 0.2s ease;
   transition: 0.2s ease;
 }
-
+.scontent .content1 {
+  position: relative;
+}
 .setting {
   display: none;
 }
@@ -480,10 +491,9 @@ input[type="date"] {
 .lightoff {
   display: none;
 }
-
-.content .buttonstatus {
-  width: 60px;
-  height: 60px;
+.content .btn-circle {
+  width: 55px;
+  height: 55px;
   border-radius: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -494,10 +504,11 @@ input[type="date"] {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+}
+.content .buttonstatus {
   font-size: 30px;
   position: absolute;
-  left: 15px;
-
+  left: 12px;
   color: red;
   -webkit-animation: heartbeat 1s infinite;
   animation: heartbeat 1s infinite;
@@ -505,11 +516,23 @@ input[type="date"] {
     -3px -3px calc(3px * 1.6) #eeeeee;
   box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
 }
-.content .buttonstatus.dark {
+.content .buttonsk {
+  font-size: 25px;
+  position: absolute;
+  right: 12px;
+  color: rgb(71, 129, 255);
+  -webkit-box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa,
+    -3px -3px calc(3px * 1.6) #eeeeee;
+  box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
+}
+
+.content .buttonstatus.dark,
+.content .buttonsk.dark {
   -webkit-box-shadow: 3px 3px calc(3px * 1.6) #131313,
     -3px -3px calc(3px * 1.6) #444444;
   box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
 }
+
 .content .statuseveryday {
   width: 90%;
   height: 150px;
@@ -528,11 +551,13 @@ input[type="date"] {
     -3px -3px calc(3px * 1.6) #eeeeee;
   box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
 }
+
 .content .statuseveryday.dark {
   -webkit-box-shadow: 3px 3px calc(3px * 1.6) #131313,
     -3px -3px calc(3px * 1.6) #444444;
   box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
 }
+
 .content .statuseveryday.active {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -649,11 +674,13 @@ input[type="date"] {
     -3px -3px calc(3px * 1.6) #eeeeee;
   box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
 }
+
 .content .circle.dark {
   -webkit-box-shadow: 3px 3px calc(3px * 1.6) #131313,
     -3px -3px calc(3px * 1.6) #444444;
   box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
 }
+
 .content .circle.active {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -685,7 +712,6 @@ input[type="date"] {
   height: 110px;
   margin: 0 auto;
   border-radius: 20px;
-  margin-top: 10px;
   -webkit-box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa,
     -3px -3px calc(3px * 1.6) #eeeeee;
   box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
@@ -702,8 +728,6 @@ input[type="date"] {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
@@ -722,8 +746,19 @@ input[type="date"] {
   -webkit-box-flex: 2;
   -ms-flex: 2;
   flex: 2;
-  width: 100%;
-  overflow: scroll;
+}
+
+.multi-name {
+  color: rgb(255, 0, 153);
+  font-weight: 300;
+  white-space: nowrap;
+  width: 170px;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
 }
 
 .personal_info .pavatar {
@@ -759,23 +794,21 @@ input[type="date"] {
   -ms-flex-align: center;
   align-items: center;
   border-radius: 50%;
-  /* background-color: #fff; */
   -webkit-box-shadow: 2px 2px calc(2px * 1.4) #cccccc,
     -2px -2px calc(2px * 1.4) #eeeeee;
   box-shadow: 2px 2px calc(2px * 1.4) #cccccc, -2px -2px calc(2px * 1.4) #eeeeee;
   -webkit-transition: 0.2s ease;
   -o-transition: 0.2s ease;
-
   transition: 0.2s ease;
 }
 
 .iconcamera.dark {
-  /* background-color: #272727; */
   color: #fff;
   -webkit-box-shadow: 2px 2px calc(2px * 1.4) #131313,
     -2px -2px calc(2px * 1.4) #444444;
   box-shadow: 2px 2px calc(2px * 1.4) #131313, -2px -2px calc(2px * 1.4) #444444;
 }
+
 .ssetting .pavatar {
   width: 110px;
   height: 110px;
@@ -824,6 +857,7 @@ input[type="date"] {
   justify-content: center;
   margin: 10px 0;
 }
+
 .datetime div {
   -webkit-box-flex: 1;
   -ms-flex: 1;
@@ -898,11 +932,13 @@ input[type="date"] {
     -3px -3px calc(3px * 1.6) #eeeeee;
   box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
 }
+
 .contentstatus.dark {
   -webkit-box-shadow: 3px 3px calc(3px * 1.6) #131313,
     -3px -3px calc(3px * 1.6) #444444;
   box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
 }
+
 .contentstatus::-webkit-scrollbar,
 .ssetting::-webkit-scrollbar,
 .statuseveryday::-webkit-scrollbar,
@@ -920,10 +956,12 @@ input[type="date"] {
 }
 
 .options-2,
-.options-3 {
+.options-3,
+.options-4,
+.options-exit {
   position: absolute;
   width: 100%;
-  display: block;
+  display: none;
   bottom: 0px;
   left: 0px;
   background-color: #fff;
@@ -935,29 +973,49 @@ input[type="date"] {
   transform: translateY(100%);
   -webkit-transition: 0.2s ease;
   -o-transition: 0.2s ease;
+  z-index: 100;
   transition: 0.2s ease;
 }
 
-.options-2.active {
+.options-2.active,
+.options-4.active {
   display: block;
   -webkit-transform: translateY(0%);
   -ms-transform: translateY(0%);
   transform: translateY(0%);
 }
+
 .options-3 {
   padding: 20px;
 }
+
 .options-3.active {
   display: block;
   -webkit-transform: translateY(0%);
   -ms-transform: translateY(0%);
   transform: translateY(0%);
 }
-
+.options-exit {
+  padding: 20px;
+  -webkit-box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+  transition: 0.2s ease;
+}
+.options-exit.active {
+  display: block;
+  -webkit-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  transform: translateY(0%);
+}
+.options-exit .ops-buttons {
+  margin-top: 20px;
+}
 .options-3 .ops:nth-child(2) {
   margin-top: 10px;
 }
-.options-2 li {
+
+.options-2 li,
+.options-4 li {
   list-style: none;
   padding: 12.5px;
   -webkit-transition: 0.3s ease-in-out;
@@ -981,7 +1039,6 @@ input[type="date"] {
   color: #000;
   padding: 2px;
   border-radius: 5px;
-
   -webkit-box-shadow: -2px 5px 12px 0px rgb(0 0 0 / 38%);
   box-shadow: -2px 5px 12px 0px rgb(0 0 0 / 38%);
 }
@@ -1000,12 +1057,11 @@ input[type="date"] {
 }
 
 .event .btnaddevent {
-  width: 40px;
-  margin-left: 10px;
+  width: 50px;
 }
 
 .event .todoList {
-  height: 60vh;
+  height: 57vh;
   overflow-y: scroll;
   margin-top: 10px;
 }
@@ -1024,17 +1080,17 @@ input[type="date"] {
   align-items: center;
   text-align: left;
   width: 100%;
-  height: 40px;
+  height: 50px;
 }
 
 .event .todoList li .icon {
   background-color: #e42929;
   color: #fff;
   padding: 5px;
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   position: absolute;
-  right: -40px;
+  right: -50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1088,7 +1144,7 @@ input[type="date"] {
 
 .event input[type="text"] {
   width: 80%;
-  height: 40px;
+  height: 50px;
   padding: 10px;
   border-radius: 10px;
   outline: none;
@@ -1101,6 +1157,7 @@ input[type="date"] {
   box-shadow: inset 2px 2px calc(2px * 1.4) #cccccc,
     inset -2px -2px calc(2px * 1.4) #eeeeee;
 }
+
 .event input[type="text"].dark {
   background-color: rgba(39, 39, 39);
   color: #fff;
@@ -1109,6 +1166,7 @@ input[type="date"] {
   box-shadow: inset 2px 2px calc(2px * 1.4) #131313,
     inset -2px -2px calc(2px * 1.4) #444444;
 }
+
 .addevent,
 .clearevent {
   display: block;
@@ -1126,7 +1184,7 @@ input[type="date"] {
 
 .options2-event,
 .options3-event {
-  display: block;
+  display: none;
   width: 100%;
   background-color: #fff;
   position: absolute;
@@ -1139,6 +1197,7 @@ input[type="date"] {
   transform: translateY(100%);
   -webkit-transition: 0.2s ease;
   -o-transition: 0.2s ease;
+  z-index: 100;
   transition: 0.2s ease;
 }
 
@@ -1176,7 +1235,7 @@ input[type="date"] {
 
 .navigation li {
   list-style: none;
-  font-size: 25px;
+  font-size: 23px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1271,6 +1330,65 @@ input[type="date"] {
   transition: background-color 0.25s linear;
 }
 
+.fontfa {
+  display: none;
+  width: 80%;
+  height: 170px;
+  overflow-y: scroll;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  z-index: 100;
+  -webkit-box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+}
+.fontfa.active {
+  display: block;
+}
+.fontfa::-webkit-scrollbar {
+  width: 3px;
+}
+
+.fontfa::-webkit-scrollbar-thumb {
+  background: #8a8a8a;
+  border-radius: 50px;
+}
+
+.fontfa ul {
+  width: 100%;
+  background-color: #0099ff;
+}
+
+.fontfa li {
+  list-style: none;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 10px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #fff;
+}
+
+.blur {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.135);
+  z-index: 2;
+}
+
+.blur.active {
+  display: block;
+}
+
 @media only screen and (min-height: 550px) {
   .profile h2 {
     font-size: 20px;
@@ -1284,7 +1402,8 @@ input[type="date"] {
     font-size: 40px;
   }
 
-  .content .buttonstatus {
+  .content .buttonstatus,
+  .content .buttonsk {
     margin-top: 30px;
     margin-bottom: 30px;
   }
@@ -1325,7 +1444,7 @@ input[type="date"] {
   }
 
   .event .todoList {
-    height: 65vh;
+    height: 60vh;
   }
 }
 
@@ -1393,7 +1512,7 @@ input[type="date"] {
   }
 
   .event .todoList {
-    height: 70vh;
+    height: 65vh;
   }
 }
 
@@ -1472,7 +1591,7 @@ input[type="date"] {
   }
 
   .event .todoList {
-    height: 75vh;
+    height: 70vh;
   }
 }
 
@@ -1485,6 +1604,10 @@ input[type="date"] {
 }
 
 @media only screen and (min-width: 675px) {
+  .multi-name {
+    width: 350px;
+  }
+
   .datetime {
     display: -webkit-box;
     display: -ms-flexbox;
