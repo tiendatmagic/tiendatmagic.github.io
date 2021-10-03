@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap");
-
 @import url("https://fonts.googleapis.com/css2?family=Yaldevi:wght@400;500;700&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
@@ -11,6 +9,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Varela&display=swap");
 
 @import url("https://fonts.googleapis.com/css2?family=Overlock:wght@400;700&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;700&display=swap");
 
 *,
 *::before,
@@ -59,6 +59,16 @@ html {
   -webkit-transition: 0.5s ease-out;
   -o-transition: 0.5s ease-out;
   transition: 0.5s ease-out;
+}
+
+.container .mainscr {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.container .mainscr.hidden {
+  overflow-y: hidden;
 }
 
 .wrapper {
@@ -229,6 +239,7 @@ input[type="date"] {
     inset -2px -2px calc(2px * 1.4) #eeeeee;
   box-shadow: inset 2px 2px calc(2px * 1.4) #cccccc,
     inset -2px -2px calc(2px * 1.4) #eeeeee;
+  font-family: "Roboto", sans-serif;
 }
 
 .options-3 input[type="text"],
@@ -263,6 +274,7 @@ input[type="date"] {
     inset -2px -2px calc(2px * 1.4) #eeeeee;
   box-shadow: inset 2px 2px calc(2px * 1.4) #cccccc,
     inset -2px -2px calc(2px * 1.4) #eeeeee;
+  font-family: "Roboto", sans-serif;
 }
 
 .profile button,
@@ -385,9 +397,11 @@ input[type="date"] {
   -o-transition: 0.2s ease;
   transition: 0.2s ease;
 }
+
 .scontent .content1 {
   position: relative;
 }
+
 .setting {
   display: none;
 }
@@ -491,6 +505,7 @@ input[type="date"] {
 .lightoff {
   display: none;
 }
+
 .content .btn-circle {
   width: 55px;
   height: 55px;
@@ -505,6 +520,7 @@ input[type="date"] {
   -ms-flex-align: center;
   align-items: center;
 }
+
 .content .buttonstatus {
   font-size: 30px;
   position: absolute;
@@ -512,18 +528,19 @@ input[type="date"] {
   color: red;
   -webkit-animation: heartbeat 1s infinite;
   animation: heartbeat 1s infinite;
-  -webkit-box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa,
-    -3px -3px calc(3px * 1.6) #eeeeee;
-  box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
+  -webkit-box-shadow: 2px 2px calc(2px * 1.6) #aaaaaa,
+    -2px -2px calc(2px * 1.6) #eeeeee;
+  box-shadow: 2px 2px calc(2px * 1.6) #aaaaaa, -2px -2px calc(2px * 1.6) #eeeeee;
 }
+
 .content .buttonsk {
-  font-size: 25px;
+  font-size: 22px;
   position: absolute;
   right: 12px;
   color: rgb(71, 129, 255);
-  -webkit-box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa,
-    -3px -3px calc(3px * 1.6) #eeeeee;
-  box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
+  -webkit-box-shadow: 2px 2px calc(2px * 1.6) #aaaaaa,
+    -2px -2px calc(2px * 1.6) #eeeeee;
+  box-shadow: 2px 2px calc(2px * 1.6) #aaaaaa, -2px -2px calc(2px * 1.6) #eeeeee;
 }
 
 .content .buttonstatus.dark,
@@ -967,7 +984,7 @@ input[type="date"] {
   background-color: #fff;
   color: #000;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 12px 12px 0px 0px;
   -webkit-transform: translateY(100%);
   -ms-transform: translateY(100%);
   transform: translateY(100%);
@@ -975,6 +992,12 @@ input[type="date"] {
   -o-transition: 0.2s ease;
   z-index: 100;
   transition: 0.2s ease;
+}
+
+.options-2,
+.options-4 {
+  background-color: rgb(250, 250, 250);
+  padding: 0px;
 }
 
 .options-2.active,
@@ -995,33 +1018,72 @@ input[type="date"] {
   -ms-transform: translateY(0%);
   transform: translateY(0%);
 }
+
 .options-exit {
   padding: 20px;
-  -webkit-box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
-  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 7px 29px 0px;
+  -webkit-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
   transition: 0.2s ease;
 }
+
 .options-exit.active {
   display: block;
   -webkit-transform: translateY(0%);
   -ms-transform: translateY(0%);
   transform: translateY(0%);
 }
+
+.options-exit p {
+  color: #636363;
+}
+
+.options-exit .options-img {
+  width: 60%;
+  max-width: 200px;
+  margin: 20px auto;
+}
+
+.options-exit .options-img img {
+  width: 80px;
+}
+
+.options-exit .options-img span {
+  font-style: italic;
+  font-weight: bold;
+}
+
 .options-exit .ops-buttons {
   margin-top: 20px;
 }
+
 .options-3 .ops:nth-child(2) {
   margin-top: 10px;
 }
 
+.options-2,
+.options-4 {
+  border-radius: 12px 12px 0px 0px;
+  overflow: hidden;
+}
+
 .options-2 li,
 .options-4 li {
+  text-align: center;
   list-style: none;
-  padding: 12.5px;
+  padding: 17px 0;
   -webkit-transition: 0.3s ease-in-out;
   -o-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  border-radius: 5px;
+  font-size: 17px;
+  background-color: #fff;
+  margin-top: 10px;
+}
+
+.options-2 li:nth-child(1),
+.options-4 li:nth-child(1) {
+  margin-top: 0px;
 }
 
 .colors {
@@ -1190,7 +1252,7 @@ input[type="date"] {
   position: absolute;
   bottom: 0px;
   left: 0px;
-  border-radius: 10px;
+  border-radius: 12px 12px 0px 0px;
   padding: 20px;
   -webkit-transform: translateY(100%);
   -ms-transform: translateY(100%);
@@ -1333,8 +1395,8 @@ input[type="date"] {
 .fontfa {
   display: none;
   width: 80%;
-  height: 170px;
-  overflow-y: scroll;
+  height: 220px;
+  overflow: hidden;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1343,12 +1405,64 @@ input[type="date"] {
   transform: translate(-50%, -50%);
   border-radius: 10px;
   z-index: 100;
-  -webkit-box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
-  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 7px 29px 0px;
 }
+
+.fontfa ul {
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.modalq {
+  display: none;
+  width: 80%;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  font-size: 18px;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 12px;
+  z-index: 100;
+  background-color: #fff;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 7px 29px 0px;
+  -webkit-transition: top 0.2s linear;
+  -o-transition: top 0.2s linear;
+  -webkit-transition: top 0.3s linear;
+  -o-transition: top 0.3s linear;
+  transition: top 0.3s linear;
+}
+
+.modalq-img {
+  font-size: 75px;
+  color: #ea5e67;
+  padding-bottom: 10px;
+}
+
+.modalq .ops-buttons {
+  margin-top: 25px;
+}
+
+.modalq .ops-buttons button {
+  padding: 12px 25px;
+}
+
+.modalq.active {
+  display: block;
+  top: 50%;
+}
+
 .fontfa.active {
   display: block;
 }
+
 .fontfa::-webkit-scrollbar {
   width: 3px;
 }
@@ -1360,20 +1474,24 @@ input[type="date"] {
 
 .fontfa ul {
   width: 100%;
-  background-color: #0099ff;
+  background-color: #fff;
 }
 
 .fontfa li {
+  text-align: center;
   list-style: none;
-  height: 50px;
+  height: 55px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: 10px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: #fff;
+  font-size: 17px;
+  color: #e70000;
 }
 
 .blur {
@@ -1381,12 +1499,20 @@ input[type="date"] {
   position: absolute;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.135);
+  background-color: hsla(0, 0%, 0%, 0.5);
   z-index: 2;
 }
 
 .blur.active {
   display: block;
+}
+
+.text-red {
+  color: #e70000;
+}
+
+.text-gray {
+  color: #636363;
 }
 
 @media only screen and (min-height: 550px) {
@@ -1404,8 +1530,7 @@ input[type="date"] {
 
   .content .buttonstatus,
   .content .buttonsk {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 10px 0;
   }
 
   .content .circle {
