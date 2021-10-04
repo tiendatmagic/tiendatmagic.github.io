@@ -167,7 +167,7 @@ getId("submit").addEventListener("click", function () {
     openwindow = 2;
     getClass("modalq")[0].classList.add("active");
     getClass("blur")[0].classList.add("active");
-    getClass("modalq")[0].innerHTML = ` <div class="modalq-img"> <i class="fas fa-times-circle"></i> </div> Không được bỏ trống nha<div class="ops-buttons"><button class="waves-effect huy-exit">OK</button></div>`;
+    getClass("modalq")[0].innerHTML = '<div class="modalq-img"> <i class="fas fa-times-circle"></i> </div> Không được bỏ trống nha<div class="ops-buttons"><button class="waves-effect huy-exit">OK</button></div>';
     getClass("huy-exit")[0].addEventListener("click", function () {
       setTimeout(function () {
         openwindow = 1;
@@ -239,22 +239,7 @@ getClass("buttonsk")[0].addEventListener("click", function () {
 function loadevent() {
   openwindow = 1;
   getClass("event")[0].style.display = "block";
-  getClass("event")[0].innerHTML = `<div class="exitevent"><i class="fas fa-sign-out-alt"></i></div>
-  <div class="mainevent">
-    <h3>Nhấn (+) để tạo sự kiện của bạn</h3>
-    <div class="inputField">
-      <input type="text" placeholder="Thêm sự kiện của bạn" />
-      <button class="btnaddevent waves-effect"> <i class="fas fa-plus"></i> </button>
-    </div>
-    <ul class="todoList"></ul>
-    <div class="footer">
-      <div class="footers"> <span>Bạn có <span class="pendingTasks"></span> sự kiện</span>
-      </div>
-      <div class="footers">
-        <button class="waves-effect">Xóa tất cả</button>
-      </div>
-    </div>
-  </div>`;
+  getClass("event")[0].innerHTML = '<div class="exitevent"><i class="fas fa-sign-out-alt"></i></div><div div class="mainevent"><h3>Nhấn (+) để tạo sự kiện của bạn</h3><div class="inputField"><input type="text" placeholder="Thêm sự kiện của bạn" /><button class="btnaddevent waves-effect"> <i class="fas fa-plus"></i> </button></div><ul class="todoList"></ul><div class="footer"><div class="footers"> <span>Bạn có <span class="pendingTasks"></span> sự kiện</span></div><div class="footers"><button class="waves-effect">Xóa tất cả</button></div></div></div>';
   getClass("dialog")[0].classList.remove("active");
   getClass("select-options")[0].classList.remove("active");
   showTasks();
@@ -278,9 +263,7 @@ function loaddark() {
     getQuery(".iconcamera").classList.add("dark");
     getQuery(".content .countday").style.color = "#fff";
     getQuery(".contentstatus").style.color = "#fff";
-    for (j = 0; j <= 3; j++) {
-      getQueryAll(".ndate")[j].style.color = "#fff";
-    }
+    getClass("datetime")[0].classList.add("dark");
     for (k = 0; k <= getQueryAll(".setting-option li").length - 1; k++) {
       document.querySelectorAll(".setting-option li")[k].classList.add("dark");
     }
@@ -301,9 +284,7 @@ function loaddark() {
     getQuery(".iconcamera").classList.remove("dark");
     getQuery(".content .countday").style.color = "#000";
     getQuery(".contentstatus").style.color = "#000";
-    for (j = 0; j <= 3; j++) {
-      getQueryAll(".ndate")[j].style.color = "#272727";
-    }
+    getClass("datetime")[0].classList.remove("dark");
     for (k = 0; k <= getQueryAll(".setting-option li").length - 1; k++) {
       document.querySelectorAll(".setting-option li")[k].classList.remove("dark");
     }
@@ -327,7 +308,7 @@ getClass("sli3")[0].addEventListener("click", function () {
   getClass("dialog")[0].classList.toggle("active");
   getClass("select-options")[0].classList.remove("active");
   getClass("blur")[0].classList.add("active");
-  getClass("dialog")[0].innerHTML = `<div class="ops"><div class="col mb-10"><label for="statustitle">Trạng thái</label><div class="ui-switch"><input type="checkbox" checked id="switch" name="switch" class="switch-input" /><label for="switch" class="switch-wrapper"><div class="switch-spin"></div></label></div></div><label for="contentevent">Tiêu đề</label><input type="text" id="stieude" value="" /></div><div class="ops-buttons"><button id="acceptevent2" class="waves-effect">Xác nhận</button><button id="declineevent3" class="waves-effect">Hủy</button></div>`;
+  getClass("dialog")[0].innerHTML = '<div class="ops"><div class="col mb-10"><label for="statustitle">Trạng thái</label><div class="ui-switch"><input type="checkbox" checked id="switch" name="switch" class="switch-input" /><label for="switch" class="switch-wrapper"><div class="switch-spin"></div></label></div></div><label for="contentevent">Tiêu đề</label><input type="text" id="stieude" value="" /></div><div class="ops-buttons"><button id="acceptevent2" class="waves-effect">Xác nhận</button><button id="declineevent3" class="waves-effect">Hủy</button></div>';
   if (hiddentitle == true) {
     getClass("header")[0].classList.add("hidden");
     getClass("ssetting")[0].classList.add("height");
@@ -369,13 +350,13 @@ getClass("sli3")[0].addEventListener("click", function () {
     }, 300);
   });
   loadfont();
+  loaddarkdialog();
 });
 getClass("sli4")[0].addEventListener("click", function () {
   openwindow = 2;
   getClass("dialog")[0].classList.toggle("active");
   getClass("select-options")[0].classList.remove("active");
-  getClass("dialog")[0].innerHTML = `<div class="ops"><label for="contentevent">Ngày bắt đầu đếm</label>
-  <input type="date" name="ngaybatdau2" min="1900-01-01" id="ngaybatdau2" value="" /></div><div class="ops-buttons"><button id="xacnhanevent2" class="waves-effect">Xác nhận</button><button id="huyevent2" class="waves-effect">Hủy</button></div>`;
+  getClass("dialog")[0].innerHTML = '<div class="ops"><label for="contentevent">Ngày bắt đầu đếm</label><input type="date" name="ngaybatdau2" min="1900-01-01" id="ngaybatdau2" value="" /></div><div class="ops-buttons"><button id="xacnhanevent2" class="waves-effect">Xác nhận</button><button id="huyevent2" class="waves-effect">Hủy</button></div>';
   getClass("blur")[0].classList.add("active");
   getId("xacnhanevent2").addEventListener("click", function () {
     setTimeout(function () {
@@ -405,15 +386,14 @@ getClass("sli4")[0].addEventListener("click", function () {
   });
   getId("ngaybatdau2").max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
   loadfont();
+  loaddarkdialog();
 });
 getClass("sli5")[0].addEventListener("click", function () {
   openwindow = 2;
   getClass("dialog")[0].classList.toggle("active");
   getClass("select-options")[0].classList.remove("active");
   getClass("blur")[0].classList.add("active");
-  getClass("dialog")[0].innerHTML = `<div class="ops"><label for="ndt">Nội dung trên</label>
-  <input type="text" id="ndt" value="" /></div><div class="ops mt-10"><label for="ndd">Nội dung dưới</label>
-  <input type="text" id="ndd" value="" /></div><div class="ops-buttons"><button id="xacnhan"class="waves-effect">Xác nhận</button><button id="huy" class="waves-effect">Hủy</button></div>`;
+  getClass("dialog")[0].innerHTML = '<div class="ops"><label for="ndt">Nội dung trên</label><input type="text" id="ndt" value="" /></div><div class="ops mt-15"><label for="ndd">Nội dung dưới</label><input type="text" id="ndd" value="" /></div><div class="ops-buttons"><button id="xacnhan"class="waves-effect">Xác nhận</button><button id="huy" class="waves-effect">Hủy</button></div>';
   getId("xacnhan").addEventListener("click", function () {
     setTimeout(function () {
       getClass("info1")[0].innerText = getId("ndt").value;
@@ -438,41 +418,41 @@ getClass("sli5")[0].addEventListener("click", function () {
   getClass("info1")[0].innerText = getId("ndt").value;
   getClass("info2")[0].innerText = getId("ndd").value;
   loadfont();
+  loaddarkdialog();
 });
 getClass("sli6")[0].addEventListener("click", function () {
   openwindow = 2;
   getClass("select-options")[0].classList.toggle("active");
   getClass("dialog")[0].classList.remove("active");
   getClass("blur")[0].classList.add("active");
-  getClass("select-options")[0].innerHTML = `<ul><li class="dmc waves-effect text-red">Đổi màu chữ</li><li class="dkc waves-effect text-red">Đổi kiểu chữ</li><li class="huy4 waves-effect text-gray">Hủy</li></ul>`;
+  getClass("select-options")[0].innerHTML = '<ul><li class="dmc waves-effect text-red">Đổi màu chữ</li><li class="dkc waves-effect text-red">Đổi kiểu chữ</li><li class="huy4 waves-effect text-gray">Hủy</li></ul>';
   getClass("dmc")[0].addEventListener("click", function () {
     getId("dmc").click();
   });
   getClass("dkc")[0].addEventListener("click", function () {
-    getClass("fontfa")[0].classList.add("active");
-    getClass("fontfa")[0].innerHTML = `<ul>
-    <li class="waves-effect font">Roboto</li>
-    <li class="waves-effect font">Poppins</li>
-    <li class="waves-effect font">Yaldevi</li>
-    <li class="waves-effect font">Nunito</li>
-    <li class="waves-effect font">Varela</li>
-    <li class="waves-effect font">Overlock</li>
-    <li class="waves-effect font">Mulish</li>
-  </ul>`;
-    getClass("select-options")[0].classList.remove("active");
-    getClass("blur")[0].classList.add("active");
-    for (f = 0; f < getClass("font").length; f++) {
-      getClass("font")[f].onclick = function () {
-        fontfamily = this.innerText;
-        for (ii = 0; ii < getQueryAll('*').length; ii++) {
-          getQueryAll('*')[ii].style.fontFamily = this.innerText + "," + "sans-serif";
-        }
-        localStorage.setItem("fontfamily", JSON.stringify(fontfamily));
-        setTimeout(function () {
-          getClass("blur")[0].classList.remove("active");
-          getClass("fontfa")[0].classList.remove("active");
-        }, 400)
-      };
+    setTimeout(function () {
+      getClass("fontfa")[0].classList.add("active");
+      getClass("fontfa")[0].innerHTML = '<ul><li class="waves-effect font">Roboto</li><li class="waves-effect font">Poppins</li><li class="waves-effect font">Yaldevi</li><li class="waves-effect font">Nunito</li>    <li class="waves-effect font">Varela</li><li class="waves-effect font">Overlock</li><li class="waves-effect font">Mulish</li></ul>';
+      getClass("select-options")[0].classList.remove("active");
+      getClass("blur")[0].classList.add("active");
+      for (f = 0; f < getClass("font").length; f++) {
+        getClass("font")[f].onclick = function () {
+          fontfamily = this.innerText;
+          for (ii = 0; ii < getQueryAll('*').length; ii++) {
+            getQueryAll('*')[ii].style.fontFamily = this.innerText + "," + "sans-serif";
+          }
+          localStorage.setItem("fontfamily", JSON.stringify(fontfamily));
+          setTimeout(function () {
+            getClass("blur")[0].classList.remove("active");
+            getClass("fontfa")[0].classList.remove("active");
+          }, 400)
+        };
+      }
+    }, 300);
+    if (dark === 1) {
+      getClass("fontfa")[0].classList.add("dark");
+    } else {
+      getClass("fontfa")[0].classList.remove("dark");
     }
   });
   getClass("huy4")[0].addEventListener("click", function () {
@@ -486,13 +466,14 @@ getClass("sli6")[0].addEventListener("click", function () {
     getId("dmc").click();
   });
   loadfont();
+  loaddarkselectoptions();
 });
 getClass("sli7")[0].addEventListener("click", function () {
   openwindow = 2;
   getClass("select-options")[0].classList.toggle("active");
   getClass("dialog")[0].classList.remove("active");
   getClass("blur")[0].classList.add("active");
-  getClass("select-options")[0].innerHTML = `<ul><li class="dmng waves-effect text-red">Đổi màu trái tim</li><li class="huy waves-effect text-gray">Hủy</li></ul>`;
+  getClass("select-options")[0].innerHTML = '<ul><li class="dmng waves-effect text-red">Đổi màu trái tim</li><li class="huy waves-effect text-gray">Hủy</li></ul>';
   getClass("dmng")[0].addEventListener("click", function () {
     getId("dmng").click();
   });
@@ -503,6 +484,7 @@ getClass("sli7")[0].addEventListener("click", function () {
       getClass("blur")[0].classList.remove("active");
     }, 300);
   });
+  loaddarkselectoptions();
 });
 getClass("sli8")[0].addEventListener("click", function () {
   profile = 0;
@@ -569,7 +551,7 @@ function showTasks() {
       openwindow = 2;
       getClass("modalq")[0].classList.add("active");
       getClass("blur")[0].classList.add("active");
-      getClass("modalq")[0].innerHTML = ` <div class="modalq-img"> <i class="fas fa-times-circle"></i> </div> Không được bỏ trống nha<div class="ops-buttons"><button class="waves-effect huy-exit">OK</button></div>`;
+      getClass("modalq")[0].innerHTML = '<div class="modalq-img"> <i class="fas fa-times-circle"></i> </div> Không được bỏ trống nha<div class="ops-buttons"><button class="waves-effect huy-exit">OK</button></div>';
       getClass("huy-exit")[0].addEventListener("click", function () {
         setTimeout(function () {
           openwindow = 1;
@@ -577,6 +559,7 @@ function showTasks() {
           getClass("blur")[0].classList.remove("active");
         }, 300);
       });
+      loaddarkmodal();
     } else {
       listArray.push(userEnteredValue);
       localStorage.setItem("New Todo", JSON.stringify(listArray));
@@ -594,17 +577,11 @@ function showTasks() {
   if (dark === 1) {
     getClass("mainevent")[0].style.color = "#fff";
     getQuery(".event input[type='text']").classList.add("dark");
-    for (l = 0; l < listArray.length; l++) {
-      getQueryAll(".todoList li")[l].style.backgroundColor = "#fff";
-      getQueryAll(".todoList li")[l].style.color = "#000";
-    }
+    getClass("todoList")[0].classList.add("dark");
   } else {
     getClass("mainevent")[0].style.color = "#272727";
     getQuery(".event input[type='text']").classList.remove("dark");
-    for (l = 0; l < listArray.length; l++) {
-      getQueryAll(".todoList li")[l].style.backgroundColor = "#ccc";
-      getQueryAll(".todoList li")[l].style.color = "#fff";
-    }
+    getClass("todoList")[0].classList.remove("dark");
   }
 }
 
@@ -642,12 +619,8 @@ function onBackButton() {
     openwindow = 0;
   } else if (openwindow == 0) {
     getClass("blur")[0].classList.toggle("active");
-    getClass("modalq")[0].classList.add("active");
-    getClass("modalq")[0].innerHTML = ` <div class="options-img col mb-10"> <img src="./res/icon/android/drawable-hdpi-icon.png" alt=""> <span>Bye bye
-    !</span></div> Bạn muốn thoát ứng dụng?<div class="ops-buttons">
-    <button id="xacnhan-exit" class="waves-effect">Xác nhận</button>
-    <button id="huy-exit" class="waves-effect">Hủy</button>
-  </div>`;
+    getClass("modalq")[0].classList.toggle("active");
+    getClass("modalq")[0].innerHTML = '<div class="options-img col mb-15"> <img src="./res/icon/android/drawable-xhdpi-icon.png" alt=""> <span>Bye bye!</span></div> Bạn muốn thoát ứng dụng?<div class="ops-buttons"><button id="xacnhan-exit" class="waves-effect">Xác nhận</button><button id="huy-exit" class="waves-effect">Hủy</button></div>';
     getId("xacnhan-exit").addEventListener("click", function () {
       setTimeout(function () {
         navigator.app.exitApp();
@@ -655,12 +628,13 @@ function onBackButton() {
     });
     getId("huy-exit").addEventListener("click", function () {
       setTimeout(function () {
-        openwindow = 1;
+        openwindow = 0;
         getClass("modalq")[0].classList.remove("active");
         getClass("blur")[0].classList.remove("active");
       }, 300);
     });
   }
+  loaddarkmodal();
 }
 document.addEventListener("deviceready", function () {
   onDeviceReady();
@@ -743,5 +717,29 @@ function loadfont() {
   }
   for (i = 0; i < getQueryAll('input').length; i++) {
     getQueryAll('input')[i].style.fontFamily = fontfamily + "," + "sans-serif";
+  }
+}
+
+function loaddarkdialog() {
+  if (dark === 1) {
+    getClass("dialog")[0].classList.add("dark");
+  } else {
+    getClass("dialog")[0].classList.remove("dark");
+  }
+}
+
+function loaddarkselectoptions() {
+  if (dark === 1) {
+    getClass("select-options")[0].classList.add("dark");
+  } else {
+    getClass("select-options")[0].classList.remove("dark");
+  }
+}
+
+function loaddarkmodal() {
+  if (dark === 1) {
+    getClass("modalq")[0].classList.add("dark");
+  } else {
+    getClass("modalq")[0].classList.remove("dark");
   }
 }
