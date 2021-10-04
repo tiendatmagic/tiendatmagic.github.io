@@ -214,12 +214,8 @@ input[type="radio"]:checked:after {
   background-color: deeppink;
 }
 
-.profile label,
-.options-3 label {
-  display: block;
-}
-
 .profile label {
+  display: block;
   color: #505050;
   font-weight: 450;
 }
@@ -242,8 +238,7 @@ input[type="date"] {
   font-family: "Roboto", sans-serif;
 }
 
-.options-3 input[type="text"],
-.options3-event input[type="text"] {
+.dialog input[type="text"] {
   width: 100% !important;
   height: 50px;
   padding: 10px;
@@ -663,7 +658,7 @@ input[type="date"] {
   width: 80%;
   word-wrap: break-all;
   margin: 0 auto;
-  text-align: justify;
+  text-align: left;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -972,10 +967,7 @@ input[type="date"] {
   background: grey;
 }
 
-.options-2,
-.options-3,
-.options-4,
-.options-exit {
+.select-options {
   position: absolute;
   width: 100%;
   display: none;
@@ -994,82 +986,38 @@ input[type="date"] {
   transition: 0.2s ease;
 }
 
-.options-2,
-.options-4 {
+.select-options {
   background-color: rgb(250, 250, 250);
   padding: 0px;
 }
 
-.options-2.active,
-.options-4.active {
+.select-options.active {
   display: block;
   -webkit-transform: translateY(0%);
   -ms-transform: translateY(0%);
   transform: translateY(0%);
 }
 
-.options-3 {
-  padding: 20px;
-}
-
-.options-3.active {
-  display: block;
-  -webkit-transform: translateY(0%);
-  -ms-transform: translateY(0%);
-  transform: translateY(0%);
-}
-
-.options-exit {
-  padding: 20px;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 7px 29px 0px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 7px 29px 0px;
-  -webkit-transition: 0.2s ease;
-  -o-transition: 0.2s ease;
-  transition: 0.2s ease;
-}
-
-.options-exit.active {
-  display: block;
-  -webkit-transform: translateY(0%);
-  -ms-transform: translateY(0%);
-  transform: translateY(0%);
-}
-
-.options-exit p {
-  color: #636363;
-}
-
-.options-exit .options-img {
+.modalq .options-img {
   width: 60%;
   max-width: 200px;
-  margin: 20px auto;
 }
 
-.options-exit .options-img img {
+.modalq .options-img img {
   width: 80px;
 }
 
-.options-exit .options-img span {
+.modalq .options-img span {
   font-style: italic;
   font-weight: bold;
 }
 
-.options-exit .ops-buttons {
-  margin-top: 20px;
-}
-
-.options-3 .ops:nth-child(2) {
-  margin-top: 10px;
-}
-
-.options-2,
-.options-4 {
+.select-options {
   border-radius: 12px 12px 0px 0px;
   overflow: hidden;
 }
 
-.options-2 li,
-.options-4 li {
+.select-options li {
   text-align: center;
   list-style: none;
   padding: 17px 0;
@@ -1081,8 +1029,7 @@ input[type="date"] {
   margin-top: 10px;
 }
 
-.options-2 li:nth-child(1),
-.options-4 li:nth-child(1) {
+.select-options li:nth-child(1) {
   margin-top: 0px;
 }
 
@@ -1244,8 +1191,7 @@ input[type="date"] {
   margin-bottom: 10px;
 }
 
-.options2-event,
-.options3-event {
+.dialog {
   display: none;
   width: 100%;
   background-color: #fff;
@@ -1263,8 +1209,7 @@ input[type="date"] {
   transition: 0.2s ease;
 }
 
-.options2-event.active,
-.options3-event.active {
+.dialog.active {
   display: block;
   -webkit-transform: translateY(0%);
   -ms-transform: translateY(0%);
@@ -1416,8 +1361,8 @@ input[type="date"] {
 }
 
 .modalq {
-  display: none;
   width: 80%;
+  max-width: 400px;
   padding-top: 15px;
   padding-bottom: 5px;
   position: absolute;
@@ -1433,8 +1378,6 @@ input[type="date"] {
   background-color: #fff;
   -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0px 7px 29px 0px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 7px 29px 0px;
-  -webkit-transition: top 0.2s linear;
-  -o-transition: top 0.2s linear;
   -webkit-transition: top 0.3s linear;
   -o-transition: top 0.3s linear;
   transition: top 0.3s linear;
@@ -1513,6 +1456,14 @@ input[type="date"] {
 
 .text-gray {
   color: #636363;
+}
+
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mb-10 {
+  margin-bottom: 10px;
 }
 
 @media only screen and (min-height: 550px) {

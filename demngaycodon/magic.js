@@ -167,6 +167,15 @@ getId("submit").addEventListener("click", function () {
     openwindow = 2;
     getClass("modalq")[0].classList.add("active");
     getClass("blur")[0].classList.add("active");
+    getClass("modalq")[0].innerHTML = ` <div class="modalq-img"> <i class="fas fa-times-circle"></i> </div> Không được bỏ trống nha<div class="ops-buttons"><button class="waves-effect huy-exit">OK</button></div>`;
+    getClass("huy-exit")[0].addEventListener("click", function () {
+      setTimeout(function () {
+        openwindow = 1;
+        getClass("modalq")[0].classList.remove("active");
+        getClass("blur")[0].classList.remove("active");
+      }, 300);
+    });
+
   } else {
     if (sngaysinh >= Date.parse(new Date())) {
       sngaysinh = Date.parse(new Date());
@@ -181,24 +190,6 @@ getId("submit").addEventListener("click", function () {
     displayprofile();
   }
 });
-getClass("modalok")[0].addEventListener("click", function () {
-  setTimeout(function () {
-    openwindow = 1;
-    getClass("modalq")[0].classList.remove("active");
-    getClass("blur")[0].classList.remove("active");
-  }, 300);
-});
-getId("huy-exit").addEventListener("click", function () {
-  setTimeout(function () {
-    getClass("blur")[0].classList.remove("active");
-    getClass("options-exit")[0].classList.remove("active");
-  }, 300);
-});
-getId("xacnhan-exit").addEventListener("click", function () {
-  setTimeout(function () {
-    navigator.app.exitApp();
-  }, 500);
-});
 getId("dmng").addEventListener("change", function () {
   dmngs = getId("dmng").value;
   for (var j = 0; j <= 3; j++) {
@@ -212,18 +203,6 @@ getId("dmc").addEventListener("change", function () {
     getQueryAll(".pcolor")[j].style.color = dmcs;
   }
   localStorage.setItem("dmcs", JSON.stringify(dmcs));
-});
-getClass("exitevent")[0].addEventListener("click", function () {
-  openwindow = 1;
-  getClass("event")[0].style.display = "none";
-  getClass("blur")[0].classList.remove("active");
-  setTimeout(function () {
-    AdMob.prepareInterstitial({
-      adId: admobid.interstitial,
-      isTesting: true,
-      autoShow: true,
-    });
-  }, 1000);
 });
 getId("ngaysinh").max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
 getId("ngaybatdau").max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
@@ -260,11 +239,25 @@ getClass("buttonsk")[0].addEventListener("click", function () {
 function loadevent() {
   openwindow = 1;
   getClass("event")[0].style.display = "block";
-  getClass("options3-event")[0].classList.remove("active");
-  getClass("options2-event")[0].classList.remove("active");
-  getClass("options-4")[0].classList.remove("active");
-  getClass("options-3")[0].classList.remove("active");
-  getClass("options-2")[0].classList.remove("active");
+  getClass("event")[0].innerHTML = `<div class="exitevent"><i class="fas fa-sign-out-alt"></i></div>
+  <div class="mainevent">
+    <h3>Nhấn (+) để tạo sự kiện của bạn</h3>
+    <div class="inputField">
+      <input type="text" placeholder="Thêm sự kiện của bạn" />
+      <button class="btnaddevent waves-effect"> <i class="fas fa-plus"></i> </button>
+    </div>
+    <ul class="todoList"></ul>
+    <div class="footer">
+      <div class="footers"> <span>Bạn có <span class="pendingTasks"></span> sự kiện</span>
+      </div>
+      <div class="footers">
+        <button class="waves-effect">Xóa tất cả</button>
+      </div>
+    </div>
+  </div>`;
+  getClass("dialog")[0].classList.remove("active");
+  getClass("select-options")[0].classList.remove("active");
+  showTasks();
 }
 
 function loaddark() {
@@ -274,7 +267,6 @@ function loaddark() {
     dmhns = "#272727";
     getClass("htitle")[0].style.color = "#fff";
     getClass("navigation")[0].style.backgroundColor = "#272727";
-    getClass("mainevent")[0].style.color = "#fff";
     getClass("statuseveryday")[0].style.backgroundColor = dmhns;
     getQuery(".content .circle").classList.add("dark");
     getQuery(".personal_info").classList.add("dark");
@@ -283,14 +275,9 @@ function loaddark() {
     getQuery(".content .statuseveryday").classList.add("dark");
     getQuery(".content .buttonstatus").classList.add("dark");
     getQuery(".content .buttonsk").classList.add("dark");
-    getQuery(".event input[type='text']").classList.add("dark");
     getQuery(".iconcamera").classList.add("dark");
     getQuery(".content .countday").style.color = "#fff";
     getQuery(".contentstatus").style.color = "#fff";
-    for (l = 0; l < listArray.length; l++) {
-      getQueryAll(".todoList li")[l].style.backgroundColor = "#fff";
-      getQueryAll(".todoList li")[l].style.color = "#000";
-    }
     for (j = 0; j <= 3; j++) {
       getQueryAll(".ndate")[j].style.color = "#fff";
     }
@@ -303,7 +290,6 @@ function loaddark() {
     dmhns = "#fff";
     getClass("htitle")[0].style.color = "#272727";
     getClass("navigation")[0].style.backgroundColor = "#fff";
-    getClass("mainevent")[0].style.color = "#272727";
     getClass("statuseveryday")[0].style.backgroundColor = dmhns;
     getQuery(".content .circle").classList.remove("dark");
     getQuery(".personal_info").classList.remove("dark");
@@ -312,14 +298,9 @@ function loaddark() {
     getQuery(".content .statuseveryday").classList.remove("dark");
     getQuery(".content .buttonstatus").classList.remove("dark");
     getQuery(".content .buttonsk").classList.remove("dark");
-    getQuery(".event input[type='text']").classList.remove("dark");
     getQuery(".iconcamera").classList.remove("dark");
     getQuery(".content .countday").style.color = "#000";
     getQuery(".contentstatus").style.color = "#000";
-    for (l = 0; l < listArray.length; l++) {
-      getQueryAll(".todoList li")[l].style.backgroundColor = "#ccc";
-      getQueryAll(".todoList li")[l].style.color = "#fff";
-    }
     for (j = 0; j <= 3; j++) {
       getQueryAll(".ndate")[j].style.color = "#272727";
     }
@@ -343,10 +324,10 @@ getClass("sli1")[0].addEventListener("click", checkdark);
 getClass("sli2")[0].addEventListener("click", loadevent);
 getClass("sli3")[0].addEventListener("click", function () {
   openwindow = 2;
-  getClass("options3-event")[0].classList.toggle("active");
-  getClass("options-4")[0].classList.remove("active");
+  getClass("dialog")[0].classList.toggle("active");
+  getClass("select-options")[0].classList.remove("active");
   getClass("blur")[0].classList.add("active");
-  getClass("options3-event")[0].innerHTML = `<div class="ops"><div class="col"><label for="statustitle">Trạng thái</label><div class="ui-switch"><input type="checkbox" checked id="switch" name="switch" class="switch-input" /><label for="switch" class="switch-wrapper"><div class="switch-spin"></div></label></div></div><label for="contentevent">Tiêu đề</label><input type="text" id="stieude" value="" /></div><div class="ops-buttons"><button id="acceptevent2" class="waves-effect">Xác nhận</button><button id="declineevent3" class="waves-effect">Hủy</button></div>`;
+  getClass("dialog")[0].innerHTML = `<div class="ops"><div class="col mb-10"><label for="statustitle">Trạng thái</label><div class="ui-switch"><input type="checkbox" checked id="switch" name="switch" class="switch-input" /><label for="switch" class="switch-wrapper"><div class="switch-spin"></div></label></div></div><label for="contentevent">Tiêu đề</label><input type="text" id="stieude" value="" /></div><div class="ops-buttons"><button id="acceptevent2" class="waves-effect">Xác nhận</button><button id="declineevent3" class="waves-effect">Hủy</button></div>`;
   if (hiddentitle == true) {
     getClass("header")[0].classList.add("hidden");
     getClass("ssetting")[0].classList.add("height");
@@ -376,30 +357,31 @@ getClass("sli3")[0].addEventListener("click", function () {
       localStorage.setItem("dtieude", JSON.stringify(dtieude));
       displayprofile();
       getId("stieude").innerText === "";
-      getClass("options3-event")[0].classList.toggle("active");
+      getClass("dialog")[0].classList.toggle("active");
       getClass("blur")[0].classList.remove("active");
     }, 300);
   });
   getId("declineevent3").addEventListener("click", function () {
     setTimeout(function () {
       openwindow = 1;
-      getClass("options3-event")[0].classList.toggle("active");
+      getClass("dialog")[0].classList.toggle("active");
       getClass("blur")[0].classList.remove("active");
     }, 300);
   });
+  loadfont();
 });
 getClass("sli4")[0].addEventListener("click", function () {
   openwindow = 2;
-  getClass("options3-event")[0].classList.toggle("active");
-  getClass("options-4")[0].classList.remove("active");
-  getClass("options3-event")[0].innerHTML = `<div class="ops"><label for="contentevent">Ngày bắt đầu đếm</label>
+  getClass("dialog")[0].classList.toggle("active");
+  getClass("select-options")[0].classList.remove("active");
+  getClass("dialog")[0].innerHTML = `<div class="ops"><label for="contentevent">Ngày bắt đầu đếm</label>
   <input type="date" name="ngaybatdau2" min="1900-01-01" id="ngaybatdau2" value="" /></div><div class="ops-buttons"><button id="xacnhanevent2" class="waves-effect">Xác nhận</button><button id="huyevent2" class="waves-effect">Hủy</button></div>`;
   getClass("blur")[0].classList.add("active");
   getId("xacnhanevent2").addEventListener("click", function () {
     setTimeout(function () {
       if (getId("ngaybatdau2").value === "") {
         openwindow = 1;
-        getClass("options3-event")[0].classList.toggle("active");
+        getClass("dialog")[0].classList.toggle("active");
         getClass("blur")[0].classList.remove("active");
       } else {
         dngaybatdau = getId("ngaybatdau2").value;
@@ -408,7 +390,7 @@ getClass("sli4")[0].addEventListener("click", function () {
         localStorage.setItem("dngaybatdau", JSON.stringify(dngaybatdau));
         localStorage.setItem("sngaybatdau", JSON.stringify(sngaybatdau));
         getId("ngaybatdau2").value = "";
-        getClass("options3-event")[0].classList.toggle("active");
+        getClass("dialog")[0].classList.toggle("active");
         getClass("blur")[0].classList.remove("active");
         displayprofile();
       }
@@ -417,19 +399,20 @@ getClass("sli4")[0].addEventListener("click", function () {
   getId("huyevent2").addEventListener("click", function () {
     setTimeout(function () {
       openwindow = 1;
-      getClass("options3-event")[0].classList.toggle("active");
+      getClass("dialog")[0].classList.toggle("active");
       getClass("blur")[0].classList.remove("active");
     }, 300);
   });
   getId("ngaybatdau2").max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+  loadfont();
 });
 getClass("sli5")[0].addEventListener("click", function () {
   openwindow = 2;
-  getClass("options3-event")[0].classList.toggle("active");
-  getClass("options-4")[0].classList.remove("active");
+  getClass("dialog")[0].classList.toggle("active");
+  getClass("select-options")[0].classList.remove("active");
   getClass("blur")[0].classList.add("active");
-  getClass("options3-event")[0].innerHTML = `<div class="ops"><label for="ndt">Nội dung trên</label>
-  <input type="text" id="ndt" value="" /></div><div class="ops"><label for="ndd">Nội dung dưới</label>
+  getClass("dialog")[0].innerHTML = `<div class="ops"><label for="ndt">Nội dung trên</label>
+  <input type="text" id="ndt" value="" /></div><div class="ops mt-10"><label for="ndd">Nội dung dưới</label>
   <input type="text" id="ndd" value="" /></div><div class="ops-buttons"><button id="xacnhan"class="waves-effect">Xác nhận</button><button id="huy" class="waves-effect">Hủy</button></div>`;
   getId("xacnhan").addEventListener("click", function () {
     setTimeout(function () {
@@ -439,14 +422,14 @@ getClass("sli5")[0].addEventListener("click", function () {
       localStorage.setItem("info1", JSON.stringify(info1));
       info2 = getId("ndd").value;
       localStorage.setItem("info2", JSON.stringify(info2));
-      getClass("options3-event")[0].classList.toggle("active");
+      getClass("dialog")[0].classList.toggle("active");
       getClass("blur")[0].classList.remove("active");
     }, 300);
   });
   getId("huy").addEventListener("click", function () {
     setTimeout(function () {
       openwindow = 1;
-      getClass("options3-event")[0].classList.toggle("active");
+      getClass("dialog")[0].classList.toggle("active");
       getClass("blur")[0].classList.remove("active");
     }, 300);
   });
@@ -454,45 +437,69 @@ getClass("sli5")[0].addEventListener("click", function () {
   getId("ndd").value = info2;
   getClass("info1")[0].innerText = getId("ndt").value;
   getClass("info2")[0].innerText = getId("ndd").value;
+  loadfont();
 });
 getClass("sli6")[0].addEventListener("click", function () {
   openwindow = 2;
-  getClass("options-4")[0].classList.toggle("active");
-  getClass("options3-event")[0].classList.remove("active");
+  getClass("select-options")[0].classList.toggle("active");
+  getClass("dialog")[0].classList.remove("active");
   getClass("blur")[0].classList.add("active");
-  getClass("options-4")[0].innerHTML = `<ul><li class="dmc waves-effect text-red">Đổi màu chữ</li><li class="dkc waves-effect text-red">Đổi kiểu chữ</li><li class="huy4 waves-effect text-gray">Hủy</li></ul>`;
+  getClass("select-options")[0].innerHTML = `<ul><li class="dmc waves-effect text-red">Đổi màu chữ</li><li class="dkc waves-effect text-red">Đổi kiểu chữ</li><li class="huy4 waves-effect text-gray">Hủy</li></ul>`;
   getClass("dmc")[0].addEventListener("click", function () {
     getId("dmc").click();
   });
   getClass("dkc")[0].addEventListener("click", function () {
     getClass("fontfa")[0].classList.add("active");
-    getClass("options-4")[0].classList.remove("active");
+    getClass("fontfa")[0].innerHTML = `<ul>
+    <li class="waves-effect font">Roboto</li>
+    <li class="waves-effect font">Poppins</li>
+    <li class="waves-effect font">Yaldevi</li>
+    <li class="waves-effect font">Nunito</li>
+    <li class="waves-effect font">Varela</li>
+    <li class="waves-effect font">Overlock</li>
+    <li class="waves-effect font">Mulish</li>
+  </ul>`;
+    getClass("select-options")[0].classList.remove("active");
     getClass("blur")[0].classList.add("active");
+    for (f = 0; f < getClass("font").length; f++) {
+      getClass("font")[f].onclick = function () {
+        fontfamily = this.innerText;
+        for (ii = 0; ii < getQueryAll('*').length; ii++) {
+          getQueryAll('*')[ii].style.fontFamily = this.innerText + "," + "sans-serif";
+        }
+        localStorage.setItem("fontfamily", JSON.stringify(fontfamily));
+        setTimeout(function () {
+          getClass("blur")[0].classList.remove("active");
+          getClass("fontfa")[0].classList.remove("active");
+        }, 400)
+      };
+    }
   });
   getClass("huy4")[0].addEventListener("click", function () {
     setTimeout(function () {
       openwindow = 1;
-      getClass("options-4")[0].classList.remove("active");
+      getClass("select-options")[0].classList.remove("active");
       getClass("blur")[0].classList.remove("active");
     }, 300);
   });
   getClass("dmc")[0].addEventListener("click", function () {
     getId("dmc").click();
   });
+  loadfont();
 });
 getClass("sli7")[0].addEventListener("click", function () {
   openwindow = 2;
-  getClass("options-4")[0].classList.toggle("active");
-  getClass("options3-event")[0].classList.remove("active");
+  getClass("select-options")[0].classList.toggle("active");
+  getClass("dialog")[0].classList.remove("active");
   getClass("blur")[0].classList.add("active");
-  getClass("options-4")[0].innerHTML = `<ul><li class="dmng waves-effect text-red">Đổi màu trái tim</li><li class="huy waves-effect text-gray">Hủy</li></ul>`;
+  getClass("select-options")[0].innerHTML = `<ul><li class="dmng waves-effect text-red">Đổi màu trái tim</li><li class="huy waves-effect text-gray">Hủy</li></ul>`;
   getClass("dmng")[0].addEventListener("click", function () {
     getId("dmng").click();
   });
   getClass("huy")[0].addEventListener("click", function () {
     setTimeout(function () {
       openwindow = 1;
-      getClass("options-4")[0].classList.remove("active");
+      getClass("select-options")[0].classList.remove("active");
       getClass("blur")[0].classList.remove("active");
     }, 300);
   });
@@ -511,38 +518,6 @@ getClass("sli8")[0].addEventListener("click", function () {
 getClass("sli9")[0].addEventListener("click", function () {
   cordova.plugins.market.open("com.tiendatmagic.demngaycodon");
 });
-const inputBox = getQuery(".inputField input");
-const addBtn = getQuery(".inputField button");
-const todoList = getQuery(".todoList");
-const deleteAllBtn = getQuery(".footer button");
-inputBox.onkeyup = function () {
-  let userEnteredValue = inputBox.value;
-  if (userEnteredValue.trim() != 0) {
-    addBtn.classList.add("active");
-  } else {
-    addBtn.classList.remove("active");
-  }
-};
-showTasks();
-addBtn.onclick = function () {
-  let userEnteredValue = inputBox.value;
-  let getLocalStorageData = localStorage.getItem("New Todo");
-  if (getLocalStorageData == null) {
-    listArray = [];
-  } else {
-    listArray = JSON.parse(getLocalStorageData);
-  }
-  if (userEnteredValue === "") {
-    openwindow = 2;
-    getClass("modalq")[0].classList.add("active");
-    getClass("blur")[0].classList.add("active");
-  } else {
-    listArray.push(userEnteredValue);
-    localStorage.setItem("New Todo", JSON.stringify(listArray));
-    showTasks();
-    addBtn.classList.remove("active");
-  }
-};
 
 function showTasks() {
   let getLocalStorageData = localStorage.getItem("New Todo");
@@ -553,18 +528,84 @@ function showTasks() {
   }
   const pendingTasksNumb = getQuery(".pendingTasks");
   pendingTasksNumb.textContent = listArray.length;
-  if (listArray.length > 0) {
-    deleteAllBtn.classList.add("active");
-  } else {
-    deleteAllBtn.classList.remove("active");
-  }
   let newLiTag = "";
   listArray.forEach(function (element, index) {
     newLiTag += "<li>" + element + '<span class="icon" onclick="deleteTask(' + index + ')"><i class="fas fa-trash"></i></span></li>';
   });
+  loaddark();
+  getClass("exitevent")[0].addEventListener("click", function () {
+    openwindow = 1;
+    getClass("event")[0].style.display = "none";
+    getClass("blur")[0].classList.remove("active");
+    setTimeout(function () {
+      AdMob.prepareInterstitial({
+        adId: admobid.interstitial,
+        isTesting: true,
+        autoShow: true,
+      });
+    }, 1000);
+  });
+  const inputBox = getQuery(".inputField input");
+  const addBtn = getQuery(".inputField button");
+  const todoList = getQuery(".todoList");
+  const deleteAllBtn = getQuery(".footer button");
+  inputBox.onkeyup = function () {
+    let userEnteredValue = inputBox.value;
+    if (userEnteredValue.trim() != 0) {
+      addBtn.classList.add("active");
+    } else {
+      addBtn.classList.remove("active");
+    }
+  };
+  addBtn.onclick = function () {
+    let userEnteredValue = inputBox.value;
+    let getLocalStorageData = localStorage.getItem("New Todo");
+    if (getLocalStorageData == null) {
+      listArray = [];
+    } else {
+      listArray = JSON.parse(getLocalStorageData);
+    }
+    if (userEnteredValue === "") {
+      openwindow = 2;
+      getClass("modalq")[0].classList.add("active");
+      getClass("blur")[0].classList.add("active");
+      getClass("modalq")[0].innerHTML = ` <div class="modalq-img"> <i class="fas fa-times-circle"></i> </div> Không được bỏ trống nha<div class="ops-buttons"><button class="waves-effect huy-exit">OK</button></div>`;
+      getClass("huy-exit")[0].addEventListener("click", function () {
+        setTimeout(function () {
+          openwindow = 1;
+          getClass("modalq")[0].classList.remove("active");
+          getClass("blur")[0].classList.remove("active");
+        }, 300);
+      });
+    } else {
+      listArray.push(userEnteredValue);
+      localStorage.setItem("New Todo", JSON.stringify(listArray));
+      showTasks();
+      addBtn.classList.remove("active");
+    }
+  };
+  deleteAllBtn.onclick = function () {
+    listArray = [];
+    localStorage.setItem("New Todo", JSON.stringify(listArray));
+    showTasks();
+  };
   todoList.innerHTML = newLiTag;
   inputBox.value = "";
-  loaddark();
+  if (dark === 1) {
+    getClass("mainevent")[0].style.color = "#fff";
+    getQuery(".event input[type='text']").classList.add("dark");
+    for (l = 0; l < listArray.length; l++) {
+      getQueryAll(".todoList li")[l].style.backgroundColor = "#fff";
+      getQueryAll(".todoList li")[l].style.color = "#000";
+    }
+  } else {
+    getClass("mainevent")[0].style.color = "#272727";
+    getQuery(".event input[type='text']").classList.remove("dark");
+    for (l = 0; l < listArray.length; l++) {
+      getQueryAll(".todoList li")[l].style.backgroundColor = "#ccc";
+      getQueryAll(".todoList li")[l].style.color = "#fff";
+    }
+  }
 }
 
 function deleteTask(index) {
@@ -573,22 +614,6 @@ function deleteTask(index) {
   listArray.splice(index, 1);
   localStorage.setItem("New Todo", JSON.stringify(listArray));
   showTasks();
-}
-deleteAllBtn.onclick = function () {
-  listArray = [];
-  localStorage.setItem("New Todo", JSON.stringify(listArray));
-  showTasks();
-};
-for (f = 0; f < getClass("font").length; f++) {
-  getClass("font")[f].onclick = function () {
-    fontfamily = this.innerText;
-    getQueryAll("body")[0].style.fontFamily = this.innerText + "," + "sans-serif";
-    localStorage.setItem("fontfamily", JSON.stringify(fontfamily));
-    setTimeout(function () {
-      getClass("blur")[0].classList.remove("active");
-      getClass("fontfa")[0].classList.remove("active");
-    }, 400)
-  };
 }
 document.onkeydown = function (t) {
   if (t.which == 9) {
@@ -604,11 +629,8 @@ function onBackButton() {
   if (openwindow == 2) {
     getClass("blur")[0].classList.remove("active");
     getClass("modalq")[0].classList.remove("active");
-    getClass("options3-event")[0].classList.remove("active");
-    getClass("options2-event")[0].classList.remove("active");
-    getClass("options-4")[0].classList.remove("active");
-    getClass("options-3")[0].classList.remove("active");
-    getClass("options-2")[0].classList.remove("active");
+    getClass("dialog")[0].classList.remove("active");
+    getClass("select-options")[0].classList.remove("active");
     openwindow = 1;
   } else if (openwindow == 1) {
     getClass("event")[0].style.display = "none";
@@ -620,10 +642,24 @@ function onBackButton() {
     openwindow = 0;
   } else if (openwindow == 0) {
     getClass("blur")[0].classList.toggle("active");
-    getClass("options-exit")[0].classList.toggle("active");
-  } else {
-    getClass("blur")[0].classList.toggle("active");
-    getClass("options-exit")[0].classList.toggle("active");
+    getClass("modalq")[0].classList.add("active");
+    getClass("modalq")[0].innerHTML = ` <div class="options-img col mb-10"> <img src="./res/icon/android/drawable-hdpi-icon.png" alt=""> <span>Bye bye
+    !</span></div> Bạn muốn thoát ứng dụng?<div class="ops-buttons">
+    <button id="xacnhan-exit" class="waves-effect">Xác nhận</button>
+    <button id="huy-exit" class="waves-effect">Hủy</button>
+  </div>`;
+    getId("xacnhan-exit").addEventListener("click", function () {
+      setTimeout(function () {
+        navigator.app.exitApp();
+      }, 500);
+    });
+    getId("huy-exit").addEventListener("click", function () {
+      setTimeout(function () {
+        openwindow = 1;
+        getClass("modalq")[0].classList.remove("active");
+        getClass("blur")[0].classList.remove("active");
+      }, 300);
+    });
   }
 }
 document.addEventListener("deviceready", function () {
@@ -642,15 +678,13 @@ function displayprofile() {
       getClass("header")[0].classList.remove("hidden");
       getClass("ssetting")[0].classList.remove("height");
     }
-    getQueryAll("body")[0].style.fontFamily = fontfamily;
+    loadfont();
     getQueryAll(".container .mainscr ")[0].classList.add("hidden");
     getClass("container")[0].style.overflow = "hidden";
     getClass("navigation")[0].style.display = "block";
     getClass("profile")[0].style.display = "none";
-    getClass("options3-event")[0].style.display = "block";
-    getClass("options-exit")[0].style.display = "block";
-    getClass("options-4")[0].style.display = "block";
-    getClass("modalq")[0].style.display = "block";
+    getClass("dialog")[0].style.display = "block";
+    getClass("select-options")[0].style.display = "block";
     getClass("main")[0].style.display = "block";
     getClass("htitle")[0].innerText = dtieude;
     getClass("dname")[0].innerText = sten;
@@ -701,4 +735,13 @@ function displayprofile() {
         }
     }
   } else { }
+}
+
+function loadfont() {
+  for (i = 0; i < getQueryAll('button').length; i++) {
+    getQueryAll('button')[i].style.fontFamily = fontfamily + "," + "sans-serif";
+  }
+  for (i = 0; i < getQueryAll('input').length; i++) {
+    getQueryAll('input')[i].style.fontFamily = fontfamily + "," + "sans-serif";
+  }
 }
