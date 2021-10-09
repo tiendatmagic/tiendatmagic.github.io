@@ -61,7 +61,7 @@ function creategradient() {
 function changecolorbox() {
   for (i = 0; i < getClass("box").length; i++) {
     getClass("box")[i].style.backgroundImage = 'linear-gradient' + '(' + Math.floor(Math.random() * 180) + 'deg,' + '#' + arrcc[i] + ',' + '#' + arrcc[i + 1] + ')';
-    getClass("box")[i].innerText = 'background-image:' + getClass("box")[i].style.backgroundImage
+    // getClass("box")[i].innerText = 'background-image:' + getClass("box")[i].style.backgroundImage
   }
 
   clickbox();
