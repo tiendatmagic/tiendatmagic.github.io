@@ -1,3 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.boxinput {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  margin: 20px auto;
+}
+.boxinput input {
+  width: 100%;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 8px 0px 0px 8px;
+  text-indent: 20px;
+  font-size: 17px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 0 12px 2px rgba(0, 0, 0, 0.05);
+}
+.boxinput button {
+  width: 100px;
+  height: 50px;
+  outline: none;
+  border: none;
+  border-radius: 0px 8px 8px 0px;
+  background-color: #cc5fff;
+  font-size: 15px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+}
+
 #displaybox {
   display: flex;
   flex-wrap: wrap;
