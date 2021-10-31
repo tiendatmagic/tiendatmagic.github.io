@@ -1,441 +1,443 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
-	margin: 0;
-	padding: 0;
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
-	text-decoration: none;
-	outline: 0;
-	border: 0;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  outline: 0;
+  border: 0;
 }
 
 *,
 *::before,
 *::after {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 :root {
-	--size-item: 320px;
+  --size-item: 320px;
 }
 
 body {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-color: #dab9d0;
-	width: 100%;
-	height: 100vh;
-	overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: #dab9d0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 html {
-	font-family: sans-serif;
-	line-height: 1.15;
-	-webkit-text-size-adjust: 100%;
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	width: 100%;
-	height: 100vh;
-	overflow: hidden;
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .version {
-	position: absolute;
-	padding: 10px;
-	color: deeppink;
-	font-size: 20px;
+  position: absolute;
+  padding: 10px;
+  color: deeppink;
+  font-size: 20px;
 }
 
 .nametitle {
-	position: relative;
-	padding: 10px;
-	color: #fff;
-	font-size: 33px;
-	font-weight: bold;
-	white-space: nowrap;
+  position: relative;
+  padding: 10px;
+  color: #fff;
+  font-size: 33px;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
 #mainstart {
-	text-align: center;
-	width: 100%;
-	height: 100vh;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 #mainstart input {
-	display: block;
-	margin: 20px auto;
+  display: block;
+  margin: 20px auto;
 }
 
-.btn-start, .btn-rate {
-	padding: 4vh 5vh;
-	background-color: #fff;
-	color: #ff00d4;
-	outline: 0;
-	border: 0;
-	font-size: 3vh;
-	font-weight: bold;
-	border-radius: 10px;
-	cursor: pointer;
+.btn-start,
+.btn-rate {
+  padding: 4vh 5vh;
+  background-color: #fff;
+  color: #ff00d4;
+  outline: 0;
+  border: 0;
+  font-size: 3vh;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
-.btn-start:active, .btn-rate:active {
-	background-color: #ff00d4;
-	color: #fff;
+.btn-start:active,
+.btn-rate:active {
+  background-color: #ff00d4;
+  color: #fff;
 }
 
-#app, #maingame {
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
+#app,
+#maingame {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 #maingame {
-	position: relative;
+  position: relative;
 }
 
 .line {
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	padding: 7px 0;
-	background-color: #fff;
-	width: 100%;
-	border-radius: 5px 0px 0px 5px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  padding: 7px 0;
+  background-color: #fff;
+  width: 100%;
+  border-radius: 5px 0px 0px 5px;
 }
 
 .headergame {
-	text-align: center;
-	color: #fff;
+  text-align: center;
+  color: #fff;
 }
 
 .headergame .dbestscore {
-	font-size: 20px;
+  font-size: 20px;
 }
 
 .headergame .circle {
-	font-size: 25px;
-	margin-top: 10px;
+  font-size: 25px;
+  margin-top: 10px;
 }
 
 .grid-box {
-	width: 320px;
-	height: 320px;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-	-ms-flex-pack: distribute;
-	justify-content: space-around;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
-	margin: auto;
+  width: 320px;
+  height: 320px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: auto;
 }
 
 .grid-box .box-item {
-	width: 0;
-	height: 0;
-	border-radius: 50%;
-	cursor: pointer;
-	-webkit-transform: scale(0.2);
-	-ms-transform: scale(0.2);
-	transform: scale(0.2);
-	-webkit-animation: zoom 0.3s ease forwards;
-	animation: zoom 0.3s ease forwards;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  -webkit-transform: scale(0.2);
+  -ms-transform: scale(0.2);
+  transform: scale(0.2);
+  -webkit-animation: zoom 0.3s ease forwards;
+  animation: zoom 0.3s ease forwards;
 }
 
 @-webkit-keyframes zoom {
-	to {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-	}
+  to {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 @keyframes zoom {
-	to {
-		-webkit-transform: scale(1);
-		transform: scale(1);
-	}
+  to {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 .overgame {
-	visibility: hidden;
-	text-align: center;
-	color: #fff;
+  visibility: hidden;
+  text-align: center;
+  color: #fff;
 }
 
 .overgame.active {
-	visibility: visible;
-	-webkit-animation: spin 2s linear infinite;
-	animation: spin 2s linear infinite;
+  visibility: visible;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
 }
 
 @-webkit-keyframes spin {
-	from {
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 
-	to {
-		-webkit-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-	from {
-		-webkit-transform: rotate(0deg);
-		transform: rotate(0deg);
-	}
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
 
-	to {
-		-webkit-transform: rotate(360deg);
-		transform: rotate(360deg);
-	}
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 .reloadgame {
-	display: inline;
-	text-align: center;
-	font-size: 50px;
-	padding: 10px;
-	cursor: pointer;
+  display: inline;
+  text-align: center;
+  font-size: 50px;
+  padding: 10px;
+  cursor: pointer;
 }
 
 .d-flex {
-	width: 100%;
-	height: 100%;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	-webkit-box-align: center;
-	-ms-flex-align: center;
-	align-items: center;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 @media screen and (min-height: 568px) {
-	.headergame {
-		-webkit-transform: scale(1);
-		-ms-transform: scale(1);
-		transform: scale(1);
-	}
+  .headergame {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
 
-	.headergame .circle {
-		font-size: 30px;
-	}
+  .headergame .circle {
+    font-size: 30px;
+  }
 }
 
 @media screen and (min-height: 667px) {
-	.headergame {
-		-webkit-transform: scale(1);
-		-ms-transform: scale(1);
-		transform: scale(1);
-	}
+  .headergame {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+  }
 }
 
 @media screen and (min-width: 540px) and (min-height: 720px) {
-	.headergame {
-		-webkit-transform: scale(1.1);
-		-ms-transform: scale(1.1);
-		transform: scale(1.1);
-	}
+  .headergame {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 }
 
 @media screen and (min-height: 736px) {
-	.headergame {
-		-webkit-transform: scale(1.1);
-		-ms-transform: scale(1.1);
-		transform: scale(1.1);
-	}
+  .headergame {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+  }
 }
 
 @media screen and (min-height: 812px) {
-	.headergame {
-		-webkit-transform: scale(1.2);
-		-ms-transform: scale(1.2);
-		transform: scale(1.2);
-	}
+  .headergame {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+  }
 }
 
 @media screen and (min-height: 1024px) {
-	.headergame {
-		-webkit-transform: scale(1.5);
-		-ms-transform: scale(1.5);
-		transform: scale(1.5);
-	}
+  .headergame {
+    -webkit-transform: scale(1.5);
+    -ms-transform: scale(1.5);
+    transform: scale(1.5);
+  }
 
-	.reloadgame {
-		font-size: 55px;
-	}
+  .reloadgame {
+    font-size: 55px;
+  }
 
-	.version {
-		font-size: 30px;
-	}
+  .version {
+    font-size: 30px;
+  }
 
-	.nametitle {
-		font-size: 50px;
-	}
+  .nametitle {
+    font-size: 50px;
+  }
 }
 
 @media screen and (min-height: 1366px) {
-	.headergame {
-		-webkit-transform: scale(1.8);
-		-ms-transform: scale(1.8);
-		transform: scale(1.8);
-	}
+  .headergame {
+    -webkit-transform: scale(1.8);
+    -ms-transform: scale(1.8);
+    transform: scale(1.8);
+  }
 
-	.reloadgame {
-		font-size: 65px;
-	}
+  .reloadgame {
+    font-size: 65px;
+  }
 
-	.version {
-		font-size: 40px;
-	}
+  .version {
+    font-size: 40px;
+  }
 
-	.nametitle {
-		font-size: 70px;
-	}
+  .nametitle {
+    font-size: 70px;
+  }
 }
 
 @media screen and (min-width: 320px) and (min-height: 480px) {
-	.grid-box {
-		-webkit-transform: scale(0.95);
-		-ms-transform: scale(0.95);
-		transform: scale(0.95);
-		margin: 0px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(0.95);
+    -ms-transform: scale(0.95);
+    transform: scale(0.95);
+    margin: 0px auto;
+  }
 }
 
 @media screen and (min-width: 320px) and (min-height: 568px) {
-	.grid-box {
-		-webkit-transform: scale(1);
-		-ms-transform: scale(1);
-		transform: scale(1);
-		margin: 25px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    margin: 25px auto;
+  }
 }
 
 @media screen and (min-width: 320px) and (min-height: 700px) {
-	.grid-box {
-		-webkit-transform: scale(1);
-		-ms-transform: scale(1);
-		transform: scale(1);
-		margin: 50px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    margin: 50px auto;
+  }
 }
 
 @media screen and (min-width: 375px) and (min-height: 667px) {
-	.grid-box {
-		-webkit-transform: scale(1.1);
-		-ms-transform: scale(1.1);
-		transform: scale(1.1);
-		margin: 50px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    margin: 50px auto;
+  }
 }
 
 @media screen and (min-width: 375px) and (min-height: 800px) {
-	.grid-box {
-		-webkit-transform: scale(1.1);
-		-ms-transform: scale(1.1);
-		transform: scale(1.1);
-		margin: 70px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    margin: 70px auto;
+  }
 }
 
 @media screen and (min-width: 414px) and (min-height: 570px) {
-	.grid-box {
-		-webkit-transform: scale(1.1);
-		-ms-transform: scale(1.1);
-		transform: scale(1.1);
-		margin: 36px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    margin: 36px auto;
+  }
 }
 
 @media screen and (min-width: 414px) and (min-height: 640px) {
-	.grid-box {
-		-webkit-transform: scale(1.2);
-		-ms-transform: scale(1.2);
-		transform: scale(1.2);
-		margin: 60px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    margin: 60px auto;
+  }
 }
 
 @media screen and (min-width: 414px) and (min-height: 730px) {
-	.grid-box {
-		-webkit-transform: scale(1.2);
-		-ms-transform: scale(1.2);
-		transform: scale(1.2);
-		margin: 80px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+    margin: 80px auto;
+  }
 }
 
 @media screen and (min-width: 540px) and (min-height: 720px) {
-	.grid-box {
-		-webkit-transform: scale(1.4);
-		-ms-transform: scale(1.4);
-		transform: scale(1.4);
-		margin: 90px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+    margin: 90px auto;
+  }
 }
 
 @media screen and (min-width: 768px) and (min-height: 800px) {
-	.grid-box {
-		-webkit-transform: scale(1.7);
-		-ms-transform: scale(1.7);
-		transform: scale(1.7);
-		margin: 120px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(1.7);
+    -ms-transform: scale(1.7);
+    transform: scale(1.7);
+    margin: 120px auto;
+  }
 }
 @media screen and (min-width: 768px) and (min-height: 850px) {
-	.grid-box {
-		-webkit-transform: scale(1.7);
-		-ms-transform: scale(1.7);
-		transform: scale(1.7);
-		margin: 155px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(1.7);
+    -ms-transform: scale(1.7);
+    transform: scale(1.7);
+    margin: 155px auto;
+  }
 }
 
 @media screen and (min-width: 768px) and (min-height: 1024px) {
-	.grid-box {
-		-webkit-transform: scale(1.8);
-		-ms-transform: scale(1.8);
-		transform: scale(1.8);
-		margin: 180px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(1.8);
+    -ms-transform: scale(1.8);
+    transform: scale(1.8);
+    margin: 180px auto;
+  }
 }
 
-
 @media screen and (min-width: 1000px) and (min-height: 1000px) {
-	.grid-box {
-		-webkit-transform: scale(2.1);
-		-ms-transform: scale(2.1);
-		transform: scale(2.1);
-		margin: 220px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(2.1);
+    -ms-transform: scale(2.1);
+    transform: scale(2.1);
+    margin: 220px auto;
+  }
 }
 
 @media screen and (min-width: 1024px) and (min-height: 1366px) {
-	.grid-box {
-		-webkit-transform: scale(2.4);
-		-ms-transform: scale(2.4);
-		transform: scale(2.4);
-		margin: 320px auto;
-	}
+  .grid-box {
+    -webkit-transform: scale(2.4);
+    -ms-transform: scale(2.4);
+    transform: scale(2.4);
+    margin: 320px auto;
+  }
 }

@@ -1,1 +1,235 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /><meta name="theme-color" content="#ff0099" /><title>Đếm ngày cô đơn</title><link rel="stylesheet" href="./css/waves.min.css" /><link rel="stylesheet" href="./css/all.min.css" /><link rel="stylesheet" href="./css/style.css" /></head><body style="opacity: 0;"><div class="container"><div class="blur"></div><div class="mainscr"><div class="profile"><h2>THÔNG TIN CỦA BẠN</h2><h3> <label for="" style="text-align: center"> Ảnh đại diện</label></h3><div class="wrapper"><div class="image"> <img onerror="this.src='./error.png'" src="./error.png" alt="" /></div></div> <button style="display: none" onclick="defaultBtnActive()" id="custom-btn"> Chọn ảnh </button> <input id="default-btn" type="file" hidden /><div class="name"> <label for="name">Tên</label> <input type="text" id="ten" value="" autocomplete="off" placeholder="Tên của bạn" /></div><div class="sex"> <label for="sex">Giới tính</label><div class="selectgender"><div class="radio"> <input type="radio" value="Nam" name="gender" /> <span> Nam </span></div><div class="radio"> <input type="radio" value="Nữ" name="gender" /> <span> Nữ </span></div><div class="radio"> <input type="radio" value="Khác" name="gender" /> <span> Khác </span></div></div></div><div class="Dateofbirth"> <label for="dateofbirth">Ngày sinh</label> <input type="date" name="" min="1900-01-01" id="ngaysinh" value="" /></div><div class="Datestart"> <label for="datestart">Ngày bắt đầu đếm</label> <input type="date" name="ngaybatdau" min="1900-01-01" id="ngaybatdau" value="" /></div><div class="status"> <label for="status ">Trích dẫn</label><textarea name="" id="statuss"> Phải cố gắng thay đổi bản thân</textarea></div><div class="button"> <button id="submit" class="waves-effect">Xác nhận</button></div></div><div class="main"><div class="header"><div class="title"><h2 class="htitle pcolor">Đếm Ngày Cô Đơn</h2></div></div><div class="content"><div class="scontent"><div class="content1"><div class="btn-circle buttonstatus waves-effect"> <i class="fas fa-heart"></i></div><div class="btn-circle buttonsk waves-effect"> <i class="fas fa-clipboard"></i></div><div class="statuseveryday"><div class="contentstatuseveryday pcolor"></div></div><div class="circle active"><div class="info"><p class="info1 pcolor">Đã cô đơn</p><h3 class="countday">0</h3><p class="info2 pcolor">Ngày</p></div></div></div><div class="content2"><div class="datetime"><div class="ngay"><div class="date-item heart"><span class="dngay"></span></div> <span class="ndate"> Ngày </span></div><div class="gio"><div class="date-item heart"><span class="dgio"></span></div> <span class="ndate"> Giờ </span></div><div class="phut"><div class="date-item heart"> <span class="dphut"> </span></div> <span class="ndate">Phút</span></div><div class="giay"><div class="date-item heart"><span class="dgiay"></span></div> <span class="ndate">Giây</span></div></div><p class="pcolor"> <i class="fas fa-heart"></i> <b class="ntns"></b> <i class="fas fa-heart"></i></p><div class="contentstatus"> Trạng thái:<div class="dstatus"></div></div></div></div><div class="personal_info"><div class="personall"><div class="pavatar"><img src="" alt="" class="imgavatar" /></div></div><div class="personall"><div><div class="pname"><p class="dname pcolor multi-name">Không có tên</p></div><div class="page"><p class="pcolor"><b class="dage"> 0 </b> tuổi</p></div></div></div></div></div><div class="setting"><div class="ssetting"><div class="pavatar" id="pavatar" onclick="defaultBtnActive()"> <img src="" alt="" class="imgavatar" id="imgavatar" /><div class="iconcamera"><i class="fas fa-camera"></i></div></div><div class="pname"><p class="dname pcolor multi-name">Không có tên</p></div><div class="pgioitinh"><p class="dgioitinh pcolor">Đồng tính</p></div><div class="setting-option pcolor"><ul><li class="sli1 waves-effect"><div class="icon"><i class="fas fa-lightbulb"></i></div><div class="namesetting"><p class="pcolor">Nền tối</p></div><div class="icon"> <i class="lightoff fas fa-moon"></i> <i class="lighton fas fa-sun"></i></div></li><li class="sli2 waves-effect"><div class="icon"><i class="fas fa-clipboard"></i></div><div class="namesetting"><p class="pcolor">Sự kiện</p></div><div class="icon"><i class="fas fa-chevron-right"></i></div></li><li class="sli3 waves-effect"><div class="icon"><i class="fas fa-heading"></i></div><div class="namesetting"><p class="pcolor">Tiêu đề</p><p class="s_setting stitle"></p></div><div class="icon"><i class="fas fa-chevron-right"></i></div></li><li class="sli4 waves-effect"><div class="icon"><i class="fas fa-hourglass-start"></i></div><div class="namesetting"><p class="pcolor">Ngày bắt đầu đếm</p><p class="s_setting snbdcd">N/A</p></div><div class="icon"><i class="fas fa-chevron-right"></i></div></li><li class="sli5 waves-effect"><div class="icon"><i class="fas fa-font"></i></div><div class="namesetting"><p class="pcolor">Thay đổi nội dung</p></div><div class="icon"><i class="fas fa-chevron-right"></i></div></li><li class="sli6 waves-effect"><div class="icon"><i class="fas fa-bold"></i></div><div class="namesetting"><p class="pcolor">Tùy chỉnh font chữ</p></div><div class="icon"><i class="fas fa-chevron-right"></i></div></li><li class="sli7 waves-effect"><div class="icon"><i class="fas fa-palette"></i></div><div class="namesetting"><p class="pcolor">Tùy chỉnh màu sắc</p></div><div class="icon"><i class="fas fa-chevron-right"></i></div></li><li class="sli8 waves-effect"><div class="icon"><i class="fas fa-power-off"></i></div><div class="namesetting"><p class="pcolor">Đặt lại thông tin</p></div><div class="icon"><i class="fas fa-chevron-right"></i></div></li><li class="sli9 waves-effect"><div class="icon"><i class="fas fa-star"></i></div><div class="namesetting"><p class="pcolor">Đánh giá ứng dụng</p></div><div class="icon"><i class="fas fa-chevron-right"></i></div></li></ul></div></div></div></div><div class="navigation"><ul><li class="select1 waves-effect"><i class="fas fa-home"></i></li><li class="select2 waves-effect"><i class="fas fa-heart"></i></li><li class="select3 waves-effect"><i class="fas fa-cog"></i></li></ul></div><div class="colors"> <input type="color" id="dmng" name="dmng" value="#ff0000" /> <input type="color" id="dmc" name="dmc" value="#ff0099" /></div><div class="event"></div><div class="dialog"></div><div class="select-options"></div><div class="fontfa"></div><div class="modalq"></div></div></div> <script src="cordova.js"></script> <script src="./js/waves.min.js"></script> <script src="./js/all.min.js"></script> <script src="./js/magic.js"></script> <script>Waves.attach(".waves-effect");Waves.init();</script> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+  <meta name="theme-color" content="#ff0099" />
+  <title>Đếm ngày cô đơn</title>
+  <link rel="stylesheet" href="./css/waves.min.css" />
+  <link rel="stylesheet" href="./css/all.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body style="opacity: 0;">
+  <div class="container">
+    <div class="blur"></div>
+    <div class="mainscr">
+      <div class="profile">
+        <h2>THÔNG TIN CỦA BẠN</h2>
+        <h3>
+          <label for="" style="text-align: center"> Ảnh đại diện</label>
+        </h3>
+        <div class="wrapper">
+          <div class="image"> <img onerror="this.src='./error.png'" src="./error.png" alt="" /> </div>
+        </div>
+        <button style="display: none" onclick="defaultBtnActive()" id="custom-btn"> Chọn ảnh </button>
+        <input id="default-btn" type="file" hidden />
+        <div class="name">
+          <label for="name">Tên</label>
+          <input type="text" id="ten" value="" autocomplete="off" placeholder="Tên của bạn" />
+        </div>
+        <div class="sex">
+          <label for="sex">Giới tính</label>
+          <div class="selectgender">
+            <div class="radio">
+              <input type="radio" value="Nam" name="gender" /> <span> Nam </span>
+            </div>
+            <div class="radio">
+              <input type="radio" value="Nữ" name="gender" /> <span> Nữ </span>
+            </div>
+            <div class="radio">
+              <input type="radio" value="Khác" name="gender" /> <span> Khác </span>
+            </div>
+          </div>
+        </div>
+        <div class="Dateofbirth">
+          <label for="dateofbirth">Ngày sinh</label>
+          <input type="date" name="" min="1900-01-01" id="ngaysinh" value="" />
+        </div>
+        <div class="Datestart">
+          <label for="datestart">Ngày bắt đầu đếm</label>
+          <input type="date" name="ngaybatdau" min="1900-01-01" id="ngaybatdau" value="" />
+        </div>
+        <div class="status">
+          <label for="status
+          ">Trích dẫn</label>
+          <textarea name="" id="statuss"> Phải cố gắng thay đổi bản thân</textarea>
+        </div>
+        <div class="button">
+          <button id="submit" class="waves-effect">Xác nhận</button>
+        </div>
+      </div>
+      <div class="main">
+        <div class="header">
+          <div class="title">
+            <h2 class="htitle pcolor">Đếm Ngày Cô Đơn</h2>
+          </div>
+        </div>
+        <div class="content">
+          <div class="scontent">
+            <div class="content1">
+              <div class="btn-circle buttonstatus waves-effect"> <i class="fas fa-heart"></i> </div>
+              <div class="btn-circle buttonsk waves-effect"> <i class="fas fa-clipboard"></i> </div>
+              <div class="statuseveryday">
+                <div class="contentstatuseveryday pcolor"></div>
+              </div>
+              <div class="circle active">
+                <div class="info">
+                  <p class="info1 pcolor">Đã cô đơn</p>
+                  <h3 class="countday">0</h3>
+                  <p class="info2 pcolor">Ngày</p>
+                </div>
+              </div>
+            </div>
+            <div class="content2">
+              <div class="datetime">
+                <div class="ngay">
+                  <div class="date-item heart"><span class="dngay"></span></div> <span class="ndate"> Ngày </span>
+                </div>
+                <div class="gio">
+                  <div class="date-item heart"><span class="dgio"></span></div> <span class="ndate"> Giờ </span>
+                </div>
+                <div class="phut">
+                  <div class="date-item heart"> <span class="dphut"> </span> </div> <span class="ndate">Phút</span>
+                </div>
+                <div class="giay">
+                  <div class="date-item heart"><span class="dgiay"></span></div> <span class="ndate">Giây</span>
+                </div>
+              </div>
+              <p class="pcolor"> <i class="fas fa-heart"></i> <b class="ntns"></b> <i class="fas fa-heart"></i> </p>
+              <div class="contentstatus"> Trạng thái:
+                <div class="dstatus"></div>
+              </div>
+            </div>
+          </div>
+          <div class="personal_info">
+            <div class="personall">
+              <div class="pavatar"><img src="" alt="" class="imgavatar" /></div>
+            </div>
+            <div class="personall">
+              <div>
+                <div class="pname">
+                  <p class="dname pcolor multi-name">Không có tên</p>
+                </div>
+                <div class="page">
+                  <p class="pcolor"><b class="dage"> 0 </b> tuổi</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="setting">
+          <div class="ssetting">
+            <div class="pavatar" id="pavatar" onclick="defaultBtnActive()"> <img src="" alt="" class="imgavatar"
+                id="imgavatar" />
+              <div class="iconcamera"><i class="fas fa-camera"></i></div>
+            </div>
+            <div class="pname">
+              <p class="dname pcolor multi-name">Không có tên</p>
+            </div>
+            <div class="pgioitinh">
+              <p class="dgioitinh pcolor">Đồng tính</p>
+            </div>
+            <div class="setting-option pcolor">
+              <ul>
+                <li class="sli1 waves-effect">
+                  <div class="icon"><i class="fas fa-lightbulb"></i></div>
+                  <div class="namesetting">
+                    <p class="pcolor">Nền tối</p>
+                  </div>
+                  <div class="icon"> <i class="lightoff fas fa-moon"></i> <i class="lighton fas fa-sun"></i> </div>
+                </li>
+                <li class="sli2 waves-effect">
+                  <div class="icon"><i class="fas fa-clipboard"></i></div>
+                  <div class="namesetting">
+                    <p class="pcolor">Sự kiện</p>
+                  </div>
+                  <div class="icon"><i class="fas fa-chevron-right"></i></div>
+                </li>
+                <li class="sli3 waves-effect">
+                  <div class="icon"><i class="fas fa-heading"></i></div>
+                  <div class="namesetting">
+                    <p class="pcolor">Tiêu đề</p>
+                    <p class="s_setting stitle"></p>
+                  </div>
+                  <div class="icon"><i class="fas fa-chevron-right"></i></div>
+                </li>
+                <li class="sli4 waves-effect">
+                  <div class="icon"><i class="fas fa-hourglass-start"></i></div>
+                  <div class="namesetting">
+                    <p class="pcolor">Ngày bắt đầu đếm</p>
+                    <p class="s_setting snbdcd">N/A</p>
+                  </div>
+                  <div class="icon"><i class="fas fa-chevron-right"></i></div>
+                </li>
+                <li class="sli5 waves-effect">
+                  <div class="icon"><i class="fas fa-font"></i></div>
+                  <div class="namesetting">
+                    <p class="pcolor">Thay đổi nội dung</p>
+                  </div>
+                  <div class="icon"><i class="fas fa-chevron-right"></i></div>
+                </li>
+                <li class="sli6 waves-effect">
+                  <div class="icon"><i class="fas fa-bold"></i></div>
+                  <div class="namesetting">
+                    <p class="pcolor">Tùy chỉnh font chữ</p>
+                  </div>
+                  <div class="icon"><i class="fas fa-chevron-right"></i></div>
+                </li>
+                <li class="sli7 waves-effect">
+                  <div class="icon"><i class="fas fa-palette"></i></div>
+                  <div class="namesetting">
+                    <p class="pcolor">Tùy chỉnh màu sắc</p>
+                  </div>
+                  <div class="icon"><i class="fas fa-chevron-right"></i></div>
+                </li>
+                <li class="sli8 waves-effect">
+                  <div class="icon"><i class="fas fa-power-off"></i></div>
+                  <div class="namesetting">
+                    <p class="pcolor">Đặt lại thông tin</p>
+                  </div>
+                  <div class="icon"><i class="fas fa-chevron-right"></i></div>
+                </li>
+                <li class="sli9 waves-effect">
+                  <div class="icon"><i class="fas fa-star"></i></div>
+                  <div class="namesetting">
+                    <p class="pcolor">Đánh giá ứng dụng</p>
+                  </div>
+                  <div class="icon"><i class="fas fa-chevron-right"></i></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navigation">
+        <ul>
+          <li class="select1 waves-effect"><i class="fas fa-home"></i></li>
+          <li class="select2 waves-effect"><i class="fas fa-heart"></i></li>
+          <li class="select3 waves-effect"><i class="fas fa-cog"></i></li>
+        </ul>
+      </div>
+      <div class="colors">
+        <input type="color" id="dmng" name="dmng" value="#ff0000" />
+        <input type="color" id="dmc" name="dmc" value="#ff0099" />
+      </div>
+      <div class="event"> </div>
+      <div class="dialog"> </div>
+      <div class="select-options"> </div>
+      <div class="fontfa"></div>
+      <div class="modalq"> </div>
+    </div>
+  </div>
+  <script src="cordova.js"></script>
+  <script src="./js/waves.min.js"></script>
+  <script src="./js/all.min.js"></script>
+  <script src="./js/magic.js"></script>
+  <script>
+    Waves.attach(".waves-effect");
+    Waves.init();
+  </script>
+</body>
+
+</html>

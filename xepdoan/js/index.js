@@ -33,26 +33,44 @@ function getTagName(tagname) {
     return document.getElementsByTagName(tagname);
   }
 }
-getId("btn-start").onclick = () => {
+
+var admobid = {
+  banner: '',
+};
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+
+  AdMob.createBanner({
+    adId: admobid.banner,
+    position: AdMob.AD_POSITION.BOTTOM_CENTER,
+    isTesting: true,
+    overlap: false,
+    offsetTopBar: false,
+    bgColor: 'black'
+  });
+}
+
+getId("btn-start").onclick = function () {
   playg();
   runtime();
 }
-getId("btn-rate").onclick = () => {
+getId("btn-rate").onclick = function () {
   cordova.plugins.market.open('com.tiendatmagic.xepdoan');
 }
 
 function playg() {
   getClass("version")[0].style.display = 'none';
   getClass("nametitle")[0].style.display = 'none';
-  document.getElementsByTagName("body")[0].style.backgroundColor = '#FFC7C7';
+  document.getElementsByTagName("body")[0].style.backgroundColor = '#e6c1c1';
   getId("mainstart").style.display = 'none';
   getId("maingame").style.display = 'block';
   getClass("listbtn")[0].style.display = 'flex';
 
   checklevel();
-  var elementfood = ``;
+  var elementfood = "";
   for (i = 0; i < foodlength; i++) {
-    elementfood += `<div class='asfood'> </div>`
+    elementfood += "<div class='asfood'> </div>";
   }
   getClass("applist")[0].innerHTML = elementfood;
   appfoodarr.length = 0;
@@ -128,9 +146,9 @@ for (k = 0; k < 3; k++) {
       if (resultarr.length < foodlength) {
         resultarr.push(Number(this.innerHTML));
       }
-      var elementfood = ``;
+      var elementfood = "";
       for (i = 0; i < resultarr.length; i++) {
-        elementfood += `<div class='msfood'> </div>`
+        elementfood += "<div class='msfood'> </div>";
       }
       getClass("mylist")[0].innerHTML = elementfood;
       for (i = 0; i < resultarr.length; i++) {
@@ -151,7 +169,7 @@ for (k = 0; k < 3; k++) {
 
 function checkgame() {
   if (canplay == false) {
-    setTimeout(() => {
+    setTimeout(function () {
       clearInterval(tim);
       savehighscore();
       getClass("gover")[0].classList.add("active");
@@ -162,19 +180,19 @@ function checkgame() {
     }, 10);
   } else if (canplay == true) {
     {
-      setTimeout(() => {
+      setTimeout(function () {
         scorex += 1;
         getId("scorex").innerText = scorex;
-        playg();
-        var elementfood = ``;
-        getClass("mylist")[0].innerHTML = elementfood;
-        audio_win.play();
         canplay = false;
       }, 10);
 
-      setTimeout(() => {
+      setTimeout(function () {
+        playg();
+        var elementfood = "";
+        getClass("mylist")[0].innerHTML = elementfood;
+        audio_win.play();
         canplay = true;
-      }, 600)
+      }, 500)
 
     }
   }
@@ -190,15 +208,15 @@ function replayg() {
   foodlength = 3;
   playg();
   runtime();
-  var elementfood = ``;
+  var elementfood = "";
   getClass("mylist")[0].innerHTML = elementfood;
 
 }
-getClass("replay")[0].onclick = () => {
+getClass("replay")[0].onclick = function () {
   replayg();
 
 }
-getClass("returnmainmenu")[0].onclick = () => {
+getClass("returnmainmenu")[0].onclick = function () {
   location.reload();
 }
 

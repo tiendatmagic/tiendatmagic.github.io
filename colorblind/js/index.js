@@ -129,302 +129,97 @@ function checklevel() {
 
 function createcolor() {
   randomindex = Math.floor(Math.random() * boxlength);
-  randomcolor = Math.floor(Math.random() * 14);
+  randomcolor = Math.floor(Math.random() * 16);
   var bgcolorlight = '';
+  var opacity = 1;
+  if (scorecb >= 10) {
+    opacity = 0.65;
+  }
+  if (scorecb >= 15) {
+    opacity = 0.7;
+  }
+  if (scorecb >= 20) {
+    opacity = 0.75;
+  }
+  if (scorecb >= 25) {
+    opacity = 0.8;
+  }
+  if (scorecb >= 30) {
+    opacity = 0.85;
+  }
+  if (scorecb >= 35) {
+    opacity = 0.9;
+  }
+  if (scorecb >= 40) {
+    opacity = 0.95;
+  }
+  if (scorecb < 10) {
+    opacity = 0.5;
+  }
   switch (randomcolor) {
     case 0:
-      bgcolor = 'rgb(255, 0, 0)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(215, 0, 0)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(225, 0, 0)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(230, 0, 0)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(235, 0, 0)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(240, 0, 0)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(205, 0, 0)';
-      }
+      bgcolor = 'rgb(255, 0,0,' + 1 + ')';
+      bgcolorlight = 'rgb(255, 0,0,' + opacity + ')';
       break;
     case 1:
-      bgcolor = 'rgb(255, 0, 140)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(214, 0, 118)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(224, 0, 123)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(230, 0, 126)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(235, 0, 129)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(240, 0, 132)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(204, 0, 112)';
-      }
+      bgcolor = 'rgb(255, 0, 140,' + 1 + ')';
+      bgcolorlight = 'rgb(255, 0, 140,' + opacity + ')';
       break;
     case 2:
-      bgcolor = 'rgb(111, 0, 255)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(93, 0, 214)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(97, 0, 224)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(99, 0, 230)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(102, 0, 235)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(104, 0, 240)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(88, 0, 204)';
-      }
+      bgcolor = 'rgb(111, 0, 255,' + 1 + ')';
+      bgcolorlight = 'rgb(111, 0, 255,' + opacity + ')';
       break;
     case 3:
-      bgcolor = 'rgb(0, 119, 255)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(0, 100, 214)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(0, 105, 224)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(0, 107, 230)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(0, 109, 235)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(0, 112, 240)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(0, 95, 204)';
-      }
+      bgcolor = 'rgb(0, 119, 255,' + 1 + ')';
+      bgcolorlight = 'rgb(0, 119, 255,' + opacity + ')';
       break;
     case 4:
-      bgcolor = 'rgb(0, 247, 255)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(0, 207, 214)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(0, 217, 224)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(0, 222, 230)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(0, 227, 235)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(0, 232, 240)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(0, 197, 204)';
-      }
+      bgcolor = 'rgb(0, 247, 255,' + 1 + ')';
+      bgcolorlight = 'rgb(0, 247, 255,' + opacity + ')';
       break;
     case 5:
-      bgcolor = 'rgb(0, 199, 149)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(0, 160, 120)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(0, 170, 128)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(0, 175, 131)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(0, 180, 135)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(0, 185, 139)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(0, 150, 112)';
-      }
+      bgcolor = 'rgb(0, 199, 149,' + 1 + ')';
+      bgcolorlight = 'rgb(0, 199, 149,' + opacity + ')';
       break;
     case 6:
-      bgcolor = 'rgb(0, 255, 98)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(0, 214, 82)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(0, 224, 86)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(0, 230, 88)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(0, 235, 90)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(0, 240, 92)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(0, 204, 78)';
-      }
+      bgcolor = 'rgb(0, 255, 98,' + 1 + ')';
+      bgcolorlight = 'rgb(0, 255, 98,' + opacity + ')';
       break;
     case 7:
-      bgcolor = 'rgb(60, 255, 0)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(50, 214, 0)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(52, 224, 0)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(54, 230, 0)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(55, 235, 0)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(56, 240, 0)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(48, 204, 0)';
-      }
+      bgcolor = 'rgb(60, 255, 0,' + 1 + ')';
+      bgcolorlight = 'rgb(60, 255, 0,' + opacity + ')';
       break;
     case 8:
-      bgcolor = 'rgb(50, 175, 0)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(61, 216, 0)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(58, 206, 0)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(57, 201, 0)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(55, 196, 0)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(54, 190, 0)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(64, 226, 0)';
-      }
+      bgcolor = 'rgb(50, 175, 0,' + 1 + ')';
+      bgcolorlight = 'rgb(50, 175, 0,' + opacity + ')';
       break;
     case 9:
-      bgcolor = 'rgb(168, 240, 0)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(139, 199, 0)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(146, 209, 0)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(150, 214, 0)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(154, 219, 0)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(157, 224, 0)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(133, 190, 0)';
-      }
+      bgcolor = 'rgb(168, 240, 0,' + 1 + ')';
+      bgcolorlight = 'rgb(168, 240, 0,' + opacity + ')';
       break;
     case 10:
-      bgcolor = 'rgb(255, 238, 0)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(214, 200, 0)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(224, 209, 0)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(230, 214, 0)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(235, 219, 0)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(240, 224, 0)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(204, 190, 0)';
-      }
+      bgcolor = 'rgb(255, 238, 0,' + 1 + ')';
+      bgcolorlight = 'rgb(255, 238, 0,' + opacity + ')';
       break;
     case 11:
-      bgcolor = 'rgb(255, 166, 0)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(214, 139, 0)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(224, 146, 0)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(230, 149, 0)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(235, 152, 0)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(240, 156, 0)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(204, 133, 0)';
-      }
+      bgcolor = 'rgb(255, 166, 0,' + 1 + ')';
+      bgcolorlight = 'rgb(255, 166, 0,' + opacity + ')';
       break;
     case 12:
-      bgcolor = 'rgb(255, 94, 0)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(214, 79, 0)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(224, 82, 0)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(230, 84, 0)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(235, 86, 0)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(240, 88, 0)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(204, 75, 0)';
-      }
+      bgcolor = 'rgb(255, 94, 0,' + 1 + ')';
+      bgcolorlight = 'rgb(255, 94, 0,' + opacity + ')';
       break;
     case 13:
-      bgcolor = 'rgb(187, 184, 0)';
-      if (scorecb >= 15) {
-        bgcolorlight = 'rgb(146, 144, 0)';
-      }
-      if (scorecb >= 20) {
-        bgcolorlight = 'rgb(156, 154, 0)';
-      }
-      if (scorecb >= 25) {
-        bgcolorlight = 'rgb(163, 160, 0)';
-      }
-      if (scorecb >= 30) {
-        bgcolorlight = 'rgb(168, 165, 0)';
-      }
-      if (scorecb >= 35) {
-        bgcolorlight = 'rgb(172, 169, 0)';
-      }
-      if (scorecb < 15) {
-        bgcolorlight = 'rgb(136, 134, 0)';
-      }
+      bgcolor = 'rgb(187, 184, 0,' + 1 + ')';
+      bgcolorlight = 'rgb(187, 184, 0,' + opacity + ')';
+      break;
+    case 14:
+      bgcolor = 'rgb(124, 49, 49,' + 1 + ')';
+      bgcolorlight = 'rgb(124, 49, 49,' + opacity + ')';
+      break;
+    case 15:
+      bgcolor = 'rgb(124, 0 ,140,' + 1 + ')';
+      bgcolorlight = 'rgb(124, 0 ,140,' + opacity + ')';
       break;
   }
   for (k = 0; k < boxlength; k++) {
@@ -491,10 +286,6 @@ function savebestscore() {
 }
 document.addEventListener("deviceready", onDeviceReady, false);
 
-function onDeviceReady() {
-  document.addEventListener("backbutton", onBackButton, false);
-}
-
 function onBackButton() {
   if (mainmenu == 1) {
     navigator.app.exitApp();
@@ -502,6 +293,18 @@ function onBackButton() {
     location.reload();
   }
 }
-document.addEventListener("deviceready", function () {
-  onDeviceReady();
-});
+var admobid = {
+  banner: '',
+};
+
+function onDeviceReady() {
+  document.addEventListener("backbutton", onBackButton, false);
+  AdMob.createBanner({
+    adId: admobid.banner,
+    position: AdMob.AD_POSITION.BOTTOM_CENTER,
+    isTesting: true,
+    overlap: false,
+    offsetTopBar: false,
+    bgColor: 'black'
+  });
+}
