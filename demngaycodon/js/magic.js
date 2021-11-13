@@ -239,7 +239,7 @@ getClass("buttonsk")[0].addEventListener("click", function () {
 function loadevent() {
   openwindow = 1;
   getClass("event")[0].style.display = "block";
-  getClass("event")[0].innerHTML = '<div class="exitevent"><i class="fas fa-sign-out-alt"></i></div><div div class="mainevent"><h3>Nhấn (+) để tạo sự kiện của bạn</h3><div class="inputField"><input type="text" placeholder="Thêm sự kiện của bạn" /><button class="btnaddevent waves-effect"> <i class="fas fa-plus"></i> </button></div><ul class="todoList"></ul><div class="footer"><div class="footers"> <span>Bạn có <span class="pendingTasks"></span> sự kiện</span></div><div class="footers"><button class="waves-effect">Xóa tất cả</button></div></div></div>';
+  getClass("event")[0].innerHTML = '<div class="exitevent"><i class="fas fa-sign-out-alt"></i></div><div div class="mainevent"><h4>Nhấn (+) để tạo sự kiện của bạn</h4><div class="inputField"><input type="text" placeholder="Thêm sự kiện của bạn" /><button class="btnaddevent waves-effect"> <i class="fas fa-plus"></i> </button></div><ul class="todoList"></ul><div class="footer"><div class="footers"> <span>Bạn có <span class="pendingTasks"></span> sự kiện</span></div><div class="footers"><button class="waves-effect">Xóa tất cả</button></div></div></div>';
   getClass("dialog")[0].classList.remove("active");
   getClass("select-options")[0].classList.remove("active");
   showTasks();

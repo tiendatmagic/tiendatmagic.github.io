@@ -1124,7 +1124,7 @@ input[type="date"] {
 }
 
 .event .todoList {
-  height: 57vh;
+  height: 55vh;
   overflow-y: scroll;
   margin-top: 10px;
 }
