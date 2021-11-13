@@ -711,6 +711,9 @@ function loadfont() {
   for (i = 0; i < getQueryAll('input').length; i++) {
     getQueryAll('input')[i].style.fontFamily = fontfamily + "," + "sans-serif";
   }
+  for (ii = 0; ii < getQueryAll('*').length; ii++) {
+    getQueryAll('*')[ii].style.fontFamily = fontfamily + "," + "sans-serif";
+  }
 }
 
 function loaddarkdialog() {
