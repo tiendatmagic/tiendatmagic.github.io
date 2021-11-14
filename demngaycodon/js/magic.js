@@ -393,7 +393,7 @@ getClass("sli5")[0].addEventListener("click", function () {
   getClass("dialog")[0].classList.toggle("active");
   getClass("select-options")[0].classList.remove("active");
   getClass("blur")[0].classList.add("active");
-  getClass("dialog")[0].innerHTML = '<div class="ops"><label for="ndt">Nội dung trên</label><input type="text" id="ndt" value="" /></div><div class="ops mt-15"><label for="ndd">Nội dung dưới</label><input type="text" id="ndd" value="" /></div><div class="ops-buttons"><button id="xacnhan"class="waves-effect">Xác nhận</button><button id="huy" class="waves-effect">Hủy</button></div>';
+  getClass("dialog")[0].innerHTML = '<div class="ops"><label for="ndt">Tiêu đề trên</label><input type="text" id="ndt" value="" /></div><div class="ops mt-15"><label for="ndd">Tiêu đề dưới</label><input type="text" id="ndd" value="" /></div><div class="ops-buttons"><button id="xacnhan"class="waves-effect">Xác nhận</button><button id="huy" class="waves-effect">Hủy</button></div>';
   getId("xacnhan").addEventListener("click", function () {
     setTimeout(function () {
       getClass("info1")[0].innerText = getId("ndt").value;
@@ -420,6 +420,38 @@ getClass("sli5")[0].addEventListener("click", function () {
   loadfont();
   loaddarkdialog();
 });
+
+
+getClass("sli10")[0].addEventListener("click", function () {
+  openwindow = 2;
+  getClass("dialog")[0].classList.toggle("active");
+  getClass("select-options")[0].classList.remove("active");
+  getClass("blur")[0].classList.add("active");
+  getClass("dialog")[0].innerHTML = '<div class="ops"><label for="ndd">Nội dung trạng thái</label><textarea type="text" id="ndtt" value=""> </textarea></div><div class="ops-buttons"><button id="xacnhantt"class="waves-effect">Xác nhận</button><button id="huy" class="waves-effect">Hủy</button></div>';
+
+
+  getId("xacnhantt").addEventListener("click", function () {
+    setTimeout(function () {
+      getClass("dstatus")[0].innerText = getId("ndtt").value;
+      strangthai = getId("ndtt").value;
+      localStorage.setItem("strangthai", JSON.stringify(strangthai));
+      getClass("dialog")[0].classList.toggle("active");
+      getClass("blur")[0].classList.remove("active");
+    }, 300);
+  });
+  getId("huy").addEventListener("click", function () {
+    setTimeout(function () {
+      openwindow = 1;
+      getClass("dialog")[0].classList.toggle("active");
+      getClass("blur")[0].classList.remove("active");
+    }, 300);
+  });
+  getId("ndtt").value = getClass("dstatus")[0].innerText;
+  loadfont();
+  loaddarkdialog();
+});
+
+
 getClass("sli6")[0].addEventListener("click", function () {
   openwindow = 2;
   getClass("select-options")[0].classList.toggle("active");
