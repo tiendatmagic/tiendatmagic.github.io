@@ -633,6 +633,7 @@ function onBackButton() {
     getClass("modalq")[0].classList.remove("active");
     getClass("dialog")[0].classList.remove("active");
     getClass("select-options")[0].classList.remove("active");
+    getClass("fontfa")[0].classList.remove("active");
     openwindow = 1;
   } else if (openwindow == 1) {
     getClass("event")[0].style.display = "none";
