@@ -714,15 +714,15 @@ input[type="date"] {
   height: 110px;
   margin: 0 auto;
   border-radius: 20px;
-  -webkit-box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa,
-    -3px -3px calc(3px * 1.6) #eeeeee;
-  box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
+  -webkit-box-shadow: 2px 2px calc(2px * 1.6) #aaaaaa,
+    -2px -2px calc(3px * 1.6) #eeeeee;
+  box-shadow: 2px 2px calc(2px * 1.6) #aaaaaa, -2px -2px calc(3px * 1.6) #eeeeee;
 }
 
 .personal_info.dark {
-  -webkit-box-shadow: 3px 3px calc(3px * 1.6) #131313,
-    -3px -3px calc(3px * 1.6) #444444;
-  box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
+  -webkit-box-shadow: 2px 2px calc(2px * 1.6) #131313,
+    -2px -2px calc(2px * 1.6) #444444;
+  box-shadow: 2px 2px calc(2px * 1.6) #131313, -2px -2px calc(2px * 1.6) #444444;
 }
 
 .personal_info .personall {
@@ -937,15 +937,15 @@ input[type="date"] {
   font-size: 14px;
   word-break: break-all;
   overflow: scroll;
-  -webkit-box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa,
-    -3px -3px calc(3px * 1.6) #eeeeee;
-  box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
+  -webkit-box-shadow: 2px 2px calc(2px * 1.6) #aaaaaa,
+    -2px -2px calc(2px * 1.6) #eeeeee;
+  box-shadow: 2px 2px calc(2px * 1.6) #aaaaaa, -2px -2px calc(2px * 1.6) #eeeeee;
 }
 
 .contentstatus.dark {
-  -webkit-box-shadow: 3px 3px calc(3px * 1.6) #131313,
-    -3px -3px calc(3px * 1.6) #444444;
-  box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
+  -webkit-box-shadow: 2px 2px calc(2px * 1.6) #131313,
+    -2px -2px calc(2px * 1.6) #444444;
+  box-shadow: 2px 2px calc(2px * 1.6) #131313, -2px -2px calc(2px * 1.6) #444444;
 }
 
 .contentstatus::-webkit-scrollbar,
@@ -1123,6 +1123,7 @@ input[type="date"] {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  border-radius: 50%;
 }
 
 .event .todoList {

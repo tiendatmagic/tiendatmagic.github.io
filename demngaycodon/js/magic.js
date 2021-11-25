@@ -250,7 +250,6 @@ function loaddark() {
     getClass("lightoff")[0].style.display = "block";
     getClass("lighton")[0].style.display = "none";
     dmhns = "#272727";
-    getClass("htitle")[0].style.color = "#fff";
     getClass("navigation")[0].style.backgroundColor = "#272727";
     getClass("statuseveryday")[0].style.backgroundColor = dmhns;
     getQuery(".content .circle").classList.add("dark");
@@ -271,7 +270,6 @@ function loaddark() {
     getClass("lightoff")[0].style.display = "none";
     getClass("lighton")[0].style.display = "block";
     dmhns = "#fff";
-    getClass("htitle")[0].style.color = "#272727";
     getClass("navigation")[0].style.backgroundColor = "#fff";
     getClass("statuseveryday")[0].style.backgroundColor = dmhns;
     getQuery(".content .circle").classList.remove("dark");
