@@ -13,7 +13,7 @@
   left: 0;
   background-image: linear-gradient(to bottom, #ff0099, #7256ff);
   background-size: 400% 400%;
-  animation: gradient 2s ease infinite;
+  animation: gradient 3s ease infinite;
 }
 
 .monaco-workbench
@@ -27,7 +27,7 @@
   background-image: linear-gradient(to right, #ff0099, #7256ff);
   height: 3px;
   background-size: 400% 400%;
-  animation: gradient 2s ease infinite;
+  animation: gradient 3s ease infinite;
 }
 
 @keyframes gradient {
