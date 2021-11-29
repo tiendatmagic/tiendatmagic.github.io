@@ -11,9 +11,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-image: linear-gradient(to bottom, #ff0099, #7256ff);
-  background-size: 400% 400%;
-  animation: gradient 3s ease infinite;
+  background-image: linear-gradient(to bottom, #ff0080, #6a2aff);
+  background-size: 200%;
+  animation: gradient 3s linear infinite;
 }
 
 .monaco-workbench
@@ -24,10 +24,10 @@
   .tabs-container
   > .tab.active.tab-border-top
   > .tab-border-top-container {
-  background-image: linear-gradient(to right, #ff0099, #7256ff);
   height: 3px;
-  background-size: 400% 400%;
-  animation: gradient 3s ease infinite;
+  background-image: linear-gradient(to right, #ff0080, #6a2aff);
+  background-size: 200%;
+  animation: gradient 3s linear infinite;
 }
 
 @keyframes gradient {
