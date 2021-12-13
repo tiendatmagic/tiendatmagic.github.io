@@ -11,8 +11,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  background-image: linear-gradient(to bottom, #ff0080, #6a2aff);
-  background-size: 200%;
+  background: linear-gradient(-45deg, #ff0080, #6a2aff, #2ad1ff);
+  background-size: 400% 400%;
   animation: gradient 3s linear infinite;
 }
 
@@ -25,8 +25,8 @@
   > .tab.active.tab-border-top
   > .tab-border-top-container {
   height: 3px;
-  background-image: linear-gradient(to right, #ff0080, #6a2aff);
-  background-size: 200%;
+  background: linear-gradient(-45deg, #ff0080, #6a2aff, #2ad1ff);
+  background-size: 400% 400%;
   animation: gradient 3s linear infinite;
 }
 
