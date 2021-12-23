@@ -1,35 +1,40 @@
-var list_item = [{
-  name: 'Web UI',
-  link: './ui/index.html',
-},
-{
-  name: 'Game dọn dẹp',
-  link: './dondepahihi/index.html',
-},
-{
-  name: 'Trang web đọc suy nghĩ với con số qua màn hình',
-  link: './magicnumber/index.html',
-},
-{
-  name: 'Game Freaking Math',
-  link: './freakingmath/index.html',
-},
-{
-  name: 'Game ai là triệu phú',
-  link: './ailatrieuphu/index.html',
-},
-{
-  name: 'Game đánh bài online',
-  link: './danhbaionline/index.html',
-},
-{
-  name: 'Đếm ngày cô đơn',
-  link: './demngaycodon/index.html',
-},
-{
-  name: 'Xếp đồ ăn',
-  link: './xepdoan/index.html',
-},
+var list_item = [
+  {
+    name: 'Web UI',
+    link: './ui/index.html',
+  },
+  {
+    name: 'Web download Windows, Office',
+    link: './downloadall/index.html',
+  },
+  {
+    name: 'Game dọn dẹp',
+    link: './dondepahihi/index.html',
+  },
+  {
+    name: 'Trang web đọc suy nghĩ với con số qua màn hình',
+    link: './magicnumber/index.html',
+  },
+  {
+    name: 'Game Freaking Math',
+    link: './freakingmath/index.html',
+  },
+  {
+    name: 'Game ai là triệu phú',
+    link: './ailatrieuphu/index.html',
+  },
+  {
+    name: 'Game đánh bài online',
+    link: './danhbaionline/index.html',
+  },
+  {
+    name: 'Đếm ngày cô đơn',
+    link: './demngaycodon/index.html',
+  },
+  {
+    name: 'Xếp đồ ăn',
+    link: './xepdoan/index.html',
+  },
 ]
 
 var list_item_map = list_item.map(function (x) {
