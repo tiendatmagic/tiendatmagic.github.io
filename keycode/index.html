@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keycode</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: linear-gradient(to right, #c933d7, #e03091);
+    }
+
+    .wrapper {
+      width: 90%;
+      max-width: 300px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .wrapper .text {
+      font-size: 25px;
+      font-weight: bold;
+      color: #ca3b8e;
+    }
+
+    .wrapper .showkey {
+      display: none;
+    }
+
+    .wrapper .key-code {
+      color: #ca3b8e;
+      width: 110px;
+      height: 110px;
+      border: 5px solid #ca3b8e;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 45px;
+      font-weight: bold;
+      margin: 0 auto;
+    }
+
+    .wrapper .key {
+      font-size: 43px;
+      color: #ca3b8e;
+      margin: 10px auto;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .wrapper .key::selection {
+      background-color: #ca3b8e;
+      color: #fff;
+
+    }
+
+
+    .wrapper .more {
+      display: flex;
+      margin: 10px auto;
+    }
+
+    .wrapper .more div {
+      flex: 1;
+      font-weight: bold;
+      font-size: 18px;
+      white-space: nowrap;
+      padding: 0 10px;
+    }
+
+    .wrapper .more div:last-child {
+      border-left: 1px solid gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="text">
+      Press any key
+    </div>
+
+    <div class="showkey">
+      <div class="key-code">
+
+      </div>
+      <div class="key">
+
+      </div>
+      <div class="more">
+        <div class="code"></div>
+        <div class="keyc"></div>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    window.addEventListener('keydown', function (e) {
+      console.log(e)
+
+      document.getElementsByClassName("text")[0].style.display = 'none';
+      document.getElementsByClassName("showkey")[0].style.display = 'block';
+      document.getElementsByClassName("key-code")[0].innerText = e.keyCode;
+      document.getElementsByClassName("keyc")[0].innerText = "Code: " + e.keyCode;
+      document.getElementsByClassName("code")[0].innerText = "Key: " + e.key;
+      document.getElementsByClassName("key")[0].innerText = e.key;
+      if (e.keyCode == 32) {
+        document.getElementsByClassName("code")[0].innerText = "Key: " + "SPACE";
+        document.getElementsByClassName("key")[0].innerText = "SPACE";
+      }
+    });
+  </script>
+</body>
+
+</html>
