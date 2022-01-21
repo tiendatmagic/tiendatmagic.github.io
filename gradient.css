@@ -11,9 +11,21 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: linear-gradient(-45deg, #ff0080, #6a2aff, #2ad1ff);
-  background-size: 200% 200%;
-  animation: gradient 4s linear infinite;
+  background: linear-gradient(-45deg, #ff092a, #ff0095, #7700ff, #00ffb3);
+  background-size: 300% 300%;
+  animation: gradientt 4s linear infinite alternate;
+}
+
+@keyframes gradientt {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
 }
 
 .monaco-workbench
@@ -25,9 +37,9 @@
   > .tab.active.tab-border-top
   > .tab-border-top-container {
   height: 3px;
-  background: linear-gradient(-45deg, #ff0080, #6a2aff, #2ad1ff);
-  background-size: 200% 200%;
-  animation: gradient 4s linear infinite;
+  background: linear-gradient(-45deg, #ff092a, #ff0095, #7700ff, #00ffb3);
+  background-size: 300% 300%;
+  animation: gradient 4s linear infinite alternate;
 }
 
 @keyframes gradient {
@@ -40,4 +52,35 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+.composite-bar > div > ul > li.action-item.icon.checked > a {
+  background-color: rgba(255, 255, 255, 0.08);
+  animation: colorgradient 4s infinite alternate-reverse;
+}
+
+@keyframes colorgradient {
+  0% {
+    color: #ff0077;
+  }
+  30% {
+    color: #ea00ff;
+  }
+  70% {
+    color: #008cff;
+  }
+  100% {
+    color: #00e1ff;
+  }
+}
+
+.monaco-sash.hover:before,
+.monaco-sash.active:before {
+  background: linear-gradient(
+    -45deg,
+    #ff092a,
+    #ff0095,
+    #7700ff,
+    #00ffb3
+  ) !important;
 }
