@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Bầu cua</title>
+   <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+   <div id="app">
+      <div id="scr">
+         <div class="score"></div>
+      </div>
+      <div class="version">
+         <p> v1.0 </p>
+      </div>
+      <div class="nametitle">
+         <p>Bầu cua</p>
+      </div>
+      <div id="mainstart">
+         <div>
+            <input type="button" class="btn-start" id="btn-start" value="Start" />
+            <input type="button" class="btn-rate" id="btn-rate" value="Rate" />
+         </div>
+      </div>
+      <div id="maingame">
+         <div class="wrapper-maingame">
+            <div class="list-money">
+               <div class="lmoney" data-money="10000">
+                  <img src="./img/10k.png" alt="">
+               </div>
+               <div class="lmoney" data-money="20000">
+                  <img src="./img/20k.png" alt="">
+               </div>
+               <div class="lmoney" data-money="50000">
+                  <img src="./img/50k.png" alt="">
+               </div>
+               <div class="lmoney" data-money="100000">
+                  <img src="./img/100k.png" alt="">
+
+               </div>
+               <div class="lmoney" data-money="200000">
+                  <img src="./img/200k.png" alt="">
+
+               </div>
+               <div class="lmoney" data-money="500000">
+                  <img src="./img/500k.png" alt="">
+
+               </div>
+            </div>
+            <div class="plate" id="plate">
+               <div class="wrapper-plate" id="wrapper-plate">
+                  <div class="pitem"> <img src="./img/naiCube.png" alt=""></div>
+                  <div class="pitem"> <img src="./img/naiCube.png" alt=""></div>
+                  <div class="pitem"> <img src="./img/naiCube.png" alt=""></div>
+               </div>
+               <div class="bowl">
+
+               </div>
+            </div>
+
+            <div class="total"> 100000 </div>
+            <div class="place_a_bet">
+               <div class="column">
+                  <div class="list-1 listselect"> <img src="./img/naiBtn.png" alt=""> </div>
+                  <div class="list-2 listselect"> <img src="./img/bauBtn.png" alt=""></div>
+                  <div class="list-3 listselect"> <img src="./img/gaBtn.png" alt=""> </div>
+               </div>
+               <div class="column">
+                  <div class="list-4 listselect"> <img src="./img/caBtn.png" alt=""></div>
+                  <div class="list-5 listselect"> <img src="./img/cuaBtn.png" alt=""></div>
+                  <div class="list-6 listselect"> <img src="./img/tomBtn.png" alt=""></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <script src="cordova.js"></script>
+   <script src="./index.js"></script>
+</body>
+
+</html>
