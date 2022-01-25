@@ -75,6 +75,11 @@ function maingame() {
   for (i = 0; i < getClass("lmoney").length; i++) {
     getClass("lmoney")[i].onclick = function () {
       tselect = Number(this.getAttribute("data-money"));
+      for (j = 0; j < getClass("lmoney").length; j++) {
+        getClass("lmoney")[j].classList.remove("active");
+      }
+      this.classList.add("active");
+
     }
   }
   getId("wrapper-plate").onclick = function () {
@@ -99,9 +104,37 @@ function maingame() {
       }
     }
   }
+  var linknode;
+
+  function touchcoin() {
+    linknode = document.createElement("img");
+    var top = Math.ceil(Math.random() * 50);
+    var left = Math.ceil(Math.random() * 50);
+    switch (tselect) {
+      case 10000:
+        linknode.src = "./img/10k.png";
+        break;
+      case 20000:
+        linknode.src = "./img/20k.png";
+        break;
+      case 50000:
+        linknode.src = "./img/50k.png";
+        break;
+      case 100000:
+        linknode.src = "./img/100k.png";
+        break;
+      case 200000:
+        linknode.src = "./img/200k.png";
+        break;
+      case 500000:
+        linknode.src = "./img/500k.png";
+        break;
+    }
+
+    linknode.style = "position: absolute;top: " + top + "px;left: " + left + "px";
 
 
-
+  }
   {
     getClass("list-1")[0].onclick = function () {
       if (total >= 0 + tselect) {
@@ -112,7 +145,13 @@ function maingame() {
 
         localStorage.setItem("total", JSON.stringify(total));
         getClass("total")[0].innerText = total;
+
+
+
+        touchcoin();
+        document.querySelector(".list-1.listselect > div").appendChild(linknode);
       }
+
     }
     getClass("list-2")[0].onclick = function () {
       if (total >= 0 + tselect) {
@@ -122,6 +161,10 @@ function maingame() {
         total -= tselect;
         localStorage.setItem("total", JSON.stringify(total));
         getClass("total")[0].innerText = total;
+
+
+        touchcoin();
+        document.querySelector(".list-2.listselect > div").appendChild(linknode);
       }
     }
     getClass("list-3")[0].onclick = function () {
@@ -131,6 +174,9 @@ function maingame() {
         onselect2 += tselect;
         total -= tselect; localStorage.setItem("total", JSON.stringify(total));
         getClass("total")[0].innerText = total;
+
+        touchcoin();
+        document.querySelector(".list-3.listselect > div").appendChild(linknode);
       }
     }
     getClass("list-4")[0].onclick = function () {
@@ -140,6 +186,9 @@ function maingame() {
         onselect3 += tselect;
         total -= tselect; localStorage.setItem("total", JSON.stringify(total));
         getClass("total")[0].innerText = total;
+
+        touchcoin();
+        document.querySelector(".list-4.listselect > div").appendChild(linknode);
       }
     }
     getClass("list-5")[0].onclick = function () {
@@ -149,6 +198,9 @@ function maingame() {
         onselect4 += tselect;
         total -= tselect; localStorage.setItem("total", JSON.stringify(total));
         getClass("total")[0].innerText = total;
+
+        touchcoin();
+        document.querySelector(".list-5.listselect > div").appendChild(linknode);
       }
     }
     getClass("list-6")[0].onclick = function () {
@@ -158,6 +210,9 @@ function maingame() {
         onselect5 += tselect;
         total -= tselect; localStorage.setItem("total", JSON.stringify(total));
         getClass("total")[0].innerText = total;
+
+        touchcoin();
+        document.querySelector(".list-6.listselect > div").appendChild(linknode);
       }
     }
   }
@@ -327,11 +382,12 @@ function openresult() {
       total += onselect5 * 4;
     }
   }
-  resetnewgame();
+
+
 
   getClass("total")[0].innerText = total;
   localStorage.setItem("total", JSON.stringify(total));
-
+  resetnewgame();
   openimg();
 }
 
@@ -345,6 +401,17 @@ function resetnewgame() {
   onselect4 = 0;
   onselect5 = 0;
 
+  for (i = 0; i < document.querySelectorAll(".listselect .lcoin").length; i++
+  ) {
+    document.querySelectorAll(".listselect .lcoin")[i].innerHTML = "";
+  }
+
+  for (j = 0; j < document.querySelectorAll(".listselect img").length; j++
+  ) {
+    document.querySelectorAll(".listselect img")[j].classList.remove("success");
+  }
+
+
 }
 function openimg() {
 
@@ -352,21 +419,27 @@ function openimg() {
   switch (arrresult[0]) {
     case 1:
       document.querySelector(".plate > div > div:nth-child(1) > img").src = "./img/naiCube.png";
+      document.querySelector("div.list-1.listselect > img").classList.add("success");
       break;
     case 2:
       document.querySelector(".plate > div > div:nth-child(1) > img").src = "./img/bauCube.png";
+      document.querySelector("div.list-2.listselect > img").classList.add("success");
       break;
     case 3:
       document.querySelector(".plate > div > div:nth-child(1) > img").src = "./img/gaCube.png";
+      document.querySelector("div.list-3.listselect > img").classList.add("success");
       break;
     case 4:
       document.querySelector(".plate > div > div:nth-child(1) > img").src = "./img/caCube.png";
+      document.querySelector("div.list-4.listselect > img").classList.add("success");
       break;
     case 5:
       document.querySelector(".plate > div > div:nth-child(1) > img").src = "./img/cuaCube.png";
+      document.querySelector("div.list-5.listselect > img").classList.add("success");
       break;
     case 6:
       document.querySelector(".plate > div > div:nth-child(1) > img").src = "./img/tomCube.png";
+      document.querySelector("div.list-6.listselect > img").classList.add("success");
       break;
     default:
       break;
@@ -375,21 +448,27 @@ function openimg() {
   switch (arrresult[1]) {
     case 1:
       document.querySelector(".plate > div > div:nth-child(2) > img").src = "./img/naiCube.png";
+      document.querySelector("div.list-1.listselect > img").classList.add("success");
       break;
     case 2:
       document.querySelector(".plate > div > div:nth-child(2) > img").src = "./img/bauCube.png";
+      document.querySelector("div.list-2.listselect > img").classList.add("success");
       break;
     case 3:
       document.querySelector(".plate > div > div:nth-child(2) > img").src = "./img/gaCube.png";
+      document.querySelector("div.list-3.listselect > img").classList.add("success");
       break;
     case 4:
       document.querySelector(".plate > div > div:nth-child(2) > img").src = "./img/caCube.png";
+      document.querySelector("div.list-4.listselect > img").classList.add("success");
       break;
     case 5:
       document.querySelector(".plate > div > div:nth-child(2) > img").src = "./img/cuaCube.png";
+      document.querySelector("div.list-5.listselect > img").classList.add("success");
       break;
     case 6:
       document.querySelector(".plate > div > div:nth-child(2) > img").src = "./img/tomCube.png";
+      document.querySelector("div.list-6.listselect > img").classList.add("success");
       break;
     default:
       break;
@@ -398,21 +477,27 @@ function openimg() {
   switch (arrresult[2]) {
     case 1:
       document.querySelector(".plate > div > div:nth-child(3) > img").src = "./img/naiCube.png";
+      document.querySelector("div.list-1.listselect > img").classList.add("success");
       break;
     case 2:
       document.querySelector(".plate > div > div:nth-child(3) > img").src = "./img/bauCube.png";
+      document.querySelector("div.list-2.listselect > img").classList.add("success");
       break;
     case 3:
       document.querySelector(".plate > div > div:nth-child(3) > img").src = "./img/gaCube.png";
+      document.querySelector("div.list-3.listselect > img").classList.add("success");
       break;
     case 4:
       document.querySelector(".plate > div > div:nth-child(3) > img").src = "./img/caCube.png";
+      document.querySelector("div.list-4.listselect > img").classList.add("success");
       break;
     case 5:
       document.querySelector(".plate > div > div:nth-child(3) > img").src = "./img/cuaCube.png";
+      document.querySelector("div.list-5.listselect > img").classList.add("success");
       break;
     case 6:
       document.querySelector(".plate > div > div:nth-child(3) > img").src = "./img/tomCube.png";
+      document.querySelector("div.list-6.listselect > img").classList.add("success");
       break;
     default:
       break;
