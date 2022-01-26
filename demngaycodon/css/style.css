@@ -301,7 +301,7 @@ input[type="date"] {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 10px;
+  padding: 5px;
 }
 
 .main .header.hidden {
@@ -318,22 +318,33 @@ input[type="date"] {
 
 .addnotes,
 .exitevent {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   margin-bottom: 10px;
   background-color: deeppink;
-  color: #fff;
+  color: #000;
   border-radius: 4px;
   padding: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  cursor: pointer;
+  font-size: 26px;
+  font-weight: normal !important;
+}
+.exitevent {
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.exitevent:active {
+  background-color: rgba(108, 108, 108, 0.172);
 }
 
 .scontent {
@@ -818,7 +829,7 @@ input[type="date"] {
   -webkit-transition: 0.3s linear;
   -o-transition: 0.3s linear;
   transition: 0.3s linear;
-  padding: 10px;
+  padding: 7px;
   -webkit-box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa,
     -3px -3px calc(3px * 1.6) #eeeeee;
   box-shadow: 3px 3px calc(3px * 1.6) #aaaaaa, -3px -3px calc(3px * 1.6) #eeeeee;
@@ -1618,8 +1629,6 @@ input[type="date"] {
   .setting .pavatar {
     width: 130px;
     height: 130px;
-    margin: 10px auto;
-    padding: 10px;
   }
 
   .datetime {
@@ -1958,8 +1967,8 @@ input[type="date"] {
 
   .addnotes,
   .exitevent {
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
   }
   .event h3 {
     font-size: 30px;

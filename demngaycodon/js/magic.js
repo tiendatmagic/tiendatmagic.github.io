@@ -239,7 +239,13 @@ getClass("buttonsk")[0].addEventListener("click", function () {
 function loadevent() {
   openwindow = 1;
   getClass("event")[0].style.display = "block";
-  getClass("event")[0].innerHTML = '<div class="exitevent"><i class="fas fa-sign-out-alt"></i></div><div div class="mainevent"><h4>Nhấn (+) để tạo sự kiện của bạn</h4><div class="inputField"><input type="text" placeholder="Thêm sự kiện của bạn" /><button class="btnaddevent waves-effect"> <i class="fas fa-plus"></i> </button></div><ul class="todoList"></ul><div class="footer"><div class="footers"> <span>Bạn có <span class="pendingTasks"></span> sự kiện</span></div><div class="footers"><button class="waves-effect">Xóa tất cả</button></div></div></div>';
+  getClass("event")[0].innerHTML = '<div class="exitevent"><i class="fas fa-arrow-left"></i></div><div div class="mainevent"><h4>Nhấn (+) để tạo sự kiện của bạn</h4><div class="inputField"><input type="text" placeholder="Thêm sự kiện của bạn" /><button class="btnaddevent waves-effect"> <i class="fas fa-plus"></i> </button></div><ul class="todoList"></ul><div class="footer"><div class="footers"> <span>Bạn có <span class="pendingTasks"></span> sự kiện</span></div><div class="footers"><button class="waves-effect">Xóa tất cả</button></div></div></div>';
+  if (dark === 1) {
+    getClass("exitevent")[0].style.color = "#fff";
+  }
+  else {
+    getClass("exitevent")[0].style.color = "#000";
+  }
   getClass("dialog")[0].classList.remove("active");
   getClass("select-options")[0].classList.remove("active");
   showTasks();
@@ -330,22 +336,28 @@ getClass("sli3")[0].addEventListener("click", function () {
     localStorage.setItem("hiddentitle", JSON.stringify(hiddentitle));
   };
   getId("acceptevent2").addEventListener("click", function () {
-    setTimeout(function () {
-      dtieude = getId("stieude").value;
-      getClass("stitle")[0].innerText = dtieude;
-      localStorage.setItem("dtieude", JSON.stringify(dtieude));
-      displayprofile();
-      getId("stieude").innerText === "";
-      getClass("dialog")[0].classList.toggle("active");
-      getClass("blur")[0].classList.remove("active");
-    }, 300);
+    if (this.disable == undefined) {
+      this.disable = true;
+      setTimeout(function () {
+        dtieude = getId("stieude").value;
+        getClass("stitle")[0].innerText = dtieude;
+        localStorage.setItem("dtieude", JSON.stringify(dtieude));
+        displayprofile();
+        getId("stieude").innerText === "";
+        getClass("dialog")[0].classList.toggle("active");
+        getClass("blur")[0].classList.remove("active");
+      }, 300);
+    }
   });
   getId("declineevent3").addEventListener("click", function () {
-    setTimeout(function () {
-      openwindow = 1;
-      getClass("dialog")[0].classList.toggle("active");
-      getClass("blur")[0].classList.remove("active");
-    }, 300);
+    if (this.disable == undefined) {
+      this.disable = true;
+      setTimeout(function () {
+        openwindow = 1;
+        getClass("dialog")[0].classList.remove("active");
+        getClass("blur")[0].classList.remove("active");
+      }, 300);
+    }
   });
   loadfont();
   loaddarkdialog();
@@ -357,30 +369,36 @@ getClass("sli4")[0].addEventListener("click", function () {
   getClass("dialog")[0].innerHTML = '<div class="ops"><label for="contentevent">Ngày bắt đầu đếm</label><input type="date" name="ngaybatdau2" min="1900-01-01" id="ngaybatdau2" value="" /></div><div class="ops-buttons"><button id="xacnhanevent2" class="waves-effect">Xác nhận</button><button id="huyevent2" class="waves-effect">Hủy</button></div>';
   getClass("blur")[0].classList.add("active");
   getId("xacnhanevent2").addEventListener("click", function () {
-    setTimeout(function () {
-      if (getId("ngaybatdau2").value === "") {
-        openwindow = 1;
-        getClass("dialog")[0].classList.toggle("active");
-        getClass("blur")[0].classList.remove("active");
-      } else {
-        dngaybatdau = getId("ngaybatdau2").value;
-        getClass("snbdcd")[0].innerText = new Date(ngaybatdau2.value).getDate() + "/" + (new Date(ngaybatdau2.value).getMonth() + 1) + "/" + new Date(ngaybatdau2.value).getFullYear();
-        sngaybatdau = Date.parse(dngaybatdau) - 25200000;
-        localStorage.setItem("dngaybatdau", JSON.stringify(dngaybatdau));
-        localStorage.setItem("sngaybatdau", JSON.stringify(sngaybatdau));
-        getId("ngaybatdau2").value = "";
-        getClass("dialog")[0].classList.toggle("active");
-        getClass("blur")[0].classList.remove("active");
-        displayprofile();
-      }
-    }, 300);
+    if (this.disable == undefined) {
+      this.disable = true;
+      setTimeout(function () {
+        if (getId("ngaybatdau2").value === "") {
+          openwindow = 1;
+          getClass("dialog")[0].classList.toggle("active");
+          getClass("blur")[0].classList.remove("active");
+        } else {
+          dngaybatdau = getId("ngaybatdau2").value;
+          getClass("snbdcd")[0].innerText = new Date(ngaybatdau2.value).getDate() + "/" + (new Date(ngaybatdau2.value).getMonth() + 1) + "/" + new Date(ngaybatdau2.value).getFullYear();
+          sngaybatdau = Date.parse(dngaybatdau) - 25200000;
+          localStorage.setItem("dngaybatdau", JSON.stringify(dngaybatdau));
+          localStorage.setItem("sngaybatdau", JSON.stringify(sngaybatdau));
+          getId("ngaybatdau2").value = "";
+          getClass("dialog")[0].classList.toggle("active");
+          getClass("blur")[0].classList.remove("active");
+          displayprofile();
+        }
+      }, 300);
+    }
   });
   getId("huyevent2").addEventListener("click", function () {
-    setTimeout(function () {
-      openwindow = 1;
-      getClass("dialog")[0].classList.toggle("active");
-      getClass("blur")[0].classList.remove("active");
-    }, 300);
+    if (this.disable == undefined) {
+      this.disable = true;
+      setTimeout(function () {
+        openwindow = 1;
+        getClass("dialog")[0].classList.remove("active");
+        getClass("blur")[0].classList.remove("active");
+      }, 300);
+    }
   });
   getId("ngaybatdau2").max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
   loadfont();
@@ -393,23 +411,29 @@ getClass("sli5")[0].addEventListener("click", function () {
   getClass("blur")[0].classList.add("active");
   getClass("dialog")[0].innerHTML = '<div class="ops"><label for="ndt">Tiêu đề trên</label><input type="text" id="ndt" value="" /></div><div class="ops mt-15"><label for="ndd">Tiêu đề dưới</label><input type="text" id="ndd" value="" /></div><div class="ops-buttons"><button id="xacnhan"class="waves-effect">Xác nhận</button><button id="huy" class="waves-effect">Hủy</button></div>';
   getId("xacnhan").addEventListener("click", function () {
-    setTimeout(function () {
-      getClass("info1")[0].innerText = getId("ndt").value;
-      getClass("info2")[0].innerText = getId("ndd").value;
-      info1 = getId("ndt").value;
-      localStorage.setItem("info1", JSON.stringify(info1));
-      info2 = getId("ndd").value;
-      localStorage.setItem("info2", JSON.stringify(info2));
-      getClass("dialog")[0].classList.toggle("active");
-      getClass("blur")[0].classList.remove("active");
-    }, 300);
+    if (this.disable == undefined) {
+      this.disable = true;
+      setTimeout(function () {
+        getClass("info1")[0].innerText = getId("ndt").value;
+        getClass("info2")[0].innerText = getId("ndd").value;
+        info1 = getId("ndt").value;
+        localStorage.setItem("info1", JSON.stringify(info1));
+        info2 = getId("ndd").value;
+        localStorage.setItem("info2", JSON.stringify(info2));
+        getClass("dialog")[0].classList.toggle("active");
+        getClass("blur")[0].classList.remove("active");
+      }, 300);
+    }
   });
   getId("huy").addEventListener("click", function () {
-    setTimeout(function () {
-      openwindow = 1;
-      getClass("dialog")[0].classList.toggle("active");
-      getClass("blur")[0].classList.remove("active");
-    }, 300);
+    if (this.disable == undefined) {
+      this.disable = true;
+      setTimeout(function () {
+        openwindow = 1;
+        getClass("dialog")[0].classList.remove("active");
+        getClass("blur")[0].classList.remove("active");
+      }, 300);
+    }
   });
   getId("ndt").value = info1;
   getId("ndd").value = info2;
@@ -429,20 +453,26 @@ getClass("sli10")[0].addEventListener("click", function () {
 
 
   getId("xacnhantt").addEventListener("click", function () {
-    setTimeout(function () {
-      getClass("dstatus")[0].innerText = getId("ndtt").value;
-      strangthai = getId("ndtt").value;
-      localStorage.setItem("strangthai", JSON.stringify(strangthai));
-      getClass("dialog")[0].classList.toggle("active");
-      getClass("blur")[0].classList.remove("active");
-    }, 300);
+    if (this.disable == undefined) {
+      this.disable = true;
+      setTimeout(function () {
+        getClass("dstatus")[0].innerText = getId("ndtt").value;
+        strangthai = getId("ndtt").value;
+        localStorage.setItem("strangthai", JSON.stringify(strangthai));
+        getClass("dialog")[0].classList.toggle("active");
+        getClass("blur")[0].classList.remove("active");
+      }, 300);
+    }
   });
   getId("huy").addEventListener("click", function () {
-    setTimeout(function () {
-      openwindow = 1;
-      getClass("dialog")[0].classList.toggle("active");
-      getClass("blur")[0].classList.remove("active");
-    }, 300);
+    if (this.disable == undefined) {
+      this.disable = true;
+      setTimeout(function () {
+        openwindow = 1;
+        getClass("dialog")[0].classList.remove("active");
+        getClass("blur")[0].classList.remove("active");
+      }, 300);
+    }
   });
   getId("ndtt").value = getClass("dstatus")[0].innerText;
   loadfont();
@@ -546,16 +576,16 @@ function showTasks() {
   });
   loaddark();
   getClass("exitevent")[0].addEventListener("click", function () {
-    openwindow = 1;
-    getClass("event")[0].style.display = "none";
-    getClass("blur")[0].classList.remove("active");
     setTimeout(function () {
+      openwindow = 1;
+      getClass("event")[0].style.display = "none";
+      getClass("blur")[0].classList.remove("active");
       AdMob.prepareInterstitial({
         adId: admobid.interstitial,
         isTesting: true,
         autoShow: true,
       });
-    }, 1000);
+    }, 300);
   });
   const inputBox = getQuery(".inputField input");
   const addBtn = getQuery(".inputField button");
@@ -715,6 +745,9 @@ function displayprofile() {
       getClass("dphut")[0].innerText = new Date().getMinutes();
       getClass("dgiay")[0].innerText = new Date().getSeconds();
     }, 1000);
+    getQueryAll(".blur")[0].onclick = function () {
+      onBackButton();
+    }
     switch (sgt) {
       case "Nam":
         {
