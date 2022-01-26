@@ -1,4 +1,31 @@
 .monaco-workbench
+  .part.titlebar
+  > .window-controls-container
+  > .window-icon.window-close:hover {
+  background-color: deeppink;
+}
+
+.monaco-scrollable-element > .scrollbar > .slider,
+.monaco-scrollable-element > .scrollbar > .slider.active,
+.monaco-scrollable-element > .scrollbar > .slider:hover {
+  border-radius: 10px;
+  background: linear-gradient(-45deg, #ff092a, #ff0095, #6a00ff, #0091ff);
+  background-size: 300% 300%;
+  animation: gradienttt 4s linear infinite alternate;
+}
+@keyframes gradienttt {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+.monaco-workbench
   .activitybar
   > .content
   :not(.monaco-menu)
@@ -56,7 +83,8 @@
 
 .composite-bar > div > ul > li.action-item.icon.checked > a {
   background-color: rgba(255, 255, 255, 0.08);
-  animation: colorgradient 4s infinite alternate-reverse;
+  font-weight: 900;
+  animation: colorgradient 1.5s infinite alternate-reverse;
 }
 
 @keyframes colorgradient {
