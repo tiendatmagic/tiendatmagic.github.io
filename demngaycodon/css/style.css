@@ -191,8 +191,8 @@ p {
   align-items: center;
 }
 
-.profile .selectgender div span {
-  margin-left: 20px;
+.profile .selectgender div label {
+  padding-left: 20px;
 }
 
 input[type="radio"] {
@@ -272,8 +272,8 @@ input[type="date"] {
   outline: none;
   padding: 12px 15px;
   border-radius: 4px;
-  -webkit-box-shadow: 1px 0px 2px #000;
-  box-shadow: 1px 0px 2px #000;
+  -webkit-box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
+  box-shadow: 0 3px 1px -2px #0003, 0 2px 2px #00000024, 0 1px 5px #0000001f;
 }
 
 .ops-buttons {
@@ -543,7 +543,7 @@ input[type="date"] {
 .content .buttonsk.dark {
   -webkit-box-shadow: 2px 2px calc(2px * 1.6) #131313,
     -2px -2px calc(2px * 1.6) #444444;
-  box-shadow: 2px 2px calc(2px * 1.6) #131313, -2px -2px calc(2px * 1.6) #444444;
+  box-shadow: 2px 2px calc(2px * 1.6) #111, -2px -2px calc(2px * 1.6) #383838;
 }
 
 .content .statuseveryday {
@@ -689,9 +689,8 @@ input[type="date"] {
 }
 
 .content .circle.dark {
-  -webkit-box-shadow: 3px 3px calc(3px * 1.6) #131313,
-    -3px -3px calc(3px * 1.6) #444444;
-  box-shadow: 3px 3px calc(3px * 1.6) #131313, -3px -3px calc(3px * 1.6) #444444;
+  -webkit-box-shadow: 3px 3px calc(3px * 1.6) #111, -3px -3px calc(3px * 1.6) #333;
+  box-shadow: 3px 3px calc(3px * 1.6) #111, -3px -3px calc(3px * 1.6) #333;
 }
 
 .content .circle.active {
@@ -733,7 +732,7 @@ input[type="date"] {
 .personal_info.dark {
   -webkit-box-shadow: 2px 2px calc(2px * 1.6) #131313,
     -2px -2px calc(2px * 1.6) #444444;
-  box-shadow: 2px 2px calc(2px * 1.6) #131313, -2px -2px calc(2px * 1.6) #444444;
+  box-shadow: 2px 2px calc(2px * 1.6) #111, -2px -2px calc(2px * 1.6) #383838;
 }
 
 .personal_info .personall {
@@ -956,7 +955,7 @@ input[type="date"] {
 .contentstatus.dark {
   -webkit-box-shadow: 2px 2px calc(2px * 1.6) #131313,
     -2px -2px calc(2px * 1.6) #444444;
-  box-shadow: 2px 2px calc(2px * 1.6) #131313, -2px -2px calc(2px * 1.6) #444444;
+  box-shadow: 2px 2px calc(2px * 1.6) #111, -2px -2px calc(2px * 1.6) #383838;
 }
 
 .contentstatus::-webkit-scrollbar,
@@ -1022,8 +1021,8 @@ input[type="date"] {
   border-radius: 12px;
   z-index: 100;
   background-color: #fff;
-  -webkit-box-shadow: #00000040 0px 7px 29px 0px;
-  box-shadow: #00000040 0px 7px 29px 0px;
+  -webkit-box-shadow: 0 10px 15px -7px #0003, 0 24px 38px 3px #00000024, 0 9px 46px 8px #0000001f;
+  box-shadow: 0 10px 15px -7px #0003, 0 24px 38px 3px #00000024, 0 9px 46px 8px #0000001f;
   -webkit-transition: top 0.3s linear;
   -o-transition: top 0.3s linear;
   transition: top 0.3s linear;
@@ -1299,7 +1298,7 @@ input[type="date"] {
   -ms-transform: translateX(-50%);
   transform: translateX(-50%);
   width: 60px;
-  height: 7px;
+  height: 5px;
   border-radius: 50px;
   background-color: rgb(180, 180, 180);
 }
@@ -1510,8 +1509,8 @@ input[type="date"] {
   transform: translate(-50%, -50%);
   border-radius: 10px;
   z-index: 100;
-  -webkit-box-shadow: #00000040 0px 7px 29px 0px;
-  box-shadow: #00000040 0px 7px 29px 0px;
+  -webkit-box-shadow: 0 10px 15px -7px #0003, 0 24px 38px 3px #00000024, 0 9px 46px 8px #0000001f;
+  box-shadow: 0 10px 15px -7px #0003, 0 24px 38px 3px #00000024, 0 9px 46px 8px #0000001f;
 }
 
 .fontfa.dark {

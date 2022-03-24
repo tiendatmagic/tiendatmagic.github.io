@@ -156,7 +156,15 @@ getId("submit").addEventListener("click", function () {
     }
   }
   sngaysinh = Date.parse(ngaysinh.value);
-  dngaysinh = new Date(ngaysinh.value).getDate() + "/" + (new Date(ngaysinh.value).getMonth() + 1) + "/" + new Date(ngaysinh.value).getFullYear();
+  var gmonthh = (new Date().getMonth() + 1);
+  var gdatee = new Date().getDate();
+  if (gmonthh < 10) {
+    gmonthh = "0" + gmonthh;
+  }
+  if (gdatee < 10) {
+    gdatee = "0" + gdatee;
+  }
+  dngaysinh = gdatee + "/" + gmonthh + "/" + new Date(ngaysinh.value).getFullYear();
   localStorage.setItem("sngaysinh", JSON.stringify(sngaysinh));
   sngaybatdau = Date.parse(ngaybatdau.value) - 25200000;
   localStorage.setItem("sngaybatdau", JSON.stringify(sngaybatdau));
@@ -367,6 +375,15 @@ getClass("sli4")[0].addEventListener("click", function () {
   getClass("dialog")[0].classList.toggle("active");
   getClass("select-options")[0].classList.remove("active");
   getClass("dialog")[0].innerHTML = '<div class="ops"><label for="contentevent">Ngày bắt đầu đếm</label><input type="date" name="ngaybatdau2" min="1900-01-01" id="ngaybatdau2" value="" /></div><div class="ops-buttons"><button id="xacnhanevent2" class="waves-effect">Xác nhận</button><button id="huyevent2" class="waves-effect">Hủy</button></div>';
+  var gmonth = (new Date(dngaybatdau).getMonth() + 1);
+  var gdate = new Date(dngaybatdau).getDate();
+  if (gmonth < 10) {
+    gmonth = "0" + gmonth;
+  }
+  if (gdate < 10) {
+    gdate = "0" + gdate;
+  }
+  getId("ngaybatdau2").value = new Date(dngaybatdau).getFullYear() + "-" + gmonth + "-" + gdate;
   getClass("blur")[0].classList.add("active");
   getId("xacnhanevent2").addEventListener("click", function () {
     if (this.disable == undefined) {
