@@ -9,7 +9,16 @@
 .monaco-scrollable-element > .scrollbar > .slider.active,
 .monaco-scrollable-element > .scrollbar > .slider:hover {
   border-radius: 10px;
-  background: linear-gradient(-45deg, #ff092a, #ff0095, #6a00ff, #0091ff);
+  background: linear-gradient(
+    -45deg,
+    #00ff59,
+    #ffae00,
+    #ff092a,
+    #ff0095,
+    #7700ff,
+    #0073ff,
+    #00ffd5
+  );
   background-size: 300% 300%;
   animation: gradienttt 4s linear infinite alternate;
 }
@@ -38,7 +47,16 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: linear-gradient(-45deg, #ff092a, #ff0095, #7700ff, #00ffb3);
+  background: linear-gradient(
+    -45deg,
+    #00ff59,
+    #ffae00,
+    #ff092a,
+    #ff0095,
+    #7700ff,
+    #0073ff,
+    #00ffd5
+  );
   background-size: 300% 300%;
   animation: gradientt 4s linear infinite alternate;
 }
@@ -64,9 +82,18 @@
   > .tab.active.tab-border-top
   > .tab-border-top-container {
   height: 3px;
-  background: linear-gradient(-45deg, #ff092a, #ff0095, #7700ff, #00ffb3);
-  background-size: 300% 300%;
-  animation: gradient 4s linear infinite alternate;
+  background: linear-gradient(
+    -45deg,
+    #00ff59,
+    #ffae00,
+    #ff092a,
+    #ff0095,
+    #7700ff,
+    #0073ff,
+    #00ffd5
+  );
+  background-size: 400% 400%;
+  animation: gradient 3s linear infinite alternate;
 }
 
 @keyframes gradient {
@@ -106,9 +133,12 @@
 .monaco-sash.active:before {
   background: linear-gradient(
     -45deg,
+    #00ff59,
+    #ffae00,
     #ff092a,
     #ff0095,
     #7700ff,
-    #00ffb3
+    #0073ff,
+    #00ffd5
   ) !important;
 }
