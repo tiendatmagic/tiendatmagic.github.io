@@ -22,7 +22,7 @@
   background-size: 300% 300%;
   animation: gradienttt 4s linear infinite alternate;
 }
-@keyframes gradienttt {
+/* @keyframes gradienttt {
   0% {
     background-position: 50% 0%;
   }
@@ -31,6 +31,18 @@
   }
   100% {
     background-position: 50% 0%;
+  }
+} */
+
+@keyframes gradienttt {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
 
