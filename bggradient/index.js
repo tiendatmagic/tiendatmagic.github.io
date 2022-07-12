@@ -31,7 +31,13 @@ function createbox() {
 
 
   for (i = 0; i < number; i++) {
-    listbox += "<div class='box'></div>";
+    listbox += `
+    <div class='box'>
+      <div class="ch-colors">
+      <p class="ch-color-from">#97ABFF</p>
+      <p class="ch-color-to" style="color: rgb(18, 53, 151);">#123597</p>
+      </div>
+    </div>`;
 
   }
   getId("displaybox").innerHTML = listbox;
@@ -54,13 +60,16 @@ function creategradient() {
   }
 
 
-
-
   changecolorbox()
 }
 function changecolorbox() {
   for (i = 0; i < getClass("box").length; i++) {
     getClass("box")[i].style.backgroundImage = 'linear-gradient' + '(' + Math.floor(Math.random() * 180) + 'deg,' + '#' + arrcc[i] + ',' + '#' + arrcc[i + 1] + ')';
+    getClass("box")[i].setAttribute("data-color", '#' + arrcc[i] + ',' + '#' + arrcc[i + 1]);
+    getClass("ch-color-from")[i].innerHTML = '#' + arrcc[i];
+    getClass("ch-color-to")[i].innerHTML = '#' + arrcc[i + 1];
+    getClass("ch-color-to")[i].style.color = '#' + arrcc[i + 1];
+
   }
 
   clickbox();
