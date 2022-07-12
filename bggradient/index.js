@@ -69,7 +69,7 @@ function changecolorbox() {
 function clickbox() {
   for (i = 0; i < getClass("box").length; i++) {
     getClass("box")[i].onclick = function () {
-      copyCode("background-image: " + this.style.backgroundImage + ";");
+      copyCode(this.style.cssText);
     }
   }
 }
