@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +19,7 @@
   max-width: 500px;
   display: flex;
   margin: 20px auto;
+  padding: 10px;
 }
 .boxinput input {
   width: 100%;
@@ -37,13 +49,13 @@
 #displaybox {
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .box {
   width: 200px;
   height: 200px;
   background-color: red;
-  margin: 7px;
+  margin: 20px;
   border-radius: 10px;
   cursor: pointer;
   display: flex;
@@ -51,4 +63,25 @@
   align-items: center;
   color: #fff;
   font-size: 20px;
+}
+@media screen and (max-width: 730px) {
+  .box {
+    width: 180px;
+    height: 180px;
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .box {
+    width: 270px;
+    height: 270px;
+    margin: 10px;
+  }
+  .boxinput {
+    margin: 8px auto;
+  }
+  .boxinput input {
+    text-indent: 7px;
+  }
 }

@@ -69,9 +69,39 @@ function changecolorbox() {
 function clickbox() {
   for (i = 0; i < getClass("box").length; i++) {
     getClass("box")[i].onclick = function () {
-      console.log(
-        this.style.backgroundImage
-      )
+      copyCode("background-image: " + this.style.backgroundImage + ";");
     }
   }
 }
+
+toastr.options = {
+  "closeButton": false,
+  "debug": false,
+  "newestOnTop": false,
+  "progressBar": true,
+  "positionClass": "toast-top-right",
+  "preventDuplicates": false,
+  "onclick": null,
+  "showDuration": "300",
+  "hideDuration": "1000",
+  "timeOut": "2000",
+  "extendedTimeOut": "2000",
+  "showEasing": "swing",
+  "hideEasing": "linear",
+  "showMethod": "fadeIn",
+  "hideMethod": "fadeOut"
+}
+function copyCode(text) {
+  var textarea = document.createElement("textarea");
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea);
+  toastr.success('Sao chép thành công');
+}
+
+window.onload = function () {
+  number = 100;
+  createbox();
+};
