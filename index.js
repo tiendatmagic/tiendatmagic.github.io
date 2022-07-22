@@ -35,6 +35,10 @@ var list_item = [
     name: 'Xếp đồ ăn',
     link: './xepdoan/index.html',
   },
+  {
+    name: 'Random gradient',
+    link: './bggradient/index.html',
+  },
 ]
 
 var list_item_map = list_item.map(function (x) {
