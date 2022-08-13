@@ -39,5 +39,4 @@ function update() {
             console.log("Request failed", error);
         });
 }
-update();
-// setInterval(update, 1000);
+setInterval(update, 1000);
