@@ -9,6 +9,7 @@
   outline: 0;
   border: 0;
 }
+
 *,
 *::before,
 *::after {
@@ -33,6 +34,11 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   overflow: hidden;
+}
+
+#app {
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 #scr .score {
@@ -109,7 +115,52 @@ html {
   position: relative;
   z-index: 0;
 }
+#maingame .buttefly {
+  width: 100%;
+  height: 100%;
+}
+#maingame .buttefly img {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  z-index: 10;
+  width: 100px;
+  filter: drop-shadow(0px 2px 6px rgba(0, 0, 0, 0.5));
+  transform: translateX(-50%) translateY(-50%);
+  pointer-events: none;
+  animation: fly 30s infinite alternate-reverse;
+}
+@keyframes fly {
+  0% {
+    top: 40%;
+    left: 50%;
+  }
 
+  25% {
+    top: 60%;
+    left: 70%;
+  }
+
+  50% {
+    top: 80%;
+    left: 50%;
+  }
+
+  70% {
+    top: 50%;
+    left: 30%;
+  }
+
+  80% {
+    top: 45%;
+    left: 50%;
+  }
+
+  90% {
+    top: 65%;
+    left: 70%;
+  }
+}
 .list-money {
   display: flex;
   justify-content: space-between;
@@ -132,6 +183,9 @@ html {
   width: 100%;
   height: 100%;
 }
+.list-money .lmoney.shadow img {
+  filter: drop-shadow(0px 1.5px 0px rgba(0, 0, 0, 0.8));
+}
 .list-money .lmoney:active {
   transform: scale(1.3);
 }
@@ -145,37 +199,37 @@ html {
   background-size: 100% 100%;
   margin: 5px auto;
   position: absolute;
-  top: -120%;
-  left: 0px;
+  top: 0%;
+  left: 100%;
   transform: scale(1);
   z-index: 1;
+  border-radius: 50%;
   transition: all 0.2s linear;
 }
 .bowl.close {
-  top: -8px;
+  top: -10px;
   left: 0px;
   transform: scale(1.08);
   cursor: pointer;
-  animation: shake 0.7s ease;
-  animation-delay: 0.5s;
+  animation: shake 1s ease;
 }
 @keyframes shake {
   10%,
   90% {
-    transform: scale(1.08) translate3d(-1px, 0, 0);
+    transform: scale(1.08) translate3d(-1.5px, 0, 0);
   }
   20%,
   80% {
-    transform: scale(1.08) translate3d(2px, 0, 0);
+    transform: scale(1.08) translate3d(3px, 0, 0);
   }
   30%,
   50%,
   70% {
-    transform: scale(1.08) translate3d(-4px, 0, 0);
+    transform: scale(1.08) translate3d(-6px, 0, 0);
   }
   40%,
   60% {
-    transform: scale(1.08) translate3d(4px, 0, 0);
+    transform: scale(1.08) translate3d(6px, 0, 0);
   }
 }
 .plate {
@@ -191,11 +245,9 @@ html {
 .wrapper-plate {
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
 }
+
 .plate .pitem {
   width: 60px;
   height: 60px;
@@ -207,18 +259,43 @@ html {
   width: 100%;
   height: 100%;
 }
+.wrapflex {
+  display: flex;
+  justify-content: center;
+}
+.wrapflex:first-child .pitem {
+  margin-top: 20px;
+}
+.wrapflex:last-child .pitem {
+  margin-top: -25px;
+}
 .total {
   width: 50%;
   max-width: 500px;
-  padding: 10px;
   height: 40px;
   background-color: #fff;
   margin: 0 auto;
   text-align: center;
   border: 3px solid orange;
-  animation: changeborder 4s infinite alternate;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: changeborder 4s infinite alternate-reverse;
 }
 @keyframes changeborder {
+  25% {
+    border: 3px solid orange;
+  }
+  50% {
+    border: 3px solid red;
+  }
+  75% {
+    border: 3px solid rgb(255, 0, 170);
+  }
+  95% {
+    border: 3px solid rgb(115, 0, 255);
+  }
 }
 .place_a_bet {
   display: flex;
@@ -256,15 +333,59 @@ html {
   width: 50px;
   height: 50px;
 }
+.wrapper-modal {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 10;
+  display: none;
+}
+.wrapper-modal.show,
+.wrapper-modal .modal.show {
+  display: block;
+}
+.wrapper-modal .modal {
+  width: 90%;
+  max-width: 500px;
+  padding: 10px 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.85);
+  box-shadow: 0 10px 15px -3px #00000066, 0 4px 6px -2px #00000069;
+  border-radius: 6px;
+  display: none;
+}
+.wrapper-modal .modal .modal-body {
+  font-size: 25px;
+}
+.wrapper-modal .modal .modal-footer {
+  display: block;
+  text-align: center;
+  margin: 10px auto;
+}
+.wrapper-modal .modal .modal-footer button {
+  background-color: #ff03ea;
+  color: #fff;
+  padding: 12px 15px;
+  border-radius: 6px;
+  margin: 0 10px;
+}
+.place_a_bet.result img:not(.success) {
+  filter: brightness(75%);
+}
 @media only screen and (min-height: 568px) {
   .plate {
-    width: 85%;
+    width: 80%;
     height: 180px;
     margin: 20px auto;
   }
   .plate .pitem {
-    width: 75px;
-    height: 75px;
+    width: 80px;
+    height: 80px;
   }
   .place_a_bet {
     margin: 20px auto;
@@ -277,16 +398,16 @@ html {
 
 @media only screen and (min-height: 640px) {
   .list-money {
-    margin-top: 10px;
+    padding-top: 10px;
   }
   .plate {
-    width: 85%;
+    width: 80%;
     height: 200px;
     margin: 20px auto;
   }
   .plate .pitem {
-    width: 90px;
-    height: 90px;
+    width: 95px;
+    height: 95px;
   }
   .place_a_bet {
     margin: 20px auto;
@@ -300,8 +421,8 @@ html {
     margin: 20px auto;
   }
   .plate .pitem {
-    width: 90px;
-    height: 90px;
+    width: 95px;
+    height: 95px;
   }
   .place_a_bet {
     margin: 20px auto;
@@ -319,8 +440,8 @@ html {
     margin: 20px auto;
   }
   .plate .pitem {
-    width: 95px;
-    height: 95px;
+    width: 100px;
+    height: 100px;
   }
   .place_a_bet .column div {
     width: calc(100% / 3);
@@ -342,11 +463,19 @@ html {
     margin: 20px auto;
   }
   .plate .pitem {
-    width: 105px;
-    height: 105px;
+    width: 110px;
+    height: 110px;
   }
   .place_a_bet {
     margin: 70px auto;
+  }
+  .wrapper-modal .modal .modal-footer button {
+    background-color: #ff03ea;
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 0 10px;
+    font-size: 22px;
   }
 }
 
@@ -389,6 +518,26 @@ html {
   .place_a_bet .column div {
     width: calc(100% / 3);
     height: 200px;
+  }
+  .wrapper-modal .modal .modal-body {
+    font-size: 40px;
+  }
+  .wrapper-modal .modal .modal-footer {
+    display: block;
+    text-align: center;
+    margin: 10px auto;
+  }
+  .wrapper-modal .modal .modal-footer button {
+    background-color: #ff03ea;
+    color: #fff;
+    padding: 12px 19px;
+    border-radius: 6px;
+    margin: 0 10px;
+    font-size: 30px;
+  }
+  .total {
+    height: 50px;
+    font-size: 20px;
   }
 }
 

@@ -26,7 +26,7 @@ function getTagName(tagname) {
   }
 }
 var admobid = {
-  banner: 'ca-app-pub-2636216160874899/8780352736',
+  banner: 'ca-app-pub-2636216160874899/1571985513',
 };
 document.addEventListener("deviceready", onDeviceReady, false);
 function onDeviceReady() {
@@ -73,7 +73,7 @@ function playgame() {
   getClass("version")[0].style.display = "none";
   getClass("nametitle")[0].style.display = "none";
   getClass("score")[0].innerText = score;
-  getId("mainstart").style.display = "none";
+  getClass("mainstart")[0].style.display = "none";
   getId("maingame").style.display = "block";
   setcolor();
   checktime();
@@ -110,57 +110,45 @@ function setcolor() {
 function startgame() {
   a = Math.floor(Math.random() * 50);
   b = Math.floor(Math.random() * 50);
-  rd = Math.ceil(Math.random() * 12);
+  rd = Math.ceil(Math.random() * 10);
   switch (rd) {
+    case 1:
     case 2:
+    case 3:
     case 4:
-    case 6:
-    case 8:
-    case 10:
-    case 12:
       c = a + b;
       ques = 1;
       break;
-
-    case 1:
-      c = a + b + 10;
-      ques = 0;
-      break;
-
-    case 11:
-      c = a + b - 10;
-      ques = 0;
-      break;
-    case 3:
+    case 5:
+    case 6:
       c = a + b + Math.ceil(Math.random() * 10);
       ques = 0;
       break;
-
-    case 9:
+    case 7:
+    case 8:
       c = a + b - Math.ceil(Math.random() * 10);
       ques = 0;
       break;
-
-    case 5:
-      c = a + b + Math.ceil(Math.random() * 5);
+    case 9:
+      c = a + b + 10;
       ques = 0;
       break;
-    case 7:
-      c = a + b - Math.ceil(Math.random() * 5);
+    case 10:
+      c = a + b - 10;
       ques = 0;
       break;
     default:
-      rd = Math.ceil(Math.random() * 12);
+      rd = Math.ceil(Math.random() * 10);
       break;
   }
-  getClass("s1")[0].innerText = a;
-  getClass("s2")[0].innerText = b;
-  getClass("s3")[0].innerText = c;
+  getId("number_1").innerText = a;
+  getId("number_2").innerText = b;
+  getId("result").innerText = c;
 }
 
 function checktime() {
   var tim = setInterval(function () {
-    time -= 7;
+    time -= 8;
     if (time <= 0) {
       time = 0;
     }

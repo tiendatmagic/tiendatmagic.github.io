@@ -30,6 +30,7 @@ var bestscorecb = JSON.parse(localStorage.getItem("bestscorecb"));
 if (bestscorecb === null) {
   bestscorecb = 0;
 }
+getId("mainbestscore").innerText = bestscorecb;
 getId("btn-start").onclick = function () {
   mainmenu = 0;
   getId("mainmenu").style.display = 'none';
@@ -48,7 +49,9 @@ getId("reloadgame").onclick = function () {
   checktime();
   playgame();
 }
-
+getId("homegame").onclick = function () {
+  location.reload();
+}
 function playgame() {
   getId("bestscore").innerText = bestscorecb;
   time = 3000;
@@ -62,8 +65,11 @@ function playgame() {
 function checktime() {
   var tim = setInterval(function () {
     if (canplay === true) {
-      if (scorecb >= 30) {
+      if (scorecb >= 20) {
         time -= 5.5;
+      }
+      if (scorecb >= 30) {
+        time -= 6;
       }
       if (scorecb >= 35) {
         time -= 6.5;
@@ -86,9 +92,10 @@ function checktime() {
       if (scorecb >= 65) {
         time -= 12.5;
       }
-      if (scorecb < 30) {
-        time -= 4.5;
+      if (scorecb < 20) {
+        time -= 5;
       }
+
     }
     if (time <= 0) {
       time = 0;

@@ -15,7 +15,7 @@
          <div class="score"></div>
       </div>
       <div class="version">
-         <p> v1.0 </p>
+         <p> v1.9 </p>
       </div>
       <div class="nametitle">
          <p>Bầu cua</p>
@@ -28,6 +28,9 @@
       </div>
       <div id="maingame">
          <div class="wrapper-maingame">
+            <div class="buttefly">
+               <img src="./img/buttefly.gif" alt="" id="butteflyimg">
+            </div>
             <div class="list-money">
                <div class="lmoney" data-money="10000">
                   <img src="./img/10k.png" alt="">
@@ -53,9 +56,14 @@
             </div>
             <div class="plate" id="plate">
                <div class="wrapper-plate" id="wrapper-plate">
-                  <div class="pitem"> <img src="./img/naiCube.png" alt=""></div>
-                  <div class="pitem"> <img src="./img/naiCube.png" alt=""></div>
-                  <div class="pitem"> <img src="./img/naiCube.png" alt=""></div>
+                  <div class="wrapflex">
+                     <div class="pitem"> <img src="./img/naiCube.png" alt=""></div>
+                  </div>
+                  <div class="wrapflex">
+                     <div class="pitem"> <img src="./img/naiCube.png" alt=""></div>
+                     <div class="pitem"> <img src="./img/naiCube.png" alt=""></div>
+                  </div>
+
                </div>
                <div class="bowl">
 
@@ -93,11 +101,39 @@
                   </div>
                </div>
             </div>
+
+            <div class="wrapper-modal">
+               <div class="modal" id="not_enough_coins">
+                  <div class="modal-body">
+                     Số dư không đủ, nhận thêm xu?
+                  </div>
+                  <div class="modal-footer">
+                     <button id="modal-yes">Có</button>
+                     <button id="modal-no">Không</button>
+                  </div>
+               </div>
+
+               <div class="modal" id="nointernet">
+                  <div class="modal-body" style="text-align: center;">
+                     Không có kết nối mạng
+                  </div>
+                  <div class="modal-footer">
+
+                     <button id="modal-ok">OK</button>
+                  </div>
+               </div>
+            </div>
          </div>
       </div>
    </div>
+   <audio controls="" loop="" id="musicbg" hidden="">
+      <source src="./sound/bg.mp3" allow="autoplay" type="audio/mpeg">
+   </audio>
    <script src="cordova.js"></script>
    <script src="./index.js"></script>
+   <script type="text/javascript">
+
+   </script>
 </body>
 
 </html>

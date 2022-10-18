@@ -11,21 +11,21 @@
 
 <body>
   <div id="app">
-    <div id="scr">
+    <div class="header">
       <div class="score"></div>
     </div>
     <div class="version">
       <p>
-        v3.4
+        v3.6
       </p>
     </div>
     <div class="nametitle">
       <p>Freaking Math</p>
     </div>
-    <div id="mainstart">
+    <div class="mainstart">
       <div>
-        <input type="button" class="btn-start" value="Start" />
-        <input type="button" id="btn-rate" class="btn-rate" value="Rate" />
+        <button type="button" class="btn-start">Start</button>
+        <button type="button" id="btn-rate" class="btn-rate"> Rate</button>
       </div>
     </div>
     <div id="maingame">
@@ -42,7 +42,7 @@
               Best score:
               <span class="highscore">0</span>
             </p>
-            <div class="optiongover">
+            <div class="btn-group">
               <div class="replay">
                 <i class="fas fa-redo-alt"></i>
               </div>
@@ -52,12 +52,12 @@
             </div>
           </div>
           <div class="displaynumber">
-            <span class="s1"></span><span>+</span><span class="s2"></span><span>=</span><span></span><span
-              class="s3"></span>
+            <span id="number_1"></span><span>+</span><span id="number_2"></span><span>=</span><span></span><span
+              id="result"></span>
           </div>
         </div>
       </div>
-      <div id="truefalse">
+      <div id="answer">
         <div class="true">
           <span><i class="fas fa-check"></i></span>
         </div>
