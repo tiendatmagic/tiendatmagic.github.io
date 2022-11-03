@@ -1,10 +1,11 @@
+/* button close window */
 .monaco-workbench
   .part.titlebar
   > .window-controls-container
   > .window-icon.window-close:hover {
   background-color: deeppink;
 }
-
+/* screen */
 .monaco-scrollable-element > .scrollbar > .slider,
 .monaco-scrollable-element > .scrollbar > .slider.active,
 .monaco-scrollable-element > .scrollbar > .slider:hover {
@@ -22,6 +23,10 @@
   background-size: 300% 300%;
   animation: gradienttt 4s linear infinite alternate;
 }
+/* screen vertical */
+.monaco-scrollable-element > .scrollbar > .slider {
+  animation: gradient 3s linear infinite alternate !important;
+}
 
 @keyframes gradienttt {
   0% {
@@ -33,33 +38,6 @@
   100% {
     background-position: 50% 0%;
   }
-}
-
-.monaco-workbench
-  .activitybar
-  > .content
-  :not(.monaco-menu)
-  > .monaco-action-bar
-  .action-item.checked
-  .active-item-indicator:before {
-  border: 0;
-  width: 3px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: linear-gradient(
-    -45deg,
-    #00ff59,
-    #ffae00,
-    #ff092a,
-    #ff0095,
-    #7700ff,
-    #0073ff,
-    #00ffd5
-  );
-  background-size: 300% 300%;
-  animation: gradientt 4s linear infinite alternate;
 }
 
 @keyframes gradientt {
@@ -74,6 +52,7 @@
   }
 }
 
+/* active tab */
 .monaco-workbench
   .part.editor
   > .content
@@ -109,10 +88,40 @@
   }
 }
 
+/* color item */
 .composite-bar > div > ul > li.action-item.icon.checked > a {
   background-color: rgba(255, 255, 255, 0.08);
   font-weight: 900;
   animation: colorgradient 1.5s infinite alternate-reverse;
+}
+
+/* color active item */
+.monaco-workbench
+  .activitybar
+  > .content
+  :not(.monaco-menu)
+  > .monaco-action-bar
+  .action-item.active
+  .action-label.codicon,
+.monaco-workbench
+  .activitybar
+  > .content
+  :not(.monaco-menu)
+  > .monaco-action-bar
+  .action-item:focus
+  .action-label.codicon,
+.monaco-workbench
+  .activitybar
+  > .content
+  :not(.monaco-menu)
+  > .monaco-action-bar
+  .action-item:hover
+  .action-label.codicon {
+  background: linear-gradient(to right, #ff0055, #ddff00);
+  -webkit-background-clip: text;
+  font-size: 24px;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
 }
 
 @keyframes colorgradient {
@@ -130,6 +139,7 @@
   }
 }
 
+/* active sash */
 .monaco-sash.hover:before,
 .monaco-sash.active:before {
   background: linear-gradient(
@@ -142,4 +152,45 @@
     #0073ff,
     #00ffd5
   ) !important;
+}
+
+.monaco-workbench .part.statusbar {
+  background: linear-gradient(-45deg, #00c846, #ff7337, #ff0095, #2e00e4);
+  background-size: 400% 400%;
+  animation: gradient 30s linear infinite alternate;
+}
+/* custom border left active bar */
+.monaco-workbench
+  .activitybar
+  > .content
+  :not(.monaco-menu)
+  > .monaco-action-bar
+  .action-item.checked
+  .active-item-indicator:before {
+  width: 2px;
+  background: linear-gradient(
+    -45deg,
+    #00ff59,
+    #ffae00,
+    #ff092a,
+    #ff0095,
+    #7700ff,
+    #0073ff,
+    #00ffd5
+  );
+  background-size: 300% 300%;
+  border-left-color: transparent;
+  animation: gradienttt 4s linear infinite alternate;
+}
+
+/* activate tab terminal*/
+.monaco-workbench
+  .part.basepanel
+  > .composite.title
+  > .panel-switcher-container
+  > .monaco-action-bar
+  .action-item.checked
+  .action-label {
+  color: #f09 !important;
+  font-weight: 900;
 }
