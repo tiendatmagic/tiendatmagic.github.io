@@ -154,6 +154,8 @@
   ) !important;
 }
 
+/* footer windows */
+
 .monaco-workbench .part.statusbar {
   background: linear-gradient(-45deg, #00c846, #ff7337, #ff0095, #2e00e4);
   background-size: 400% 400%;
