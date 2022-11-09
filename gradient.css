@@ -78,13 +78,13 @@
 
 @keyframes gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 50% 0%;
   }
   50% {
-    background-position: 100% 50%;
+    background-position: 50% 100%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 50% 0%;
   }
 }
 
@@ -153,8 +153,6 @@
     #00ffd5
   ) !important;
 }
-
-/* footer windows */
 
 .monaco-workbench .part.statusbar {
   background: linear-gradient(-45deg, #00c846, #ff7337, #ff0095, #2e00e4);
