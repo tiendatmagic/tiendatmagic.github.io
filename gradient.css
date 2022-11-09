@@ -73,7 +73,7 @@
     #00ffd5
   );
   background-size: 400% 400%;
-  animation: gradient 3s linear infinite alternate;
+  animation: gradienttab 3s linear infinite alternate;
 }
 
 @keyframes gradient {
@@ -157,7 +157,7 @@
 .monaco-workbench .part.statusbar {
   background: linear-gradient(-45deg, #00c846, #ff7337, #ff0095, #2e00e4);
   background-size: 400% 400%;
-  animation: gradient 60s linear infinite alternate;
+  animation: gradienttab 60s linear infinite alternate;
 }
 /* custom border left active bar */
 .monaco-workbench
@@ -193,4 +193,16 @@
   .action-label {
   color: #f09 !important;
   font-weight: 900;
+}
+
+@keyframes gradienttab {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
