@@ -9,6 +9,7 @@
     "version": "4.7"
   },
    "chatgpt": {
-    "version": "2.2"
+    "version": "2.3",
+    "open_api_key": "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"
   }
 }
