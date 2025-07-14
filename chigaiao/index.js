@@ -1,4 +1,3 @@
-
 var version = 0;
 var say = "";
 var ans = "";
@@ -36,8 +35,7 @@ window.addEventListener("load", loadapp);
 function loadapp() {
   if (profile === 1) {
     document.getElementsByClassName("navigation")[0].style.display = "block";
-    document.getElementsByClassName("setting-option")[0].style.display =
-      "block";
+    document.getElementsByClassName("setting-option")[0].style.display = "block";
     document.getElementsByClassName("inputname")[0].style.display = "none";
     document.getElementsByClassName("app")[0].style.display = "block";
 
@@ -66,8 +64,6 @@ document.getElementById("say").onkeyup = (event) => {
       if (copy[copy.length - 1] !== undefined) {
         document.getElementById("say").value = copy[copy.length - 1];
       }
-
-
     } else if (copynumber === 2) {
       if (copy[copy.length - 2] !== undefined) {
         document.getElementById("say").value = copy[copy.length - 2];
@@ -114,9 +110,9 @@ btnaccept.onclick = () => {
     localStorage.setItem("profile", JSON.stringify(profile));
   }
 };
+
 btnok.onclick = () => {
   if (write === 1) {
-
     say = document.getElementById("say").value.toLowerCase();
     say = say.replace(/[&?\/\\#+()$~%.!@^()'":*<>{}]/g, "");
     if (say === "") {
@@ -124,25 +120,29 @@ btnok.onclick = () => {
       write = 1;
     } else {
       message.innerHTML += "<li class='que'>" + say + "</li>";
-      document.querySelectorAll(".ans")[document.querySelectorAll(".ans").length - 1].scrollIntoView();
-      setTimeout(answer, 1000);
+      document.querySelectorAll(".ans")[document.querySelectorAll(".ans").length - 1]?.scrollIntoView();
+      if (typeof answer === "function") {
+        setTimeout(answer, 1000);
+      } else {
+        console.error("Hàm answer chưa được định nghĩa!");
+        message.innerHTML += "<li class='ans'>Chị bị lỗi rồi, thử lại sau nha!</li>";
+      }
       document.getElementById("say").value = "";
-
       copy.push(say);
       write = 0;
     }
-
     loaddark();
   }
 };
+
 btndel.onclick = () => {
   message.innerHTML = "";
-  ans = "";
-  loadapp();
 };
+
 document.getElementById("select1").onclick = () => {
   document.getElementById("app").style.transform = "translateX(0%)";
 };
+
 document.getElementById("select2").onclick = () => {
   document.getElementById("app").style.transform = "translateX(-50%)";
 };
@@ -168,41 +168,24 @@ function loaddark() {
   if (dark === 1) {
     document.getElementsByClassName("lightoff")[0].style.display = "block";
     document.getElementsByClassName("lighton")[0].style.display = "none";
-    document.getElementsByTagName("body")[0].style.backgroundColor =
-      "#272727";
-
-    document.querySelector("body > div > div.inputname  span").style.color =
-      "#fff";
-
+    document.getElementsByTagName("body")[0].style.backgroundColor = "#272727";
+    document.querySelector("body > div > div.inputname span").style.color = "#fff";
     document.querySelector("#app > div.app1 > div > span").style.color = "#fff";
-
-    for (
-      k = 0;
-      k <= document.querySelectorAll(".setting-option li").length - 1;
-      k++
-    ) {
+    for (k = 0; k <= document.querySelectorAll(".setting-option li").length - 1; k++) {
       document.querySelectorAll(".setting-option li")[k].classList.add("dark");
     }
   } else {
     document.getElementsByClassName("lightoff")[0].style.display = "none";
     document.getElementsByClassName("lighton")[0].style.display = "block";
-    document.getElementsByTagName("body")[0].style.backgroundColor =
-      "#ffe8f6";
+    document.getElementsByTagName("body")[0].style.backgroundColor = "#ffe8f6";
     document.querySelector("div.main > div.inputname > div > span").style.color = "#272727";
-    document.querySelector("#app > div.app1 > div > span").style.color =
-      "#272727";
-
-    for (
-      k = 0;
-      k <= document.querySelectorAll(".setting-option li").length - 1;
-      k++
-    ) {
-      document
-        .querySelectorAll(".setting-option li")
-      [k].classList.remove("dark");
+    document.querySelector("#app > div.app1 > div > span").style.color = "#272727";
+    for (k = 0; k <= document.querySelectorAll(".setting-option li").length - 1; k++) {
+      document.querySelectorAll(".setting-option li")[k].classList.remove("dark");
     }
   }
 }
+
 document.getElementsByClassName("sli1")[0].addEventListener("click", checkdark);
 document.getElementsByClassName("sli2")[0].onclick = () => {
   document.getElementsByClassName("options-2")[0].style.display = "block";
