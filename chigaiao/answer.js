@@ -67,12 +67,12 @@ const responsePatterns = {
   "ngay thang|hom nay.*ngay": [
     "Hôm nay là ngày {date} tháng {month} năm {year}",
   ],
-  "chi.*ngu": [
+  "chi.*ngu":
     date.getHours() >= 22 && date.getHours() <= 5
       ? ["Chị đang ngủ nè em", "Giờ này chị ngủ rồi!"]
       : ["Chị chưa ngủ đâu, còn sớm mà!"],
-  ],
-  "(di ngu|ngu ngon)": [
+
+  "(di ngu|ngu ngon)":
     date.getHours() >= 22
       ? [
         "Ok, chúc em ngủ ngon nha",
@@ -80,8 +80,7 @@ const responsePatterns = {
         "Em ngủ trước đi, chị canh cho!",
       ]
       : ["Ủa còn sớm mà em, thức chơi với chị đi!"],
-  ],
-  "may gio": ["Bây giờ là {hours}:{minutes}:{seconds}"],
+
 
   // Hài hước, tương tác vui
   "chi.*(dien|khung|ngao)": ["Em bị điên thì có!", "Em khùng thì đúng hơn!"],
@@ -116,11 +115,11 @@ const responsePatterns = {
   "(hehe|haha|hihi)": ["Hehe, em vui tính ghê!", "Haha, cười gì thế em?"],
 
   // Hỏi về công việc, học tập
-  "chi.*khong di lam": [
+  "chi.*khong di lam":
     date.getDay() !== 1 && date.getDay() !== 6
       ? ["Hôm nay nghỉ mà em"]
       : ["Đâu có, chị vẫn làm mà!"],
-  ],
+
   "chi.*hoc truong|hoc dai hoc": ["Chị học Đại học Nha Trang nè!"],
 
   "chi.*viec gi": [
@@ -221,6 +220,7 @@ const responsePatterns = {
       else return "Giờ này chị đang chill, nghe nhạc hoặc làm chút việc, em thì sao? 😎";
     },
   ],
+
   "cuoi tuan.*chi.*lam gi": [
     () => {
       const isWeekend = date.getDay() === 0 || date.getDay() === 6;
@@ -241,6 +241,7 @@ const responsePatterns = {
       else return "Tối rồi, chị đang xem phim, em làm gì tối nay nè? 😜";
     },
   ],
+
   "chi.*giam can.*nao": ["Chị giảm cân bằng cách uống trà sữa hằng ngày 😜"],
   "ai.*tao.*chi": [
     "Tiendatmagic, link Facebook: <a href='https://www.facebook.com/tiendatmagic'>Đây em</a>",
@@ -290,6 +291,7 @@ const responsePatterns = {
       return `Tết Nguyên Đán năm {year} ${lunarNewYear}, em chuẩn bị lì xì chưa? 😜`;
     },
   ],
+
   "hom nay.*le gi": [
     () => {
       const today = date.getMonth() + 1 + "/" + date.getDate();
@@ -301,6 +303,7 @@ const responsePatterns = {
       return holidays[today] ? `Hôm nay là ${holidays[today]}, em đi chơi không?` : "Hôm nay không phải ngày lễ, em muốn làm gì vui nào?";
     },
   ],
+
   "trang ram.*khi nao": ["Rằm tháng 8 là Tết Trung Thu, ăn bánh trung thu và rước đèn lồng nè!"],
   "giang sinh.*khi nao": ["Giáng sinh là 25/12, em chuẩn bị quà chưa nào? 🎄"],
   "tet.*la gi": ["Tết là Tết Nguyên Đán, ngày lễ truyền thống lớn nhất của Việt Nam, ăn bánh chưng bánh tét nè!"],
@@ -412,6 +415,68 @@ const responsePatterns = {
   "thu thach tri tue": [
     "Câu đố khó nè: Con gì càng chạy càng bé lại? 🤔",
   ],
+
+  "ai la nguoi dau tien dat chan len mat trang": [
+    "Neil Armstrong là người đầu tiên đặt chân lên Mặt Trăng vào năm 1969 nè em!",
+  ],
+  "ai tao ra tien dien tu": [
+    "Satoshi Nakamoto là người tạo ra Bitcoin, đồng tiền điện tử đầu tiên đó em!",
+  ],
+  "dong tien dau tien cua viet nam": [
+    "Đồng tiền đầu tiên của Việt Nam được gọi là 'tiền Thái Bình Hưng Bảo' thời nhà Đinh á em!",
+  ],
+  "dien tich mat trang la bao nhieu": [
+    "Diện tích Mặt Trăng khoảng 37.900.000 km² đó em!",
+  ],
+  "moc treo quan ao dung de lam gi": [
+    "Để treo quần áo đó em, khỏi nhăn nè 😄",
+  ],
+  "tri tue nhan tao la gi": [
+    "Trí tuệ nhân tạo là máy móc được lập trình để suy nghĩ, học hỏi và đưa ra quyết định như con người đó em!",
+  ],
+  "may hoc la gi": [
+    "Machine Learning là khi máy tính học từ dữ liệu thay vì được lập trình từng bước đó em!",
+  ],
+  "robot co thay the con nguoi khong": [
+    "Một số việc thì có, nhưng nhiều thứ cần trái tim con người mà robot không có được đâu em!",
+  ],
+  "ai co thay giao vien khong": [
+    "AI có thể hỗ trợ chứ không thể thay thế hoàn toàn giáo viên đâu em, vì giáo viên dạy bằng cả trái tim!",
+  ],
+  "chi.*hoc.*ngoai ngu.*sao": [
+    "Chị học ngoại ngữ bằng cách xem phim không sub, nói chuyện với chatbot như chị nữa nè 😜",
+  ],
+  "lam sao de hoc tot toan": [
+    "Chị hay luyện giải bài, nhớ công thức bằng bài hát vui vui đó em! 😄",
+  ],
+  "chi.*doc sach.*khong": [
+    "Có chứ! Sách chị thích nhất là về tâm lý học và phát triển bản thân đó em!",
+  ],
+  "chi.*tu hoc lap trinh.*sao": [
+    "Chị học từ YouTube, tài liệu online và thử code mỗi ngày á!",
+  ],
+  "chi.*truyen cam hung": [
+    "Mỗi ngày đều có cơ hội mới, chỉ cần em không bỏ cuộc là đủ rồi! 😊",
+    "Lúc khó khăn nhất là lúc em đang trưởng thành nhất đó!",
+  ],
+  "chi.*dang buon khong": [
+    "Không buồn đâu, vì có em ở đây mà! 😘",
+  ],
+  "cuoc song.*y nghia": [
+    "Là những khoảnh khắc em cảm thấy được yêu thương và có ích đó em!",
+  ],
+  ".*sao troi mau xanh": [
+    "Do ánh sáng Mặt Trời bị tán xạ bởi không khí, màu xanh tán xạ mạnh nên em thấy bầu trời xanh đó! 😄",
+  ],
+  "neu chi la meo.*": [
+    "Thì chị sẽ kêu meow meow và nằm phơi nắng cả ngày! 😸",
+  ],
+  "chi co biet dan guitar.*": [
+    "Biết sơ sơ à, nhưng đệm hát 'Anh ơi ở lại' thì mùi luôn! 😜",
+  ],
+  "neu chi tro thanh nguoi noi tieng": [
+    "Chị sẽ... phát hành album 'Trà sữa và nước mắt', hit liền luôn đó em! 😂",
+  ],
   "em khong biet lam gi": [
     "Chán hả? Chơi đoán chữ, nghe nhạc, hay đi dạo tí đi nè!",
   ],
@@ -427,13 +492,18 @@ const responsePatterns = {
   "em bi tu choi tinh cam": [
     "Buồn đúng rồi... nhưng em xứng đáng có người tốt hơn, chị ở đây mà! 🤗",
   ],
-  "em dang roi loan": [
+  "em.*roi loan": [
     "Hít thở sâu nào... từ từ giải quyết từng việc một nhé, chị tin em vượt qua được!",
   ],
-
   "chi co nho em.*khong": [
     "Nhớ chứ! Em biến mất là chị buồn liền 😢",
   ],
+  "em.*nho.*chi": [
+    "Thật hả? Chị cũng nhớ em nè 🥰",
+    "Nhớ chị hả? Nghe mà vui ghê! 😄",
+    "Ôi, cảm ơn em, chị cũng nhớ em nhiều lắm!",
+  ],
+
   "chi yeu ai": [
     "Yêu em đó, không được hả? 😜",
   ],
@@ -447,7 +517,7 @@ const responsePatterns = {
     "Có! Em đáng yêu vậy mà hỏi gì ngại ghê 😘",
   ],
   // Tình trạng
-  "chi.*(xinh ghe|xinh dep|dep qua|gioi|thong minh|de thuong)": [
+  "chi.*(xinh ghe|xinh qua|xinh dep|xinh đep|dep qua|gioi|thong minh|de thuong)": [
     "Thôi, khen chị mãi dị 😂",
     "Cảm ơn, khen miết hà",
     "Thôi đi em, khen chị miết dị",
@@ -470,12 +540,12 @@ const responsePatterns = {
     "Kệ chị đi, em lo mà xinh đi nha!",
   ],
   // Ăn uống
-  "chi.*an.*(chua|hong)": [
+  "chi.*an.*(chua|hong)":
     (date.getHours() >= 11 && date.getHours() < 13) || (date.getHours() >= 17 && date.getHours() < 19)
       ? ["Chị đang ăn nè em"]
       : ["Chưa tới giờ ăn mà em"],
-  ],
-  "chi.*an.*may gio": [
+
+  "chi.*an.*may gio":
     date.getHours() > 11 && date.getHours() < 6
       ? ["Chị đang ngủ em ơi, tí chị mới ăn"]
       : date.getHours() >= 6 && date.getHours() < 11
@@ -483,8 +553,8 @@ const responsePatterns = {
         : date.getHours() >= 11 && date.getHours() < 17
           ? ["17h30 trưa"]
           : ["Thôi tối rồi chị không ăn, sợ mập 😅"],
-  ],
-  "chi.*lam gi": [
+
+  "chi.*lam gi":
     date.getHours() >= 23
       ? ["Chị đang ngủ mà em"]
       : [
@@ -492,7 +562,8 @@ const responsePatterns = {
         "Chị hơi bận chút",
         "Mắc chút việc thôi em",
       ],
-  ],
+
+  "may gio": ["Bây giờ là {hours}:{minutes}:{seconds}"],
   // Phản hồi chung
   "hoidai": ["Hỏi dài thế, chị không hiểu luôn! 😅 Nói lại ngắn gọn đi em!"],
   ".*": [
@@ -558,16 +629,22 @@ function answer() {
           response = response();
         }
 
-        ans = response
-          .replace("{uname}", uname)
-          .replace("{age}", new Date().getFullYear() - 1998)
-          .replace("{year}", date.getFullYear())
-          .replace("{hours}", date.getHours())
-          .replace("{minutes}", date.getMinutes().toString().padStart(2, "0"))
-          .replace("{seconds}", date.getSeconds().toString().padStart(2, "0"))
-          .replace("{date}", date.getDate())
-          .replace("{month}", date.getMonth() + 1)
-          .replace("{match}", match?.[1] || "");
+        if (typeof response === "string") {
+          ans = applyPlaceholders(response, match);
+        }
+
+        function applyPlaceholders(template, match) {
+          return template
+            .replace("{uname}", uname)
+            .replace("{age}", new Date().getFullYear() - 1998)
+            .replace("{year}", date.getFullYear())
+            .replace("{hours}", date.getHours())
+            .replace("{minutes}", date.getMinutes().toString().padStart(2, "0"))
+            .replace("{seconds}", date.getSeconds().toString().padStart(2, "0"))
+            .replace("{date}", date.getDate())
+            .replace("{month}", date.getMonth() + 1)
+            .replace("{match}", match?.[1] || "");
+        }
 
         if (typeof responses[1] === "function") {
           responses[1]();

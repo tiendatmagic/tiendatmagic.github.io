@@ -1,18 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Poppins', sans-serif;
-
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 *,
 *::before,
 *::after {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 
 body {
   -webkit-touch-callout: none;
@@ -66,7 +64,6 @@ input[type="text"] {
 input[type="text"]:focus {
   outline: none;
   background-color: #fff;
-
 }
 
 button {
@@ -98,8 +95,7 @@ a {
   text-indent: 10px;
   font-size: 16px;
   border-radius: 8px;
-  text-shadow: 1px -2px 20px grey;
-
+  text-shadow: 1px -2px 30px grey;
 }
 .message a {
   color: red;
@@ -110,7 +106,7 @@ a {
 }
 .message li.ans {
   background-color: #ffcaf3;
-  color: #fff ;
+  color: #fff;
 }
 #scroll {
   background-color: #333333;
@@ -122,7 +118,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .inputname span {
   text-align: center;
