@@ -299,3 +299,90 @@ div[keycode-key='0'] {
 		width: 1535px;
 	}
 }
+
+/* ---------- UI improvements (overrides + responsive) ---------- */
+:root{
+	--bg-1: #071028;
+	--bg-2: #0f1724;
+	--panel-grad: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+	--key-light: #ffffff;
+	--key-dark: #e6eef9;
+	--accent: #ff6b6b;
+	--muted: rgba(255,255,255,0.7);
+}
+
+html,body{
+	background: radial-gradient(circle at 10% 10%, var(--bg-2) 0%, #041022 60%);
+	color: var(--muted);
+	font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+.page{width:100%;display:flex;flex-direction:column;min-height:100vh}
+
+.header{padding:18px 8px;text-align:center}
+.header-main p{font-size:20px;color:var(--accent);font-weight:700;letter-spacing:0.6px}
+
+.main{display:flex;flex-wrap:wrap;gap:18px;justify-content:center;align-items:flex-start;padding:28px}
+
+.key__box1,.key__box2,.key__box3{
+	background: var(--panel-grad);
+	border-radius:12px;
+	box-shadow: 0 8px 24px rgba(2,6,23,0.6);
+	padding:12px;
+	float:none; /* override old float-based layout */
+	min-width:260px;
+	max-width:760px;
+}
+
+/* switch key rows to flex layout */
+.keyb{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.keyb > div{float:none!important}
+
+.key{
+	transition: transform .09s cubic-bezier(.2,.8,.2,1), box-shadow .09s ease, border-color .09s ease;
+	display:inline-flex;
+	align-items:center;
+	justify-content:center;
+	min-width:54px;
+	height:64px;
+	padding:6px 10px;
+	background: linear-gradient(180deg, var(--key-light), var(--key-dark));
+	color:#0b1220;
+	border-radius:10px;
+	border:1px solid rgba(0,0,0,0.12);
+	box-shadow: 0 6px 16px rgba(2,6,23,0.28);
+	cursor:pointer;
+	user-select:none;
+}
+
+.key kbd{font-weight:700;font-size:14px}
+
+.playing{
+	transform: translateY(-6px) scale(1.04);
+	border-color: var(--accent);
+	box-shadow: 0 14px 40px rgba(255,107,107,0.18), 0 6px 18px rgba(2,6,23,0.35);
+}
+
+/* treat special keys with larger sizes */
+.space{min-width:260px !important;border-radius:12px}
+.enter, .shift, .tab, .back, .capslock{min-height:64px}
+
+.footer-main{color:var(--muted);font-size:15px;text-align:center;margin-top:40px}
+
+@media (max-width: 900px){
+	.main{padding:12px}
+	.key{min-width:44px;height:54px;font-size:13px}
+	.space{min-width:160px !important}
+	.key__box1,.key__box2,.key__box3{width:100%;max-width:100%}
+}
+
+@media (max-width: 420px){
+	.key{min-width:38px;height:48px}
+	.header-main p{font-size:16px}
+}
+
+/* subtle reset for existing div backgrounds */
+div.key__box1 div, div.key2.keyb div, div.key3.keyb div, div.key4.keyb div, div.key5.keyb div, div.key__box3 div{
+	background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(238,238,238,0.95));
+	color: #0b1220;
+}
