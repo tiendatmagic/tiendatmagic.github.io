@@ -22,8 +22,120 @@
 </head>
 
 <body><noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <script>window.addEventListener("keydown", e => { const t = document.querySelector(`audio[keycode-key="${e.keyCode}"]`), n = document.querySelector(`.key[keycode-key="${e.keyCode}"]`); t && n && (t.currentTime = 0, t.play(), n.classList.add("playing")) }), window.addEventListener("keydown", e => { document.querySelectorAll(".key").forEach(e => e.addEventListener("transitionend", e => { if ("transform" !== e.propertyName) return; e.target.classList.remove("playing") })) })</script>
+        <div id="root"></div>
+        <script>
+        (function(){
+            var audioCtx = null;
+            var audioBuffers = {}; // keyCode -> AudioBuffer
+            var audioElements = {}; // keyCode -> <audio>
+
+            function ensureAudioContext(){
+                if(!audioCtx){
+                    try{
+                        var C = window.AudioContext || window.webkitAudioContext;
+                        audioCtx = new C();
+                    }catch(e){
+                        audioCtx = null;
+                    }
+                }
+                return audioCtx;
+            }
+
+            function decodeArrayBuffer(keyCode, arrayBuffer){
+                if(!ensureAudioContext()) return Promise.resolve();
+                return audioCtx.decodeAudioData(arrayBuffer).then(function(buffer){
+                    audioBuffers[keyCode] = buffer;
+                }).catch(function(){ /* ignore decode errors */ });
+            }
+
+            function loadAllAudioBuffers(){
+                var audios = Array.from(document.querySelectorAll('audio[keycode-key]'));
+                audios.forEach(function(a){
+                    var k = a.getAttribute('keycode-key');
+                    audioElements[k] = a;
+                    a.preload = 'auto';
+                });
+                var promises = audios.map(function(a){
+                    var k = a.getAttribute('keycode-key');
+                    var src = a.getAttribute('src');
+                    if(!src) return Promise.resolve();
+                    return fetch(src).then(function(res){ return res.arrayBuffer(); }).then(function(ab){ return decodeArrayBuffer(k, ab); }).catch(function(){ /* fallback to element play */ });
+                });
+                return Promise.all(promises);
+            }
+
+            function playBuffer(keyCode){
+                var buf = audioBuffers[keyCode];
+                if(!buf || !ensureAudioContext()) return false;
+                try{
+                    var src = audioCtx.createBufferSource();
+                    src.buffer = buf;
+                    src.connect(audioCtx.destination);
+                    src.start(0);
+                }catch(e){
+                    return false;
+                }
+                return true;
+            }
+
+            function playElement(keyCode){
+                var audio = audioElements[keyCode] || document.querySelector('audio[keycode-key="'+keyCode+'"]');
+                var key = document.querySelector('.key[keycode-key="'+keyCode+'"]');
+                if(!audio || !key) return;
+                try{ audio.pause(); }catch(e){}
+                try{ audio.currentTime = 0; }catch(e){}
+                var p = audio.play && audio.play();
+                if(p && p.catch) p.catch(function(){});
+                key.classList.add('playing');
+            }
+
+            function playKeyByCode(keyCode){
+                if(!keyCode && keyCode !== 0) return;
+                // prefer WebAudio buffer for low-latency and overlap
+                if(playBuffer(keyCode)){
+                    var key = document.querySelector('.key[keycode-key="'+keyCode+'"]');
+                    if(key) key.classList.add('playing');
+                    return;
+                }
+                // fallback to element
+                playElement(keyCode);
+            }
+
+            function attachTransitionEndOnce(){
+                document.querySelectorAll('.key').forEach(function(k){
+                    k.addEventListener('transitionend', function(e){
+                        if(e.propertyName !== 'transform') return;
+                        e.target.classList.remove('playing');
+                    });
+                });
+            }
+
+            document.addEventListener('DOMContentLoaded', function(){
+                attachTransitionEndOnce();
+
+                // attempt to create AudioContext and preload buffers (may require user gesture to resume on some browsers)
+                ensureAudioContext();
+                loadAllAudioBuffers();
+
+                window.addEventListener('keydown', function(e){
+                    // resume audio context on first interaction (some browsers require gesture)
+                    if(audioCtx && audioCtx.state === 'suspended'){
+                        audioCtx.resume().catch(function(){});
+                    }
+                    playKeyByCode(e.keyCode);
+                });
+
+                // mouse / touch support on keys
+                document.querySelectorAll('.key').forEach(function(k){
+                    k.addEventListener('mousedown', function(){
+                        if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(function(){});
+                        playKeyByCode(k.getAttribute('keycode-key'));
+                    });
+                    k.addEventListener('touchstart', function(ev){ ev.preventDefault(); if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(function(){}); playKeyByCode(k.getAttribute('keycode-key')); }, {passive:false});
+                });
+            });
+        })();
+        </script>
     <script>!function (e) { function r(r) { for (var n, i, l = r[0], a = r[1], f = r[2], p = 0, s = []; p < l.length; p++)i = l[p], Object.prototype.hasOwnProperty.call(o, i) && o[i] && s.push(o[i][0]), o[i] = 0; for (n in a) Object.prototype.hasOwnProperty.call(a, n) && (e[n] = a[n]); for (c && c(r); s.length;)s.shift()(); return u.push.apply(u, f || []), t() } function t() { for (var e, r = 0; r < u.length; r++) { for (var t = u[r], n = !0, l = 1; l < t.length; l++) { var a = t[l]; 0 !== o[a] && (n = !1) } n && (u.splice(r--, 1), e = i(i.s = t[0])) } return e } var n = {}, o = { 1: 0 }, u = []; function i(r) { if (n[r]) return n[r].exports; var t = n[r] = { i: r, l: !1, exports: {} }; return e[r].call(t.exports, t, t.exports, i), t.l = !0, t.exports } i.m = e, i.c = n, i.d = function (e, r, t) { i.o(e, r) || Object.defineProperty(e, r, { enumerable: !0, get: t }) }, i.r = function (e) { "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, { value: "Module" }), Object.defineProperty(e, "__esModule", { value: !0 }) }, i.t = function (e, r) { if (1 & r && (e = i(e)), 8 & r) return e; if (4 & r && "object" == typeof e && e && e.__esModule) return e; var t = Object.create(null); if (i.r(t), Object.defineProperty(t, "default", { enumerable: !0, value: e }), 2 & r && "string" != typeof e) for (var n in e) i.d(t, n, function (r) { return e[r] }.bind(null, n)); return t }, i.n = function (e) { var r = e && e.__esModule ? function () { return e.default } : function () { return e }; return i.d(r, "a", r), r }, i.o = function (e, r) { return Object.prototype.hasOwnProperty.call(e, r) }, i.p = "/"; var l = this.webpackJsonpmusickeyboard = this.webpackJsonpmusickeyboard || [], a = l.push.bind(l); l.push = r, l = l.slice(); for (var f = 0; f < l.length; f++)r(l[f]); var c = a; t() }([])</script>
     <script src="./static/js/2.e7720b0c.chunk.js"></script>
     <script src="./static/js/main.5c839fd4.chunk.js"></script>
